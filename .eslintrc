@@ -50,6 +50,12 @@
         "selector": "variable",
         "format": ["camelCase", "UPPER_CASE", "PascalCase"]
       }
-    ]
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
   }
 }
