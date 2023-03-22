@@ -6,10 +6,18 @@ ${normalize}
 
 :root {
     --color-white: hsl(0, 0%, 100%);
-    --color-very-light-grey: hsl(0, 0%, 97%)
+    --color-very-light-grey: hsl(0, 0%, 97%);
     --color-light-grey: hsl(0, 0%, 90%);
-    --color-grey: hsl(0, 0%, 84%);
-    --color-light-orange: hsl(40, 36%, 100%)
+    --color-grey: hsl(0, 0%, 85%);
+    --color-dark-grey: hsl(0, 0%, 60%);
+    --color-orange: hsl(40, 85%, 80%);
+
+    --border-radius-xxs: 0.3rem;
+    --border-radius-xs: 0.5rem;
+    --border-radius-s: 0.6rem;
+    --border-radius-m: 1.2rem;
+    --border-radius-l: 1.5rem;
+    -border-radius-xl: 10rem;
 }
 
 *,
@@ -25,19 +33,14 @@ html {
 }
 
 body {
-  line-height: 1.8;
-  font-family: 'Nunito Sans', sans-serif;
-  font-size: 14px;
-  font-size: var(--font-size-homepage);
-  background-color: var(--app-color-background);
-  min-height: 100vh;
-  width: 100%;
-  margin: auto;
-}
-
-header {
-  background-color: var(--app-color-elements);
-  box-shadow: 0px 2px 5px var(--app-color-shadow);
+    line-height: 1.8;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 20px;
+    color: var(--color-dark-grey);
+    width: 100%;
+    margin: auto; 
+    min-height: 100vh;
+    background-color: var(--color-white);
 }
 `;
 
