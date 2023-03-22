@@ -4,9 +4,10 @@ import { SmallButton } from "./components/Buttons/SmallButton.component";
 function App() {
   return (
     <>
-      <SmallButton>Click</SmallButton>
-      <ButtonS>Click</ButtonS>
-      <ButtonM>Click</ButtonM>
+      <ButtonM>Duży button</ButtonM>
+      <ButtonS>Mały button</ButtonS>
+      {/* button zmieniający kolor w zależności który jest aktywny. Biała ramka powinna zniknąć jak będą podłączone style globalne */}
+      <SmallButton>Borrow/Lend</SmallButton>
     </>
   );
 }

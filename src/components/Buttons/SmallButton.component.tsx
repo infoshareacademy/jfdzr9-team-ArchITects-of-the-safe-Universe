@@ -5,6 +5,8 @@ interface SmallButtonProps {
   children?: string;
 }
 
+// kolory buttonów będą podmienione po podłączeniu styli globalnych
+
 export const SmallButton = ({ children }: SmallButtonProps) => {
   const [color, setColor] = useState("grey");
   const handleClick = () => {

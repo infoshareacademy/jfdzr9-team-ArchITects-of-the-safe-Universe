@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+// kolory buttonów będą podmienione po podłączeniu styli globalnych
+
 export const ButtonS = styled.button`
   height: 40px;
   width: 150px;
