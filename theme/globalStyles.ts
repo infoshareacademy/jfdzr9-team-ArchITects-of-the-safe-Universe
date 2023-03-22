@@ -11,13 +11,6 @@ ${normalize}
     --color-grey: hsl(0, 0%, 85%);
     --color-dark-grey: hsl(0, 0%, 60%);
     --color-orange: hsl(40, 85%, 80%);
-
-    --border-radius-xxs: 0.3rem;
-    --border-radius-xs: 0.5rem;
-    --border-radius-s: 0.6rem;
-    --border-radius-m: 1.2rem;
-    --border-radius-l: 1.5rem;
-    -border-radius-xl: 10rem;
 }
 
 *,
