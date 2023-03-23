@@ -8,7 +8,7 @@ interface BottomNavigation {
 
 const BottomNavigation = ({ howWork, map, opinion }: BottomNavigation) => {
   return (
-    <footer>
+    <div>
       <a href={howWork} target="" rel="">
         <ButtonM>How does it work</ButtonM>
       </a>
@@ -18,7 +18,7 @@ const BottomNavigation = ({ howWork, map, opinion }: BottomNavigation) => {
       <a href={opinion} target="" rel="">
         <ButtonM>Opinions about the application</ButtonM>
       </a>
-    </footer>
+    </div>
   );
 };
 
