@@ -4,8 +4,10 @@ import { SmallButton } from "./components/Buttons/SmallButton.component";
 import { Input } from "./components/Input/Input.component";
 import SearchIcon from "./assets/magnifying-glass-solid.svg";
 import BottomNavigation from "./components/BottomNavigation/BottomNavigation.components";
-import { Footer } from "./Footer/Footer.styled";
+import { FooterLabel } from "./Footer/Footer.component";
 import Header from "./components/Header/Header";
+import { Products } from "./Products/Product.component";
+
 function App() {
   return (
     <>
@@ -18,17 +20,8 @@ function App() {
       <Input icon={SearchIcon} placeholder="find what you need"></Input>
       <Input placeholder="city"></Input>
       <BottomNavigation howWork={"howWork"} map={"map"} opinion={"opinion"} />
-      <Footer>
-        <div>
-          <h4>RentMe, @2023 rentme Inc. Wszystkie prawa zastrzeżone.</h4>
-        </div>
-        <div>
-          <h4>Twórcy aplikacji: Dawid Maślanka, Jolanta Marszałek, Katarzyna Fronc, Piotr Stefański</h4>
-        </div>
-        <div>
-          <h4>Link do GitHub</h4>
-        </div>
-      </Footer>
+      <Products />
+      <FooterLabel />
     </>
   );
 }
