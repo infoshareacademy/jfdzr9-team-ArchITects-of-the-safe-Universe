@@ -1,5 +1,4 @@
 import GlobalStyle from "../theme/globalStyles";
-import Header from "./components/Header/Header";
 import { MainPage } from "./pages/MainPage";
 // import { Footer } from "./Footer/Footer.component.styled";
 import { BrowserRouter, Routes } from "react-router-dom";
