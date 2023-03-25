@@ -1,4 +1,11 @@
 import GlobalStyle from "../theme/globalStyles";
+import { ButtonM, ButtonS } from "./components/Buttons/Button.styled";
+import { SmallButton } from "./components/Buttons/SmallButton.component";
+import { Input } from "./components/Input/Input.component";
+import SearchIcon from "./assets/magnifying-glass-solid.svg";
+import BottomNavigation from "./components/BottomNavigation/BottomNavigation.components";
+import { FooterLabel } from "./Footer/Footer.component";
+import { Products } from "./Products/Product.component";
 import { MainPage } from "./pages/MainPage";
 // import { Footer } from "./Footer/Footer.component.styled";
 import { Routes, Route } from "react-router-dom";
