@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ButtonM } from "../Buttons/Button.styled";
 import { SingleCard } from "../SingleCard/SingleCard.component";
 import { ButtonBorrowLend, ButtonStartRenting, HowDoesItWorkSection, Title } from "./HowDoesItWork.styled";
@@ -15,12 +16,16 @@ const HowDoesItWork = ({ borrow, lend, startRenting }: HowDoesItWork) => {
         <h2>How does it work</h2>
       </Title>
       <ButtonBorrowLend>
-        <a href={borrow} target="" rel="">
-          <ButtonM>Borrow</ButtonM>
-        </a>
-        <a href={lend} target="" rel="">
-          <ButtonM>Lend</ButtonM>
-        </a>
+        <Link to="/borrow">
+          <a href={borrow} target="" rel="">
+            <ButtonM>Borrow</ButtonM>
+          </a>
+        </Link>
+        <Link to="/lend">
+          <a href={lend} target="" rel="">
+            <ButtonM>Lend</ButtonM>
+          </a>
+        </Link>
       </ButtonBorrowLend>
       <HowDoesItWorkSection>
         <SingleCard img={"img"} describe={"describe"} />
@@ -29,9 +34,11 @@ const HowDoesItWork = ({ borrow, lend, startRenting }: HowDoesItWork) => {
         <SingleCard img={"img"} describe={"describe"} />
       </HowDoesItWorkSection>
       <ButtonStartRenting>
-        <a href={startRenting} target="" rel="">
-          <ButtonM>Start renting</ButtonM>
-        </a>
+        <Link to="">
+          <a href={startRenting} target="" rel="">
+            <ButtonM>Start renting</ButtonM>
+          </a>
+        </Link>
       </ButtonStartRenting>
     </div>
   );
