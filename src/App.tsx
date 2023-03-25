@@ -1,13 +1,16 @@
 import GlobalStyle from "../theme/globalStyles";
+import { MainPage } from "./pages/MainPage";
 // import { Footer } from "./Footer/Footer.component.styled";
 import { Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
+import HeaderUser from "./components/Header/HeaderUser";
 // import { MainPage } from "./pages/MainPage";
 
 function App() {
   return (
     <>
       <GlobalStyle />
+
       <Header />
       <Routes>
         {/* <Route path="/" element={<MainPage />} /> */}

@@ -1,6 +1,5 @@
 import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
 import CompanyLogo from "../../CompanyLogo/CompanyLogo";
-import { SignInButton } from "../../SignInButton/SignInButton";
 import SearchIcon from "../../assets/magnifying-glass-solid.svg";
 import { Input } from "../Input/Input.component";
 import {
@@ -10,7 +9,9 @@ import {
   CompanyHeaderSearch,
   CompanyHeaderSection,
   CompanyHeaderSign,
-} from "../Header/Header.styled";
+} from "./Header.styled";
+import { SignOutButton } from "../../SignOutButton/SignOutButton";
+import { UserPanelButton } from "../../UserPanelButton/UserPanelButton";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -30,7 +31,8 @@ function Header() {
         </CompanyHeaderRight>
       </CompanyHeaderSearch>
       <CompanyHeaderSign>
-        <SignInButton />
+        <UserPanelButton />
+        <SignOutButton />
       </CompanyHeaderSign>
     </CompanyHeaderSection>
   );
