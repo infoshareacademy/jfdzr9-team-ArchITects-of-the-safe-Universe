@@ -16,12 +16,12 @@ const HowDoesItWork = ({ borrow, lend, startRenting }: HowDoesItWork) => {
         <h2>How does it work</h2>
       </Title>
       <ButtonBorrowLend>
-        <Link to="/borrow">
+        <Link to="/howDoestItWork/borrow">
           <a href={borrow} target="" rel="">
             <ButtonM>Borrow</ButtonM>
           </a>
         </Link>
-        <Link to="/lend">
+        <Link to="/howDoestItWork/lend">
           <a href={lend} target="" rel="">
             <ButtonM>Lend</ButtonM>
           </a>
