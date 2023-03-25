@@ -3,11 +3,9 @@ import { ButtonM, ButtonS } from "./components/Buttons/Button.styled";
 import { SmallButton } from "./components/Buttons/SmallButton.component";
 import { Input } from "./components/Input/Input.component";
 import SearchIcon from "./assets/magnifying-glass-solid.svg";
-
+import BottomNavigation from "./components/BottomNavigation/BottomNavigation.components";
 import { Footer } from "./Footer/Footer.styled";
-
 import Header from "./components/Header/Header";
-
 function App() {
   return (
     <>
@@ -19,6 +17,7 @@ function App() {
       <SmallButton>Borrow/Lend</SmallButton>
       <Input icon={SearchIcon} placeholder="find what you need"></Input>
       <Input placeholder="city"></Input>
+      <BottomNavigation howWork={"howWork"} map={"map"} opinion={"opinion"} />
       <Footer>
         <div>
           <h4>RentMe, @2023 rentme Inc. Wszystkie prawa zastrzeżone.</h4>
@@ -33,5 +32,4 @@ function App() {
     </>
   );
 }
-
 export default App;
