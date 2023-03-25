@@ -27,7 +27,7 @@ function Header() {
         </CompanyHeaderSearchRight>
       </CompanyHeaderSearch>
       <CompanyHeaderSign>
-        <SignInButton>Zarejestruj</SignInButton>
+        <SignInButton />
       </CompanyHeaderSign>
     </CompanyHeaderSection>
   );
