@@ -4,6 +4,7 @@ import { ButtonM, ButtonS } from "./components/Buttons/Button.styled";
 import { SmallButton } from "./components/Buttons/SmallButton.component";
 import { Input } from "./components/Input/Input.component";
 import SearchIcon from "./assets/magnifying-glass-solid.svg";
+import BottomNavigation from "./components/BottomNavigation/BottomNavigation.components";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <SmallButton>Borrow/Lend</SmallButton>
       <Input icon={SearchIcon} placeholder="find what you need"></Input>
       <Input placeholder="city"></Input>
+      <BottomNavigation />
     </>
   );
 }
