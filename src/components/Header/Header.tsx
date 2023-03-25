@@ -13,7 +13,7 @@ import {
 } from "../Header/Header.styled";
 import { Link } from "react-router-dom";
 
-function Header() {
+export function Header() {
   return (
     <CompanyHeaderSection>
       <Link to="/">
