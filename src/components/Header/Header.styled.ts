@@ -7,24 +7,30 @@ export const CompanyHeaderSection = styled.section`
   margin: 20px;
 `;
 export const CompanyHeaderLogo = styled.div`
-  flex: 1;
+  order: 1;
 `;
 
 export const CompanyHeaderSearch = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 2;
+  order: 2;
 `;
 
-export const CompanyHeaderSearchLeft = styled.div`
+export const CompanyHeaderUser = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  order: 3;
+`;
+
+export const CompanyHeaderLeft = styled.div`
   margin-right: 16px;
 `;
-export const CompanyHeaderSearchRight = styled.div`
+export const CompanyHeaderRight = styled.div`
   margin-left: 16px;
 `;
 
 export const CompanyHeaderSign = styled.div`
-  flex: 1;
-  text-align: right;
+  order 4;
 `;

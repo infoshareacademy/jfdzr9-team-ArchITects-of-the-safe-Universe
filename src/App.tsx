@@ -2,6 +2,7 @@ import GlobalStyle from "../theme/globalStyles";
 // import { Footer } from "./Footer/Footer.component.styled";
 import { BrowserRouter, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
+import HeaderUser from "./components/Header/HeaderUser";
 // import { MainPage } from "./pages/MainPage";
 
 function App() {
