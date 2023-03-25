@@ -20,7 +20,7 @@ function App() {
       <SmallButton>Borrow/Lend</SmallButton>
       <Input icon={SearchIcon} placeholder="find what you need"></Input>
       <Input placeholder="city"></Input>
-      <BottomNavigation />
+      <BottomNavigation howWork={"howWork"} map={"map"} opinion={"opinion"} />
     </>
   );
 }
