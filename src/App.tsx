@@ -1,4 +1,5 @@
 import GlobalStyle from "../theme/globalStyles";
+import { MainPage } from "./pages/MainPage";
 // import { Footer } from "./Footer/Footer.component.styled";
 import { BrowserRouter, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
@@ -9,8 +10,8 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      <Header />
       <BrowserRouter>
-        <Header />
         <Routes>
           {/* <Route path="/" element={<MainPage />} /> */}
           {/* <Route path="/:howDoestItWork" element={<HowDoesItWork />} /> */}

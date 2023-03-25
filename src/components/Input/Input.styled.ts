@@ -1,12 +1,8 @@
 import styled from "styled-components";
 
-// kolory do podmiany po podłączeniu styli globalnych
-
 export const InputField = styled.input`
-  /* background-color: var(--color-very-light-grey); */
-  background-color: lightgrey;
-  /* color: var(--color-dark-grey); */
-  color: black;
+  background-color: var(--color-very-light-grey);
+  color: var(--color-dark-grey);
   border: none;
   border-radius: 10px;
   font-weight: 600;
@@ -15,22 +11,18 @@ export const InputField = styled.input`
   padding-left: 15px;
 
   ::placeholder {
-    /* color: var(--color-grey); */
-    color: grey;
+    color: var(--color-grey);
   }
 `;
 
 export const InputLabel = styled.label`
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   background-color: lightgrey;
   border-radius: 10px;
-  /* background-color: var(--color-very-light-grey); */
-  background-color: lightgrey;
-  /* color: var(--color-dark-grey); */
-  color: black;
-  width: 250px;
+  background-color: var(--color-very-light-grey);
+  color: var(--color-dark-grey);
   height: 35px;
   padding: 0 25px;
 `;
