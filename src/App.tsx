@@ -6,6 +6,7 @@ import SearchIcon from "./assets/magnifying-glass-solid.svg";
 import BottomNavigation from "./components/BottomNavigation/BottomNavigation.components";
 import { Footer } from "./Footer/Footer.styled";
 import Header from "./components/Header/Header";
+import HeaderUser from "./components/Header/HeaderUser";
 function App() {
   return (
     <>
