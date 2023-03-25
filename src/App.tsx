@@ -8,9 +8,9 @@ import { FooterLabel } from "./Footer/Footer.component";
 import { Products } from "./Products/Product.component";
 import { MainPage } from "./pages/MainPage";
 // import { Footer } from "./Footer/Footer.component.styled";
-import { BrowserRouter, Routes } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import HeaderUser from "./components/Header/HeaderUser";
+// import HeaderUser from "./components/Header/HeaderUser";
 // import { MainPage } from "./pages/MainPage";
 
 function App() {
@@ -18,30 +18,19 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
-      <ButtonM>Duży button</ButtonM>
-      <ButtonS>Mały button</ButtonS>
-      {/* button zmieniający kolor w zależności który jest aktywny. Biała ramka powinna zniknąć jak będą podłączone style globalne */}
-      <SmallButton>Borrow/Lend</SmallButton>
-      <Input icon={SearchIcon} placeholder="find what you need"></Input>
-      <Input placeholder="city"></Input>
-      <BottomNavigation howWork={"howWork"} map={"map"} opinion={"opinion"} />
-      <Products />
-      <FooterLabel />
-      <BrowserRouter>
-        <Routes>
-          {/* <Route path="/" element={<MainPage />} /> */}
-          {/* <Route path="/:howDoestItWork" element={<HowDoesItWork />} /> */}
-          {/* <Route path="/:howDoestItWork/borrow" element={<Borrow />} /> */}
-          {/* <Route path="/:howDoestItWork/lend" element={<Lend />} /> */}
-          {/* <Route path="account" element={<SignInPage />} /> */}
-          {/* <Route path="account/register" element={<RegisterPage />} /> */}
-          {/* <Route path="productPage" element={<ProductPage />} /> */}
-          {/* <Route path="addProductPage" element={<AddProductPage />} /> */}
-          {/* <Route path="opinions" element={<OpinionsPage />} /> */}
-          {/* <Route path="*" element={<Navigate to="not-found" replace={true} />} /> */}
-        </Routes>
-        {/* </Footer> */}
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        {/* <Route path="/:howDoestItWork" element={<HowDoesItWork />} /> */}
+        {/* <Route path="/:howDoestItWork/borrow" element={<Borrow />} /> */}
+        {/* <Route path="/:howDoestItWork/lend" element={<Lend />} /> */}
+        {/* <Route path="account" element={<SignInPage />} /> */}
+        {/* <Route path="account/register" element={<RegisterPage />} /> */}
+        {/* <Route path="productPage" element={<ProductPage />} /> */}
+        {/* <Route path="addProductPage" element={<AddProductPage />} /> */}
+        {/* <Route path="opinions" element={<OpinionsPage />} /> */}
+        {/* <Route path="*" element={<Navigate to="not-found" replace={true} />} /> */}
+      </Routes>
+      {/* </Footer> */}
     </>
   );
 }
