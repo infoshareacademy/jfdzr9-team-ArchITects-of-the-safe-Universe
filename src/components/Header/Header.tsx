@@ -11,13 +11,16 @@ import {
   CompanyHeaderSection,
   CompanyHeaderSign,
 } from "../Header/Header.styled";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <CompanyHeaderSection>
-      <CompanyHeaderLogo>
-        <CompanyLogo />
-      </CompanyHeaderLogo>
+      <Link to="/">
+        <CompanyHeaderLogo>
+          <CompanyLogo />
+        </CompanyHeaderLogo>
+      </Link>
       <CompanyHeaderSearch>
         <CompanyHeaderSearchLeft>
           <Input icon={SearchIcon} placeholder="Znajdz"></Input>
