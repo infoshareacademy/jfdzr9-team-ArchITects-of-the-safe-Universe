@@ -3,6 +3,9 @@ import { ButtonM, ButtonS } from "./components/Buttons/Button.styled";
 import { SmallButton } from "./components/Buttons/SmallButton.component";
 import { Input } from "./components/Input/Input.component";
 import SearchIcon from "./assets/magnifying-glass-solid.svg";
+
+import { Footer } from "./Footer/Footer.styled";
+
 import Header from "./components/Header/Header";
 
 function App() {
@@ -16,6 +19,17 @@ function App() {
       <SmallButton>Borrow/Lend</SmallButton>
       <Input icon={SearchIcon} placeholder="find what you need"></Input>
       <Input placeholder="city"></Input>
+      <Footer>
+        <div>
+          <h4>RentMe, @2023 rentme Inc. Wszystkie prawa zastrzeżone.</h4>
+        </div>
+        <div>
+          <h4>Twórcy aplikacji: Dawid Maślanka, Jolanta Marszałek, Katarzyna Fronc, Piotr Stefański</h4>
+        </div>
+        <div>
+          <h4>Link do GitHub</h4>
+        </div>
+      </Footer>
     </>
   );
 }
