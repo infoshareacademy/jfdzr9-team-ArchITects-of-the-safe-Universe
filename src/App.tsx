@@ -5,7 +5,6 @@ import { Input } from "./components/Input/Input.component";
 import SearchIcon from "./assets/magnifying-glass-solid.svg";
 import BottomNavigation from "./components/BottomNavigation/BottomNavigation.components";
 import { FooterLabel } from "./Footer/Footer.component";
-import Header from "./components/Header/Header";
 import { Products } from "./Products/Product.component";
 import { MainPage } from "./pages/MainPage";
 // import { Footer } from "./Footer/Footer.component.styled";
