@@ -3,7 +3,7 @@ import { ButtonM, ButtonS } from "./components/Buttons/Button.styled";
 import { SmallButton } from "./components/Buttons/SmallButton.component";
 import { Input } from "./components/Input/Input.component";
 import SearchIcon from "./assets/magnifying-glass-solid.svg";
-import BottomNavigation from "./components/BottomNavigation/BottomNavigation.components";
+import BottomNavigation from "./components/BottomNavigation/BottomNavigation.component";
 import { Footer } from "./Footer/Footer.styled";
 import Header from "./components/Header/Header";
 function App() {
