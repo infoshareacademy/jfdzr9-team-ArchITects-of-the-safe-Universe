@@ -1,10 +1,11 @@
 import BottomNavigation from "../components/BottomNavigation/BottomNavigation.component";
+import { Products } from "../components/Products/Product.component";
 
 export const MainPage = () => {
   return (
     <>
-      {/* <Content /> */}
-      {/* <BottomNavigation /> */}
+      <Products />
+      <BottomNavigation howWork={""} map={""} opinion={""} />
     </>
   );
 };

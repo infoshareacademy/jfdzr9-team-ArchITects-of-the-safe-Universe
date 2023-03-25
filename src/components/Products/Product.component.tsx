@@ -1,4 +1,4 @@
-import { Navigator, ArrowLeft, ProductContainer, ArrowRight } from "../Products/Product.styled";
+import { Navigator, ArrowLeft, ProductContainer, ArrowRight } from "./Product.styled";
 
 export const Products = () => {
   return (

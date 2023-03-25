@@ -1,17 +1,9 @@
 import GlobalStyle from "../theme/globalStyles";
-import { ButtonM, ButtonS } from "./components/Buttons/Button.styled";
-import { SmallButton } from "./components/Buttons/SmallButton.component";
-import { Input } from "./components/Input/Input.component";
-import SearchIcon from "./assets/magnifying-glass-solid.svg";
-import BottomNavigation from "./components/BottomNavigation/BottomNavigation.component";
-import { FooterLabel } from "./Footer/Footer.component";
-import { Products } from "./Products/Product.component";
 import { MainPage } from "./pages/MainPage";
-// import { Footer } from "./Footer/Footer.component.styled";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
+import { FooterLabel } from "./Footer/Footer.component";
 // import HeaderUser from "./components/Header/HeaderUser";
-// import { MainPage } from "./pages/MainPage";
 
 function App() {
   return (
@@ -30,7 +22,7 @@ function App() {
         {/* <Route path="opinions" element={<OpinionsPage />} /> */}
         {/* <Route path="*" element={<Navigate to="not-found" replace={true} />} /> */}
       </Routes>
-      {/* </Footer> */}
+      <FooterLabel />
     </>
   );
 }
