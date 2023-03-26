@@ -21,14 +21,18 @@ export const ArrowLeft = styled.button`
   transition: 0.2s linear;
   :hover {
     cursor: pointer;
-    background-color: lightgrey;
+    background-color: var(--color-dark-grey);
   }
 `;
 
 export const ProductContainer = styled.button`
   position: static;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: space-around;
+  align-items: center;
   height: 50vh;
-  width: 95vw;
+  width: 92vw;
   border-radius: 10px;
   background-color: var(--color-very-light-grey);
   transition: 0.2s linear;
@@ -48,6 +52,45 @@ export const ArrowRight = styled.button`
   transition: 0.2s linear;
   :hover {
     cursor: pointer;
-    background-color: lightgrey;
+    background-color: var(--color-dark-grey);
   }
+`;
+
+export const Container = styled.button`
+  /* position: static; */
+  display: flex;
+  justify-content: center;
+  align-items: sflex-start;
+  align-content: space-around;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  width: 15vw;
+  height: 45vh;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 0px;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+`;
+
+export const ContainerPhoto = styled.label`
+  font-size: 1rem;
+  background-color: var(--color-orange);
+  width: 15vw;
+  height: 25vh;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 1rem;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+`;
+
+export const ContainerText = styled.label`
+  font-size: 1rem;
+  background-color: var(--color-orange);
+  width: 15vw;
+  height: 15vh;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 1rem;
 `;
