@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import { FooterLabel } from "./Footer/Footer.component";
 import HowDoesItWork from "./components/HowDoesItWork/HowDoesItWork.component";
-
+import { SignInPage } from "./pages/SignInPage";
 // import HeaderUser from "./components/Header/HeaderUser";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Route path="/:howDoestItWork" element={<HowDoesItWork borrow="" lend="" startRenting="" />} />
         {/* <Route path="/:howDoestItWork/borrow" element={<Borrow />} /> */}
         {/* <Route path="/:howDoestItWork/lend" element={<Lend />} /> */}
-        {/* <Route path="account" element={<SignInPage />} /> */}
+        <Route path="konto" element={<SignInPage />} />
         {/* <Route path="account/register" element={<RegisterPage />} /> */}
         {/* <Route path="productPage" element={<ProductPage />} /> */}
         {/* <Route path="addProductPage" element={<AddProductPage />} /> */}
