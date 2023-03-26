@@ -35,3 +35,16 @@ export const ButtonM = styled.button`
     background-color: var(--color-very-light-grey);
   }
 `;
+
+export const BorrowLendButton = styled.button`
+  height: 50px;
+  width: 200px;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--color-orange);
+  color: var(--color-dark-grey);
+  font-weight: 600;
+`;
