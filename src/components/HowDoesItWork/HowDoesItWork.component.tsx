@@ -9,7 +9,7 @@ interface HowDoesItWork {
   startRenting: string;
 }
 
-const HowDoesItWork = ({ borrow, lend, startRenting }: HowDoesItWork) => {
+export const HowDoesItWork = ({ borrow, lend, startRenting }: HowDoesItWork) => {
   return (
     <div>
       <Title>
