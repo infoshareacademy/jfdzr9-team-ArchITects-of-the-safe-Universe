@@ -5,6 +5,7 @@ import Header from "./components/Header/Header";
 import { FooterLabel } from "./Footer/Footer.component";
 import { HowDoesItWorkBorrowPage } from "./pages/HowDoesItWorkBorrowPage";
 import { HowDoesItWorkLendPage } from "./pages/HowDoesItWorkLendPage";
+import { SignInPage } from "./pages/SignInPage";
 
 // import HeaderUser from "./components/Header/HeaderUser";
 
@@ -17,7 +18,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/:howDoestItWork/borrow" element={<HowDoesItWorkBorrowPage />} />
         <Route path="/:howDoestItWork/lend" element={<HowDoesItWorkLendPage />} />
-        {/* <Route path="account" element={<SignInPage />} /> */}
+        <Route path="account" element={<SignInPage />} />
         {/* <Route path="account/register" element={<RegisterPage />} /> */}
         {/* <Route path="productPage" element={<ProductPage />} /> */}
         {/* <Route path="addProductPage" element={<AddProductPage />} /> */}

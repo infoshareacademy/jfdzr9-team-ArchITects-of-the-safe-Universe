@@ -30,7 +30,9 @@ export function Header() {
         </CompanyHeaderRight>
       </CompanyHeaderSearch>
       <CompanyHeaderSign>
-        <SignInButton />
+        <Link to="account">
+          <SignInButton />
+        </Link>
       </CompanyHeaderSign>
     </CompanyHeaderSection>
   );
