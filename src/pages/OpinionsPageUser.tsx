@@ -3,7 +3,7 @@ import OpinionUser from "../components/Opinion/Opinion.component";
 export const OpinionsUserPage = () => {
   return (
     <>
-      <OpinionUser />
+      <OpinionUser name="" describe="" />
     </>
   );
 };
