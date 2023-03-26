@@ -3,6 +3,8 @@ import { MainPage } from "./pages/MainPage";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import { FooterLabel } from "./Footer/Footer.component";
+import HowDoesItWork from "./components/HowDoesItWork/HowDoesItWork.component";
+
 // import HeaderUser from "./components/Header/HeaderUser";
 
 function App() {
@@ -12,7 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        {/* <Route path="/:howDoestItWork" element={<HowDoesItWork />} /> */}
+        <Route path="/:howDoestItWork" element={<HowDoesItWork borrow="" lend="" startRenting="" />} />
         {/* <Route path="/:howDoestItWork/borrow" element={<Borrow />} /> */}
         {/* <Route path="/:howDoestItWork/lend" element={<Lend />} /> */}
         {/* <Route path="account" element={<SignInPage />} /> */}
