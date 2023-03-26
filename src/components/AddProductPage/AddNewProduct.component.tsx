@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
+// import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
 import { ButtonM } from "../Buttons/Button.styled";
 import {
   FormContainer,
@@ -76,7 +76,7 @@ export const AddNewProduct = () => {
           <input id="image" type="file" accept="image/*" onChange={handleImageChange} />
         </FormGroupImg>
       </FormGroup>
-      <CategoryDropdown onChange={handleCategoryChange} />
+      {/* <CategoryDropdown onChange={handleCategoryChange} /> */}
       <FormGroupNextTo>
         <Link to="/">
           <ButtonM type="submit">Anuluj</ButtonM>
