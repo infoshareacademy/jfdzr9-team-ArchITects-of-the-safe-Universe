@@ -12,7 +12,7 @@ const BottomNavigation = ({ howWork, map, opinion }: BottomNavigation) => {
   return (
     <div>
       <BottomNavigationSection>
-        <Link to="/howDoestItWork/borrow">
+        <Link to="/howDoesItWork/borrow">
           <ButtonM>Jak to działa?</ButtonM>
         </Link>
         <Link to="">

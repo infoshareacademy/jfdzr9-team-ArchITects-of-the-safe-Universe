@@ -1,20 +1,19 @@
 import { Link } from "react-router-dom";
-import { ButtonM, BorrowLendButton } from "../components/Buttons/Button.styled";
+import { ButtonM, ButtonContainer, ButtonS, OrangeButton } from "../components/Buttons/Button.styled";
 import { HowDoesItWorkBorrow } from "../components/HowDoesItWork/HowDoesItWork.component";
-import { ButtonBorrowLend, ButtonStartRenting, Title } from "../components/HowDoesItWork/HowDoesItWork.styled";
+import { ButtonStartRenting } from "../components/HowDoesItWork/HowDoesItWork.styled";
+import { Title } from "../UI/Title.styled";
 
 export const HowDoesItWorkBorrowPage = () => {
   return (
     <>
-      <Title>
-        <h2>Jak to działa?</h2>
-      </Title>
-      <ButtonBorrowLend>
-        <BorrowLendButton>Pożycz od sąsiada</BorrowLendButton>
-        <Link to="/howDoestItWork/lend">
-          <ButtonM>Pożycz sąsiadowi</ButtonM>
+      <Title>Jak to działa?</Title>
+      <ButtonContainer>
+        <OrangeButton>Pożycz od sąsiada</OrangeButton>
+        <Link to="/howDoesItWork/lend">
+          <ButtonS>Pożycz sąsiadowi</ButtonS>
         </Link>
-      </ButtonBorrowLend>
+      </ButtonContainer>
       <HowDoesItWorkBorrow />;
       <ButtonStartRenting>
         <Link to="">
