@@ -15,8 +15,8 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/:howDoestItWork/borrow" element={<HowDoesItWorkBorrowPage />} />
-        <Route path="/:howDoestItWork/lend" element={<HowDoesItWorkLendPage />} />
+        <Route path="/:howDoesItWork/borrow" element={<HowDoesItWorkBorrowPage />} />
+        <Route path="/:howDoesItWork/lend" element={<HowDoesItWorkLendPage />} />
         {/* <Route path="account" element={<SignInPage />} /> */}
         {/* <Route path="account/register" element={<RegisterPage />} /> */}
         {/* <Route path="productPage" element={<ProductPage />} /> */}

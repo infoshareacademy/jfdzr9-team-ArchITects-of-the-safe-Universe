@@ -11,7 +11,7 @@ export const HowDoesItWorkBorrowPage = () => {
       </Title>
       <ButtonBorrowLend>
         <BorrowLendButton>Pożycz od sąsiada</BorrowLendButton>
-        <Link to="/howDoestItWork/lend">
+        <Link to="/howDoesItWork/lend">
           <ButtonM>Pożycz sąsiadowi</ButtonM>
         </Link>
       </ButtonBorrowLend>
