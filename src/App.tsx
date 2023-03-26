@@ -8,6 +8,8 @@ import { HowDoesItWorkLendPage } from "./pages/HowDoesItWorkLendPage";
 import { SignInPage } from "./pages/SignInPage";
 import { UserPanelPageBorrow } from "./pages/UserPanelPageBorrow";
 import { UserPanelPageLend } from "./pages/UserPanelPageLend";
+import { AddProductPage } from "./pages/AddProductPage";
+
 // import HeaderUser from "./components/Header/HeaderUser";
 
 function App() {
@@ -19,10 +21,10 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/howDoesItWork/borrow" element={<HowDoesItWorkBorrowPage />} />
         <Route path="/howDoesItWork/lend" element={<HowDoesItWorkLendPage />} />
-        {/* <Route path="account" element={<SignInPage />} /> */}
+        <Route path="account" element={<SignInPage />} />
         {/* <Route path="account/register" element={<RegisterPage />} /> */}
         {/* <Route path="productPage" element={<ProductPage />} /> */}
-        {/* <Route path="addProductPage" element={<AddProductPage />} /> */}
+        <Route path="addProductPage" element={<AddProductPage />} />
         {/* <Route path="opinions" element={<OpinionsPage />} /> */}
         <Route path="/userPanelBorrow" element={<UserPanelPageBorrow />} />
         <Route path="/userPanelLend" element={<UserPanelPageLend />} />
