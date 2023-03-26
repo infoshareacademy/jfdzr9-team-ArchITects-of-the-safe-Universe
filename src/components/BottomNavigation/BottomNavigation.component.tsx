@@ -18,8 +18,9 @@ const BottomNavigation = ({ howWork, map, opinion }: BottomNavigation) => {
         <Link to="">
           <ButtonM>Mapa</ButtonM>
         </Link>
-        <Link to="opinion"></Link>
-        <ButtonM>Opinie</ButtonM>
+        <Link to="opinions">
+          <ButtonM>Opinie</ButtonM>
+        </Link>
       </BottomNavigationSection>
     </div>
   );
