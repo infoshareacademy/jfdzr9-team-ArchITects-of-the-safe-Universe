@@ -5,9 +5,9 @@ import Header from "./components/Header/Header";
 import { FooterLabel } from "./Footer/Footer.component";
 import { HowDoesItWorkBorrowPage } from "./pages/HowDoesItWorkBorrowPage";
 import { HowDoesItWorkLendPage } from "./pages/HowDoesItWorkLendPage";
+import { SignInPage } from "./pages/SignInPage";
 import { UserPanelPageBorrow } from "./pages/UserPanelPageBorrow";
 import { UserPanelPageLend } from "./pages/UserPanelPageLend";
-
 // import HeaderUser from "./components/Header/HeaderUser";
 
 function App() {
