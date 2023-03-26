@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HowDoesItWorkSection = styled.section`
+export const OpinionSection = styled.section`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   box-sizing: content-box;
@@ -20,8 +20,7 @@ export const HowDoesItWorkSection = styled.section`
     }
   }
 `;
-
-export const ButtonStartRenting = styled.section`
+export const ButtonOpinion = styled.section`
   box-sizing: content-box;
   width: (100%);
   display: flex;

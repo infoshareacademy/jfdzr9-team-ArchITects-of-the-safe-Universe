@@ -12,20 +12,14 @@ const BottomNavigation = ({ howWork, map, opinion }: BottomNavigation) => {
   return (
     <div>
       <BottomNavigationSection>
-        <Link to="/howDoestItWork">
-          <a href={howWork} target="" rel="">
-            <ButtonM>How does it work</ButtonM>
-          </a>
+        <Link to="/howDoesItWork/borrow">
+          <ButtonM>Jak to działa?</ButtonM>
         </Link>
         <Link to="">
-          <a href={map} target="" rel="">
-            <ButtonM>Map</ButtonM>
-          </a>
+          <ButtonM>Mapa</ButtonM>
         </Link>
-        <Link to="">
-          <a href={opinion} target="" rel="">
-            <ButtonM>Opinions about the application</ButtonM>
-          </a>
+        <Link to="opinions">
+          <ButtonM>Opinie</ButtonM>
         </Link>
       </BottomNavigationSection>
     </div>
