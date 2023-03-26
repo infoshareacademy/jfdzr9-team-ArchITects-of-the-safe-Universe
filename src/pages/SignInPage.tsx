@@ -1,8 +1,7 @@
 import { ButtonM } from "../components/Buttons/Button.styled";
-import GoogleLoginButton from "../components/GoogleButton/GoogleButton";
 import { Input } from "../components/Input/Input.component";
 import { SignInContainer, SignInBottomConrainer } from "./SignIn.styled";
-
+import { SignInGoogle } from "../GoogleButton/SignInGoogleButton";
 export const SignInPage = () => {
   return (
     <>
@@ -12,7 +11,7 @@ export const SignInPage = () => {
         <Input placeholder="hasło"></Input>
         <SignInBottomConrainer>
           <ButtonM>Zaloguj</ButtonM>
-          <GoogleLoginButton />
+          <SignInGoogle />
           <div>Nie posiadasz konta?</div>
           <ButtonM>Zarejestruj</ButtonM>
         </SignInBottomConrainer>
