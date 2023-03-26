@@ -57,10 +57,10 @@ export const ArrowRight = styled.button`
 `;
 
 export const Container = styled.button`
-  /* position: static; */
+  position: static;
   display: flex;
   justify-content: center;
-  align-items: sflex-start;
+  align-items: flex-start;
   align-content: space-around;
   flex-wrap: wrap;
   font-size: 1rem;
@@ -80,17 +80,22 @@ export const ContainerPhoto = styled.label`
   height: 25vh;
   border-radius: 10px;
   padding: 0.5rem;
-  margin: 1rem;
+  margin: 0.1rem;
   text-transform: capitalize;
   transition: 0.2s linear;
 `;
 
 export const ContainerText = styled.label`
+  position: static;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
   font-size: 1rem;
-  background-color: var(--color-orange);
   width: 15vw;
   height: 15vh;
   border-radius: 10px;
   padding: 0.5rem;
-  margin: 1rem;
+  margin: 0rem;
 `;

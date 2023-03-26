@@ -12,23 +12,38 @@ export const Products = () => {
       <ProductContainer>
         <Container>
           <ContainerPhoto />
-          <ContainerText></ContainerText>
+          <ContainerText>
+            <h3>Name</h3>
+            <p>Book 1</p>
+          </ContainerText>
         </Container>
         <Container>
           <ContainerPhoto />
-          <ContainerText></ContainerText>
+          <ContainerText>
+            <h3>Name</h3>
+            <p>Book 2</p>
+          </ContainerText>
         </Container>
         <Container>
           <ContainerPhoto />
-          <ContainerText></ContainerText>
+          <ContainerText>
+            <h3>Name</h3>
+            <p>Book 3</p>
+          </ContainerText>
         </Container>
         <Container>
           <ContainerPhoto />
-          <ContainerText></ContainerText>
+          <ContainerText>
+            <h3>Name</h3>
+            <p>Book 4</p>
+          </ContainerText>
         </Container>
         <Container>
           <ContainerPhoto />
-          <ContainerText></ContainerText>
+          <ContainerText>
+            <h3>Name</h3>
+            <p>Book 1</p>
+          </ContainerText>
         </Container>
       </ProductContainer>
       <ArrowRight>
