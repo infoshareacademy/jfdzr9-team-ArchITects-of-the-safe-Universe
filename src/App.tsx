@@ -10,6 +10,7 @@ import { UserPanelPageBorrow } from "./pages/UserPanelPageBorrow";
 import { UserPanelPageLend } from "./pages/UserPanelPageLend";
 import { OpinionsPage } from "./pages/OpinionsPage";
 import { OpinionsUserPage } from "./pages/OpinionsPageUser";
+import { AddProductPage } from "./pages/AddProductPage";
 // import HeaderUser from "./components/Header/HeaderUser";
 
 function App() {
@@ -25,8 +26,10 @@ function App() {
         {/* <Route path="account/register" element={<RegisterPage />} /> */}
         {/* <Route path="productPage" element={<ProductPage />} /> */}
         {/* <Route path="addProductPage" element={<AddProductPage />} /> */}
-        <Route path="opinions" element={<OpinionsPage />} />
+        <Route path="/opinions" element={<OpinionsPage />} />
         {/* <Route path="/opinionsUser" element={<OpinionsUserPage />} /> */}
+        <Route path="addProductPage" element={<AddProductPage />} />
+        {/* <Route path="opinions" element={<OpinionsPage />} /> */}
         <Route path="/userPanelBorrow" element={<UserPanelPageBorrow />} />
         <Route path="/userPanelLend" element={<UserPanelPageLend />} />
         {/* <Route path="/addProduct" element={<UserPanelPageBorrow />} /> */}
