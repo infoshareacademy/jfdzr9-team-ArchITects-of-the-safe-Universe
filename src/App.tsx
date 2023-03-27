@@ -28,7 +28,7 @@ function App() {
         {/* <Route path="addProductPage" element={<AddProductPage />} /> */}
         <Route path="/opinions" element={<OpinionsPage />} />
         {/* <Route path="/opinionsUser" element={<OpinionsUserPage />} /> */}
-        <Route path="addProductPage" element={<AddProductPage />} />
+        <Route path="addProduct" element={<AddProductPage />} />
         {/* <Route path="opinions" element={<OpinionsPage />} /> */}
         <Route path="/userPanelBorrow" element={<UserPanelPageBorrow />} />
         <Route path="/userPanelLend" element={<UserPanelPageLend />} />
