@@ -1,11 +1,12 @@
 import { addDoc, collection, CollectionReference } from "firebase/firestore";
 import { useState } from "react";
-import { db } from "../../utils/firebase/firebase.config";
-import { ButtonM } from "../Buttons/Button.styled";
+import { db, storage } from "../../utils/firebase/firebase.config";
+import { ButtonM, ButtonS } from "../Buttons/Button.styled";
 import { FormContainer, FormGroupNextTo, Input, TextArea } from "./AddNewProduct.styled";
 import { useForm, Controller } from "react-hook-form";
 import { Title } from "../../UI/Title.styled";
 import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 type ProductProps = {
   author: string;
@@ -14,6 +15,8 @@ type ProductProps = {
   kind: string;
   location: string;
   name: string;
+  covers: string;
+  cover: string;
 };
 
 export const AddNewProduct = () => {
@@ -23,12 +26,26 @@ export const AddNewProduct = () => {
   const { handleSubmit, control, setValue } = useForm<Partial<ProductProps>>();
   const [description, setDescription] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
+  const [imageUrl, setImageUrl] = useState("");
+  const imagesRef = ref(storage, "covers/");
+  const [file, setFile] = useState<File | null>(null);
 
   const onSubmit = handleSubmit((data) => {
     addProduct(data).then(() => {
       setSuccess(true);
     });
   });
+
+  const uploadImage = () => {
+    if (!file) return;
+    const imageRef = ref(storage, `covers/${file.name}`);
+    uploadBytes(imageRef, file).then((snapShot) => {
+      getDownloadURL(snapShot.ref).then((url) => {
+        setImageUrl(url);
+        setValue("cover", url);
+      });
+    });
+  };
 
   const addProduct = async (product: Partial<ProductProps>) => {
     const productRef = collection(db, "books");
@@ -67,6 +84,29 @@ export const AddNewProduct = () => {
             name="description"
             control={control}
             render={({ field }) => <TextArea placeholder="Opis" {...field} />}
+          />
+          <div>
+            <input
+              type="file"
+              onChange={(e) => {
+                e.preventDefault();
+                if (!e.target.files) return;
+                setFile(e.target.files[0]);
+              }}
+            />
+            <ButtonS
+              onClick={(e) => {
+                e.preventDefault();
+                uploadImage();
+              }}
+            >
+              Załaduj obrazek
+            </ButtonS>
+          </div>
+          <Controller
+            name="cover"
+            control={control}
+            render={({ field }) => <Input placeholder="Okładka" type={"hidden"} {...field} />}
           />
           <FormGroupNextTo>
             <ButtonM type="submit">Dodaj</ButtonM>
