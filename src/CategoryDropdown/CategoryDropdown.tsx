@@ -1,26 +1,33 @@
-import React, { useState } from "react";
+import { ChangeEvent } from "react";
+import { Select } from "../components/AddProductPage/AddNewProduct.styled";
 
-const CategoryDropdown = () => {
-  const [selectedCategory, setSelectedCategory] = useState("");
+export interface Category {
+  value?: string;
+  label: string;
+  options?: string;
+  onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+}
 
-  const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedCategory(event.target.value);
-  };
+const options = [
+  { value: "literatura", label: "Literatura piękna" },
+  { value: "fantastyka", label: "Fantastyka" },
+  { value: "komiks", label: "Komiks" },
+  { value: "reportaz", label: "Reportaż" },
+  { value: "thriller", label: "Thriller" },
+  { value: "biografia", label: "Biografia" },
+  { value: "pozostale", label: "Pozostałe" },
+];
 
+export const CategoryDropdown = ({ value, onChange }: Category) => {
   return (
-    <div>
-      <select id="categories" value={selectedCategory} onChange={handleCategoryChange}>
-        <option value="">Kategoria</option>
-        <option value="literatura">Literatura piękna</option>
-        <option value="fantastyka">Fantastyka</option>
-        <option value="komiks">Komiks</option>
-        <option value="reportaż">Reportaż</option>
-        <option value="thriller">Thriller</option>
-        <option value="fantastyka">Fantastyka</option>
-        <option value="biografia">Biografia</option>
-        <option value="biografia">Pozostałe</option>
-      </select>
-    </div>
+    <Select id="categories" value={value} onChange={onChange}>
+      <option value="">Kategoria</option>
+      {options.map((option) => (
+        <option key={option.value} value={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </Select>
   );
 };
 
