@@ -1,20 +1,42 @@
+import { useState } from "react";
 import { ButtonM } from "../components/Buttons/Button.styled";
 import { Input } from "../components/Input/Input.component";
 import { SignInGoogle } from "../GoogleButton/SignInGoogle";
 import { SignInBottomConrainer, SignInContainer } from "../components/SignIn/SignIn.styled";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
+import { firebaseConfig } from "../utils/firebase/firebase.config";
 
 export const SignInPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
+
+  const handleSignUp = async () => {
+    try {
+      const app = firebase.initializeApp(firebaseConfig);
+      const auth = app.auth();
+      await auth.createUserWithEmailAndPassword(email, password);
+      setIsSignUpSuccess(true);
+    } catch (error) {
+      alert(`Hasło powinno zawierać min 6 znaków`);
+    }
+  };
+
   return (
     <>
       <SignInContainer>
         <div>Zaloguj</div>
-        <Input placeholder="email"></Input>
-        <Input placeholder="hasło"></Input>
+        <Input placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <Input placeholder="hasło" value={password} onChange={(e) => setPassword(e.target.value)} />
         <SignInBottomConrainer>
           <ButtonM>Zaloguj</ButtonM>
           <SignInGoogle />
           <div>Nie posiadasz konta?</div>
-          <ButtonM>Zarejestruj</ButtonM>
+          <ButtonM onClick={handleSignUp}>Zarejestruj</ButtonM>
+          {isSignUpSuccess && <div>Konto zostało utworzone pomyślnie</div>}
         </SignInBottomConrainer>
       </SignInContainer>
     </>
