@@ -19,7 +19,6 @@ export const FormGroupImg = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 100px;
   width: 600px;
 `;
 
@@ -43,6 +42,15 @@ export const Input = styled.input`
   font-size: 16px;
   margin-bottom: 10px;
   width: 200px;
+  height: 50px;
+`;
+
+export const InputFile = styled.input`
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  width: 300px;
   height: 50px;
 `;
 

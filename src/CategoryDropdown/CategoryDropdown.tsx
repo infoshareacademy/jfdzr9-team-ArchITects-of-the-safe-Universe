@@ -15,6 +15,7 @@ const options = [
   { value: "reportaz", label: "Reportaż" },
   { value: "thriller", label: "Thriller" },
   { value: "biografia", label: "Biografia" },
+  { value: "nauka", label: "Nauka" },
   { value: "pozostale", label: "Pozostałe" },
 ];
 

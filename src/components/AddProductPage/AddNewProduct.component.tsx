@@ -2,7 +2,7 @@ import { addDoc, collection, CollectionReference } from "firebase/firestore";
 import { useState } from "react";
 import { db, storage } from "../../utils/firebase/firebase.config";
 import { ButtonM, ButtonS } from "../Buttons/Button.styled";
-import { FormContainer, FormGroupNextTo, Input, TextArea } from "./AddNewProduct.styled";
+import { FormContainer, FormGroupImg, FormGroupNextTo, Input, InputFile, TextArea } from "./AddNewProduct.styled";
 import { useForm, Controller } from "react-hook-form";
 import { Title } from "../../UI/Title.styled";
 import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
@@ -20,12 +20,14 @@ type ProductProps = {
 };
 
 export const AddNewProduct = () => {
-  const [products, setProducts] = useState<(ProductProps & { id: string })[]>([]);
   const productsCollection = collection(db, "books") as CollectionReference<ProductProps>;
   const [success, setSuccess] = useState(false);
-  const { handleSubmit, control, setValue } = useForm<Partial<ProductProps>>();
-  const [description, setDescription] = useState("");
-  const [selectedOption, setSelectedOption] = useState(null);
+  const {
+    handleSubmit,
+    control,
+    setValue,
+    formState: { errors },
+  } = useForm<Partial<ProductProps>>();
   const [imageUrl, setImageUrl] = useState("");
   const imagesRef = ref(storage, "covers/");
   const [file, setFile] = useState<File | null>(null);
@@ -61,37 +63,70 @@ export const AddNewProduct = () => {
           <Controller
             name="name"
             control={control}
-            render={({ field }) => <Input placeholder="Tytuł" type={"text"} {...field} />}
+            rules={{ required: "Tytuł jest wymagany" }}
+            render={({ field }) => (
+              <>
+                {errors.name && <span>{errors.name.message}</span>}
+                <Input placeholder="Tytuł" type={"text"} {...field} />
+              </>
+            )}
           />
           <Controller
             name="author"
             control={control}
-            render={({ field }) => <Input placeholder="Autor" type={"text"} {...field} />}
+            rules={{ required: "Autor jest wymagany" }}
+            render={({ field }) => (
+              <>
+                {errors.author && <span>{errors.author.message}</span>}
+                <Input placeholder="Autor" type={"text"} {...field} />
+              </>
+            )}
           />
           <Controller
             name="kind"
             control={control}
+            rules={{ required: "Wybierz kategorię" }}
             render={({ field: { value, onChange } }) => (
-              <CategoryDropdown value={value} onChange={onChange} label={""} />
+              <>
+                {errors.kind && <span>{errors.kind.message}</span>}
+                <CategoryDropdown value={value} onChange={onChange} label={""} />
+              </>
             )}
           />
           <Controller
             name="location"
             control={control}
-            render={({ field }) => <Input placeholder="Lokalizacja" type={"text"} {...field} />}
+            rules={{ required: "Lokalizacja jest wymagana" }}
+            render={({ field }) => (
+              <>
+                {errors.location && <span>{errors.location.message}</span>}
+                <Input placeholder="Lokalizacja" type={"text"} {...field} />
+              </>
+            )}
           />
           <Controller
             name="description"
             control={control}
-            render={({ field }) => <TextArea placeholder="Opis" {...field} />}
+            rules={{ required: "Opis jest wymagany" }}
+            render={({ field }) => (
+              <>
+                {errors.description && <span>{errors.description.message}</span>}
+                <TextArea placeholder="Opis" {...field} />
+              </>
+            )}
           />
-          <div>
-            <input
+          <FormGroupImg>
+            <InputFile
               type="file"
               onChange={(e) => {
                 e.preventDefault();
                 if (!e.target.files) return;
-                setFile(e.target.files[0]);
+                const selectedFile = e.target.files[0];
+                if (!selectedFile.type.includes("image/")) {
+                  alert("Please select an image file (jpg, png, gif)");
+                  return;
+                }
+                setFile(selectedFile);
               }}
             />
             <ButtonS
@@ -102,11 +137,17 @@ export const AddNewProduct = () => {
             >
               Załaduj obrazek
             </ButtonS>
-          </div>
+          </FormGroupImg>
           <Controller
             name="cover"
             control={control}
-            render={({ field }) => <Input placeholder="Okładka" type={"hidden"} {...field} />}
+            rules={{ required: "Dodaj okładkę" }}
+            render={({ field }) => (
+              <>
+                {errors.cover && <span>{errors.cover.message}</span>}
+                <Input placeholder="Okładka" type={"hidden"} {...field} />
+              </>
+            )}
           />
           <FormGroupNextTo>
             <ButtonM type="submit">Dodaj</ButtonM>
