@@ -1,4 +1,4 @@
-import { addDoc, collection, CollectionReference } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { db, storage } from "../../utils/firebase/firebase.config";
 import { ButtonM, ButtonS } from "../Buttons/Button.styled";
@@ -20,7 +20,6 @@ type ProductProps = {
 };
 
 export const AddNewProduct = () => {
-  const productsCollection = collection(db, "books") as CollectionReference<ProductProps>;
   const [success, setSuccess] = useState(false);
   const {
     handleSubmit,
@@ -29,7 +28,6 @@ export const AddNewProduct = () => {
     formState: { errors },
   } = useForm<Partial<ProductProps>>();
   const [imageUrl, setImageUrl] = useState("");
-  const imagesRef = ref(storage, "covers/");
   const [file, setFile] = useState<File | null>(null);
 
   const onSubmit = handleSubmit((data) => {

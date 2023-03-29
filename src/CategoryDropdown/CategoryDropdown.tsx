@@ -1,7 +1,7 @@
 import { ChangeEvent } from "react";
 import { Select } from "../components/AddProductPage/AddNewProduct.styled";
 
-export interface Category {
+export interface CategoryProps {
   value?: string;
   label: string;
   options?: string;
@@ -19,7 +19,7 @@ const options = [
   { value: "pozostale", label: "Pozostałe" },
 ];
 
-export const CategoryDropdown = ({ value, onChange }: Category) => {
+export const CategoryDropdown = ({ value, onChange }: CategoryProps) => {
   return (
     <Select id="categories" value={value} onChange={onChange}>
       <option value="">Kategoria</option>
