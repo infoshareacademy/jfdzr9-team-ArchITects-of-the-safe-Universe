@@ -3,9 +3,9 @@ import { Select } from "../components/AddProductPage/AddNewProduct.styled";
 
 export interface CategoryProps {
   value?: string;
-  label: string;
+  label?: string;
   options?: string;
-  onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+  onChange?: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const options = [
