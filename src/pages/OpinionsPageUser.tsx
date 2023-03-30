@@ -1,4 +1,4 @@
-import OpinionUser from "../components/Opinion/Opinion.component";
+import OpinionUser from "../components/Opinion/OpinionUser.component";
 
 export const OpinionsUserPage = () => {
   return (
