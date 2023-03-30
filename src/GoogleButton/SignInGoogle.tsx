@@ -2,22 +2,23 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import { ButtonM } from "../components/Buttons/Button.styled";
 import { firebaseConfig } from "../utils/firebase/firebase.config";
+import { useNavigate } from "react-router";
 
 firebase.initializeApp(firebaseConfig);
 
 export const SignInGoogle = () => {
-  const handleSignInWithGoogle = async () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
+  const navigate = useNavigate();
+
+  const handleSignInGoogle = async () => {
     try {
-      const result = await firebase.auth().signInWithPopup(provider);
-      const { user } = result;
-      if (user) {
-        console.log("Zalogowano za pomocą Google");
-      }
+      const auth = firebase.auth();
+      const provider = new firebase.auth.GoogleAuthProvider();
+      await auth.signInWithPopup(provider);
+      navigate("/");
     } catch (error) {
-      console.error(error);
+      alert(`Nieprawidłowe dane logowania`);
     }
   };
 
-  return <ButtonM onClick={handleSignInWithGoogle}>Zaloguj przez Google</ButtonM>;
+  return <ButtonM onClick={handleSignInGoogle}>Zaloguj przez Google</ButtonM>;
 };

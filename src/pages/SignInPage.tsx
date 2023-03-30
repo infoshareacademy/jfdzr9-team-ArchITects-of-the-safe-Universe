@@ -8,12 +8,16 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import { firebaseConfig } from "../utils/firebase/firebase.config";
 import { ChangeEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import { InputPassword } from "../components/Input/Input.componentpassword";
 
 export const SignInPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
+
+  const navigate = useNavigate(); // przesunąć tutaj
 
   const handleSignUp = async () => {
     try {
@@ -26,6 +30,17 @@ export const SignInPage = () => {
     }
   };
 
+  const handleSignIn = async () => {
+    try {
+      const app = firebase.initializeApp(firebaseConfig);
+      const auth = app.auth();
+      await auth.signInWithEmailAndPassword(email, password);
+      navigate("/"); // użyć z przesuniętej funkcji useNavigate
+    } catch (error) {
+      alert(`Nieprawidłowe dane logowania`);
+    }
+  };
+
   return (
     <>
       <SignInContainer>
@@ -35,13 +50,13 @@ export const SignInPage = () => {
           value={email}
           onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
         />
-        <Input
+        <InputPassword
           placeholder="hasło"
           value={password}
           onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
         />
         <SignInBottomConrainer>
-          <ButtonM>Zaloguj</ButtonM>
+          <ButtonM onClick={handleSignIn}>Zaloguj</ButtonM>
           <SignInGoogle />
           <div>Nie posiadasz konta?</div>
           <ButtonM onClick={handleSignUp}>Zarejestruj</ButtonM>
