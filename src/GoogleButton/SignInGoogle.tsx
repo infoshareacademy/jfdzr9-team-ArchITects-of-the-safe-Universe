@@ -14,7 +14,7 @@ export const SignInGoogle = () => {
       const auth = firebase.auth();
       const provider = new firebase.auth.GoogleAuthProvider();
       await auth.signInWithPopup(provider);
-      navigate("/");
+      navigate("/userPanelBorrow");
     } catch (error) {
       alert(`Nieprawidłowe dane logowania`);
     }
