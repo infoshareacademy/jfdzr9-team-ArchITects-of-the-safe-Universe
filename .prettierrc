@@ -5,11 +5,5 @@
   "singleQuote": false,
   "printWidth": 120,
   "bracketSpacing": true,
-  "prettier/prettier": [
-    "error",
-    {
-      "endOfLine": "CRLF"
-    }
-  ]
-
+  "endOfLine": "crlf"
 }
