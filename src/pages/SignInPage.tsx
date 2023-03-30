@@ -7,6 +7,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import { firebaseConfig } from "../utils/firebase/firebase.config";
+import { ChangeEvent } from "react";
 
 export const SignInPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -29,8 +30,16 @@ export const SignInPage = () => {
     <>
       <SignInContainer>
         <div>Zaloguj</div>
-        <Input placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <Input placeholder="hasło" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <Input
+          placeholder="email"
+          value={email}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+        />
+        <Input
+          placeholder="hasło"
+          value={password}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+        />
         <SignInBottomConrainer>
           <ButtonM>Zaloguj</ButtonM>
           <SignInGoogle />
