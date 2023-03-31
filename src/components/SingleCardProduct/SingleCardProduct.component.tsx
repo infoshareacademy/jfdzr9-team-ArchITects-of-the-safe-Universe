@@ -2,7 +2,7 @@ import { collection, CollectionReference, getDocs, QuerySnapshot } from "firebas
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebase/firebase.config";
 import { ProductProps } from "../AddProductPage/AddNewProduct.component";
-import { Container, ProductContainer } from "../Products/Product.styled";
+import { Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
 
 export const SingleCardProduct = () => {
   const [products, setProducts] = useState<(ProductProps & { id: string })[]>([]);
@@ -16,7 +16,7 @@ export const SingleCardProduct = () => {
           ...doc.data(),
         };
       });
-      setProducts(products);
+      setProducts(products.slice(0, 6));
     });
   };
   useEffect(() => {
@@ -27,9 +27,11 @@ export const SingleCardProduct = () => {
     <ProductContainer>
       {products.map(({ id, name, author, img }) => (
         <Container key={id}>
-          <div>{img}</div>
-          <h3>{name}</h3>
-          <p>{author}</p>
+          <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
+          <ContainerText>
+            <h3>{name}</h3>
+            <h5>{author}</h5>
+          </ContainerText>
         </Container>
       ))}
     </ProductContainer>
