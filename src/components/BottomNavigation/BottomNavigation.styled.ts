@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const BottomNavigationSection = styled.section`
   box-sizing: content-box;
-  width: min(70rem, 100%);
+  width: min(40rem, 100%);
   display: flex;
   justify-content: space-between;
   padding: 3rem 0;

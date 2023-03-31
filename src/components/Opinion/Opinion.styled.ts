@@ -1,13 +1,12 @@
 import styled from "styled-components";
 
 export const OpinionSection = styled.section`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  box-sizing: content-box;
-  width: min(80rem, 100%);
+  /* display: grid; */
   display: flex;
-  justify-content: space-between;
-  padding: 4rem 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  padding: 8rem 0;
+  width: 80%;
   margin: auto;
 
   @media (max-width: 48.12em) {
@@ -22,7 +21,6 @@ export const OpinionSection = styled.section`
 `;
 export const ButtonOpinion = styled.section`
   box-sizing: content-box;
-  width: (100%);
   display: flex;
   justify-content: center;
   padding: 3rem 0;
