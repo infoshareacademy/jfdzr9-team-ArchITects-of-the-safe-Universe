@@ -8,7 +8,7 @@ import { Title } from "../../UI/Title.styled";
 import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-type ProductProps = {
+export type ProductProps = {
   author: string;
   description: string;
   img: string;

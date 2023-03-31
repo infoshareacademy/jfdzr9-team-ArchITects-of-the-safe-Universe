@@ -25,7 +25,7 @@ export const Arrow = styled.button`
   }
 `;
 
-export const ProductContainer = styled.button`
+export const ProductContainer = styled.div`
   position: static;
   display: flex;
   justify-content: space-evenly;
