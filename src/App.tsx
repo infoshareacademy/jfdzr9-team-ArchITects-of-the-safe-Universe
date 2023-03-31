@@ -12,13 +12,16 @@ import { OpinionsPage } from "./pages/OpinionsPage";
 import { OpinionsUserPage } from "./pages/OpinionsPageUser";
 import { AddProductPage } from "./pages/AddProductPage";
 import { AddOpinionPage } from "./pages/AddOpinionPage";
+import { AuthProvider } from "./Context/AuthContext";
 // import HeaderUser from "./components/Header/HeaderUser";
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Header />
+      <AuthProvider>
+        <Header />
+      </AuthProvider>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/howDoesItWork/borrow" element={<HowDoesItWorkBorrowPage />} />

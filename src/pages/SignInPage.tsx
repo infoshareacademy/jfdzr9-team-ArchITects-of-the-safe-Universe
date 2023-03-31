@@ -17,7 +17,7 @@ export const SignInPage = () => {
 
   const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
 
-  const navigate = useNavigate(); // przesunąć tutaj
+  const navigate = useNavigate();
 
   const handleSignUp = async () => {
     try {
@@ -35,7 +35,7 @@ export const SignInPage = () => {
       const app = firebase.initializeApp(firebaseConfig);
       const auth = app.auth();
       await auth.signInWithEmailAndPassword(email, password);
-      navigate("/userPanelBorrow"); // użyć z przesuniętej funkcji useNavigate
+      navigate("/userPanelBorrow");
     } catch (error) {
       alert(`Nieprawidłowe dane logowania`);
     }

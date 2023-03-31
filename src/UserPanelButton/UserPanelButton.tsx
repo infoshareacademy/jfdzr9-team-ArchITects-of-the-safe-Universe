@@ -1,7 +1,10 @@
 import { ButtonS } from "../components/Buttons/Button.styled";
-
-// kolory buttonów będą podmienione po podłączeniu styli globalnych
+import { Link } from "react-router-dom";
 
 export const UserPanelButton = () => {
-  return <ButtonS>Panel użytkownika</ButtonS>;
+  return (
+    <Link to="/userPanelBorrow">
+      <ButtonS>Panel użytkownika</ButtonS>
+    </Link>
+  );
 };
