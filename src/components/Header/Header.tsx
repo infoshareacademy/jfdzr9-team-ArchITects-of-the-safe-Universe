@@ -12,8 +12,12 @@ import {
   CompanyHeaderSign,
 } from "../Header/Header.styled";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
+import { UserPanelButton } from "../../UserPanelButton/UserPanelButton";
+import React, { useContext } from "react";
 
 export function Header() {
+  const { currentUser } = useContext(AuthContext);
   return (
     <CompanyHeaderSection>
       <Link to="/">
@@ -30,7 +34,8 @@ export function Header() {
         </CompanyHeaderRight>
       </CompanyHeaderSearch>
       <CompanyHeaderSign>
-        <Link to="account">
+        {currentUser && <UserPanelButton />}
+        <Link to="/account">
           <SignInButton />
         </Link>
       </CompanyHeaderSign>
