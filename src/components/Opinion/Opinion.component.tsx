@@ -1,18 +1,10 @@
 import { SingleCardOpinion } from "../SingleCardOpinion/SingleCardOpinion.component";
 import { OpinionSection } from "./Opinion.styled";
 
-interface Opinion {
-  name: string;
-  describe: string;
-}
-
-const Opinion = ({ name, describe }: Opinion) => {
+const Opinion = () => {
   return (
     <OpinionSection>
-      <SingleCardOpinion name={"name"} describe={"describe"} />
-      <SingleCardOpinion name={"name"} describe={"describe"} />
-      <SingleCardOpinion name={"name"} describe={"describe"} />
-      <SingleCardOpinion name={"name"} describe={"describe"} />
+      <SingleCardOpinion />
     </OpinionSection>
   );
 };

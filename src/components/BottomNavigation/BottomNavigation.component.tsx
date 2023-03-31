@@ -15,9 +15,9 @@ const BottomNavigation = ({ howWork, map, opinion }: BottomNavigation) => {
         <Link to="/howDoesItWork/borrow">
           <ButtonM>Jak to działa?</ButtonM>
         </Link>
-        <Link to="">
+        {/* <Link to="">
           <ButtonM>Mapa</ButtonM>
-        </Link>
+        </Link> */}
         {/* <Link to="opinions"> */}
         <Link to="opinionsUser">
           <ButtonM>Opinie</ButtonM>

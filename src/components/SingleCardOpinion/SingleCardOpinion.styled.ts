@@ -1,33 +1,35 @@
 import styled from "styled-components";
 
-export const SingleCardOpinionSection = styled.article`
-  padding: 1rem 3.2rem 3.2rem;
+export const SingleCardOpinionSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
   position: relative;
-  opacity: 1;
-  ::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100% - 3.5rem);
-    background-color: var(--color-very-light-grey);
-    border-radius: 10px;
-    transition: 0.2s linear;
-  }
-  > * {
-    position: relative;
-  }
+  width: 100%;
+  /* width: 300px; */
+  background-color: var(--color-light-grey);
+  margin-top: 20px;
+  border-radius: 10px;
 `;
+
 export const SingleCardName = styled.div`
   font-weight: bold;
-  display: flex;
-  align-items: baseline;
   gap: 1.2rem;
+  margin: 10px;
+  font-size: 20px;
 `;
 
 export const SingleCardDescribe = styled.div`
   display: flex;
-  align-items: baseline;
   gap: 1.2rem;
+  font-size: 15px;
+  text-align: justify;
+  margin: 10px;
+`;
+
+export const SingleCardRating = styled.div`
+  display: flex;
+  gap: 1.2rem;
+  font-size: 15px;
+  margin: 10px;
 `;

@@ -3,19 +3,11 @@ import { ButtonM } from "../Buttons/Button.styled";
 import { SingleCardOpinion } from "../SingleCardOpinion/SingleCardOpinion.component";
 import { ButtonOpinion, OpinionSection } from "./Opinion.styled";
 
-interface OpinionUser {
-  name: string;
-  describe: string;
-}
-
-const OpinionUser = ({ name, describe }: OpinionUser) => {
+const OpinionUser = () => {
   return (
     <>
       <OpinionSection>
-        <SingleCardOpinion name={"name"} describe={"describe"} />
-        <SingleCardOpinion name={"name"} describe={"describe"} />
-        <SingleCardOpinion name={"name"} describe={"describe"} />
-        <SingleCardOpinion name={"name"} describe={"describe"} />
+        <SingleCardOpinion />
       </OpinionSection>
       <ButtonOpinion>
         <Link to="/addOpinion">
