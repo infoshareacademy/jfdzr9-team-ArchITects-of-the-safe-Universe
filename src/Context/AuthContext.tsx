@@ -10,7 +10,7 @@ export const AuthContext = createContext<AuthContextType>({
   currentUser: null,
 });
 
-export const AuthProvider = ({ children }: PropsWithChildren<void>) => {
+export const AuthProvider = ({ children }: PropsWithChildren<unknown>) => {
   const [currentUser, setCurrentUser] = useState<firebase.User | null>(null);
 
   useEffect(() => {
