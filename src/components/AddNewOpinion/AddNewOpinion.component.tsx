@@ -35,7 +35,7 @@ export const AddNewOpinion = () => {
   return (
     <>
       {success ? (
-        <Title>You just added new opinion</Title>
+        <Title>Twoja opinia została dodana!</Title>
       ) : (
         <FormContainer onSubmit={onSubmit}>
           <Controller
