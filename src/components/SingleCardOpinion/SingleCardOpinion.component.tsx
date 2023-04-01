@@ -2,18 +2,12 @@ import { CollectionReference, collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebase/firebase.config";
 import {
+  OpinionContainer,
   SingleCardDescribe,
   SingleCardName,
   SingleCardOpinionSection,
   SingleCardRating,
 } from "./SingleCardOpinion.styled";
-
-export interface SingleCardOpinion {
-  // id: string;
-  name: string;
-  describe: string;
-  rating: number;
-}
 
 type OpinionOne = {
   name: string;
@@ -54,26 +48,22 @@ export const SingleCardOpinion = () => {
   const filterOutEmptyNames = ({ name }: { name: string }) => Boolean(name);
 
   return (
-    <div>
+    <OpinionContainer>
       {opinions.filter(filterOutEmptyNames).map(({ id, name, describe, rating }) => (
-        <div key={id}>
-          <SingleCardOpinionSection>
-            <SingleCardName>
-              <p>{name}</p>
-            </SingleCardName>
-            <SingleCardDescribe>
-              <p>{describe}</p>
-            </SingleCardDescribe>
-            <SingleCardRating>
-              <p>
-                <b>Ocena: {rating}</b>
-              </p>
-            </SingleCardRating>
-          </SingleCardOpinionSection>
-        </div>
+        <SingleCardOpinionSection key={id}>
+          <SingleCardName>
+            <p>{name}</p>
+          </SingleCardName>
+          <SingleCardDescribe>
+            <p>{describe}</p>
+          </SingleCardDescribe>
+          <SingleCardRating>
+            <p>
+              <b>Ocena: {rating}</b>
+            </p>
+          </SingleCardRating>
+        </SingleCardOpinionSection>
       ))}
-    </div>
+    </OpinionContainer>
   );
 };
-
-export default SingleCardOpinion;
