@@ -56,7 +56,7 @@ export const SingleCardRating = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  font-size: 15px;
+  font-size: 20px;
   text-align: center;
   margin: 10px;
 `;

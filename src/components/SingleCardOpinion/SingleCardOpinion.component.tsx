@@ -61,7 +61,7 @@ export const SingleCardOpinion = () => {
           </SingleCardDescribe>
           <SingleCardRating>
             <p>
-              <b>Ocena: {ratingStars}</b>
+              <b>{ratingStars}</b>
             </p>
           </SingleCardRating>
         </SingleCardOpinionSection>
