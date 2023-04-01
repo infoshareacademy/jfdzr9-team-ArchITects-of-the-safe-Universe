@@ -9,8 +9,8 @@ import { UserOptionsContainer } from "./SignInButton.styled";
 
 export const SignInButton = () => {
   const { currentUser } = useContext(AuthContext);
-  const [showUserOptions, setShowUserOptions] = useState(false);
-  const timeoutRef = useRef(null);
+  const [showUserOptions, setShowUserOptions] = useState<boolean>(false);
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const handleToggleUserOptions = () => {
     setShowUserOptions(!showUserOptions);
