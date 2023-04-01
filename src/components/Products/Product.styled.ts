@@ -25,9 +25,10 @@ export const Arrow = styled.button`
   }
 `;
 
-export const ProductContainer = styled.button`
+export const ProductContainer = styled.div`
   position: static;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-content: space-around;
   align-items: center;
@@ -37,6 +38,7 @@ export const ProductContainer = styled.button`
   background-color: var(--color-very-light-grey);
   transition: 0.2s linear;
   border: none;
+  gap: 10px;
 `;
 
 export const Container = styled.button`
@@ -47,7 +49,7 @@ export const Container = styled.button`
   align-content: space-around;
   flex-wrap: wrap;
   font-size: 1rem;
-  width: 15vw;
+  width: 200px;
   height: 45vh;
   border-radius: 10px;
   padding: 0.5rem;
@@ -57,16 +59,21 @@ export const Container = styled.button`
   border: none;
 `;
 
-export const ContainerPhoto = styled.label`
-  font-size: 1rem;
+export const ContainerPhoto = styled.div`
+  display: flex;
   background-color: var(--color-orange);
-  width: 15vw;
-  height: 25vh;
+  width: 180px;
+  height: 250px;
   border-radius: 10px;
-  padding: 0.5rem;
   margin: 0.1rem;
   text-transform: capitalize;
   transition: 0.2s linear;
+
+  img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const ContainerText = styled.label`
@@ -74,10 +81,10 @@ export const ContainerText = styled.label`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  align-content: flex-start;
+  align-items: center;
+  justify-content: space-between;
   font-size: 1rem;
-  width: 15vw;
+  width: 180px;
   height: 15vh;
   border-radius: 10px;
   padding: 0.5rem;
