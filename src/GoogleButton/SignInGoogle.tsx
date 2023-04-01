@@ -1,8 +1,10 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-import { ButtonM } from "../components/Buttons/Button.styled";
+import { ButtonM, GoogleIcon } from "./SignInGoogle.styled";
 import { firebaseConfig } from "../utils/firebase/firebase.config";
 import { useNavigate } from "react-router";
+
+import googleLogo from "../assets/googleLogo.svg";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -20,5 +22,10 @@ export const SignInGoogle = () => {
     }
   };
 
-  return <ButtonM onClick={handleSignInGoogle}>Zaloguj przez Google</ButtonM>;
+  return (
+    <ButtonM onClick={handleSignInGoogle}>
+      <GoogleIcon src={googleLogo} alt="Google Logo" />
+      Zaloguj przez Google
+    </ButtonM>
+  );
 };
