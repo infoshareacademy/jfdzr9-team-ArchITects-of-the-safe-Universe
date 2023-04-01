@@ -1,13 +1,6 @@
-import React, { useContext, useEffect } from "react";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import "firebase/compat/firestore";
-import { firebaseConfig } from "../../utils/firebase/firebase.config";
-import { AuthContext } from "../../Context/AuthContext";
-import { SignInButton } from "../../SignInButton/SignInButton";
-import { Link } from "react-router-dom";
 import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
 import CompanyLogo from "../../CompanyLogo/CompanyLogo";
+import { SignInButton } from "../../SignInButton/SignInButton";
 import SearchIcon from "../../assets/magnifying-glass-solid.svg";
 import { Input } from "../Input/Input.component";
 import {
@@ -17,43 +10,14 @@ import {
   CompanyHeaderSearch,
   CompanyHeaderSection,
   CompanyHeaderSign,
-} from "./Header.styled";
+} from "../Header/Header.styled";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
+import { UserPanelButton } from "../../UserPanelButton/UserPanelButton";
+import React, { useContext } from "react";
 
-function Header() {
+export function Header() {
   const { currentUser } = useContext(AuthContext);
-
-  useEffect(() => {
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = app.auth();
-    let unsubscribe: firebase.Unsubscribe;
-
-    const handleUserStateChange = (user: firebase.User | null) => {
-      if (user) {
-        unsubscribe = auth.onAuthStateChanged((user: firebase.User | null) => {
-          if (!user) {
-            console.log("User logged out");
-          }
-        });
-      } else {
-        console.log("User logged out");
-      }
-    };
-
-    const unregisterAuthObserver = auth.onAuthStateChanged(handleUserStateChange);
-
-    window.addEventListener("unload", () => {
-      if (unsubscribe) {
-        unsubscribe();
-      }
-
-      auth.signOut().then(() => {
-        console.log("User logged out");
-      });
-    });
-
-    return () => unregisterAuthObserver();
-  }, []);
-
   return (
     <CompanyHeaderSection>
       <Link to="/">
@@ -70,13 +34,10 @@ function Header() {
         </CompanyHeaderRight>
       </CompanyHeaderSearch>
       <CompanyHeaderSign>
-        {currentUser ? (
+        {currentUser && <UserPanelButton />}
+        <Link to="/account">
           <SignInButton />
-        ) : (
-          <Link to="/account">
-            <SignInButton />
-          </Link>
-        )}
+        </Link>
       </CompanyHeaderSign>
     </CompanyHeaderSection>
   );

@@ -15,8 +15,6 @@ export type ProductProps = {
   kind: string;
   location: string;
   name: string;
-  covers: string;
-  cover: string;
 };
 
 export const AddNewProduct = () => {
@@ -27,6 +25,7 @@ export const AddNewProduct = () => {
     setValue,
     formState: { errors },
   } = useForm<Partial<ProductProps>>();
+  // eslint-disable-next-line no-unused-vars
   const [imageUrl, setImageUrl] = useState("");
   const [file, setFile] = useState<File | null>(null);
 
@@ -38,11 +37,11 @@ export const AddNewProduct = () => {
 
   const uploadImage = () => {
     if (!file) return;
-    const imageRef = ref(storage, `covers/${file.name}`);
+    const imageRef = ref(storage, `img/${file.name}`);
     uploadBytes(imageRef, file).then((snapShot) => {
       getDownloadURL(snapShot.ref).then((url) => {
         setImageUrl(url);
-        setValue("cover", url);
+        setValue("img", url);
       });
     });
   };
@@ -137,12 +136,12 @@ export const AddNewProduct = () => {
             </ButtonS>
           </FormGroupImg>
           <Controller
-            name="cover"
+            name="img"
             control={control}
             rules={{ required: "Dodaj okładkę" }}
             render={({ field }) => (
               <>
-                {errors.cover && <span>{errors.cover.message}</span>}
+                {errors.img && <span>{errors.img.message}</span>}
                 <Input placeholder="Okładka" type={"hidden"} {...field} />
               </>
             )}

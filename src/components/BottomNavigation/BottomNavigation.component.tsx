@@ -8,7 +8,7 @@ interface BottomNavigation {
   opinion: string;
 }
 
-const BottomNavigation = ({ howWork, map, opinion }: BottomNavigation) => {
+const BottomNavigation = () => {
   return (
     <div>
       <BottomNavigationSection>
@@ -18,7 +18,6 @@ const BottomNavigation = ({ howWork, map, opinion }: BottomNavigation) => {
         {/* <Link to="">
           <ButtonM>Mapa</ButtonM>
         </Link> */}
-        {/* <Link to="opinions"> */}
         <Link to="opinionsUser">
           <ButtonM>Opinie</ButtonM>
         </Link>
