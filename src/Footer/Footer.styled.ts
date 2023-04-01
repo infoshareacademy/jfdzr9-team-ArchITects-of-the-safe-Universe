@@ -12,5 +12,5 @@ export const Footer = styled.footer`
   font-size: 1rem;
   padding: 1.5rem;
   color: var(--color-dark-grey);
-  margin: 5rem 0rem;
+  margin-top: auto;
 `;
