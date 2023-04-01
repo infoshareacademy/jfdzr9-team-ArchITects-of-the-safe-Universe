@@ -13,23 +13,25 @@ type OpinionOne = {
   name: string;
   describe: string;
   rating: number;
+  ratingStars: string;
 };
 
 export const SingleCardOpinion = () => {
   const [opinions, setOpinions] = useState<(OpinionOne & { id: string })[]>([]);
-  function getStarsFromRating(rating: number): string {
-    const fullStar = "★";
-    const emptyStar = "☆";
-    const maxStars = 5;
-    const roundedRating = Math.round(rating * 2) / 2;
-    const fullStars = Math.floor(roundedRating);
-    const emptyStars = maxStars - fullStars;
-    return fullStar.repeat(fullStars) + emptyStar.repeat(emptyStars);
-  }
+
   const getOpinions = () => {
     const opinionsCollection = collection(db, "opinions") as CollectionReference<OpinionOne>;
     getDocs<OpinionOne>(opinionsCollection).then((querySnapshot) => {
       const opinions = querySnapshot.docs.map((doc) => {
+        function getStarsFromRating(rating: number): string {
+          const fullStar = "★";
+          const emptyStar = "☆";
+          const maxStars = 5;
+          const roundedRating = Math.round(rating * 2) / 2;
+          const fullStars = Math.floor(roundedRating);
+          const emptyStars = maxStars - fullStars;
+          return fullStar.repeat(fullStars) + emptyStar.repeat(emptyStars);
+        }
         const data = doc.data() as OpinionOne;
         return {
           id: doc.id,
@@ -49,7 +51,7 @@ export const SingleCardOpinion = () => {
 
   return (
     <OpinionContainer>
-      {opinions.filter(filterOutEmptyNames).map(({ id, name, describe, rating }) => (
+      {opinions.filter(filterOutEmptyNames).map(({ id, name, describe, ratingStars }) => (
         <SingleCardOpinionSection key={id}>
           <SingleCardName>
             <p>{name}</p>
@@ -59,7 +61,7 @@ export const SingleCardOpinion = () => {
           </SingleCardDescribe>
           <SingleCardRating>
             <p>
-              <b>Ocena: {rating}</b>
+              <b>Ocena: {ratingStars}</b>
             </p>
           </SingleCardRating>
         </SingleCardOpinionSection>
