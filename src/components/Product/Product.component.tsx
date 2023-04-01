@@ -24,7 +24,6 @@ export const Products = () => {
 
       setProducts(products);
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.error("Error fetching products: ", error);
     }
   };
