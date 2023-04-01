@@ -16,7 +16,7 @@ export const UserPanelPageLend = () => {
         </Link>
       </ButtonContainer>
       <Products />
-      <BottomNavigation howWork={""} map={""} opinion={""} />
+      <BottomNavigation />
     </>
   );
 };

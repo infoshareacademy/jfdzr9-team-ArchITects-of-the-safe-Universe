@@ -16,7 +16,7 @@ export const UserPanelPageBorrow = () => {
         </Link>
       </ButtonContainer>
       <Products />
-      <BottomNavigation howWork={""} map={""} opinion={""} />
+      <BottomNavigation />
     </>
   );
 };
