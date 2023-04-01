@@ -6,7 +6,7 @@ export const MainPage = () => {
   return (
     <>
       <Products />
-      <BottomNavigation howWork={""} map={""} opinion={""} />
+      <BottomNavigation />
     </>
   );
 };
