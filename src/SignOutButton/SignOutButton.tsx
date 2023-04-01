@@ -1,7 +1,21 @@
 import { ButtonS } from "../components/Buttons/Button.styled";
+import firebase from "firebase/compat/app";
+import { useNavigate } from "react-router-dom";
 
-// kolory buttonów będą podmienione po podłączeniu styli globalnych
+type SignOutButtonProps = {
+  children?: React.ReactNode;
+};
 
-export const SignOutButton = () => {
-  return <ButtonS>Wyloguj</ButtonS>;
+const handleSignOut = async (navigate: any) => {
+  try {
+    await firebase.auth().signOut();
+    navigate("/");
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const SignOutButton = ({ children }: SignOutButtonProps) => {
+  const navigate = useNavigate();
+  return <ButtonS onClick={() => handleSignOut(navigate)}>{children}</ButtonS>;
 };
