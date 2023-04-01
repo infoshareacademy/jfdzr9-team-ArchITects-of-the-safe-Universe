@@ -1,32 +1,50 @@
-import { useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import { ButtonS } from "../components/Buttons/Button.styled";
-import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
-import { useNavigate } from "react-router-dom";
+import User from "../assets/User.png";
+import Usernotlog from "../assets/Usernotlog.png";
+import { UserPanelButton } from "../UserPanelButton/UserPanelButton";
+import { SignOutButton } from "../SignOutButton/SignOutButton";
+import { UserOptionsContainer } from "./SignInButton.styled";
 
 export const SignInButton = () => {
   const { currentUser } = useContext(AuthContext);
-  const navigate = useNavigate();
+  const [showUserOptions, setShowUserOptions] = useState(false);
+  const timeoutRef = useRef(null);
 
-  const handleSignOut = async () => {
-    try {
-      await firebase.auth().signOut();
-      navigate("/");
-    } catch (error) {
-      console.error(error);
-    }
+  const handleToggleUserOptions = () => {
+    setShowUserOptions(!showUserOptions);
+  };
+
+  const handleMouseEnter = () => {
+    clearTimeout(timeoutRef.current);
+    setShowUserOptions(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setShowUserOptions(false);
+    }, 500);
   };
 
   return (
-    <>
-      {currentUser ? (
-        <>
-          <ButtonS onClick={handleSignOut}>Wyloguj</ButtonS>
-        </>
-      ) : (
-        <ButtonS>Zarejestruj</ButtonS>
+    <div style={{ position: "relative" }}>
+      <img
+        src={currentUser ? User : Usernotlog}
+        alt="User icon"
+        width="50px"
+        height="50px"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      />
+
+      {showUserOptions && currentUser && (
+        <UserOptionsContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <p>{currentUser.email}</p>
+          <SignOutButton>Wyloguj</SignOutButton>
+          <UserPanelButton />
+        </UserOptionsContainer>
       )}
-    </>
+    </div>
   );
 };
