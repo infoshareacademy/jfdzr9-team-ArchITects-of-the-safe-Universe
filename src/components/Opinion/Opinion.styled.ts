@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 export const OpinionSection = styled.section`
-  /* display: grid; */
   display: flex;
   grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
   padding: 8rem 0;
-  width: 80%;
+  width: 90%;
   margin: auto;
 
   @media (max-width: 48.12em) {
