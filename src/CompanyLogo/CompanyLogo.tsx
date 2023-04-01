@@ -1,5 +1,7 @@
 import React from "react";
+
 const imageUrl = new URL("../../src/assets/Logo_right.svg", import.meta.url).href;
+
 const CompanyLogo: React.FC = () => {
   return (
     <div>
@@ -7,4 +9,5 @@ const CompanyLogo: React.FC = () => {
     </div>
   );
 };
+
 export default CompanyLogo;
