@@ -1,6 +1,6 @@
 import GlobalStyle from "../theme/globalStyles";
 import { MainPage } from "./pages/MainPage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import { FooterLabel } from "./Footer/Footer.component";
 import { HowDoesItWorkBorrowPage } from "./pages/HowDoesItWorkBorrowPage";
@@ -13,6 +13,7 @@ import { OpinionsUserPage } from "./pages/OpinionsPageUser";
 import { AddProductPage } from "./pages/AddProductPage";
 import { AddOpinionPage } from "./pages/AddOpinionPage";
 import { AuthProvider } from "./Context/AuthContext";
+import NotFoundPage from "./pages/NotFoundPage";
 // import HeaderUser from "./components/Header/HeaderUser";
 
 function App() {
@@ -38,7 +39,8 @@ function App() {
           <Route path="/userPanelBorrow" element={<UserPanelPageBorrow />} />
           <Route path="/userPanelLend" element={<UserPanelPageLend />} />
           {/* <Route path="/addProduct" element={<UserPanelPageBorrow />} /> */}
-          {/* <Route path="*" element={<Navigate to="not-found" replace={true} />} /> */}
+          <Route path="not-found" element={<NotFoundPage />} />
+          <Route path="*" element={<Navigate to="not-found" replace={true} />} />
         </Routes>
         <FooterLabel />
       </div>
