@@ -22,24 +22,25 @@ function App() {
         <GlobalStyle />
         <AuthProvider>
           <Header />
+
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/howDoesItWork/borrow" element={<HowDoesItWorkBorrowPage />} />
+            <Route path="/howDoesItWork/lend" element={<HowDoesItWorkLendPage />} />
+            <Route path="account" element={<SignInPage />} />
+            {/* <Route path="account/register" element={<RegisterPage />} /> */}
+            {/* <Route path="productPage" element={<ProductPage />} /> */}
+            {/* <Route path="addProductPage" element={<AddProductPage />} /> */}
+            {/* <Route path="/opinions" element={<OpinionsPage />} /> */}
+            <Route path="/opinionsUser" element={<OpinionsUserPage />} />
+            <Route path="/addOpinion" element={<AddOpinionPage />} />
+            <Route path="addProduct" element={<AddProductPage />} />
+            <Route path="/userPanelBorrow" element={<UserPanelPageBorrow />} />
+            <Route path="/userPanelLend" element={<UserPanelPageLend />} />
+            {/* <Route path="/addProduct" element={<UserPanelPageBorrow />} /> */}
+            {/* <Route path="*" element={<Navigate to="not-found" replace={true} />} /> */}
+          </Routes>
         </AuthProvider>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/howDoesItWork/borrow" element={<HowDoesItWorkBorrowPage />} />
-          <Route path="/howDoesItWork/lend" element={<HowDoesItWorkLendPage />} />
-          <Route path="account" element={<SignInPage />} />
-          {/* <Route path="account/register" element={<RegisterPage />} /> */}
-          {/* <Route path="productPage" element={<ProductPage />} /> */}
-          {/* <Route path="addProductPage" element={<AddProductPage />} /> */}
-          {/* <Route path="/opinions" element={<OpinionsPage />} /> */}
-          <Route path="/opinionsUser" element={<OpinionsUserPage />} />
-          <Route path="/addOpinion" element={<AddOpinionPage />} />
-          <Route path="addProduct" element={<AddProductPage />} />
-          <Route path="/userPanelBorrow" element={<UserPanelPageBorrow />} />
-          <Route path="/userPanelLend" element={<UserPanelPageLend />} />
-          {/* <Route path="/addProduct" element={<UserPanelPageBorrow />} /> */}
-          {/* <Route path="*" element={<Navigate to="not-found" replace={true} />} /> */}
-        </Routes>
         <FooterLabel />
       </div>
     </>
