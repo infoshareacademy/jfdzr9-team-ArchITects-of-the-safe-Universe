@@ -29,7 +29,7 @@ export const AddNewProduct = () => {
     formState: { errors },
   } = useForm<Partial<ProductProps>>();
   const [imageUrl, setImageUrl] = useState("");
-  const [file, setFile] = useState<File | null>(null);
+  const [file, setFile] = useState<File | undefined>(undefined);
 
   const onSubmit = handleSubmit((data) => {
     addProduct(data).then(() => {

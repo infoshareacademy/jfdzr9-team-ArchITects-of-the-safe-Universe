@@ -7,7 +7,7 @@ import { Carousel } from "@trendyol-js/react-carousel";
 import { AuthContext } from "../../Context/AuthContext";
 
 const imageArrowLeft = new URL("../../assets/arrow-left.svg", import.meta.url).href;
-const imageArrowRight = new URL("../../assets/arrow-left.svg", import.meta.url).href;
+const imageArrowRight = new URL("../../assets/arrow-right.svg", import.meta.url).href;
 
 export const ProductsOwner = () => {
   const [products, setProducts] = useState<(ProductProps & { id: string })[]>([]);
@@ -17,9 +17,8 @@ export const ProductsOwner = () => {
   const getProducts = async () => {
     try {
       const productsCollection = collection(db, "books") as CollectionReference<ProductProps>;
-      const q = query(productsCollection, where("email", "==", currentUser.email));
+      const q = query(productsCollection, where("email", "==", currentUser?.email));
       const querySnapshot = await getDocs<ProductProps>(q);
-
       const products = querySnapshot.docs.map((doc) => {
         return {
           id: doc.id,
