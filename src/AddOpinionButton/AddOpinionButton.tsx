@@ -4,23 +4,23 @@ import { ButtonM, ButtonS } from "../components/Buttons/Button.styled";
 import "firebase/compat/auth";
 import { Link, useNavigate } from "react-router-dom";
 
-export const StartRentingButton = () => {
+export const AddOpinionButton = () => {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleStartRenting = () => {
-    navigate(currentUser ? "/" : "/account");
+    navigate(currentUser ? "/addOpinion" : "/account");
   };
 
   return (
     <>
       {currentUser ? (
-        <Link to="/">
-          <ButtonM onClick={handleStartRenting}>Zacznij wypożyczać</ButtonM>
+        <Link to="/addOpinion">
+          <ButtonM onClick={handleStartRenting}>Dodaj opinię</ButtonM>
         </Link>
       ) : (
         <Link to="/account">
-          <ButtonM>Zacznij wypożyczać</ButtonM>
+          <ButtonM>Dodaj opinię</ButtonM>
         </Link>
       )}
     </>
