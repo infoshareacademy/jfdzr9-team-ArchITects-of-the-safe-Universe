@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ButtonM } from "../components/Buttons/Button.styled";
 import { Input } from "../components/Input/Input.component";
 import { SignInGoogle } from "../GoogleButton/SignInGoogle";
@@ -14,8 +14,8 @@ import { InputPassword } from "../components/Input/Input.componentpassword";
 export const SignInPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-
   const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
+  const [isEnterPressed, setIsEnterPressed] = useState(false);
 
   const navigate = useNavigate();
 
@@ -41,6 +41,8 @@ export const SignInPage = () => {
     }
   };
 
+  const loginButtonRef = useRef<HTMLButtonElement>(null);
+
   return (
     <>
       <SignInContainer>
@@ -54,9 +56,17 @@ export const SignInPage = () => {
           placeholder="hasło"
           value={password}
           onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+          onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => {
+            if (e.key === "Enter") {
+              setIsEnterPressed(true);
+              handleSignIn();
+            }
+          }}
         />
         <SignInBottomConrainer>
-          <ButtonM onClick={handleSignIn}>Zaloguj</ButtonM>
+          <ButtonM onClick={handleSignIn} ref={loginButtonRef}>
+            Zaloguj
+          </ButtonM>
           <SignInGoogle />
           <div>Nie posiadasz konta?</div>
           <ButtonM onClick={handleSignUp}>Zarejestruj</ButtonM>
