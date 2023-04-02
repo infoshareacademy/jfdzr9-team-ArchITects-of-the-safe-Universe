@@ -1,13 +1,16 @@
 import React from "react";
+import { CompanyLogoStyle } from "./CompanyLogo.styles";
 
-const imageUrl = new URL("../../src/assets/Logo_right.svg", import.meta.url).href;
+const imageUrl = new URL("../assets/LogoBig.svg", import.meta.url).href;
 
 const CompanyLogo: React.FC = () => {
   return (
-    <div>
-      <img src={imageUrl} alt="" width={70} height={50} />
-    </div>
+    <CompanyLogoStyle>
+      <img src={imageUrl} alt="Logo" />
+    </CompanyLogoStyle>
   );
 };
 
 export default CompanyLogo;
+
+// width={70} height={50}
