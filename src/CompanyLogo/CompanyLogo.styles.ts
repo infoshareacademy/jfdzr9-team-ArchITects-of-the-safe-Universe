@@ -8,5 +8,4 @@ export const CompanyLogoStyle = styled.div`
   height: 140px;
   margin: 0px;
   padding: 0px;
-  margin-left: 20px;
 `;

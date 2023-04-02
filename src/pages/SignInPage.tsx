@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { ButtonM } from "../components/Buttons/Button.styled";
 import { Input } from "../components/Input/Input.component";
 import { SignInGoogle } from "../GoogleButton/SignInGoogle";
-import { SignInBottomConrainer, SignInContainer } from "../components/SignIn/SignIn.styled";
+import { ForgotPasswordLink, SignInBottomConrainer, SignInContainer } from "../components/SignIn/SignIn.styled";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
@@ -64,6 +64,9 @@ export const SignInPage = () => {
           }}
         />
         <SignInBottomConrainer>
+          <ForgotPasswordLink>
+            <p onClick={() => navigate("/forgotPassword")}>Zapomniałeś hasła?</p>
+          </ForgotPasswordLink>
           <ButtonM onClick={handleSignIn} ref={loginButtonRef}>
             Zaloguj
           </ButtonM>

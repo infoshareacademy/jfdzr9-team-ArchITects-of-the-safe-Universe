@@ -12,9 +12,9 @@ import { OpinionsUserPage } from "./pages/OpinionsPageUser";
 import { AddProductPage } from "./pages/AddProductPage";
 import { AddOpinionPage } from "./pages/AddOpinionPage";
 import { AuthProvider } from "./Context/AuthContext";
+import { ForgotPasswordPage } from "./pages/ForgotPasswordPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { OpinionsPage } from "./pages/OpinionsPage";
-// import HeaderUser from "./components/Header/HeaderUser";
 
 function App() {
   return (
@@ -37,6 +37,7 @@ function App() {
             <Route path="addProduct" element={<AddProductPage />} />
             <Route path="/userPanelBorrow" element={<UserPanelPageBorrow />} />
             <Route path="/userPanelLend" element={<UserPanelPageLend />} />
+            <Route path="/forgotPassword" element={<ForgotPasswordPage />} />
             {/* <Route path="/addProduct" element={<UserPanelPageBorrow />} /> */}
             <Route path="not-found" element={<NotFoundPage />} />
             <Route path="*" element={<Navigate to="not-found" replace={true} />} />

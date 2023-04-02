@@ -15,3 +15,10 @@ export const SignInBottomConrainer = styled.div`
   flex-direction: column;
   gap: 10px;
 `;
+
+export const ForgotPasswordLink = styled.p`
+  color: seagreen;
+  &:hover {
+    color: darkseagreen;
+  }
+`;
