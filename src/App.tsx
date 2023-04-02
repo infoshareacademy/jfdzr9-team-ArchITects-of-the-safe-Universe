@@ -37,7 +37,8 @@ function App() {
             <Route path="/userPanelBorrow" element={<UserPanelPageBorrow />} />
             <Route path="/userPanelLend" element={<UserPanelPageLend />} />
             {/* <Route path="/addProduct" element={<UserPanelPageBorrow />} /> */}
-            {/* <Route path="*" element={<Navigate to="not-found" replace={true} />} /> */}
+            <Route path="not-found" element={<NotFoundPage />} />
+            <Route path="*" element={<Navigate to="not-found" replace={true} />} />
           </Routes>
         </AuthProvider>
         <FooterLabel />
