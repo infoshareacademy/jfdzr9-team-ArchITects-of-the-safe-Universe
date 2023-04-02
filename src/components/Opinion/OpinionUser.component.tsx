@@ -10,7 +10,9 @@ const OpinionUser = () => {
       <OpinionSection>
         <SingleCardOpinion />
       </OpinionSection>
-      <AddOpinionButton />
+      <ButtonOpinion>
+        <AddOpinionButton />
+      </ButtonOpinion>
     </>
   );
 };

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import { ButtonS } from "../components/Buttons/Button.styled";
+import { ButtonM, ButtonS } from "../components/Buttons/Button.styled";
 import "firebase/compat/auth";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -16,11 +16,11 @@ export const AddOpinionButton = () => {
     <>
       {currentUser ? (
         <Link to="/addOpinion">
-          <ButtonS onClick={handleStartRenting}>Dodaj opinię</ButtonS>
+          <ButtonM onClick={handleStartRenting}>Dodaj opinię</ButtonM>
         </Link>
       ) : (
         <Link to="/account">
-          <ButtonS>Dodaj opinię</ButtonS>
+          <ButtonM>Dodaj opinię</ButtonM>
         </Link>
       )}
     </>
