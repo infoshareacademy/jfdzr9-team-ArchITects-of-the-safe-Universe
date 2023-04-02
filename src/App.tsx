@@ -8,7 +8,6 @@ import { HowDoesItWorkLendPage } from "./pages/HowDoesItWorkLendPage";
 import { SignInPage } from "./pages/SignInPage";
 import { UserPanelPageBorrow } from "./pages/UserPanelPageBorrow";
 import { UserPanelPageLend } from "./pages/UserPanelPageLend";
-import { OpinionsPage } from "./pages/OpinionsPage";
 import { OpinionsUserPage } from "./pages/OpinionsPageUser";
 import { AddProductPage } from "./pages/AddProductPage";
 import { AddOpinionPage } from "./pages/AddOpinionPage";

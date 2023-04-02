@@ -20,7 +20,7 @@ export const SingleCardOpinionSection = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between
+  justify-content: flex-start;
   align-items: normal;
   align-content: center;
   flex-wrap: nowrap;
@@ -34,7 +34,6 @@ export const SingleCardOpinionSection = styled.div`
   transition: 0.2s linear;
   border: none;
   background-color: var(--color-very-light-grey);
-  justify-content: space-between
 `;
 
 export const SingleCardName = styled.div`
@@ -60,5 +59,4 @@ export const SingleCardRating = styled.div`
   font-size: 20px;
   text-align: center;
   margin: 10px;
-  justify-content: end;
 `;

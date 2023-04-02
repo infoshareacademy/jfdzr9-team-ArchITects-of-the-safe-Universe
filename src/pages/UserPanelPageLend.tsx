@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import BottomNavigation from "../components/BottomNavigation/BottomNavigation.component";
 import { ButtonContainer, ButtonS, OrangeButton } from "../components/Buttons/Button.styled";
-import { Products } from "../components/Products/Product.component";
+import { Products } from "../components/Product/Product.component";
 
 export const UserPanelPageLend = () => {
   return (
@@ -16,7 +16,7 @@ export const UserPanelPageLend = () => {
         </Link>
       </ButtonContainer>
       <Products />
-      <BottomNavigation howWork={""} map={""} opinion={""} />
+      <BottomNavigation />
     </>
   );
 };
