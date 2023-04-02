@@ -13,6 +13,7 @@ import { AddProductPage } from "./pages/AddProductPage";
 import { AddOpinionPage } from "./pages/AddOpinionPage";
 import { AuthProvider } from "./Context/AuthContext";
 import NotFoundPage from "./pages/NotFoundPage";
+import { OpinionsPage } from "./pages/OpinionsPage";
 // import HeaderUser from "./components/Header/HeaderUser";
 
 function App() {
@@ -30,14 +31,15 @@ function App() {
             {/* <Route path="account/register" element={<RegisterPage />} /> */}
             {/* <Route path="productPage" element={<ProductPage />} /> */}
             {/* <Route path="addProductPage" element={<AddProductPage />} /> */}
-            {/* <Route path="/opinions" element={<OpinionsPage />} /> */}
+            <Route path="/opinions" element={<OpinionsPage />} />
             <Route path="/opinionsUser" element={<OpinionsUserPage />} />
             <Route path="/addOpinion" element={<AddOpinionPage />} />
             <Route path="addProduct" element={<AddProductPage />} />
             <Route path="/userPanelBorrow" element={<UserPanelPageBorrow />} />
             <Route path="/userPanelLend" element={<UserPanelPageLend />} />
             {/* <Route path="/addProduct" element={<UserPanelPageBorrow />} /> */}
-            {/* <Route path="*" element={<Navigate to="not-found" replace={true} />} /> */}
+            <Route path="not-found" element={<NotFoundPage />} />
+            <Route path="*" element={<Navigate to="not-found" replace={true} />} />
           </Routes>
         </AuthProvider>
         <FooterLabel />

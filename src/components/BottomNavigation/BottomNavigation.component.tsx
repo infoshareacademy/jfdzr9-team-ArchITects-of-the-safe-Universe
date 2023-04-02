@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ButtonM } from "../Buttons/Button.styled";
 import { BottomNavigationSection } from "./BottomNavigation.styled";
+import { OpinionButton } from "../../OpinionButton/OpinionButton";
 
 interface BottomNavigation {
   howWork: string;
@@ -15,12 +16,7 @@ const BottomNavigation = () => {
         <Link to="/howDoesItWork/borrow">
           <ButtonM>Jak to działa?</ButtonM>
         </Link>
-        {/* <Link to="">
-          <ButtonM>Mapa</ButtonM>
-        </Link> */}
-        <Link to="opinionsUser">
-          <ButtonM>Opinie</ButtonM>
-        </Link>
+        <OpinionButton />
       </BottomNavigationSection>
     </div>
   );
