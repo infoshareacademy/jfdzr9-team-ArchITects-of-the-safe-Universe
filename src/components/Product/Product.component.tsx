@@ -1,0 +1,71 @@
+import { collection, CollectionReference, getDocs } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { db } from "../../utils/firebase/firebase.config";
+import { ProductProps } from "../AddProductPage/AddNewProduct.component";
+import { Arrow, Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
+import { Carousel } from "@trendyol-js/react-carousel";
+
+export const Products = () => {
+  const [products, setProducts] = useState<(ProductProps & { id: string })[]>([]);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const getProducts = async () => {
+    try {
+      const productsCollection = collection(db, "books") as CollectionReference<ProductProps>;
+      const querySnapshot = await getDocs<ProductProps>(productsCollection);
+
+      const products = querySnapshot.docs.map((doc) => {
+        return {
+          id: doc.id,
+          ...doc.data(),
+        };
+      });
+
+      setProducts(products);
+    } catch (error) {
+      console.error("Error fetching products: ", error);
+    }
+  };
+
+  useEffect(() => {
+    setIsLoading(true);
+    getProducts().then(() => {
+      setIsLoading(false);
+    });
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <ProductContainer>
+      <Carousel
+        show={6}
+        slide={1}
+        leftArrow={
+          <Arrow>
+            <img src="src\assets\arrow-left.svg" alt="Left" />
+          </Arrow>
+        }
+        rightArrow={
+          <Arrow>
+            <img src="src\assets\arrow-right.svg" alt="Right" />
+          </Arrow>
+        }
+        swiping={true}
+      >
+        {products.map(({ id, name, author, img }) => (
+          <Container key={id}>
+            <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
+            <ContainerText>
+              <h3>{name}</h3>
+              <h5>{author}</h5>
+            </ContainerText>
+          </Container>
+        ))}
+      </Carousel>
+    </ProductContainer>
+  );
+};
