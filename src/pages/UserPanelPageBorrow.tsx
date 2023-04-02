@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import BottomNavigation from "../components/BottomNavigation/BottomNavigation.component";
 import { ButtonContainer, ButtonS, OrangeButton } from "../components/Buttons/Button.styled";
-import { Products } from "../components/Product/Product.component";
+import { ProductsOwner } from "../components/Product/ProductsOwner.component";
 
 export const UserPanelPageBorrow = () => {
   return (
@@ -15,7 +15,7 @@ export const UserPanelPageBorrow = () => {
           <ButtonS>Chcę dodać produkt</ButtonS>
         </Link>
       </ButtonContainer>
-      <Products />
+      <ProductsOwner />
       <BottomNavigation />
     </>
   );
