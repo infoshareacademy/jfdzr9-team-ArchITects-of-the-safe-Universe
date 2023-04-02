@@ -1,6 +1,6 @@
 import GlobalStyle from "../theme/globalStyles";
 import { MainPage } from "./pages/MainPage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header/Header";
 import { FooterLabel } from "./Footer/Footer.component";
 import { HowDoesItWorkBorrowPage } from "./pages/HowDoesItWorkBorrowPage";
@@ -12,6 +12,7 @@ import { OpinionsUserPage } from "./pages/OpinionsPageUser";
 import { AddProductPage } from "./pages/AddProductPage";
 import { AddOpinionPage } from "./pages/AddOpinionPage";
 import { AuthProvider } from "./Context/AuthContext";
+import NotFoundPage from "./pages/NotFoundPage";
 // import HeaderUser from "./components/Header/HeaderUser";
 
 function App() {
@@ -21,7 +22,6 @@ function App() {
         <GlobalStyle />
         <AuthProvider>
           <Header />
-
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/howDoesItWork/borrow" element={<HowDoesItWorkBorrowPage />} />
