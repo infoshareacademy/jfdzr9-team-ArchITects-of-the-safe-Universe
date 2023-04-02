@@ -4,7 +4,7 @@ export const CompanyHeaderSection = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
+  margin: 5px;
 `;
 export const CompanyHeaderLogo = styled.div`
   order: 1;

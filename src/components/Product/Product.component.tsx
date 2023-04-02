@@ -5,6 +5,9 @@ import { ProductProps } from "../AddProductPage/AddNewProduct.component";
 import { Arrow, Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
 import { Carousel } from "@trendyol-js/react-carousel";
 
+const imageArrowLeft = new URL("../../assets/arrow-left.svg", import.meta.url).href;
+const imageArrowRight = new URL("../../assets/arrow-left.svg", import.meta.url).href;
+
 export const Products = () => {
   const [products, setProducts] = useState<(ProductProps & { id: string })[]>([]);
 
@@ -46,12 +49,12 @@ export const Products = () => {
         slide={1}
         leftArrow={
           <Arrow>
-            <img src="src\assets\arrow-left.svg" alt="Left" />
+            <img src={imageArrowLeft} alt="Left" />
           </Arrow>
         }
         rightArrow={
           <Arrow>
-            <img src="src\assets\arrow-right.svg" alt="Right" />
+            <img src={imageArrowRight} alt="Right" />
           </Arrow>
         }
         swiping={true}
