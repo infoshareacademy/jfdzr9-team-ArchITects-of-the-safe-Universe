@@ -5,6 +5,8 @@ export const CompanyHeaderSection = styled.section`
   justify-content: space-between;
   align-items: center;
   margin: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
 `;
 export const CompanyHeaderLogo = styled.div`
   order: 1;
@@ -15,6 +17,7 @@ export const CompanyHeaderSearch = styled.div`
   justify-content: center;
   align-items: center;
   order: 2;
+  margin-right: 100px;
 `;
 
 export const CompanyHeaderUser = styled.div`
