@@ -25,7 +25,7 @@ export const ButtonOpinion = styled.section`
   display: flex;
   justify-content: center;
   padding: 3rem 0;
-  margin: auto;
+  margin: 0px;
 
   @media (max-width: 48.12em) {
     flex-direction: column;
