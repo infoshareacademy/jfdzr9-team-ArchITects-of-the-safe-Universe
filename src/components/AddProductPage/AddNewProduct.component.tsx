@@ -62,7 +62,7 @@ export const AddNewProduct = () => {
   return (
     <>
       {success ? (
-        <Title>You just added new product</Title>
+        <Title>Produkt został dodany</Title>
       ) : (
         <FormContainer onSubmit={onSubmit}>
           <Controller
@@ -120,19 +120,44 @@ export const AddNewProduct = () => {
               </>
             )}
           />
+
           <FormGroupImg>
             <InputFile
               type="file"
               onChange={(e) => {
-                const uploadedFile = e.target.files?.[0];
-                setFile(uploadedFile);
+                e.preventDefault();
+                if (!e.target.files) return;
+                const selectedFile = e.target.files?.[0];
+                if (!selectedFile.type.includes("image/")) {
+                  alert("Please select an image file (jpg, png, gif)");
+                  return;
+                }
+                setFile(selectedFile);
               }}
             />
-            <ButtonS type="button" onClick={uploadImage}>
-              Dodaj zdjęcie
+
+            <ButtonS
+              onClick={(e) => {
+                e.preventDefault();
+                uploadImage();
+              }}
+            >
+              Dodaj okładkę
             </ButtonS>
             {imageUrl && <img src={imageUrl} alt="uploaded" style={{ maxWidth: "200px", maxHeight: "200px" }} />}
           </FormGroupImg>
+
+          <Controller
+            name="img"
+            control={control}
+            rules={{ required: "Dodaj okładkę" }}
+            render={({ field }) => (
+              <>
+                {errors.img && <span>{errors.img.message}</span>}
+                <Input placeholder="Okładka" type={"hidden"} {...field} />
+              </>
+            )}
+          />
           <FormGroupNextTo>
             <ButtonM type="submit">Dodaj</ButtonM>
           </FormGroupNextTo>
