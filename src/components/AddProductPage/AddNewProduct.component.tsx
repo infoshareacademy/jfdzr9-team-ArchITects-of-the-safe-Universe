@@ -7,6 +7,8 @@ import { useForm, Controller } from "react-hook-form";
 import { Title } from "../../UI/Title.styled";
 import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 export type ProductProps = {
   author: string;
@@ -15,6 +17,7 @@ export type ProductProps = {
   kind: string;
   location: string;
   name: string;
+  email: string;
 };
 
 export const AddNewProduct = () => {
@@ -25,9 +28,8 @@ export const AddNewProduct = () => {
     setValue,
     formState: { errors },
   } = useForm<Partial<ProductProps>>();
-  // eslint-disable-next-line no-unused-vars
   const [imageUrl, setImageUrl] = useState("");
-  const [file, setFile] = useState<File | null>(null);
+  const [file, setFile] = useState<File | undefined>(undefined);
 
   const onSubmit = handleSubmit((data) => {
     addProduct(data).then(() => {
@@ -46,9 +48,15 @@ export const AddNewProduct = () => {
     });
   };
 
+  const { currentUser } = useContext(AuthContext);
+
   const addProduct = async (product: Partial<ProductProps>) => {
+    if (!currentUser) {
+      throw new Error("User not authenticated");
+    }
+    const productWithUserEmail = { ...product, email: currentUser.email };
     const productRef = collection(db, "books");
-    await addDoc(productRef, product);
+    await addDoc(productRef, productWithUserEmail);
   };
 
   return (
@@ -108,7 +116,7 @@ export const AddNewProduct = () => {
             render={({ field }) => (
               <>
                 {errors.description && <span>{errors.description.message}</span>}
-                <TextArea placeholder="Opis" {...field} />
+                <TextArea placeholder="Opis" rows={5} {...field} />
               </>
             )}
           />
@@ -116,36 +124,15 @@ export const AddNewProduct = () => {
             <InputFile
               type="file"
               onChange={(e) => {
-                e.preventDefault();
-                if (!e.target.files) return;
-                const selectedFile = e.target.files[0];
-                if (!selectedFile.type.includes("image/")) {
-                  alert("Please select an image file (jpg, png, gif)");
-                  return;
-                }
-                setFile(selectedFile);
+                const uploadedFile = e.target.files?.[0];
+                setFile(uploadedFile);
               }}
             />
-            <ButtonS
-              onClick={(e) => {
-                e.preventDefault();
-                uploadImage();
-              }}
-            >
-              Załaduj obrazek
+            <ButtonS type="button" onClick={uploadImage}>
+              Dodaj zdjęcie
             </ButtonS>
+            {imageUrl && <img src={imageUrl} alt="uploaded" style={{ maxWidth: "200px", maxHeight: "200px" }} />}
           </FormGroupImg>
-          <Controller
-            name="img"
-            control={control}
-            rules={{ required: "Dodaj okładkę" }}
-            render={({ field }) => (
-              <>
-                {errors.img && <span>{errors.img.message}</span>}
-                <Input placeholder="Okładka" type={"hidden"} {...field} />
-              </>
-            )}
-          />
           <FormGroupNextTo>
             <ButtonM type="submit">Dodaj</ButtonM>
           </FormGroupNextTo>
@@ -154,3 +141,5 @@ export const AddNewProduct = () => {
     </>
   );
 };
+
+export default AddNewProduct;
