@@ -10,6 +10,7 @@ const handleSignOut = async (navigate: any) => {
   try {
     await firebase.auth().signOut();
     navigate("/");
+    window.location.reload();
   } catch (error) {
     console.error(error);
   }

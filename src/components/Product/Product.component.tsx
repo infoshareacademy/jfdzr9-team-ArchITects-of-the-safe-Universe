@@ -1,5 +1,6 @@
-import { collection, CollectionReference, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { collection, CollectionReference, getDocs, where, query } from "firebase/firestore";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 import { db } from "../../utils/firebase/firebase.config";
 import { ProductProps } from "../AddProductPage/AddNewProduct.component";
 import { Arrow, Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
@@ -9,14 +10,19 @@ const imageArrowLeft = new URL("../../assets/arrow-left.svg", import.meta.url).h
 const imageArrowRight = new URL("../../assets/arrow-left.svg", import.meta.url).href;
 
 export const Products = () => {
-  const [products, setProducts] = useState<(ProductProps & { id: string })[]>([]);
+  const { currentUser } = useContext(AuthContext);
 
+  const [products, setProducts] = useState<(ProductProps & { id: string })[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const getProducts = async () => {
     try {
       const productsCollection = collection(db, "books") as CollectionReference<ProductProps>;
-      const querySnapshot = await getDocs<ProductProps>(productsCollection);
+      const productsQuery = currentUser
+        ? query(productsCollection, where("email", "!=", currentUser.email))
+        : productsCollection;
+
+      const querySnapshot = await getDocs<ProductProps>(productsQuery);
 
       const products = querySnapshot.docs.map((doc) => {
         return {
