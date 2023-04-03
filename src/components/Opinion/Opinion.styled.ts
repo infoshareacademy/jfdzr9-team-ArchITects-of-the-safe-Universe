@@ -5,8 +5,10 @@ export const OpinionSection = styled.section`
   grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
   padding: 8rem 0;
-  width: 90%;
-  margin: auto;
+  width: 100vw;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 0px;
 
   @media (max-width: 48.12em) {
     grid-template-columns: repeat(2, 1fr);
@@ -23,7 +25,7 @@ export const ButtonOpinion = styled.section`
   display: flex;
   justify-content: center;
   padding: 3rem 0;
-  margin: auto;
+  margin: 0px;
 
   @media (max-width: 48.12em) {
     flex-direction: column;
