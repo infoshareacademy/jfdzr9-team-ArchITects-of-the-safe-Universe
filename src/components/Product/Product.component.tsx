@@ -17,21 +17,29 @@ export const Products = () => {
 
   const getProducts = async () => {
     try {
-      const productsCollection = collection(db, "books") as CollectionReference<ProductProps>;
-      const productsQuery = currentUser
-        ? query(productsCollection, where("email", "!=", currentUser.email))
-        : productsCollection;
+      const booksCollection = collection(db, "books") as CollectionReference<ProductProps>;
+      const sportCollection = collection(db, "Sport") as CollectionReference<ProductProps>;
+      const toolsCollection = collection(db, "Tools") as CollectionReference<ProductProps>;
 
-      const querySnapshot = await getDocs<ProductProps>(productsQuery);
+      const booksQuery = currentUser
+        ? query(booksCollection, where("email", "!=", currentUser.email))
+        : booksCollection;
+      const sportQuery = currentUser
+        ? query(sportCollection, where("email", "!=", currentUser.email))
+        : sportCollection;
+      const toolsQuery = currentUser
+        ? query(toolsCollection, where("email", "!=", currentUser.email))
+        : toolsCollection;
+      const [booksSnapshot, sportSnapshot, toolsSnapshot] = await Promise.all([
+        getDocs<ProductProps>(booksQuery),
+        getDocs<ProductProps>(sportQuery),
+        getDocs<ProductProps>(toolsQuery),
+      ]);
 
-      const products = querySnapshot.docs.map((doc) => {
-        return {
-          id: doc.id,
-          ...doc.data(),
-        };
-      });
-
-      setProducts(products);
+      const books = booksSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const sport = sportSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const tools = toolsSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setProducts([...books, ...sport, ...tools]);
     } catch (error) {
       console.error("Error fetching products: ", error);
     }

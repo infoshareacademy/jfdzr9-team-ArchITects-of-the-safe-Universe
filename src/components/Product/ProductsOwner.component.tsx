@@ -13,41 +13,47 @@ export const ProductsOwner = () => {
   const [products, setProducts] = useState<(ProductProps & { id: string })[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const { currentUser } = useContext(AuthContext);
-
   const getProducts = async () => {
     try {
-      const productsCollection = collection(db, "books") as CollectionReference<ProductProps>;
-      const q = query(productsCollection, where("email", "==", currentUser?.email));
-      const querySnapshot = await getDocs<ProductProps>(q);
-      const products = querySnapshot.docs.map((doc) => {
-        return {
-          id: doc.id,
-          ...doc.data(),
-        };
-      });
+      const booksCollection = collection(db, "books") as CollectionReference<ProductProps>;
+      const sportCollection = collection(db, "Sport") as CollectionReference<ProductProps>;
+      const toolsCollection = collection(db, "Tools") as CollectionReference<ProductProps>;
+      const booksQuery = currentUser
+        ? query(booksCollection, where("email", "==", currentUser.email))
+        : booksCollection;
+      const sportQuery = currentUser
+        ? query(sportCollection, where("email", "==", currentUser.email))
+        : sportCollection;
+      const toolsQuery = currentUser
+        ? query(toolsCollection, where("email", "==", currentUser.email))
+        : toolsCollection;
+      const [booksSnapshot, sportSnapshot, toolsSnapshot] = await Promise.all([
+        getDocs<ProductProps>(booksQuery),
+        getDocs<ProductProps>(sportQuery),
+        getDocs<ProductProps>(toolsQuery),
+      ]);
 
-      setProducts(products);
+      const books = booksSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const sport = sportSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      const tools = toolsSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setProducts([...books, ...sport, ...tools]);
     } catch (error) {
       console.error("Error fetching products: ", error);
     }
   };
-
   useEffect(() => {
     setIsLoading(true);
     getProducts().then(() => {
       setIsLoading(false);
     });
   }, []);
-
   const handleImageLoadError = (event: React.SyntheticEvent<HTMLImageElement>) => {
     const target = event.target as HTMLImageElement;
     target.src = "https://via.placeholder.com/150";
   };
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
   return (
     <ProductContainer>
       <Carousel
