@@ -2,6 +2,7 @@ import { CollectionReference, collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebase/firebase.config";
 import {
+  Arrow,
   OpinionContainer,
   SingleCardDescribe,
   SingleCardName,
@@ -9,7 +10,6 @@ import {
   SingleCardRating,
 } from "./SingleCardOpinion.styled";
 import { Carousel } from "@trendyol-js/react-carousel";
-import { Arrow } from "../Products/Product.styled";
 
 type OpinionOne = {
   name: string;
@@ -23,10 +23,13 @@ const imageArrowRight = new URL("../../assets/arrow-right.svg", import.meta.url)
 
 export const SingleCardOpinion = () => {
   const [opinions, setOpinions] = useState<(OpinionOne & { id: string })[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const getOpinions = () => {
+  const getOpinions = async () => {
     const opinionsCollection = collection(db, "opinions") as CollectionReference<OpinionOne>;
-    getDocs<OpinionOne>(opinionsCollection).then((querySnapshot) => {
+
+    const querySnapshot = await getDocs<OpinionOne>(opinionsCollection);
+    try {
       const opinions = querySnapshot.docs.map((doc) => {
         function getStarsFromRating(rating: number): string {
           const fullStar = "★";
@@ -44,13 +47,22 @@ export const SingleCardOpinion = () => {
           ratingStars: getStarsFromRating(data.rating),
         };
       });
+
       setOpinions(opinions);
-    });
+    } catch (error) {
+      console.error("Error: ", error);
+    }
   };
   useEffect(() => {
-    getOpinions();
+    setIsLoading(true);
+    getOpinions().then(() => {
+      setIsLoading(false);
+    });
   }, []);
-  // console.log(opinions);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   const filterOutEmptyNames = ({ name }: { name: string }) => Boolean(name);
 
