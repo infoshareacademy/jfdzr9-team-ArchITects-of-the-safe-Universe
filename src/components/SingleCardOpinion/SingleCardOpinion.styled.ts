@@ -1,5 +1,24 @@
 import styled from "styled-components";
 
+export const Arrow = styled.button`
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  width: 2.5vw;
+  height: 50vh;
+  border-radius: 10px;
+  padding: 1.6rem;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+  border: none;
+  :hover {
+    cursor: pointer;
+    background-color: var(--color-dark-grey);
+  }
+`;
+
 export const OpinionContainer = styled.div`
   position: static;
   display: flex;

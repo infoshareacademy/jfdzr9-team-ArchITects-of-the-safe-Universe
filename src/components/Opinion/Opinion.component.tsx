@@ -3,9 +3,9 @@ import { OpinionSection } from "./Opinion.styled";
 
 const Opinion = () => {
   return (
-    <OpinionSection>
-      <SingleCardOpinion />
-    </OpinionSection>
+    // <OpinionSection>
+    <SingleCardOpinion />
+    // </OpinionSection>
   );
 };
 
