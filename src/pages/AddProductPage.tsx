@@ -1,5 +1,9 @@
-import { AddNewProduct } from "../components/AddProductPage/AddNewProduct.component";
+import CategoryDropdownSecond from "../CategoryDropdown/CategoryDropdownSecond";
 
 export const AddProductPage = () => {
-  return <AddNewProduct />;
+  return (
+    <>
+      <CategoryDropdownSecond />
+    </>
+  );
 };
