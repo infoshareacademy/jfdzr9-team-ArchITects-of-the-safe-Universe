@@ -4,9 +4,10 @@ import { db } from "../../utils/firebase/firebase.config";
 import { ProductProps } from "../AddProductPage/AddNewProduct.component";
 import { Arrow, Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
 import { Carousel } from "@trendyol-js/react-carousel";
+import { Link } from "react-router-dom";
 
 const imageArrowLeft = new URL("../../assets/arrow-left.svg", import.meta.url).href;
-const imageArrowRight = new URL("../../assets/arrow-left.svg", import.meta.url).href;
+const imageArrowRight = new URL("../../assets/arrow-right.svg", import.meta.url).href;
 
 export const Products = () => {
   const [products, setProducts] = useState<(ProductProps & { id: string })[]>([]);
@@ -45,7 +46,7 @@ export const Products = () => {
   return (
     <ProductContainer>
       <Carousel
-        show={6}
+        show={8}
         slide={1}
         leftArrow={
           <Arrow>
@@ -61,11 +62,13 @@ export const Products = () => {
       >
         {products.map(({ id, name, author, img }) => (
           <Container key={id}>
-            <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
-            <ContainerText>
-              <h3>{name}</h3>
-              <h5>{author}</h5>
-            </ContainerText>
+            <Link to={`/productPage/${id}`}>
+              <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
+              <ContainerText>
+                <h3>{name}</h3>
+                <h5>{author}</h5>
+              </ContainerText>
+            </Link>
           </Container>
         ))}
       </Carousel>

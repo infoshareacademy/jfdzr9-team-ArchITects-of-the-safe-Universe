@@ -1,6 +1,6 @@
 import GlobalStyle from "../theme/globalStyles";
 import { MainPage } from "./pages/MainPage";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import Header from "./components/Header/Header";
 import { FooterLabel } from "./Footer/Footer.component";
 import { HowDoesItWorkBorrowPage } from "./pages/HowDoesItWorkBorrowPage";
@@ -15,6 +15,7 @@ import { AuthProvider } from "./Context/AuthContext";
 import { ForgotPasswordPage } from "./pages/ForgotPasswordPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { OpinionsPage } from "./pages/OpinionsPage";
+import { OneSingleProductPage } from "./pages/OneSingleProductPage";
 
 function App() {
   return (
@@ -29,7 +30,16 @@ function App() {
             <Route path="/howDoesItWork/lend" element={<HowDoesItWorkLendPage />} />
             <Route path="account" element={<SignInPage />} />
             {/* <Route path="account/register" element={<RegisterPage />} /> */}
-            {/* <Route path="productPage" element={<ProductPage />} /> */}
+            <Route
+              path="productPage"
+              element={
+                <div>
+                  <Outlet />
+                </div>
+              }
+            >
+              <Route path=":id" element={<OneSingleProductPage />} />
+            </Route>
             {/* <Route path="addProductPage" element={<AddProductPage />} /> */}
             <Route path="/opinions" element={<OpinionsPage />} />
             <Route path="/opinionsUser" element={<OpinionsUserPage />} />
