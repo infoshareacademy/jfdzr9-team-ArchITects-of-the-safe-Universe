@@ -24,23 +24,25 @@ export const Products = () => {
         const collections = ["Tools", "Sport", "books"];
         for (const collectionName of collections) {
           const collectionRef = collection(db, collectionName) as CollectionReference<ProductProps>;
-          const snapshot = await getDocs<ProductProps>(collectionRef);
+          const queryRef = query(collectionRef, where("email", "!=", currentUser?.email ?? ""));
+          const snapshot = await getDocs<ProductProps>(queryRef);
           const products = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
           allProducts.push(...products);
         }
         return allProducts;
       } catch (error) {
-        console.error(`Error fetching products from all categories: `, error);
+        console.error(`Error fetching products from all categories:`, error);
         return [];
       }
     } else if (["Tools", "Sport", "books"].includes(category)) {
       try {
         const collectionRef = collection(db, category) as CollectionReference<ProductProps>;
-        const snapshot = await getDocs<ProductProps>(collectionRef);
+        const queryRef = query(collectionRef, where("email", "!=", currentUser?.email ?? ""));
+        const snapshot = await getDocs<ProductProps>(queryRef);
         const products = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         return products;
       } catch (error) {
-        console.error(`Error fetching products from ${category}: `, error);
+        console.error(`Error fetching products from ${category}:`, error);
         return [];
       }
     } else {
@@ -58,7 +60,7 @@ export const Products = () => {
       setProducts(products);
       setIsLoading(false);
     });
-  }, [currentUser, category]);
+  }, [currentUser?.email, category]);
 
   const handleCategoryChange = (selectedCategory: string) => {
     setCategory(selectedCategory);
