@@ -10,12 +10,12 @@ export const Footer = styled.footer`
   width: auto;
   background-color: var(--color-very-light-grey);
   font-size: 0.7rem;
-  font-weight: 400;
+  /* font-weight: 300; */
   padding: 0;
   color: var(--color-dark-grey);
 
   @media (max-width: 40em) {
     font-size: 0.6rem;
-    font-weight: 200;
+    /* font-weight: 300; */
   }
 `;

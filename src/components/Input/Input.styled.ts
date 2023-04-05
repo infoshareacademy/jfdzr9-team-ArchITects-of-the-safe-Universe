@@ -15,6 +15,6 @@ export const InputLabel = styled.label`
   align-items: center;
 
   @media (max-width: 40em) {
-    height: 46px;
+    height: 30px;
   }
 `;

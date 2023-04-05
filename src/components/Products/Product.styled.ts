@@ -47,7 +47,8 @@ export const ProductContainer = styled.div`
   @media (max-width: 40em) {
     flex-direction: column;
     align-items: stretch;
-    height: 52vh;
+    height: 57vh;
+
     button {
       width: 80%;
     }
@@ -57,19 +58,22 @@ export const ProductContainer = styled.div`
 export const Container = styled.button`
   position: static;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   align-content: space-around;
   flex-wrap: wrap;
   font-size: 1rem;
   max-width: 200px;
-  height: 45vh;
+  height: auto;
   border-radius: 10px;
   padding: 0.5rem;
   margin: 0px;
   /* text-transform: capitalize; */
   transition: 0.2s linear;
   border: none;
+
+  @media (max-width: 40em) {
+    height: 55vh;
+  }
 `;
 
 export const ContainerPhoto = styled.div`

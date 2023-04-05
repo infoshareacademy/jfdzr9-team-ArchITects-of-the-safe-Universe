@@ -42,7 +42,11 @@ export const Input = styled.input`
   font-size: 16px;
   margin-bottom: 10px;
   width: 200px;
-  /* height: 50px; */
+
+  @media (max-width: 40em) {
+    height: 15px;
+    font-size: 14px;
+  }
 `;
 
 export const InputFile = styled.input`
@@ -61,6 +65,10 @@ export const TextArea = styled.textarea`
   font-size: 16px;
   margin-bottom: 10px;
   resize: vertical;
+  @media (max-width: 40em) {
+    height: 25px;
+    font-size: 14px;
+  }
 `;
 
 export const Select = styled.select`
@@ -70,4 +78,9 @@ export const Select = styled.select`
   font-size: 16px;
   margin-bottom: 10px;
   width: 222px;
+
+  @media (max-width: 40em) {
+    height: 30px;
+    padding: 0px;
+  }
 `;
