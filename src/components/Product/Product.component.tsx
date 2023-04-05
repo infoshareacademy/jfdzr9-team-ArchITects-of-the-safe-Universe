@@ -1,22 +1,23 @@
-import { collection, CollectionReference, getDocs, where, query, QuerySnapshot } from "firebase/firestore";
+import { collection, CollectionReference, getDocs, where, query } from "firebase/firestore";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { db } from "../../utils/firebase/firebase.config";
 import { ProductProps } from "../AddProductPage/AddNewProduct.component";
 import { Arrow, Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
 import { Carousel } from "@trendyol-js/react-carousel";
-import CategoryDropdowncopy, { CategoryProps } from "../../CategoryDropdown/CategoryDropdowncopy";
-
+import CategoryDropdowncopy, { CategoryProps } from "../../CategoryDropdown/CategoryDropdownMain";
+import SearchIcon from "../../assets/magnifying-glass-solid.svg";
 import imageArrowLeft from "../../assets/arrow-left.svg";
 import imageArrowRight from "../../assets/arrow-right.svg";
+import { Input } from "../Input/Input.component";
 
 export const Products = () => {
   const { currentUser } = useContext(AuthContext);
-
   const [products, setProducts] = useState<(ProductProps & { id: string })[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [category, setCategory] = useState<string>("");
-
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState("");
   const getProductsByCategory = async (category: string) => {
     if (category === "Kategoria") {
       try {
@@ -31,7 +32,6 @@ export const Products = () => {
         }
         return allProducts;
       } catch (error) {
-        console.error(`Error fetching products from all categories:`, error);
         return [];
       }
     } else if (["Tools", "Sport", "books"].includes(category)) {
@@ -42,43 +42,47 @@ export const Products = () => {
         const products = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         return products;
       } catch (error) {
-        console.error(`Error fetching products from ${category}:`, error);
         return [];
       }
     } else {
-      console.error(`Invalid category: ${category}`);
       return [];
     }
   };
-
   useEffect(() => {
     setIsLoading(true);
     const savedCategory = localStorage.getItem("selectedCategory") || "Kategoria";
     setCategory(savedCategory);
-    console.log(`Selected category: ${savedCategory}`);
     getProductsByCategory(savedCategory).then((products) => {
       setProducts(products);
       setIsLoading(false);
     });
   }, [currentUser?.email, category]);
-
   const handleCategoryChange = (selectedCategory: string) => {
     setCategory(selectedCategory);
     localStorage.setItem("selectedCategory", selectedCategory);
   };
-
   const categoryProps: CategoryProps = {
     value: category,
     onChange: handleCategoryChange,
   };
-
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearchTerm(searchQuery);
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
+  const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
   return (
     <>
       <CategoryDropdowncopy {...categoryProps} />
+      <Input icon={SearchIcon} placeholder="Znajdz" value={searchQuery} onChange={handleInputChange} />
       <ProductContainer>
         <Carousel
           show={6}
@@ -95,7 +99,7 @@ export const Products = () => {
           }
           swiping={true}
         >
-          {products.map(({ id, name, author, img }) => (
+          {filteredProducts.map(({ id, name, author, img }) => (
             <Container key={id}>
               <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
               <ContainerText>
@@ -109,5 +113,3 @@ export const Products = () => {
     </>
   );
 };
-
-export default Products;
