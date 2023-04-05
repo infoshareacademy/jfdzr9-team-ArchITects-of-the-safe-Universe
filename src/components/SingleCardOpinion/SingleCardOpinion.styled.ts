@@ -1,19 +1,34 @@
 import styled from "styled-components";
 
+export const Arrow = styled.button`
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  width: 2.5vw;
+  height: 50vh;
+  border-radius: 10px;
+  padding: 1.6rem;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+  border: none;
+  :hover {
+    cursor: pointer;
+    background-color: var(--color-dark-grey);
+  }
+`;
+
 export const OpinionContainer = styled.div`
   position: static;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-content: space-around;
   align-items: center;
   height: 50vh;
-  width: 92vw;
+  width: 100vw;
   border-radius: 10px;
-  background-color: var(--color-light-grey);
+  background-color: var(--color-very-light-grey);
   transition: 0.2s linear;
   border: none;
-  gap: 10px;
 `;
 
 export const SingleCardOpinionSection = styled.div`
@@ -21,19 +36,18 @@ export const SingleCardOpinionSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: normal;
   align-content: center;
   flex-wrap: nowrap;
   font-size: 1rem;
   width: 200px;
-  height: 45vh;
+  height: 50vh;
   border-radius: 10px;
   padding: 0.5rem;
-  margin: 0px;
+  margin: auto;
   text-transform: capitalize;
   transition: 0.2s linear;
   border: none;
-  background-color: var(--color-very-light-grey);
+  background-color: var(--color-light-grey);
 `;
 
 export const SingleCardName = styled.div`
@@ -42,15 +56,16 @@ export const SingleCardName = styled.div`
   margin: 10px;
   font-size: 20px;
   text-align: center;
-  justify-content: end;
+  justify-content: center;
 `;
 
 export const SingleCardDescribe = styled.div`
   display: flex;
   gap: 1.2rem;
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
   margin: 10px;
+  justify-content: center;
 `;
 
 export const SingleCardRating = styled.div`
@@ -60,4 +75,5 @@ export const SingleCardRating = styled.div`
   font-size: 20px;
   text-align: center;
   margin: 10px;
+  justify-content: center;
 `;

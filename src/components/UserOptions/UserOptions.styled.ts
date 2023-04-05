@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
-export const BottomNavigationSection = styled.section`
+export const UserOptionsSection = styled.section`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
   box-sizing: content-box;
   width: min(40rem, 100%);
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   margin: auto;
-  height: 10vh;
 
   @media (max-width: 40em) {
     flex-direction: column;
-    /* align-items: stretch; */
-    /* height: 15vh; */
+    height: 15vh;
   }
 `;

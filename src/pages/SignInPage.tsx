@@ -65,7 +65,7 @@ export const SignInPage = () => {
         />
         <SignInBottomConrainer>
           <ForgotPasswordLink>
-            <p onClick={() => navigate("/forgotPassword")}>Zapomniałeś hasła?</p>
+            <span onClick={() => navigate("/forgotPassword")}>Zapomniałeś hasła?</span>
           </ForgotPasswordLink>
           <ButtonM onClick={handleSignIn} ref={loginButtonRef}>
             Zaloguj

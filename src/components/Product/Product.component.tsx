@@ -1,5 +1,6 @@
-import { collection, CollectionReference, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { collection, CollectionReference, getDocs, where, query } from "firebase/firestore";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 import { db } from "../../utils/firebase/firebase.config";
 import { ProductProps } from "../AddProductPage/AddNewProduct.component";
 import { Arrow, Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
@@ -9,41 +10,85 @@ import { Link } from "react-router-dom";
 const imageArrowLeft = new URL("../../assets/arrow-left.svg", import.meta.url).href;
 const imageArrowRight = new URL("../../assets/arrow-right.svg", import.meta.url).href;
 
+import CategoryDropdowncopy, { CategoryProps } from "../../CategoryDropdown/CategoryDropdownMain";
+import SearchIcon from "../../assets/magnifying-glass-solid.svg";
+import imageArrowLeft from "../../assets/arrow-left.svg";
+import imageArrowRight from "../../assets/arrow-right.svg";
+import { Input } from "../Input/Input.component";
+import { TopNavSection } from "../TopNavigation/TopNavigatioon.styled";
+import { CompanyHeaderLeft, CompanyHeaderRight } from "../Header/Header.styled";
+
+
 export const Products = () => {
+  const { currentUser } = useContext(AuthContext);
   const [products, setProducts] = useState<(ProductProps & { id: string })[]>([]);
-
   const [isLoading, setIsLoading] = useState(true);
-
-  const getProducts = async () => {
-    try {
-      const productsCollection = collection(db, "books") as CollectionReference<ProductProps>;
-      const querySnapshot = await getDocs<ProductProps>(productsCollection);
-
-      const products = querySnapshot.docs.map((doc) => {
-        return {
-          id: doc.id,
-          ...doc.data(),
-        };
-      });
-
-      setProducts(products);
-    } catch (error) {
-      console.error("Error fetching products: ", error);
+  const [category, setCategory] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const getProductsByCategory = async (category: string) => {
+    if (category === "Kategoria") {
+      try {
+        const allProducts: (ProductProps & { id: string })[] = [];
+        const collections = ["Tools", "Sport", "books"];
+        for (const collectionName of collections) {
+          const collectionRef = collection(db, collectionName) as CollectionReference<ProductProps>;
+          const queryRef = query(collectionRef, where("email", "!=", currentUser?.email ?? ""));
+          const snapshot = await getDocs<ProductProps>(queryRef);
+          const products = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+          allProducts.push(...products);
+        }
+        return allProducts;
+      } catch (error) {
+        return [];
+      }
+    } else if (["Tools", "Sport", "books"].includes(category)) {
+      try {
+        const collectionRef = collection(db, category) as CollectionReference<ProductProps>;
+        const queryRef = query(collectionRef, where("email", "!=", currentUser?.email ?? ""));
+        const snapshot = await getDocs<ProductProps>(queryRef);
+        const products = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        return products;
+      } catch (error) {
+        return [];
+      }
+    } else {
+      return [];
     }
   };
-
   useEffect(() => {
     setIsLoading(true);
-    getProducts().then(() => {
+    const savedCategory = localStorage.getItem("selectedCategory") || "Kategoria";
+    setCategory(savedCategory);
+    getProductsByCategory(savedCategory).then((products) => {
+      setProducts(products);
       setIsLoading(false);
     });
-  }, []);
-
+  }, [currentUser?.email, category, searchTerm]);
+  const handleCategoryChange = (selectedCategory: string) => {
+    setCategory(selectedCategory);
+    localStorage.setItem("selectedCategory", selectedCategory);
+  };
+  const categoryProps: CategoryProps = {
+    value: category,
+    onChange: handleCategoryChange,
+  };
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSearchTerm(searchQuery);
+    }, 600);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
+  const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
   return (
+
     <ProductContainer>
       <Carousel
         show={8}
@@ -63,6 +108,35 @@ export const Products = () => {
         {products.map(({ id, name, author, img }) => (
           <Container key={id}>
             <Link to={`/productPage/${id}`}>
+
+    <>
+      <TopNavSection>
+        <CompanyHeaderLeft>
+          <Input icon={SearchIcon} placeholder="Znajdź" value={searchQuery} onChange={handleInputChange} />
+        </CompanyHeaderLeft>
+        <CompanyHeaderRight>
+          <CategoryDropdowncopy {...categoryProps} />
+        </CompanyHeaderRight>
+      </TopNavSection>
+      <ProductContainer>
+        <Carousel
+          show={6}
+          slide={1}
+          leftArrow={
+            <Arrow>
+              <img src={imageArrowLeft} alt="Left" />
+            </Arrow>
+          }
+          rightArrow={
+            <Arrow>
+              <img src={imageArrowRight} alt="Right" />
+            </Arrow>
+          }
+          swiping={true}
+        >
+          {filteredProducts.map(({ id, name, author, img }) => (
+            <Container key={id}>
+
               <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
               <ContainerText>
                 <h3>{name}</h3>
@@ -73,5 +147,11 @@ export const Products = () => {
         ))}
       </Carousel>
     </ProductContainer>
+
+            </Container>
+          ))}
+        </Carousel>
+      </ProductContainer>
+    </>
   );
 };

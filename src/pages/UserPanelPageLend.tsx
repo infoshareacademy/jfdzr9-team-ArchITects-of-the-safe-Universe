@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import BottomNavigation from "../components/BottomNavigation/BottomNavigation.component";
 import { ButtonContainer, ButtonS, OrangeButton } from "../components/Buttons/Button.styled";
 import { Products } from "../components/Product/Product.component";
+import { UserOptionsSection } from "../components/UserOptions/UserOptions.styled";
 
 export const UserPanelPageLend = () => {
   return (
     <>
-      <ButtonContainer>
+      <UserOptionsSection>
         <Link to="/userPanelBorrow">
           <ButtonS>Do wypożyczenia</ButtonS>
         </Link>
@@ -14,7 +15,7 @@ export const UserPanelPageLend = () => {
         <Link to="/addProduct">
           <ButtonS>Chcę dodać produkt</ButtonS>
         </Link>
-      </ButtonContainer>
+      </UserOptionsSection>
       <Products />
       <BottomNavigation />
     </>
