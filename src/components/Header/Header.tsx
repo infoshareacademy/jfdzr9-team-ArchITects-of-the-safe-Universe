@@ -6,7 +6,6 @@ import { firebaseConfig } from "../../utils/firebase/firebase.config";
 import { AuthContext } from "../../Context/AuthContext";
 import { SignInButton } from "../../SignInButton/SignInButton";
 import { Link } from "react-router-dom";
-import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
 import CompanyLogo from "../../CompanyLogo/CompanyLogo";
 import SearchIcon from "../../assets/magnifying-glass-solid.svg";
 import { Input } from "../Input/Input.component";
@@ -18,6 +17,7 @@ import {
   CompanyHeaderSection,
   CompanyHeaderSign,
 } from "./Header.styled";
+import CategoryDropdowncopy from "../../CategoryDropdown/CategoryDropdowncopy";
 
 function Header() {
   const { currentUser } = useContext(AuthContext);
@@ -66,7 +66,7 @@ function Header() {
           <Input icon={SearchIcon} placeholder="Znajdz"></Input>
         </CompanyHeaderLeft>
         <CompanyHeaderRight>
-          <CategoryDropdown />
+          <CategoryDropdowncopy />
         </CompanyHeaderRight>
       </CompanyHeaderSearch>
       <CompanyHeaderSign>
