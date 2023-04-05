@@ -11,7 +11,7 @@ export const UserPanelPageLend = () => {
         <Link to="/userPanelBorrow">
           <ButtonS>Do wypożyczenia</ButtonS>
         </Link>
-        <OrangeButton>Chcę wypożyczyć</OrangeButton>
+        <OrangeButton>Mam pożyczone</OrangeButton>
         <Link to="/addProduct">
           <ButtonS>Chcę dodać produkt</ButtonS>
         </Link>

@@ -10,7 +10,7 @@ export const UserPanelPageBorrow = () => {
       <UserOptionsSection>
         <OrangeButton>Do wypożyczenia</OrangeButton>
         <Link to="/userPanelLend">
-          <ButtonS>Chcę wypożyczyć</ButtonS>
+          <ButtonS>Mam pożyczone</ButtonS>
         </Link>
         <Link to="/addProduct">
           <ButtonS>Chcę dodać produkt</ButtonS>

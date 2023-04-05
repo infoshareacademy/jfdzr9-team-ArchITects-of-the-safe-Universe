@@ -7,10 +7,8 @@ import { AuthContext } from "../../Context/AuthContext";
 import { SignInButton } from "../../SignInButton/SignInButton";
 import { Link } from "react-router-dom";
 import CompanyLogo from "../../CompanyLogo/CompanyLogo";
-import SearchIcon from "../../assets/magnifying-glass-solid.svg";
-import { Input } from "../Input/Input.component";
+
 import { CompanyHeaderLogo, CompanyHeaderSection, CompanyHeaderSign } from "./Header.styled";
-import CategoryDropdowncopy from "../../CategoryDropdown/CategoryDropdowncopy";
 
 function Header() {
   const { currentUser } = useContext(AuthContext);

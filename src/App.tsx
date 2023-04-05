@@ -28,9 +28,6 @@ function App() {
             <Route path="/howDoesItWork/borrow" element={<HowDoesItWorkBorrowPage />} />
             <Route path="/howDoesItWork/lend" element={<HowDoesItWorkLendPage />} />
             <Route path="account" element={<SignInPage />} />
-            {/* <Route path="account/register" element={<RegisterPage />} /> */}
-            {/* <Route path="productPage" element={<ProductPage />} /> */}
-            {/* <Route path="addProductPage" element={<AddProductPage />} /> */}
             <Route path="/opinions" element={<OpinionsPage />} />
             <Route path="/opinionsUser" element={<OpinionsUserPage />} />
             <Route path="/addOpinion" element={<AddOpinionPage />} />
@@ -38,7 +35,6 @@ function App() {
             <Route path="/userPanelBorrow" element={<UserPanelPageBorrow />} />
             <Route path="/userPanelLend" element={<UserPanelPageLend />} />
             <Route path="/forgotPassword" element={<ForgotPasswordPage />} />
-            {/* <Route path="/addProduct" element={<UserPanelPageBorrow />} /> */}
             <Route path="not-found" element={<NotFoundPage />} />
             <Route path="*" element={<Navigate to="not-found" replace={true} />} />
           </Routes>
