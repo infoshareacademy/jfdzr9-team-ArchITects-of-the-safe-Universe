@@ -42,7 +42,7 @@ export const Input = styled.input`
   font-size: 16px;
   margin-bottom: 10px;
   width: 200px;
-  height: 50px;
+  /* height: 50px; */
 `;
 
 export const InputFile = styled.input`
@@ -69,5 +69,5 @@ export const Select = styled.select`
   border-radius: 4px;
   font-size: 16px;
   margin-bottom: 10px;
-  width: 200px;
+  width: 222px;
 `;

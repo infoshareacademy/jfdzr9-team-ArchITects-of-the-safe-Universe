@@ -11,14 +11,12 @@ interface BottomNavigation {
 
 const BottomNavigation = () => {
   return (
-    <div>
-      <BottomNavigationSection>
-        <Link to="/howDoesItWork/borrow">
-          <ButtonM>Jak to działa?</ButtonM>
-        </Link>
-        <OpinionButton />
-      </BottomNavigationSection>
-    </div>
+    <BottomNavigationSection>
+      <Link to="/howDoesItWork/borrow">
+        <ButtonM>Jak to działa?</ButtonM>
+      </Link>
+      <OpinionButton />
+    </BottomNavigationSection>
   );
 };
 

@@ -13,7 +13,7 @@ export const Arrow = styled.button`
   align-items: center;
   font-size: 1rem;
   width: 2.5vw;
-  height: 50vh;
+  height: 45vh;
   border-radius: 10px;
   padding: 1.6rem;
   text-transform: capitalize;
@@ -23,38 +23,51 @@ export const Arrow = styled.button`
     cursor: pointer;
     background-color: var(--color-dark-grey);
   }
+
+  @media (max-width: 40em) {
+    display: none;
+  }
 `;
 
 export const ProductContainer = styled.div`
   position: static;
   display: flex;
   /* flex-wrap: wrap; */
-  /* justify-content: space-evenly; */
+  justify-content: space-evenly;
   /* align-content: space-around; */
   align-items: center;
-  height: 50vh;
+  height: 60vh;
   width: 100vw;
   border-radius: 10px;
-  background-color: var(--color-very-light-grey);
+  background-color: var(--color-white);
   transition: 0.2s linear;
   border: none;
-  /* gap: 10px; */
+  gap: 10px;
+
+  @media (max-width: 40em) {
+    flex-direction: column;
+    align-items: stretch;
+    height: 52vh;
+    button {
+      width: 80%;
+    }
+  }
 `;
 
 export const Container = styled.button`
   position: static;
   display: flex;
   /* justify-content: center; */
-  /* align-items: flex-start; */
+  align-items: center;
   align-content: space-around;
   flex-wrap: wrap;
   font-size: 1rem;
-  width: 200px;
+  max-width: 200px;
   height: 45vh;
   border-radius: 10px;
   padding: 0.5rem;
   margin: 0px;
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
   transition: 0.2s linear;
   border: none;
 `;
@@ -85,8 +98,23 @@ export const ContainerText = styled.label`
   justify-content: space-between;
   font-size: 1rem;
   width: 180px;
-  height: 15vh;
+  height: 12vh;
   border-radius: 10px;
   padding: 0.5rem;
   margin: 0rem;
+
+  @media (max-width: 40em) {
+    h3 {
+      font-size: 0.9rem;
+    }
+    h5 {
+      font-size: 0.8rem;
+    }
+  }
 `;
+
+// export const Title = styled.h3`
+// `
+
+// export const name = styled.h5`
+// `

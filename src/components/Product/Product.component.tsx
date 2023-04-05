@@ -76,7 +76,7 @@ export const Products = () => {
 
   return (
     <>
-      <CategoryDropdowncopy {...categoryProps} />
+      {/* <CategoryDropdowncopy {...categoryProps} /> */}
       <ProductContainer>
         <Carousel
           show={6}

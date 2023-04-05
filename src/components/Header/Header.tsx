@@ -9,14 +9,7 @@ import { Link } from "react-router-dom";
 import CompanyLogo from "../../CompanyLogo/CompanyLogo";
 import SearchIcon from "../../assets/magnifying-glass-solid.svg";
 import { Input } from "../Input/Input.component";
-import {
-  CompanyHeaderLeft,
-  CompanyHeaderLogo,
-  CompanyHeaderRight,
-  CompanyHeaderSearch,
-  CompanyHeaderSection,
-  CompanyHeaderSign,
-} from "./Header.styled";
+import { CompanyHeaderLogo, CompanyHeaderSection, CompanyHeaderSign } from "./Header.styled";
 import CategoryDropdowncopy from "../../CategoryDropdown/CategoryDropdowncopy";
 
 function Header() {
@@ -61,14 +54,14 @@ function Header() {
           <CompanyLogo />
         </CompanyHeaderLogo>
       </Link>
-      <CompanyHeaderSearch>
+      {/* <CompanyHeaderSearch>
         <CompanyHeaderLeft>
           <Input icon={SearchIcon} placeholder="Znajdz"></Input>
         </CompanyHeaderLeft>
         <CompanyHeaderRight>
           <CategoryDropdowncopy />
         </CompanyHeaderRight>
-      </CompanyHeaderSearch>
+      </CompanyHeaderSearch> */}
       <CompanyHeaderSign>
         {currentUser ? (
           <SignInButton />

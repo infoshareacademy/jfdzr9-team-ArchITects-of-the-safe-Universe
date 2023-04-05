@@ -1,20 +1,21 @@
 import { Link } from "react-router-dom";
 import BottomNavigation from "../components/BottomNavigation/BottomNavigation.component";
-import { ButtonContainer, ButtonS, OrangeButton } from "../components/Buttons/Button.styled";
+import { ButtonS, OrangeButton } from "../components/Buttons/Button.styled";
 import { ProductsOwner } from "../components/Product/ProductsOwner.component";
+import { UserOptionsSection } from "../components/UserOptions/UserOptions.styled";
 
 export const UserPanelPageBorrow = () => {
   return (
     <>
-      <ButtonContainer>
+      <UserOptionsSection>
         <OrangeButton>Do wypożyczenia</OrangeButton>
         <Link to="/userPanelLend">
-          <ButtonS>Mam pożyczone</ButtonS>
+          <ButtonS>Chcę wypożyczyć</ButtonS>
         </Link>
         <Link to="/addProduct">
           <ButtonS>Chcę dodać produkt</ButtonS>
         </Link>
-      </ButtonContainer>
+      </UserOptionsSection>
       <ProductsOwner />
       <BottomNavigation />
     </>
