@@ -17,7 +17,7 @@ import {
   CompanyHeaderSection,
   CompanyHeaderSign,
 } from "./Header.styled";
-import CategoryDropdowncopy from "../../CategoryDropdown/CategoryDropdowncopy";
+import CategoryDropdowncopy from "../../CategoryDropdown/CategoryDropdownMain";
 
 function Header() {
   const { currentUser } = useContext(AuthContext);

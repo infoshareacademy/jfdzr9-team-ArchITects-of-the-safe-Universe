@@ -7,19 +7,16 @@ export interface CategoryProps {
   options?: string;
   onChange?: (category: string) => void;
 }
-
 const options = [
   { value: "Sport", label: "Sport i rekreacja" },
   { value: "Tools", label: "Dom i ogród" },
   { value: "books", label: "Nauka i rozrywka" },
 ];
-
-export const CategoryDropdowncopy = ({ value, onChange }: CategoryProps) => {
+export const CategoryDropdownMain = ({ value, onChange }: CategoryProps) => {
   const handleCategoryChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const selectedCategory = event.target.value;
     onChange?.(selectedCategory);
   };
-
   return (
     <Select id="categories" value={value} onChange={handleCategoryChange}>
       <option value="Kategoria">Kategoria</option>
@@ -32,4 +29,4 @@ export const CategoryDropdowncopy = ({ value, onChange }: CategoryProps) => {
   );
 };
 
-export default CategoryDropdowncopy;
+export default CategoryDropdownMain;
