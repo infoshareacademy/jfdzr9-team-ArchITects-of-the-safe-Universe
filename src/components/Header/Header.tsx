@@ -7,17 +7,8 @@ import { AuthContext } from "../../Context/AuthContext";
 import { SignInButton } from "../../SignInButton/SignInButton";
 import { Link } from "react-router-dom";
 import CompanyLogo from "../../CompanyLogo/CompanyLogo";
-import SearchIcon from "../../assets/magnifying-glass-solid.svg";
-import { Input } from "../Input/Input.component";
-import {
-  CompanyHeaderLeft,
-  CompanyHeaderLogo,
-  CompanyHeaderRight,
-  CompanyHeaderSearch,
-  CompanyHeaderSection,
-  CompanyHeaderSign,
-} from "./Header.styled";
-import CategoryDropdowncopy from "../../CategoryDropdown/CategoryDropdownMain";
+
+import { CompanyHeaderLogo, CompanyHeaderSection, CompanyHeaderSign } from "./Header.styled";
 
 function Header() {
   const { currentUser } = useContext(AuthContext);
@@ -61,14 +52,14 @@ function Header() {
           <CompanyLogo />
         </CompanyHeaderLogo>
       </Link>
-      <CompanyHeaderSearch>
+      {/* <CompanyHeaderSearch>
         <CompanyHeaderLeft>
           <Input icon={SearchIcon} placeholder="Znajdz"></Input>
         </CompanyHeaderLeft>
         <CompanyHeaderRight>
           <CategoryDropdowncopy />
         </CompanyHeaderRight>
-      </CompanyHeaderSearch>
+      </CompanyHeaderSearch> */}
       <CompanyHeaderSign>
         {currentUser ? (
           <SignInButton />

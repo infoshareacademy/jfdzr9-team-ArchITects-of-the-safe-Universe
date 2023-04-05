@@ -10,6 +10,8 @@ import SearchIcon from "../../assets/magnifying-glass-solid.svg";
 import imageArrowLeft from "../../assets/arrow-left.svg";
 import imageArrowRight from "../../assets/arrow-right.svg";
 import { Input } from "../Input/Input.component";
+import { TopNavSection } from "../TopNavigation/TopNavigatioon.styled";
+import { CompanyHeaderLeft, CompanyHeaderRight } from "../Header/Header.styled";
 
 export const Products = () => {
   const { currentUser } = useContext(AuthContext);
@@ -81,8 +83,14 @@ export const Products = () => {
   const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
   return (
     <>
-      <CategoryDropdowncopy {...categoryProps} />
-      <Input icon={SearchIcon} placeholder="Znajdz" value={searchQuery} onChange={handleInputChange} />
+      <TopNavSection>
+        <CompanyHeaderLeft>
+          <Input icon={SearchIcon} placeholder="Znajdź" value={searchQuery} onChange={handleInputChange} />
+        </CompanyHeaderLeft>
+        <CompanyHeaderRight>
+          <CategoryDropdowncopy {...categoryProps} />
+        </CompanyHeaderRight>
+      </TopNavSection>
       <ProductContainer>
         <Carousel
           show={6}

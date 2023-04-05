@@ -11,10 +11,16 @@ export const ButtonS = styled.button`
   background-color: var(--color-light-grey);
   color: var(--color-dark-grey);
   font-weight: 600;
+  font-size: 18px;
 
   :hover {
     cursor: pointer;
-    background-color: var(--color-very-light-grey);
+    background-color: var(--color-orange);
+  }
+
+  @media (max-width: 40em) {
+    height: 30px;
+    border-radius: 15px;
   }
 `;
 
@@ -29,10 +35,16 @@ export const ButtonM = styled.button`
   background-color: var(--color-light-grey);
   color: var(--color-dark-grey);
   font-weight: 600;
+  font-size: 18px;
 
   :hover {
     cursor: pointer;
-    background-color: var(--color-very-light-grey);
+    background-color: var(--color-orange);
+  }
+
+  @media (max-width: 40em) {
+    height: 30px;
+    border-radius: 15px;
   }
 `;
 
@@ -47,6 +59,12 @@ export const OrangeButton = styled.button`
   background-color: var(--color-orange);
   color: var(--color-dark-grey);
   font-weight: 600;
+  font-size: 18px;
+
+  @media (max-width: 40em) {
+    height: 30px;
+    border-radius: 15px;
+  }
 `;
 
 export const ButtonContainer = styled.section`
@@ -54,15 +72,4 @@ export const ButtonContainer = styled.section`
   width: min(40rem, 100%);
   display: flex;
   justify-content: space-between;
-  padding: 3rem 0;
-  margin: auto;
-
-  @media (max-width: 48.12em) {
-    flex-direction: column;
-    align-items: stretch;
-
-    button {
-      width: 100%;
-    }
-  }
 `;

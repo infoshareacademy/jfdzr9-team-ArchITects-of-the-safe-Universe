@@ -16,7 +16,7 @@ ${normalize}
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin: 0;
   padding: 0;
 }
@@ -26,7 +26,7 @@ html {
 }
 
 body {
-    line-height: 1.8;
+    /* line-height: 1.8; */
     font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;
     color: var(--color-dark-grey);
@@ -35,6 +35,16 @@ body {
     min-height: 100vh;
     background-color: var(--color-white);
 }
+
+/* header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10rem;
+  padding: var(--padding-layout);
+} */
+
 `;
 
 export default GlobalStyle;

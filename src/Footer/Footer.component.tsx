@@ -7,7 +7,17 @@ export const FooterLabel = () => {
         <h4>RentMe, @2023 rentme Inc. Wszystkie prawa zastrzeżone.</h4>
       </div>
       <div>
-        <h4>Twórcy aplikacji: Dawid Maślanka, Jolanta Marszałek, Katarzyna Fronc, Piotr Stefański</h4>
+        <h4>
+          Twórcy aplikacji:
+          <br />
+          Dawid Maślanka
+          <br />
+          Jolanta Marszałek
+          <br />
+          Katarzyna Fronc
+          <br />
+          Piotr Stefański
+        </h4>
       </div>
       <div>
         <h4>Link do GitHub</h4>
