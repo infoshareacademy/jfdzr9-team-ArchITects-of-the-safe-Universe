@@ -56,7 +56,7 @@ export const Products = () => {
       setProducts(products);
       setIsLoading(false);
     });
-  }, [currentUser?.email, category]);
+  }, [currentUser?.email, category, searchTerm]);
   const handleCategoryChange = (selectedCategory: string) => {
     setCategory(selectedCategory);
     localStorage.setItem("selectedCategory", selectedCategory);
@@ -72,7 +72,7 @@ export const Products = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setSearchTerm(searchQuery);
-    }, 500);
+    }, 600);
     return () => clearTimeout(timer);
   }, [searchQuery]);
   if (isLoading) {
