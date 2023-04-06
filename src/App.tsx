@@ -1,6 +1,6 @@
 import GlobalStyle from "../theme/globalStyles";
 import { MainPage } from "./pages/MainPage";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import Header from "./components/Header/Header";
 import { FooterLabel } from "./Footer/Footer.component";
 import { HowDoesItWorkBorrowPage } from "./pages/HowDoesItWorkBorrowPage";
@@ -16,6 +16,7 @@ import { ForgotPasswordPage } from "./pages/ForgotPasswordPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import { OpinionsPage } from "./pages/OpinionsPage";
 import { Layout } from "./components/Layout/Layout.component";
+import { OneSingleProductPage } from "./pages/OneSingleProductPage";
 
 function App() {
   return (
@@ -36,6 +37,16 @@ function App() {
             <Route path="/userPanelLend" element={<UserPanelPageLend />} />
             <Route path="/forgotPassword" element={<ForgotPasswordPage />} />
             <Route path="not-found" element={<NotFoundPage />} />
+            <Route
+              path="productPage"
+              element={
+                <div>
+                  <Outlet />
+                </div>
+              }
+            >
+              <Route path=":id" element={<OneSingleProductPage />} />
+            </Route>
             <Route path="*" element={<Navigate to="not-found" replace={true} />} />
           </Routes>
         </Layout>

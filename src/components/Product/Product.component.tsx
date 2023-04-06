@@ -12,6 +12,7 @@ import imageArrowRight from "../../assets/arrow-right.svg";
 import { Input } from "../Input/Input.component";
 import { TopNavSection } from "../TopNavigation/TopNavigatioon.styled";
 import { CompanyHeaderLeft, CompanyHeaderRight } from "../Header/Header.styled";
+import { Link } from "react-router-dom";
 
 export const Products = () => {
   const { currentUser } = useContext(AuthContext);
@@ -109,11 +110,13 @@ export const Products = () => {
         >
           {filteredProducts.map(({ id, name, author, img }) => (
             <Container key={id}>
-              <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
-              <ContainerText>
-                <h3>{name}</h3>
-                <h5>{author}</h5>
-              </ContainerText>
+              <Link to={`/productPage/${id}`}>
+                <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
+                <ContainerText>
+                  <h3>{name}</h3>
+                  <h5>{author}</h5>
+                </ContainerText>
+              </Link>
             </Container>
           ))}
         </Carousel>
