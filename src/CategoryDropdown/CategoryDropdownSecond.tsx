@@ -30,7 +30,7 @@ export const CategoryDropdownSecond = ({ value, onChange }: CategoryProps) => {
   return (
     <>
       <Select id="categories" value={selectedCategory} onChange={handleCategoryChange}>
-        <option value="">Kategoria</option>
+        <option value="">Wybierz kategorię</option>
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
