@@ -32,9 +32,7 @@ export const Arrow = styled.button`
 export const ProductContainer = styled.div`
   position: static;
   display: flex;
-  /* flex-wrap: wrap; */
   justify-content: space-evenly;
-  /* align-content: space-around; */
   align-items: center;
   height: 60vh;
   width: 100vw;
@@ -60,14 +58,13 @@ export const Container = styled.button`
   display: flex;
   align-items: center;
   align-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   font-size: 1rem;
-  max-width: 200px;
   height: auto;
   border-radius: 10px;
   padding: 0.5rem;
   margin: 0px;
-  /* text-transform: capitalize; */
   transition: 0.2s linear;
   border: none;
 
@@ -79,7 +76,7 @@ export const Container = styled.button`
 export const ContainerPhoto = styled.div`
   display: flex;
   background-color: var(--color-orange);
-  width: 180px;
+  width: auto;
   height: 250px;
   border-radius: 10px;
   margin: 0.1rem;
@@ -116,9 +113,3 @@ export const ContainerText = styled.label`
     }
   }
 `;
-
-// export const Title = styled.h3`
-// `
-
-// export const name = styled.h5`
-// `

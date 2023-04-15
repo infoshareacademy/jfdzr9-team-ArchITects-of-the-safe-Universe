@@ -9,7 +9,8 @@ import {
   SingleCardOpinionSection,
   SingleCardRating,
 } from "./SingleCardOpinion.styled";
-import { Carousel } from "@trendyol-js/react-carousel";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 type OpinionOne = {
   name: string;
@@ -69,19 +70,63 @@ export const SingleCardOpinion = () => {
   return (
     <OpinionContainer>
       <Carousel
-        show={6}
-        slide={1}
-        leftArrow={
-          <Arrow>
-            <img src={imageArrowLeft} alt="Left" />
-          </Arrow>
-        }
-        rightArrow={
-          <Arrow>
-            <img src={imageArrowRight} alt="Right" />
-          </Arrow>
-        }
-        swiping={true}
+        additionalTransfrom={0}
+        arrows
+        autoPlaySpeed={3000}
+        focusOnSelect={false}
+        minimumTouchDrag={80}
+        responsive={{
+          largeDesktop: {
+            breakpoint: {
+              max: 3000,
+              min: 1400,
+            },
+            items: 6,
+
+            partialVisibilityGutter: 40,
+          },
+          desktop: {
+            breakpoint: {
+              max: 1400,
+              min: 1100,
+            },
+            items: 5,
+
+            partialVisibilityGutter: 40,
+          },
+          smallDesktop: {
+            breakpoint: {
+              max: 1100,
+              min: 700,
+            },
+            items: 4,
+
+            partialVisibilityGutter: 40,
+          },
+          mobile: {
+            breakpoint: {
+              max: 464,
+              min: 0,
+            },
+            items: 1,
+            partialVisibilityGutter: 30,
+          },
+          tablet: {
+            breakpoint: {
+              max: 700,
+              min: 464,
+            },
+            items: 3,
+            partialVisibilityGutter: 30,
+          },
+        }}
+        rewind={false}
+        rewindWithAnimation={false}
+        rtl={false}
+        shouldResetAutoplay
+        showDots={false}
+        slidesToSlide={1}
+        swipeable
       >
         {opinions.filter(filterOutEmptyNames).map(({ id, name, describe, ratingStars }) => (
           <SingleCardOpinionSection key={id}>
