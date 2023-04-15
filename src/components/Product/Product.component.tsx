@@ -13,6 +13,8 @@ import { Input } from "../Input/Input.component";
 import { TopNavSection } from "../TopNavigation/TopNavigatioon.styled";
 import { CompanyHeaderLeft, CompanyHeaderRight } from "../Header/Header.styled";
 import { Link } from "react-router-dom";
+// import { PhotoMainPage } from "../Header/Header.styled";
+// import mainPic from "../../assets/buildings.png";
 
 export const Products = () => {
   const { currentUser } = useContext(AuthContext);
@@ -92,6 +94,9 @@ export const Products = () => {
           <CategoryDropdowncopy {...categoryProps} />
         </CompanyHeaderRight>
       </TopNavSection>
+      {/* <PhotoMainPage>
+        <img src={mainPic} alt="picture" />
+      </PhotoMainPage> */}
       <ProductContainer>
         <Carousel
           show={6}
