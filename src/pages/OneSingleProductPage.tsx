@@ -28,10 +28,18 @@ export const OneSingleProductPage = () => {
   const getProduct = async () => {
     try {
       if (id) {
-        const docRef = doc(db, "books", id) as DocumentReference<ProductProps>;
-        const docSnap = await getDoc<ProductProps>(docRef);
+        const collectionNames = ["books", "Sport", "Tools"];
+        const promises = collectionNames.map((collection) =>
+          getDoc(doc(db, collection, id) as DocumentReference<ProductProps>),
+        );
+        const results = await Promise.all(promises);
 
-        setProduct(docSnap.data());
+        for (const docSnap of results) {
+          if (docSnap.exists()) {
+            setProduct(docSnap.data());
+            break;
+          }
+        }
       }
     } catch (error) {
       setProduct(undefined);
