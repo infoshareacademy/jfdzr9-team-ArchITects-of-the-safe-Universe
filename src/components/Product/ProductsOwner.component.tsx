@@ -18,7 +18,7 @@ import { Arrow, Container, ContainerPhoto, ContainerText, ProductContainer } fro
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { AuthContext } from "../../Context/AuthContext";
-import { ButtonD } from "../Buttons/Button.styled";
+import { ButtonS } from "../Buttons/Button.styled";
 
 const imageArrowLeft = new URL("../../assets/arrow-left.svg", import.meta.url).href;
 const imageArrowRight = new URL("../../assets/arrow-right.svg", import.meta.url).href;
@@ -190,10 +190,9 @@ export const ProductsOwner = () => {
             <ContainerText>
               <h3>{name}</h3>
               <h5>{author}</h5>
-              <h1>{status}</h1>
             </ContainerText>
-            <ButtonD onClick={() => handleDelete(id)}>Usuń z bazy</ButtonD>
-            <ButtonD onClick={() => handleStatusUpdate(id)}>{status}</ButtonD>
+            <ButtonS onClick={() => handleDelete(id)}>Usuń z bazy</ButtonS>
+            <ButtonS onClick={() => handleStatusUpdate(id)}>{status}</ButtonS>
           </Container>
         ))}
       </Carousel>

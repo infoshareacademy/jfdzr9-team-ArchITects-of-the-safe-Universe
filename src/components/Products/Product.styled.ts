@@ -61,14 +61,15 @@ export const Container = styled.button`
   justify-content: center;
   flex-wrap: wrap;
   font-size: 1rem;
-  height: auto;
+  min-height: 50vh;
+  max-height: 60vh;
   border-radius: 10px;
   padding: 0.5rem;
   margin: 0px;
   transition: 0.2s linear;
   border: none;
 
-  @media (max-width: 40em) {
+  @media (max-width: 1024px) {
     height: 55vh;
   }
 `;

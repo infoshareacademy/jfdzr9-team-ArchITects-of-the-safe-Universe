@@ -9,7 +9,7 @@ export const CompanyHeaderSection = styled.section`
   background: var(--color-white);
   box-shadow: 1px 1px 1px var(--color-orange);
 
-  @media (max-width: 48.12em) {
+  @media (max-width: 1024px) {
     box-shadow: none;
   }
 `;
@@ -31,9 +31,8 @@ export const CompanyHeaderLeft = styled.form`
   padding-left: 20px;
   margin-bottom: 10px;
 
-  @media (max-width: 40em) {
+  @media (max-width: 1024px) {
     width: 250px;
-    margin-top: 15px;
     margin-right: 0px;
   }
 `;

@@ -113,7 +113,7 @@ export const Products = () => {
             desktop: {
               breakpoint: {
                 max: 1400,
-                min: 1100,
+                min: 1024,
               },
               items: 5,
 
@@ -121,7 +121,7 @@ export const Products = () => {
             },
             smallDesktop: {
               breakpoint: {
-                max: 1100,
+                max: 1024,
                 min: 700,
               },
               items: 4,
@@ -159,8 +159,8 @@ export const Products = () => {
                 <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
                 <ContainerText>
                   <h3>{name}</h3>
-                  <h1>{status}</h1>
-                  <h5>{author}</h5>
+                  <h4>{author}</h4>
+                  <h5>{status}</h5>
                 </ContainerText>
               </Link>
             </Container>

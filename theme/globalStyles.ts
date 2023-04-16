@@ -11,6 +11,7 @@ ${normalize}
     --color-grey: hsl(0, 0%, 85%);
     --color-dark-grey: hsl(0, 0%, 60%);
     --color-orange: hsl(40, 85%, 80%);
+    --color-black: hsl(0, 3%, 2%);
 }
 
 *,
@@ -25,13 +26,24 @@ html {
 }
 
 body {
+    display: flex;
+		flex-direction: column;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;
     color: var(--color-dark-grey);
-    width: 100%;
+    width: 100vw;
     margin: auto; 
-    min-height: 100vh;
+    height: 100%;
     background-color: var(--color-white);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+
+   
+    
+    @media (max-width: 40em) {
+      height: auto;
+  }
 }
 
 .react-multi-carousel-list {
@@ -54,6 +66,11 @@ body {
   margin: 10px
   width: 100%
 } 
+
+a {
+  text-decoration: none;
+  color: var(--color-black);
+}
 
 `;
 
