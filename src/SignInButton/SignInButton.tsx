@@ -6,15 +6,12 @@ import Usernotlog from "../assets/Usernotlog.png";
 import { UserPanelButton } from "../UserPanelButton/UserPanelButton";
 import { SignOutButton } from "../SignOutButton/SignOutButton";
 import { UserOptionsContainer } from "./SignInButton.styled";
+import { UserDataButton } from "../components/UserData/UserDataButton";
 
 export const SignInButton = () => {
   const { currentUser } = useContext(AuthContext);
   const [showUserOptions, setShowUserOptions] = useState<boolean>(false);
   const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
-
-  const handleToggleUserOptions = () => {
-    setShowUserOptions(!showUserOptions);
-  };
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutRef.current);
@@ -43,6 +40,7 @@ export const SignInButton = () => {
           <p>{currentUser.email}</p>
           <SignOutButton>Wyloguj</SignOutButton>
           <UserPanelButton />
+          <UserDataButton />
         </UserOptionsContainer>
       )}
     </div>
