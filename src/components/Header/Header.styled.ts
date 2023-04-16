@@ -42,5 +42,11 @@ export const CompanyHeaderRight = styled.div`
 `;
 
 export const CompanyHeaderSign = styled.div`
-  order 4;
+  order: 4;
 `;
+
+// export const PhotoMainPage = styled.div`
+//   background-color: gray;
+//   width: auto;
+//   height: 30%;
+// `;

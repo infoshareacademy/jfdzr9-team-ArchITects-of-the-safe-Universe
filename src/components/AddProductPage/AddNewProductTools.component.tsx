@@ -51,7 +51,7 @@ export const AddNewProductTools = () => {
     if (!currentUser) {
       throw new Error("User not authenticated");
     }
-    const productWithUserEmail = { ...product, email: currentUser.email };
+    const productWithUserEmail = { ...product, email: currentUser.email, status: "Dostępne" };
     const productRef = collection(db, "Tools");
     await addDoc(productRef, productWithUserEmail);
   };

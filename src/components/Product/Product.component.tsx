@@ -10,6 +10,8 @@ import { Input } from "../Input/Input.component";
 import { TopNavSection } from "../TopNavigation/TopNavigatioon.styled";
 import { CompanyHeaderLeft, CompanyHeaderRight } from "../Header/Header.styled";
 import { Link } from "react-router-dom";
+// import { PhotoMainPage } from "../Header/Header.styled";
+import mainPic from "../../assets/buildings.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -151,12 +153,13 @@ export const Products = () => {
           slidesToSlide={1}
           swipeable
         >
-          {filteredProducts.map(({ id, name, author, img }) => (
+          {filteredProducts.map(({ id, name, author, img, status }) => (
             <Container key={id}>
               <Link to={`/productPage/${id}`}>
                 <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
                 <ContainerText>
                   <h3>{name}</h3>
+                  <h1>{status}</h1>
                   <h5>{author}</h5>
                 </ContainerText>
               </Link>
