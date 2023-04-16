@@ -10,6 +10,8 @@ import { Input } from "../Input/Input.component";
 import { TopNavSection } from "../TopNavigation/TopNavigatioon.styled";
 import { CompanyHeaderLeft, CompanyHeaderRight } from "../Header/Header.styled";
 import { Link } from "react-router-dom";
+// import { PhotoMainPage } from "../Header/Header.styled";
+import mainPic from "../../assets/buildings.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 

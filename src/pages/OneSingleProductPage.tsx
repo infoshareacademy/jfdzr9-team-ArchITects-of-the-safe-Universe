@@ -10,6 +10,16 @@ import { useEffect, useState } from "react";
 import { db } from "../utils/firebase/firebase.config";
 import { ProductProps } from "../components/AddProductPage/AddNewProduct.component";
 import { OrangeButton } from "../components/Buttons/Button.styled";
+import {
+  OneSingleProductStyle,
+  OneSingleProductPhoto,
+  OneSingleProductContainer,
+} from "../components/OneSingleProduct/OneSingleProduct.styled";
+import {
+  AllPhotos,
+  MainPhoto,
+  OneSingleProductContainerButton,
+} from "../components/OneSingleProduct/OneSingleProduct.styled";
 
 export const OneSingleProductPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -43,15 +53,40 @@ export const OneSingleProductPage = () => {
 
   return (
     <>
-      <img src={product?.img} alt={product?.name} />
-      <p>{product?.author}</p>
-      {/* <Container /> */}
-      <p>{product?.description}</p>
-      <p>{product?.location}</p>
-      <p>{product?.author}</p>
-      <OrangeButton>Pożycz przedmiot</OrangeButton>
-      {/* <img src={product?.img} alt={product?.name} /> */}
-      {/* <Products /> */}
+      <OneSingleProductStyle>
+        <AllPhotos>
+          <MainPhoto>
+            <img src={product?.img} alt={product?.name} />
+          </MainPhoto>
+        </AllPhotos>
+
+        <OneSingleProductContainer>
+          <OneSingleProductPhoto>
+            <OneSingleProductContainer>
+              <h1>
+                <p>{product?.name}</p>
+              </h1>
+            </OneSingleProductContainer>
+
+            {/* <OneSingleProductText>
+              <h3>
+                <p>{product?.author}</p>
+              </h3>
+            </OneSingleProductText> */}
+
+            <OneSingleProductContainer>
+              <p>
+                <p>{product?.description}</p>
+                <br />
+                <h3>{product?.location}</h3>
+              </p>
+            </OneSingleProductContainer>
+            <OneSingleProductContainerButton>
+              <OrangeButton>Kontakt z właścicielem</OrangeButton>
+            </OneSingleProductContainerButton>
+          </OneSingleProductPhoto>
+        </OneSingleProductContainer>
+      </OneSingleProductStyle>
     </>
   );
 };
