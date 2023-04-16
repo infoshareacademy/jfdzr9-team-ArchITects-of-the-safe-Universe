@@ -17,6 +17,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import { OpinionsPage } from "./pages/OpinionsPage";
 import { Layout } from "./components/Layout/Layout.component";
 import { OneSingleProductPage } from "./pages/OneSingleProductPage";
+import { UserDataPanel } from "./pages/UserDataPanel";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/userPanelBorrow" element={<UserPanelPageBorrow />} />
             <Route path="/userPanelLend" element={<UserPanelPageLend />} />
             <Route path="/forgotPassword" element={<ForgotPasswordPage />} />
+            <Route path="/userDataPanel" element={<UserDataPanel />} />
             <Route path="not-found" element={<NotFoundPage />} />
             <Route
               path="productPage"
