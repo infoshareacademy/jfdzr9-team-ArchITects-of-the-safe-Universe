@@ -4,7 +4,11 @@ export const FooterLabel = () => {
   return (
     <Footer>
       <div>
-        <h4>RentMe, @2023 rentme Inc. Wszystkie prawa zastrzeżone.</h4>
+        <h4>
+          RentMe, @2023 rentme Inc.
+          <br />
+          Wszystkie prawa zastrzeżone.
+        </h4>
       </div>
       <div>
         <h4>

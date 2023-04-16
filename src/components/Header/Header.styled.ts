@@ -13,16 +13,7 @@ export const CompanyHeaderSection = styled.section`
     box-shadow: none;
   }
 `;
-export const CompanyHeaderLogo = styled.div`
-  /* order: 1; */
-`;
-
-// export const CompanyHeaderSearch = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   margin-right: 100px;
-// `;
+export const CompanyHeaderLogo = styled.div``;
 
 export const CompanyHeaderUser = styled.div`
   display: flex;
