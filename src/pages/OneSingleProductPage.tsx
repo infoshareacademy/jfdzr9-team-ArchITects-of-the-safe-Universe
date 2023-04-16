@@ -20,6 +20,7 @@ import {
   MainPhoto,
   OneSingleProductContainerButton,
 } from "../components/OneSingleProduct/OneSingleProduct.styled";
+import { RentingProductButton } from "../RentingProductButton/RentingProductButton.component";
 
 export const OneSingleProductPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -82,7 +83,7 @@ export const OneSingleProductPage = () => {
               </p>
             </OneSingleProductContainer>
             <OneSingleProductContainerButton>
-              <OrangeButton>Kontakt z właścicielem</OrangeButton>
+              <RentingProductButton />
             </OneSingleProductContainerButton>
           </OneSingleProductPhoto>
         </OneSingleProductContainer>
