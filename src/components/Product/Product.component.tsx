@@ -153,12 +153,13 @@ export const Products = () => {
           slidesToSlide={1}
           swipeable
         >
-          {filteredProducts.map(({ id, name, author, img }) => (
+          {filteredProducts.map(({ id, name, author, img, status }) => (
             <Container key={id}>
               <Link to={`/productPage/${id}`}>
                 <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
                 <ContainerText>
                   <h3>{name}</h3>
+                  <h1>{status}</h1>
                   <h5>{author}</h5>
                 </ContainerText>
               </Link>
