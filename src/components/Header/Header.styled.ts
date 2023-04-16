@@ -5,7 +5,7 @@ export const CompanyHeaderSection = styled.section`
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  height: 8vh;
+  height: 70px;
   background: var(--color-white);
   box-shadow: 1px 1px 1px var(--color-orange);
 
@@ -25,7 +25,6 @@ export const CompanyHeaderLeft = styled.form`
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
-  height: 44px;
   width: 500px;
   border-radius: 4px;
   padding-left: 20px;

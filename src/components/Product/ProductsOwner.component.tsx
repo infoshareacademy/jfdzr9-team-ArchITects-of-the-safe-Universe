@@ -14,7 +14,7 @@ import {
 import { useEffect, useState, useContext } from "react";
 import { db } from "../../utils/firebase/firebase.config";
 import { ProductProps } from "../AddProductPage/AddNewProduct.component";
-import { Arrow, Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
+import { Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { AuthContext } from "../../Context/AuthContext";
@@ -129,14 +129,14 @@ export const ProductsOwner = () => {
               max: 3000,
               min: 1400,
             },
-            items: 6,
+            items: 5,
 
             partialVisibilityGutter: 40,
           },
           desktop: {
             breakpoint: {
               max: 1400,
-              min: 1100,
+              min: 1025,
             },
             items: 5,
 
@@ -144,8 +144,8 @@ export const ProductsOwner = () => {
           },
           smallDesktop: {
             breakpoint: {
-              max: 1100,
-              min: 700,
+              max: 1024,
+              min: 701,
             },
             items: 4,
 
@@ -162,7 +162,7 @@ export const ProductsOwner = () => {
           tablet: {
             breakpoint: {
               max: 700,
-              min: 464,
+              min: 465,
             },
             items: 3,
             partialVisibilityGutter: 30,

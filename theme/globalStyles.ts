@@ -33,17 +33,12 @@ body {
     color: var(--color-dark-grey);
     width: 100vw;
     margin: auto; 
-    height: 100%;
+    height: 100vh;
     background-color: var(--color-white);
     overflow-y: auto;
-    overflow-x: hidden;
     position: relative;
 
-   
-    
-    @media (max-width: 40em) {
-      height: auto;
-  }
+
 }
 
 .react-multi-carousel-list {
@@ -54,7 +49,7 @@ body {
   width: 43px;
   height: 43px;
 
-  @media (max-width: 40em) {
+  @media (max-width: 650px) {
     display: none;
   }
 
@@ -63,13 +58,16 @@ body {
 .react-multi-carousel-item {
   display: flex;
   justify-content: center;
-  margin: 10px
   width: 100%
 } 
 
 a {
   text-decoration: none;
   color: var(--color-black);
+}
+
+.red {
+  color: red;
 }
 
 `;
