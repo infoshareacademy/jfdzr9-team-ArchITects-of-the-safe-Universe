@@ -18,6 +18,7 @@ export type ProductProps = {
   location: string;
   name: string;
   email: string;
+  status: string;
 };
 
 export const AddNewProduct = () => {
@@ -54,7 +55,7 @@ export const AddNewProduct = () => {
     if (!currentUser) {
       throw new Error("User not authenticated");
     }
-    const productWithUserEmail = { ...product, email: currentUser.email };
+    const productWithUserEmail = { ...product, email: currentUser.email, status: "Dostępne" };
     const productRef = collection(db, "books");
     await addDoc(productRef, productWithUserEmail);
   };
