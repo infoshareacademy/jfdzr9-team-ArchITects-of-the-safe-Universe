@@ -16,7 +16,6 @@ ${normalize}
 *,
 *::before,
 *::after {
-  /* box-sizing: border-box; */
   margin: 0;
   padding: 0;
 }
@@ -26,7 +25,6 @@ html {
 }
 
 body {
-    /* line-height: 1.8; */
     font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;
     color: var(--color-dark-grey);
@@ -36,14 +34,26 @@ body {
     background-color: var(--color-white);
 }
 
-/* header {
-  position: relative;
+.react-multi-carousel-list {
+  width: 100%;
+}
+
+.react-multiple-carousel__arrow {
+  width: 43px;
+  height: 43px;
+
+  @media (max-width: 40em) {
+    display: none;
+  }
+
+}
+
+.react-multi-carousel-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 10rem;
-  padding: var(--padding-layout);
-} */
+  justify-content: center;
+  margin: 10px
+  width: 100%
+} 
 
 `;
 
