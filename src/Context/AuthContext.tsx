@@ -14,7 +14,6 @@ export const AuthProvider = ({ children }: PropsWithChildren<unknown>) => {
   const [currentUser, setCurrentUser] = useState<firebase.User | null>(null);
 
   useEffect(() => {
-    console.log("sts");
     const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
       setCurrentUser(user);
     });

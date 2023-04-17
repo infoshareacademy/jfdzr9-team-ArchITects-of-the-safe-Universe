@@ -20,8 +20,6 @@ import "react-multi-carousel/lib/styles.css";
 import { AuthContext } from "../../Context/AuthContext";
 import { ButtonS } from "../Buttons/Button.styled";
 
-const imageArrowLeft = new URL("../../assets/arrow-left.svg", import.meta.url).href;
-const imageArrowRight = new URL("../../assets/arrow-right.svg", import.meta.url).href;
 export const ProductsOwner = () => {
   const [books, setBooks] = useState<(ProductProps & { id: string; isReserved: boolean })[]>([]);
   const [tools, setTools] = useState<(ProductProps & { id: string; isReserved: boolean })[]>([]);
@@ -41,10 +39,16 @@ export const ProductsOwner = () => {
       const currentStatus = bookDoc?.data()?.status;
       const newStatus = currentStatus === "Dostępne" ? "Niedostępne" : "Dostępne";
       await setDoc(bookDocRef, { status: newStatus }, { merge: true });
+      const toolsRef = collection(db, "Tools");
+      const toolDocRef = doc(toolsRef, id);
+      await setDoc(toolDocRef, { status: newStatus }, { merge: true });
+      const sportRef = collection(db, "Sport");
+      const sportDocRef = doc(sportRef, id);
+      await setDoc(sportDocRef, { status: newStatus }, { merge: true });
       setStatus(newStatus);
       window.location.reload();
     } catch (error) {
-      // handle error
+      //;
     }
   };
   const getProducts = async () => {
