@@ -43,7 +43,7 @@ export const Input = styled.input`
   margin-bottom: 10px;
   width: 200px;
 
-  @media (max-width: 40em) {
+  @media (max-width: 650px) {
     height: 15px;
     font-size: 14px;
   }
@@ -65,21 +65,22 @@ export const TextArea = styled.textarea`
   font-size: 16px;
   margin-bottom: 10px;
   resize: vertical;
-  @media (max-width: 40em) {
+  @media (max-width: 650px) {
     height: 25px;
     font-size: 14px;
   }
 `;
 
 export const Select = styled.select`
-  padding: 10px;
+  padding: 5px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
   margin-bottom: 10px;
   width: 222px;
+  height: 37px;
 
-  @media (max-width: 40em) {
+  @media (max-width: 650px) {
     height: 30px;
     padding: 0px;
   }

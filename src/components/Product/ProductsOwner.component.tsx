@@ -18,7 +18,7 @@ import { Container, ContainerPhoto, ContainerText, ProductContainer } from "../P
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { AuthContext } from "../../Context/AuthContext";
-import { ButtonD } from "../Buttons/Button.styled";
+import { ButtonS } from "../Buttons/Button.styled";
 
 export const ProductsOwner = () => {
   const [books, setBooks] = useState<(ProductProps & { id: string; isReserved: boolean })[]>([]);
@@ -133,14 +133,14 @@ export const ProductsOwner = () => {
               max: 3000,
               min: 1400,
             },
-            items: 6,
+            items: 5,
 
             partialVisibilityGutter: 40,
           },
           desktop: {
             breakpoint: {
               max: 1400,
-              min: 1100,
+              min: 1025,
             },
             items: 5,
 
@@ -148,8 +148,8 @@ export const ProductsOwner = () => {
           },
           smallDesktop: {
             breakpoint: {
-              max: 1100,
-              min: 700,
+              max: 1024,
+              min: 701,
             },
             items: 4,
 
@@ -166,7 +166,7 @@ export const ProductsOwner = () => {
           tablet: {
             breakpoint: {
               max: 700,
-              min: 464,
+              min: 465,
             },
             items: 3,
             partialVisibilityGutter: 30,
@@ -194,10 +194,9 @@ export const ProductsOwner = () => {
             <ContainerText>
               <h3>{name}</h3>
               <h5>{author}</h5>
-              <h1>{status}</h1>
             </ContainerText>
-            <ButtonD onClick={() => handleDelete(id)}>Usuń z bazy</ButtonD>
-            <ButtonD onClick={() => handleStatusUpdate(id)}>{status}</ButtonD>
+            <ButtonS onClick={() => handleDelete(id)}>Usuń z bazy</ButtonS>
+            <ButtonS onClick={() => handleStatusUpdate(id)}>{status}</ButtonS>
           </Container>
         ))}
       </Carousel>
