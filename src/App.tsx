@@ -1,8 +1,6 @@
 import GlobalStyle from "../theme/globalStyles";
 import { MainPage } from "./pages/MainPage";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
-import Header from "./components/Header/Header";
-import { FooterLabel } from "./Footer/Footer.component";
 import { HowDoesItWorkBorrowPage } from "./pages/HowDoesItWorkBorrowPage";
 import { HowDoesItWorkLendPage } from "./pages/HowDoesItWorkLendPage";
 import { SignInPage } from "./pages/SignInPage";
