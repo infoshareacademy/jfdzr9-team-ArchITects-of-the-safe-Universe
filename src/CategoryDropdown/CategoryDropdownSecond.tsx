@@ -3,6 +3,7 @@ import { Select } from "../components/AddProductPage/AddNewProduct.styled";
 import AddNewProduct from "../components/AddProductPage/AddNewProduct.component";
 import AddNewProductSport from "../components/AddProductPage/AddNewProductSport.component";
 import AddNewProductTools from "../components/AddProductPage/AddNewProductTools.component";
+import { SelectContainer } from "./CategoryDropdownSecond.styled";
 
 export interface CategoryProps {
   value?: string;
@@ -28,7 +29,7 @@ export const CategoryDropdownSecond = ({ value, onChange }: CategoryProps) => {
   };
 
   return (
-    <>
+    <SelectContainer>
       <Select id="categories" value={selectedCategory} onChange={handleCategoryChange}>
         <option value="">Wybierz kategorię</option>
         {options.map((option) => (
@@ -40,7 +41,7 @@ export const CategoryDropdownSecond = ({ value, onChange }: CategoryProps) => {
       {selectedCategory === "books" && <AddNewProduct />}
       {selectedCategory === "Sport" && <AddNewProductSport />}
       {selectedCategory === "Tools" && <AddNewProductTools />}
-    </>
+    </SelectContainer>
   );
 };
 

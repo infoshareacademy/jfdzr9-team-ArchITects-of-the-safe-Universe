@@ -30,6 +30,16 @@ export const CompanyHeaderLeft = styled.form`
   padding-left: 20px;
   margin-bottom: 10px;
 
+  :hover {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
+  :focus {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
   @media (max-width: 1024px) {
     width: 250px;
     margin-right: 0px;
