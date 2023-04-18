@@ -43,6 +43,16 @@ export const Input = styled.input`
   margin-bottom: 10px;
   width: 200px;
 
+  :hover {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
+  :focus {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
   @media (max-width: 650px) {
     height: 15px;
     font-size: 14px;
@@ -65,6 +75,17 @@ export const TextArea = styled.textarea`
   font-size: 16px;
   margin-bottom: 10px;
   resize: vertical;
+
+  :hover {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
+  :focus {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
   @media (max-width: 650px) {
     height: 25px;
     font-size: 14px;
@@ -79,6 +100,16 @@ export const Select = styled.select`
   margin-bottom: 10px;
   width: 222px;
   height: 37px;
+
+  :hover {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
+  :focus {
+    outline: none;
+    border-color: var(--color-orange);
+  }
 
   @media (max-width: 650px) {
     height: 30px;
