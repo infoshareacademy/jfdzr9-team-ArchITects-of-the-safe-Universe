@@ -5,7 +5,8 @@ export const SignInContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 40px;
+  gap: 20px;
+  margin-top: 20px;
 `;
 
 export const SignInBottomConrainer = styled.div`

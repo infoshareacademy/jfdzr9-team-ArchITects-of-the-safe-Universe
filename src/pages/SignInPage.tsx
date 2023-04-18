@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { ButtonM } from "../components/Buttons/Button.styled";
-import { Input } from "../components/Input/Input.component";
+import { Input } from "../components/AddProductPage/AddNewProduct.styled";
 import { SignInGoogle } from "../GoogleButton/SignInGoogle";
 import { ForgotPasswordLink, SignInBottomConrainer, SignInContainer } from "../components/SignIn/SignIn.styled";
 import firebase from "firebase/compat/app";
@@ -46,7 +46,7 @@ export const SignInPage = () => {
   return (
     <>
       <SignInContainer>
-        <div>Zaloguj</div>
+        <div>Zaloguj się</div>
         <Input
           placeholder="email"
           value={email}
@@ -68,11 +68,11 @@ export const SignInPage = () => {
             <span onClick={() => navigate("/forgotPassword")}>Zapomniałeś hasła?</span>
           </ForgotPasswordLink>
           <ButtonM onClick={handleSignIn} ref={loginButtonRef}>
-            Zaloguj
+            Zaloguj się
           </ButtonM>
           <SignInGoogle />
           <div>Nie posiadasz konta?</div>
-          <ButtonM onClick={handleSignUp}>Zarejestruj</ButtonM>
+          <ButtonM onClick={handleSignUp}>Zarejestruj się</ButtonM>
           {isSignUpSuccess && <div>Konto zostało utworzone pomyślnie</div>}
         </SignInBottomConrainer>
       </SignInContainer>
