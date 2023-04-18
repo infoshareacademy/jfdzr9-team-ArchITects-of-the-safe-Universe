@@ -2,73 +2,64 @@ import styled from "styled-components";
 
 export const OneSingleProductStyle = styled.div`
   display: flex;
-  padding: 4rem;
-  margin: 5rem 3rem;
-  position: static;
-  border-radius: 2rem;
-  align-content: center;
-  justify-content: center;
+  padding: 20px;
+  margin: 50px 50px;
+  border-radius: 30px;
+  align-items: center;
+  justify-content: space-around;
   flex-wrap: nowrap;
   height: 100%;
   background-color: var(--color-very-light-grey);
-  /* border: 5px solid black; */
-`;
 
-export const OneSingleProductPhoto = styled.div`
-  display: flex;
-  position: static;
-  align-content: space-around;
-  justify-content: start;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 3%;
-  /* border: 5px solid yellow; */
-  height: 90%;
+  @media (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+    gap: 15px;
+  }
 `;
 
 export const OneSingleProductContainer = styled.div`
   display: flex;
-  position: static;
-  justify-content: flex-start;
-  align-content: space-around;
-  min-width: 50%;
-  margin-right: 2%;
-  margin-left: 2%;
-  /* border: 5px solid green; */
+  flex-direction: column;
+  width: 50%;
+  padding: 10px;
+  border-radius: 20px;
   background-color: white;
-`;
-export const MainPhoto = styled.div`
-  display: flex;
-  position: static;
-  justify-content: space-around;
-  align-content: space-around;
-  min-width: 60%;
-  height: 90%;
-  width: 100%;
-  margin: 3%;
-  /* border: 5px solid purple; */
-  background-color: white;
+  gap: 10px;
+
+  @media (max-width: 650px) {
+    width: 90%;
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
 `;
 
 export const AllPhotos = styled.div`
   display: flex;
-  position: static;
-  justify-content: space-around;
   flex-wrap: wrap;
-  align-content: space-around;
-  min-width: 40%;
-  height: 100%;
-  margin-right: 2%;
-  margin-left: 2%;
-  background-color: white;
-  /* border: 5px solid pink; */
-`;
-export const OneSingleProductContainerButton = styled.div`
-  display: flex;
-  position: static;
-  justify-content: flex-start;
-  min-width: 50%;
-  margin-right: 2%;
-  margin-left: 2%;
-  /* border: 5px solid black; */
+  align-content: flex-start;
+  border-radius: 20px;
+
+  img {
+    border-radius: 20px;
+    width: 300px;
+    height: auto;
+
+    @media (max-width: 650px) {
+      width: 200px;
+    }
+  }
 `;

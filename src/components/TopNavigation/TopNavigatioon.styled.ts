@@ -14,6 +14,7 @@ export const TopNavSection = styled.div`
   }
 
   @media (max-width: 650px) {
+    margin-top: 10px;
     flex-direction: column;
   }
 `;
