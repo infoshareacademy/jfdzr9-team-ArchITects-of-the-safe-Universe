@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
-export const Navigator = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-`;
+// export const Navigator = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   gap: 1rem;
+// `;
 
 export const ProductContainer = styled.div`
-  position: static;
+  /* position: static; */
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   height: 60vh;
   width: 100vw;
@@ -24,6 +24,11 @@ export const ProductContainer = styled.div`
 
   @media (max-width: 650px) {
     flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    gap: 15px;
 
     button {
       width: 80%;
@@ -31,7 +36,7 @@ export const ProductContainer = styled.div`
   }
 `;
 
-export const Container = styled.button`
+export const Container = styled.div`
   position: static;
   display: flex;
   align-items: space-between;
@@ -44,6 +49,7 @@ export const Container = styled.button`
   margin: 0px;
   transition: 0.2s linear;
   border: none;
+  background-color: var(--color-very-light-grey);
 `;
 
 export const ContainerPhoto = styled.div`
