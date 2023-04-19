@@ -1,9 +1,7 @@
 import { useState, useContext, useRef } from "react";
-
 import "firebase/compat/auth";
 import User from "../assets/User.png";
 import Usernotlog from "../assets/Usernotlog.png";
-
 import { SignOutButton } from "../SignOutButton/SignOutButton";
 import { UserOptionsContainer } from "./SignInButton.styled";
 import { AuthContext } from "../../Context/AuthContext";
@@ -44,7 +42,7 @@ export const SignInButton = () => {
         <UserOptionsContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <p>{currentUser.email}</p>
           <SignOutButton>Wyloguj</SignOutButton>
-          <UserPanelButton />
+          <UserPanelButton onClick={() => console.log("")} />
         </UserOptionsContainer>
       )}
     </div>
