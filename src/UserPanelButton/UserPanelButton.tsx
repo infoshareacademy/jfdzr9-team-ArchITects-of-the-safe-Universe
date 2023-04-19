@@ -1,10 +1,14 @@
 import { ButtonS } from "../components/Buttons/Button.styled";
 import { Link } from "react-router-dom";
 
-export const UserPanelButton = () => {
+interface UserPanelButtonProps {
+  onClick: () => void;
+}
+
+export const UserPanelButton = ({ onClick }: UserPanelButtonProps) => {
   return (
     <Link to="/userPanelBorrow">
-      <ButtonS>Panel użytkownika</ButtonS>
+      <ButtonS onClick={onClick}>Panel użytkownika</ButtonS>
     </Link>
   );
 };
