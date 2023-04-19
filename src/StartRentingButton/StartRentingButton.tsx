@@ -9,18 +9,18 @@ export const StartRentingButton = () => {
   const navigate = useNavigate();
 
   const handleStartRenting = () => {
-    navigate(currentUser ? "/" : "/account");
+    navigate(currentUser ? "/contact" : "/account");
   };
 
   return (
     <>
       {currentUser ? (
-        <Link to="/">
-          <ButtonM onClick={handleStartRenting}>Zacznij wypożyczać</ButtonM>
+        <Link to="/contact">
+          <ButtonM onClick={handleStartRenting}>Kontakt z właścicielem</ButtonM>
         </Link>
       ) : (
         <Link to="/account">
-          <ButtonM>Zacznij wypożyczać</ButtonM>
+          <ButtonM>Kontakt z właścicielem</ButtonM>
         </Link>
       )}
     </>

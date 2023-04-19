@@ -9,6 +9,7 @@ import {
   OneSingleProductContainer,
 } from "../components/OneSingleProduct/OneSingleProduct.styled";
 import { AllPhotos } from "../components/OneSingleProduct/OneSingleProduct.styled";
+import { StartRentingButton } from "../StartRentingButton/StartRentingButton";
 
 export const OneSingleProductPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -51,7 +52,7 @@ export const OneSingleProductPage = () => {
           <h4>{product?.author}</h4>
           <p>{product?.description}</p>
           <h4>{product?.location}</h4>
-          <OrangeButton>Kontakt z właścicielem</OrangeButton>
+          <StartRentingButton>Kontakt z właścicielem</StartRentingButton>
         </OneSingleProductContainer>
       </OneSingleProductStyle>
     </>
