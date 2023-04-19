@@ -1,51 +1,34 @@
 import styled from "styled-components";
 
-export const Navigator = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-`;
-
-export const Arrow = styled.button`
-  position: static;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  width: 2.5vw;
-  height: 45vh;
-  border-radius: 10px;
-  padding: 1.6rem;
-  text-transform: capitalize;
-  transition: 0.2s linear;
-  border: none;
-  :hover {
-    cursor: pointer;
-    background-color: var(--color-dark-grey);
-  }
-
-  @media (max-width: 40em) {
-    display: none;
-  }
-`;
+// export const Navigator = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   gap: 1rem;
+// `;
 
 export const ProductContainer = styled.div`
-  position: static;
+  /* position: static; */
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   height: 60vh;
   width: 100vw;
   border-radius: 10px;
-  background-color: var(--color-white);
   transition: 0.2s linear;
   border: none;
-  gap: 10px;
+  gap: 5px;
 
-  @media (max-width: 40em) {
+  @media (max-width: 1024px) {
+    min-height: 55vh;
+  }
+
+  @media (max-width: 650px) {
     flex-direction: column;
-    align-items: stretch;
-    height: 57vh;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    gap: 15px;
 
     button {
       width: 80%;
@@ -53,30 +36,25 @@ export const ProductContainer = styled.div`
   }
 `;
 
-export const Container = styled.button`
+export const Container = styled.div`
   position: static;
   display: flex;
-  align-items: center;
-  align-content: space-around;
+  align-items: space-between;
   justify-content: center;
   flex-wrap: wrap;
   font-size: 1rem;
-  height: auto;
+  height: 55vh;
   border-radius: 10px;
   padding: 0.5rem;
   margin: 0px;
   transition: 0.2s linear;
   border: none;
-
-  @media (max-width: 40em) {
-    height: 55vh;
-  }
+  background-color: var(--color-very-light-grey);
 `;
 
 export const ContainerPhoto = styled.div`
   display: flex;
-  background-color: var(--color-orange);
-  width: auto;
+  justify-content: center;
   height: 250px;
   border-radius: 10px;
   margin: 0.1rem;
@@ -88,28 +66,36 @@ export const ContainerPhoto = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  @media (max-height: 650px) {
+    height: 200px;
+
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
 `;
 
 export const ContainerText = styled.label`
   position: static;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   justify-content: space-between;
   font-size: 1rem;
   width: 180px;
-  height: 12vh;
-  border-radius: 10px;
-  padding: 0.5rem;
-  margin: 0rem;
+  height: 15vh;
+  margin-top: 15px;
 
-  @media (max-width: 40em) {
+  @media (max-height: 740px) {
+    margin-top: 10px;
+    height: 10vh;
     h3 {
-      font-size: 0.9rem;
-    }
-    h5 {
       font-size: 0.8rem;
+    }
+    h4 {
+      font-size: 0.7rem;
     }
   }
 `;

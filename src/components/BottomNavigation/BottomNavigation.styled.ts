@@ -9,9 +9,7 @@ export const BottomNavigationSection = styled.section`
   margin: auto;
   height: 10vh;
 
-  @media (max-width: 40em) {
+  @media (max-width: 650px) {
     flex-direction: column;
-    /* align-items: stretch; */
-    /* height: 15vh; */
   }
 `;

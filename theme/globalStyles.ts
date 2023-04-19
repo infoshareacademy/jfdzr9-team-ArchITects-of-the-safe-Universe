@@ -11,6 +11,7 @@ ${normalize}
     --color-grey: hsl(0, 0%, 85%);
     --color-dark-grey: hsl(0, 0%, 60%);
     --color-orange: hsl(40, 85%, 80%);
+    --color-black: hsl(0, 3%, 2%);
 }
 
 *,
@@ -25,13 +26,19 @@ html {
 }
 
 body {
+    display: flex;
+		flex-direction: column;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;
     color: var(--color-dark-grey);
-    width: 100%;
+    width: 100vw;
     margin: auto; 
-    min-height: 100vh;
+    height: 100vh;
     background-color: var(--color-white);
+    overflow-y: auto;
+    position: relative;
+
+
 }
 
 .react-multi-carousel-list {
@@ -42,7 +49,7 @@ body {
   width: 43px;
   height: 43px;
 
-  @media (max-width: 40em) {
+  @media (max-width: 650px) {
     display: none;
   }
 
@@ -51,9 +58,17 @@ body {
 .react-multi-carousel-item {
   display: flex;
   justify-content: center;
-  margin: 10px
   width: 100%
 } 
+
+a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+.red {
+  color: red;
+}
 
 `;
 

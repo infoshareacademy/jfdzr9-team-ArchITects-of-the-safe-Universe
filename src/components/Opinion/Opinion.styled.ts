@@ -10,7 +10,7 @@ export const OpinionSection = styled.section`
   padding: 0.5rem;
   margin: 0px;
 
-  @media (max-width: 48.12em) {
+  @media (max-width: 650px) {
     grid-template-columns: repeat(2, 1fr);
     flex-direction: column;
     align-items: stretch;
@@ -27,7 +27,7 @@ export const ButtonOpinion = styled.section`
   padding: 3rem 0;
   margin: 0px;
 
-  @media (max-width: 48.12em) {
+  @media (max-width: 650px) {
     flex-direction: column;
     align-items: stretch;
 

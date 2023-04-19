@@ -11,7 +11,7 @@ export const UserOptionsSection = styled.section`
   justify-content: space-between;
   margin: auto;
 
-  @media (max-width: 40em) {
+  @media (max-width: 650px) {
     flex-direction: column;
     height: 15vh;
   }

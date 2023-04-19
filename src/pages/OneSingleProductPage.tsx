@@ -1,9 +1,3 @@
-// import { Link } from "react-router-dom";
-// import { ProductsOwner } from "../components/Product/ProductsOwner.component";
-// import { ProductConteiner } from "../components/OneSingleProduct/OneSingleProduct.component";
-// import { Products } from "../components/Product/Product.component";
-// import { Container } from "../components/Product/Product.component";
-
 import { doc, DocumentReference, getDoc } from "firebase/firestore";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
@@ -12,15 +6,9 @@ import { ProductProps } from "../components/AddProductPage/AddNewProduct.compone
 import { OrangeButton } from "../components/Buttons/Button.styled";
 import {
   OneSingleProductStyle,
-  OneSingleProductPhoto,
   OneSingleProductContainer,
 } from "../components/OneSingleProduct/OneSingleProduct.styled";
-import {
-  AllPhotos,
-  MainPhoto,
-  OneSingleProductContainerButton,
-} from "../components/OneSingleProduct/OneSingleProduct.styled";
-import { RentingProductButton } from "../RentingProductButton/RentingProductButton.component";
+import { AllPhotos } from "../components/OneSingleProduct/OneSingleProduct.styled";
 
 export const OneSingleProductPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -56,36 +44,14 @@ export const OneSingleProductPage = () => {
     <>
       <OneSingleProductStyle>
         <AllPhotos>
-          <MainPhoto>
-            <img src={product?.img} alt={product?.name} />
-          </MainPhoto>
+          <img src={product?.img} alt={product?.name} />
         </AllPhotos>
-
         <OneSingleProductContainer>
-          <OneSingleProductPhoto>
-            <OneSingleProductContainer>
-              <h1>
-                <p>{product?.name}</p>
-              </h1>
-            </OneSingleProductContainer>
-
-            {/* <OneSingleProductText>
-              <h3>
-                <p>{product?.author}</p>
-              </h3>
-            </OneSingleProductText> */}
-
-            <OneSingleProductContainer>
-              <p>
-                <p>{product?.description}</p>
-                <br />
-                <h3>{product?.location}</h3>
-              </p>
-            </OneSingleProductContainer>
-            <OneSingleProductContainerButton>
-              <RentingProductButton />
-            </OneSingleProductContainerButton>
-          </OneSingleProductPhoto>
+          <h3>{product?.name}</h3>
+          <h4>{product?.author}</h4>
+          <p>{product?.description}</p>
+          <h4>{product?.location}</h4>
+          <OrangeButton>Kontakt z właścicielem</OrangeButton>
         </OneSingleProductContainer>
       </OneSingleProductStyle>
     </>

@@ -52,14 +52,6 @@ function Header() {
           <CompanyLogo />
         </CompanyHeaderLogo>
       </Link>
-      {/* <CompanyHeaderSearch>
-        <CompanyHeaderLeft>
-          <Input icon={SearchIcon} placeholder="Znajdz"></Input>
-        </CompanyHeaderLeft>
-        <CompanyHeaderRight>
-          <CategoryDropdowncopy />
-        </CompanyHeaderRight>
-      </CompanyHeaderSearch> */}
       <CompanyHeaderSign>
         {currentUser ? (
           <SignInButton />

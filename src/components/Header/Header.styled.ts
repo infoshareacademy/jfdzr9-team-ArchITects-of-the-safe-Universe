@@ -5,24 +5,15 @@ export const CompanyHeaderSection = styled.section`
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  height: 8vh;
+  height: 70px;
   background: var(--color-white);
   box-shadow: 1px 1px 1px var(--color-orange);
 
-  @media (max-width: 48.12em) {
+  @media (max-width: 1024px) {
     box-shadow: none;
   }
 `;
-export const CompanyHeaderLogo = styled.div`
-  /* order: 1; */
-`;
-
-// export const CompanyHeaderSearch = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   margin-right: 100px;
-// `;
+export const CompanyHeaderLogo = styled.div``;
 
 export const CompanyHeaderUser = styled.div`
   display: flex;
@@ -34,15 +25,23 @@ export const CompanyHeaderLeft = styled.form`
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
-  height: 44px;
   width: 500px;
   border-radius: 4px;
   padding-left: 20px;
   margin-bottom: 10px;
 
-  @media (max-width: 40em) {
+  :hover {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
+  :focus {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
+  @media (max-width: 1024px) {
     width: 250px;
-    margin-top: 15px;
     margin-right: 0px;
   }
 `;

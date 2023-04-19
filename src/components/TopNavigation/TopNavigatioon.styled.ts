@@ -5,13 +5,16 @@ export const TopNavSection = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 10vh;
-  width: 80%;
   margin: auto;
-  margin-bottom: 10px;
 
-  @media (max-width: 40em) {
+  @media (max-height: 650px) {
+    height: 8vh;
+  }
+
+  @media (max-width: 650px) {
+    margin-top: 10px;
     flex-direction: column;
   }
 `;
