@@ -26,7 +26,7 @@ export const OneSingleProductPage = () => {
 
         for (const docSnap of results) {
           if (docSnap.exists()) {
-            setProduct(docSnap.data());
+            setProduct(docSnap.data() as ProductProps);
             break;
           }
         }
@@ -52,7 +52,7 @@ export const OneSingleProductPage = () => {
           <h4>{product?.author}</h4>
           <p>{product?.description}</p>
           <h4>{product?.location}</h4>
-          <StartRentingButton>Kontakt z właścicielem</StartRentingButton>
+          <StartRentingButton />
         </OneSingleProductContainer>
       </OneSingleProductStyle>
     </>

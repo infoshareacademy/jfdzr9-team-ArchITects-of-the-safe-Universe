@@ -7,6 +7,7 @@ import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { auth } from "../../utils/firebase/firebase.config";
 import "firebase/firestore";
 import { getFunctions, httpsCallable } from "firebase/functions";
+import { useAuth } from "../../utils/firebase/auth";
 
 type ContactFormData = {
   name: string;
@@ -15,6 +16,7 @@ type ContactFormData = {
 
 const Contact = () => {
   const [success, setSuccess] = useState(false);
+  const { currentUser } = useAuth();
   const {
     control,
     handleSubmit,
@@ -83,6 +85,7 @@ const Contact = () => {
             name="name"
             control={control}
             rules={{ required: "Imię jest wymagane" }}
+            defaultValue={currentUser?.displayName || ""}
             render={({ field }) => (
               <>
                 {errors.name && <span>{errors.name.message}</span>}
