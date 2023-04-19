@@ -3,13 +3,25 @@ import { AuthContext } from "../Context/AuthContext";
 import { ButtonM, ButtonS } from "../components/Buttons/Button.styled";
 import "firebase/compat/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { User } from "firebase/auth";
+
+interface CustomUser extends firebase.User {
+  userDataPanel?: {
+    email: string;
+    firstName: string;
+    lastName: string;
+    location: string;
+    phoneNumber: string;
+  };
+}
 
 export const AddOpinionButton = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser } = useContext<firebase.User>(AuthContext);
+
   const navigate = useNavigate();
 
   const handleStartRenting = () => {
-    navigate(currentUser ? "/addOpinion" : "/account");
+    navigate(currentUser?.userDataPanel ? "/addOpinion" : "/userDataPanel");
   };
 
   return (
