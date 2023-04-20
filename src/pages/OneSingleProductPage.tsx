@@ -9,6 +9,7 @@ import {
   OneSingleProductContainer,
 } from "../components/OneSingleProduct/OneSingleProduct.styled";
 import { AllPhotos } from "../components/OneSingleProduct/OneSingleProduct.styled";
+import { RentingProductButton } from "../RentingProductButton/RentingProductButton.component";
 
 export const OneSingleProductPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -25,7 +26,7 @@ export const OneSingleProductPage = () => {
 
         for (const docSnap of results) {
           if (docSnap.exists()) {
-            setProduct(docSnap.data());
+            setProduct(docSnap.data() as ProductProps);
             break;
           }
         }
@@ -51,7 +52,7 @@ export const OneSingleProductPage = () => {
           <h4>{product?.author}</h4>
           <p>{product?.description}</p>
           <h4>{product?.location}</h4>
-          <OrangeButton>Kontakt z właścicielem</OrangeButton>
+          <RentingProductButton />
         </OneSingleProductContainer>
       </OneSingleProductStyle>
     </>

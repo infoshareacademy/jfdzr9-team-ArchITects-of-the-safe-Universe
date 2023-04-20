@@ -5,6 +5,7 @@ import { ButtonM } from "../Buttons/Button.styled";
 import { FormContainer, FormGroupNextTo, Input, TextArea } from "./AddNewOpinion.styled";
 import { useForm, Controller } from "react-hook-form";
 import { Title } from "../../UI/Title.styled";
+import { useAuth } from "../../utils/firebase/auth";
 
 type OpinionProps = {
   name: string;
@@ -14,6 +15,7 @@ type OpinionProps = {
 
 export const AddNewOpinion = () => {
   const [success, setSuccess] = useState(false);
+  const { currentUser } = useAuth();
   const {
     handleSubmit,
     control,
@@ -42,6 +44,7 @@ export const AddNewOpinion = () => {
             name="name"
             control={control}
             rules={{ required: "Imię jest wymagane" }}
+            defaultValue={currentUser?.displayName?.split(" ")[0] || ""}
             render={({ field }) => (
               <>
                 {errors.name && <span>{errors.name.message}</span>}

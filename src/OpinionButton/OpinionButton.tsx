@@ -19,7 +19,7 @@ export const OpinionButton = () => {
           <ButtonM onClick={handleStartRenting}>Opinie</ButtonM>
         </Link>
       ) : (
-        <Link to="/opinions">
+        <Link to="/opinionsUser">
           <ButtonM>Opinie</ButtonM>
         </Link>
       )}
