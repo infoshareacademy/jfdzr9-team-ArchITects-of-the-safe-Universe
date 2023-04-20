@@ -16,7 +16,6 @@ export const Footer = styled.footer`
   color: var(--color-dark-grey);
 
   @media (max-width: 1024px) {
-    position: relative;
     font-size: 0.45rem;
     padding: 0px;
     padding-top: 5px;
