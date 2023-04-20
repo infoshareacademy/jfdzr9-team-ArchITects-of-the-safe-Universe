@@ -3,9 +3,11 @@ import { AuthContext } from "../Context/AuthContext";
 import { ButtonM, ButtonS } from "../components/Buttons/Button.styled";
 import "firebase/compat/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { User } from "firebase/auth";
 
 export const AddOpinionButton = () => {
   const { currentUser } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handleStartRenting = () => {
