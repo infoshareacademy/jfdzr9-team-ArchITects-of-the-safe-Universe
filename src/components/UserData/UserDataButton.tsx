@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
 import { ButtonS } from "../Buttons/Button.styled";
 
-interface UserDataButtonProps {
-  onClick: () => void;
-}
-
-export const UserDataButton = ({ onClick }: UserDataButtonProps) => {
+export const UserDataButton = () => {
   return (
     <Link to="/userDataPanel">
-      <ButtonS onClick={onClick}>Dane użytkownika</ButtonS>
+      <ButtonS>Dane użytkownika</ButtonS>
     </Link>
   );
 };
