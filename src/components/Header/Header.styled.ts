@@ -1,16 +1,20 @@
 import styled from "styled-components";
 
 export const CompanyHeaderSection = styled.section`
+  position: fixed;
+  top: 0;
+  margin: auto;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
   height: 70px;
   background: var(--color-white);
   box-shadow: 1px 1px 1px var(--color-orange);
+  z-index: 1;
 
   @media (max-width: 1024px) {
-    box-shadow: none;
+    position: relative;
   }
 `;
 export const CompanyHeaderLogo = styled.div``;
@@ -51,6 +55,11 @@ export const CompanyHeaderRight = styled.div`
 
 export const CompanyHeaderSign = styled.div`
   order: 4;
+  margin-right: 70px;
+
+  @media (max-width: 650px) {
+    margin-right: 20px;
+  }
 `;
 
 // export const PhotoMainPage = styled.div`

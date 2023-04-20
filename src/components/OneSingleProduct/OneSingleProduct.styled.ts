@@ -8,17 +8,16 @@ export const OneSingleProductStyle = styled.div`
   align-items: center;
   justify-content: space-around;
   flex-wrap: nowrap;
-  height: 100%;
   background-color: var(--color-very-light-grey);
 
   @media (max-width: 650px) {
     flex-direction: column;
     align-items: center;
-
     width: 80%;
     margin: auto;
-    margin-top: 10px;
-    gap: 15px;
+    margin-bottom: 20px;
+    gap: 10px;
+    border-radius: 20px;
   }
 `;
 
@@ -29,7 +28,7 @@ export const OneSingleProductContainer = styled.div`
   padding: 10px;
   border-radius: 20px;
   background-color: white;
-  gap: 10px;
+  gap: 5px;
 
   @media (max-width: 650px) {
     width: 90%;

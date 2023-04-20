@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const Main = styled.div`
-  height: auto;
+ height: auto;
+ margin-top: 80px;
+ margin-bottom: 80px;
 
   @media (max-width: 1024px) {
     height: 100%;
-    padding-bottom: 60px;
+    margin-top: 10px; */
   }
 `;

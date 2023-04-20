@@ -2,7 +2,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { db, storage } from "../../utils/firebase/firebase.config";
 import { ButtonM, ButtonS } from "../Buttons/Button.styled";
-import { FormContainer, FormGroupImg, FormGroupNextTo, Input, InputFile, TextArea } from "./AddNewProduct.styled";
+import { FormContainer, FormGroupImg, Input, InputFile, TextArea } from "./AddNewProduct.styled";
 import { useForm, Controller } from "react-hook-form";
 import { Title } from "../../UI/Title.styled";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
@@ -134,9 +134,7 @@ export const AddNewProductTools = () => {
               </>
             )}
           />
-          <FormGroupNextTo>
-            <ButtonM type="submit">Dodaj</ButtonM>
-          </FormGroupNextTo>
+          <ButtonM type="submit">Dodaj</ButtonM>
         </FormContainer>
       )}
     </>

@@ -4,6 +4,7 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 100%;
 `;
 
 export const FormGroup = styled.div`
@@ -19,7 +20,6 @@ export const FormGroupImg = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 600px;
 `;
 
 export const FormGroupNextTo = styled.div`
@@ -41,7 +41,7 @@ export const Input = styled.input`
   border-radius: 4px;
   font-size: 16px;
   margin-bottom: 10px;
-  width: 200px;
+  width: 220px;
 
   :hover {
     outline: none;
@@ -60,21 +60,21 @@ export const Input = styled.input`
 `;
 
 export const InputFile = styled.input`
-  padding: 10px;
+  padding-top: 10px;
   border: none;
   font-size: 16px;
-  margin-bottom: 10px;
-  width: 300px;
+  width: 240px;
   height: 50px;
 `;
 
 export const TextArea = styled.textarea`
-  padding: 50px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-  margin-bottom: 10px;
   resize: vertical;
+  height: 150px;
+  width: 220px;
 
   :hover {
     outline: none;
@@ -87,7 +87,7 @@ export const TextArea = styled.textarea`
   }
 
   @media (max-width: 650px) {
-    height: 25px;
+    height: 50px;
     font-size: 14px;
   }
 `;
@@ -98,7 +98,7 @@ export const Select = styled.select`
   border-radius: 4px;
   font-size: 16px;
   margin-bottom: 10px;
-  width: 222px;
+  width: 240px;
   height: 37px;
 
   :hover {
@@ -115,4 +115,9 @@ export const Select = styled.select`
     height: 30px;
     padding: 0px;
   }
+`;
+
+export const CategotyContainer = styled.div`
+  display: flex;
+  justify-content: center;
 `;
