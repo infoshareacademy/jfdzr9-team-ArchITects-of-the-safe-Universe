@@ -73,8 +73,8 @@ export const SignInButton = () => {
           </div>
           <div className="options">
             <SignOutButton>Wyloguj</SignOutButton>
-            <UserPanelButton />
-            <UserDataButton />
+            <UserPanelButton onClick={() => setShowUserOptions(false)} />
+            <UserDataButton onClick={() => setShowUserOptions(false)} />
           </div>
         </UserOptionsContainer>
       )}
