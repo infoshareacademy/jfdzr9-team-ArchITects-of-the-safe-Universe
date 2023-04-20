@@ -4,35 +4,23 @@ import {
   doc,
   updateDoc,
   getDoc,
+  addDoc,
   query,
   where,
   getDocs,
   deleteDoc,
   getFirestore,
   Query,
-  addDoc,
 } from "firebase/firestore";
 import { getAuth, sendPasswordResetEmail, deleteUser, signOut } from "firebase/auth";
 import { useState, useEffect } from "react";
-import { db, storage } from "../utils/firebase/firebase.config";
+import { db } from "../utils/firebase/firebase.config";
 import { Link } from "react-router-dom";
 import { DocumentData } from "@firebase/firestore-types";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { Input, Label } from "../components/AddProductPage/AddNewProduct.styled";
-import { ButtonM } from "../GoogleButton/SignInGoogle.styled";
 
 export const UserDataPanel = () => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [users, setUsers] = useState<
-    Array<{
-      id: string;
-      firstName: string;
-      lastName: string;
-      phoneNumber: string;
-      location: string;
-      email: string;
-      photo: string;
-    }>
+    Array<{ id: string; firstName: string; lastName: string; phoneNumber: string; location: string; email: string }>
   >([]);
   const [editingUser, setEditingUser] = useState("");
   const auth = getAuth();
@@ -55,7 +43,6 @@ export const UserDataPanel = () => {
               phoneNumber: string;
               location: string;
               email: string;
-              photo: string;
             }),
           })),
         );
@@ -67,41 +54,35 @@ export const UserDataPanel = () => {
   const handleEdit = (userId: string) => {
     setEditingUser(userId);
   };
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      setSelectedFile(event.target.files[0]);
-    }
-  };
   const handleSave = async (userId: string) => {
     const userRef = doc(db, "users", userId);
-
     try {
       const firstNameInput = document.getElementById(`firstName${userId}`) as HTMLInputElement;
-      const firstNameValue = firstNameInput?.value || "";
+      const firstNameValue = firstNameInput ? firstNameInput.value : "";
       const lastNameInput = document.getElementById(`lastName${userId}`) as HTMLInputElement;
-      const lastNameValue = lastNameInput?.value || "";
+      const lastNameValue = lastNameInput ? lastNameInput.value : "";
       const phoneNumberInput = document.getElementById(`phoneNumber${userId}`) as HTMLInputElement;
-      const phoneNumberValue = phoneNumberInput?.value || "";
+      const phoneNumberValue = phoneNumberInput ? phoneNumberInput.value : "";
       const locationInput = document.getElementById(`location${userId}`) as HTMLInputElement;
-      const locationValue = locationInput?.value || "";
-      const photoInput = document.getElementById(`photo${userId}`) as HTMLInputElement;
-      const user = users.find((u) => u.id === userId);
-      const photoValue = selectedFile ? selectedFile : user?.photo || null;
-
-      if (!firstNameInput || !lastNameInput || !phoneNumberInput || !locationInput || !photoInput) {
-        throw new Error("Input element not found");
-      }
-
+      const locationValue = locationInput ? locationInput.value : "";
       await updateDoc(userRef, {
         firstName: firstNameValue,
         lastName: lastNameValue,
         phoneNumber: phoneNumberValue,
         location: locationValue,
-        photo: photoValue,
       });
+      const userDoc = await getDoc(userRef);
+      if (userDoc.exists()) {
+        await updateDoc(userRef, {
+          firstName: firstNameValue,
+          lastName: lastNameValue,
+          phoneNumber: phoneNumberValue,
+          location: locationValue,
+        });
+      }
       setEditingUser("");
     } catch (error) {
-      console.error(error);
+      //
     }
   };
   const [addingUser, setAddingUser] = useState(false);
@@ -126,65 +107,22 @@ export const UserDataPanel = () => {
     const phoneNumber = (document.getElementById("phoneNumber") as HTMLInputElement)?.value || "";
     const location = (document.getElementById("location") as HTMLInputElement)?.value || "";
     const email = auth.currentUser?.email;
-    if (!firstName) {
-      const firstNameInput = document.getElementById("firstName");
-      const firstNameError = document.createElement("span");
-      firstNameError.textContent = "Podaj imię";
-      firstNameError.style.color = "red";
-      firstNameInput?.parentElement?.appendChild(firstNameError);
-      return;
-    }
-    if (!lastName) {
-      const lastNameInput = document.getElementById("lastName");
-      const lastNameError = document.createElement("span");
-      lastNameError.textContent = "Podaj nazwisko";
-      lastNameError.style.color = "red";
-      lastNameInput?.parentElement?.appendChild(lastNameError);
-      return;
-    }
-    if (!phoneNumber) {
-      const phoneNumberInput = document.getElementById("phoneNumber");
-      const phoneNumberError = document.createElement("span");
-      phoneNumberError.textContent = "Podaj numer telefonu";
-      phoneNumberError.style.color = "red";
-      phoneNumberInput?.parentElement?.appendChild(phoneNumberError);
-      return;
-    }
-    if (!location) {
-      const locationInput = document.getElementById("location");
-      const locationError = document.createElement("span");
-      locationError.textContent = "Podaj lokalizację";
-      locationError.style.color = "red";
-      locationInput?.parentElement?.appendChild(locationError);
-      return;
-    }
-    const photoInput = document.getElementById("photo") as HTMLInputElement;
-    let photoUrl = "";
-    if (photoInput.files && photoInput.files[0]) {
-      const photoRef = ref(storage, `users/${email}/photo`);
-      await uploadBytes(photoRef, photoInput.files[0]);
-      photoUrl = await getDownloadURL(photoRef);
-    }
+
     if (!email) {
-      //
+      //;
       return;
     }
+
     try {
-      const usersRef = collection(db, "users");
-      const newUserRef = await addDoc(usersRef, {
-        firstName,
-        lastName,
-        phoneNumber,
-        location,
-        email,
-        photo: photoUrl,
-      });
+      const userRef = collection(db, "users");
+      await addDoc(userRef, { firstName, lastName, phoneNumber, location, email });
       setAddingUser(false);
       setUserDataExists(true);
     } catch (error) {
-      //
+      //;
     }
   };
+
   const handleDeleteAccount = async () => {
     try {
       const auth = getAuth();
@@ -224,11 +162,7 @@ export const UserDataPanel = () => {
       //;
     }
   };
-  const [photo, setPhoto] = useState<File | null>(null);
-  const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    setPhoto(file || null);
-  };
+
   return (
     <div>
       {users.map((user) => (
@@ -236,28 +170,24 @@ export const UserDataPanel = () => {
           {editingUser === user.id ? (
             <div>
               {" "}
-              <Label>
+              <label>
                 Imię:
-                <Input type="text" defaultValue={user.firstName} id={`firstName${user.id}`} />
-              </Label>
-              <Label>
+                <input type="text" defaultValue={user.firstName} id={`firstName${user.id}`} />
+              </label>
+              <label>
                 Nazwisko:
-                <Input type="text" defaultValue={user.lastName} id={`lastName${user.id}`} />
-              </Label>
-              <Label>
+                <input type="text" defaultValue={user.lastName} id={`lastName${user.id}`} />
+              </label>
+              <label>
                 Numer telefonu:
-                <Input type="text" defaultValue={user.phoneNumber} id={`phoneNumber${user.id}`} />
-              </Label>
-              <Label>
+                <input type="text" defaultValue={user.phoneNumber} id={`phoneNumber${user.id}`} />
+              </label>
+              <label>
                 Lokalizacja:
-                <Input type="text" defaultValue={user.location} id={`location${user.id}`} />
-              </Label>
-              <Label>
-                Zdjęcie:
-                <Input type="file" onChange={handleFileChange} id={`photo${user.id}`} />
-              </Label>
-              <ButtonM onClick={() => handleSave(user.id)}>Zapisz</ButtonM>
-              <ButtonM onClick={() => setEditingUser("")}>Anuluj</ButtonM>
+                <input type="text" defaultValue={user.location} id={`location${user.id}`} />
+              </label>
+              <button onClick={() => handleSave(user.id)}>Zapisz</button>
+              <button onClick={() => setEditingUser("")}>Anuluj</button>
             </div>
           ) : (
             <div>
@@ -266,15 +196,12 @@ export const UserDataPanel = () => {
               <p>Numer telefonu: {user.phoneNumber}</p>
               <p>Lokalizacja: {user.location}</p>
               <p>
-                Zdjęcie: <img src={user.photo} alt="User photo" />
-              </p>
-              <p>
                 Adres email: <span>{user.email}</span>
               </p>
-              <ButtonM onClick={() => handleEdit(user.id)}>Edytuj</ButtonM>
-              <ButtonM onClick={() => handleChangePassword(user.id)}>Zmień hasło</ButtonM>
+              <button onClick={() => handleEdit(user.id)}>Edytuj</button>
+              <button onClick={() => handleChangePassword(user.id)}>Zmień hasło</button>
               <Link to="/">
-                <ButtonM onClick={handleDeleteAccount}>Usuń konto</ButtonM>
+                <button onClick={handleDeleteAccount}>Usuń konto</button>
               </Link>
             </div>
           )}
@@ -285,31 +212,27 @@ export const UserDataPanel = () => {
           <p>Brak danych użytkownika. Dodaj dane.</p>
           {addingUser ? (
             <div>
-              <Label>
+              <label>
                 Imię:
-                <Input type="text" id="firstName" />
-              </Label>
-              <Label>
+                <input type="text" id="firstName" />
+              </label>
+              <label>
                 Nazwisko:
-                <Input type="text" id="lastName" />
-              </Label>
-              <Label>
+                <input type="text" id="lastName" />
+              </label>
+              <label>
                 Numer telefonu:
-                <Input type="text" id="phoneNumber" />
-              </Label>
-              <Label>
+                <input type="text" id="phoneNumber" />
+              </label>
+              <label>
                 Lokalizacja:
-                <Input type="text" id="location" />
-              </Label>
-              <Label>
-                Zdjęcie:
-                <Input type="file" id="photo" accept="image/*" onChange={handlePhotoChange} />
-              </Label>
-              <ButtonM onClick={handleSaveUser}>Zapisz</ButtonM>
-              <ButtonM onClick={() => setAddingUser(false)}>Anuluj</ButtonM>
+                <input type="text" id="location" />
+              </label>
+              <button onClick={handleSaveUser}>Zapisz</button>
+              <button onClick={() => setAddingUser(false)}>Anuluj</button>
             </div>
           ) : (
-            <ButtonM onClick={handleAddUser}>Dodaj dane</ButtonM>
+            <button onClick={handleAddUser}>Dodaj dane</button>
           )}
         </div>
       )}
