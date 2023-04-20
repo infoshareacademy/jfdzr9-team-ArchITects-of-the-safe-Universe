@@ -44,7 +44,7 @@ export const AddNewOpinion = () => {
             name="name"
             control={control}
             rules={{ required: "Imię jest wymagane" }}
-            defaultValue={currentUser?.displayName || ""}
+            defaultValue={currentUser?.displayName?.split(" ")[0] || ""}
             render={({ field }) => (
               <>
                 {errors.name && <span>{errors.name.message}</span>}
