@@ -60,7 +60,7 @@ const Contact = () => {
       setSuccess(true);
     } catch (error) {
       console.error(error);
-      alert(error.message);
+      // alert(error.message);
     }
   };
 
