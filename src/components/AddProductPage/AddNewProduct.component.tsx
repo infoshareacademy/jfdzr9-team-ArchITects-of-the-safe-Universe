@@ -2,7 +2,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { db, storage } from "../../utils/firebase/firebase.config";
 import { ButtonM, ButtonS } from "../Buttons/Button.styled";
-import { FormContainer, FormGroupImg, FormGroupNextTo, Input, InputFile, TextArea } from "./AddNewProduct.styled";
+import { FormContainer, FormGroupImg, Input, InputFile, TextArea } from "./AddNewProduct.styled";
 import { useForm, Controller } from "react-hook-form";
 import { Title } from "../../UI/Title.styled";
 import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
@@ -145,7 +145,7 @@ export const AddNewProduct = () => {
             >
               Dodaj okładkę
             </ButtonS>
-            {imageUrl && <img src={imageUrl} alt="uploaded" style={{ maxWidth: "200px", maxHeight: "200px" }} />}
+            {imageUrl && <img src={imageUrl} alt="uploaded" style={{ maxWidth: "180px", maxHeight: "180px" }} />}
           </FormGroupImg>
 
           <Controller
@@ -159,9 +159,7 @@ export const AddNewProduct = () => {
               </>
             )}
           />
-          <FormGroupNextTo>
-            <ButtonM type="submit">Dodaj</ButtonM>
-          </FormGroupNextTo>
+          <ButtonM type="submit">Dodaj</ButtonM>
         </FormContainer>
       )}
     </>

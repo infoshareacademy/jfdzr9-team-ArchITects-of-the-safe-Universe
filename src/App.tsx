@@ -20,7 +20,7 @@ import { UserDataPanel } from "./pages/UserDataPanel";
 
 function App() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <GlobalStyle />
       <AuthProvider>
         <Layout>

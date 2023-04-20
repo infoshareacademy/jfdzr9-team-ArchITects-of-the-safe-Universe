@@ -23,22 +23,22 @@ ${normalize}
 
 html {
   scroll-behavior: smooth;
+  height:100%;
 }
 
 body {
     display: flex;
 		flex-direction: column;
     font-family: 'Nunito Sans', sans-serif;
-    font-size: 20px;
     color: var(--color-dark-grey);
-    width: 100vw;
+    width: 100%;
+
     margin: auto; 
-    height: 100vh;
+    min-height: 100%;
     background-color: var(--color-white);
     overflow-y: auto;
+    min-height: 100%;
     position: relative;
-
-
 }
 
 .react-multi-carousel-list {

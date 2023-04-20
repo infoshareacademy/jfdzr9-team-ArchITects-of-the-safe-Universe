@@ -1,13 +1,6 @@
 import styled from "styled-components";
 
-// export const Navigator = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   gap: 1rem;
-// `;
-
 export const ProductContainer = styled.div`
-  /* position: static; */
   display: flex;
   justify-content: space-around;
   align-items: center;

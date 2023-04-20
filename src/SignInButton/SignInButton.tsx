@@ -72,9 +72,9 @@ export const SignInButton = () => {
             <div style={{ marginLeft: "20px" }}>{currentUser.email}</div>
           </div>
           <div className="options">
-            <SignOutButton>Wyloguj</SignOutButton>
             <UserPanelButton onClick={() => setShowUserOptions(false)} />
             <UserDataButton onClick={() => setShowUserOptions(false)} />
+            <SignOutButton>Wyloguj</SignOutButton>
           </div>
         </UserOptionsContainer>
       )}
