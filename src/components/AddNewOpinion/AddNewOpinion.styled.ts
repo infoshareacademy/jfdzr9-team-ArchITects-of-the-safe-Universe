@@ -6,14 +6,6 @@ export const FormContainer = styled.form`
   align-items: center;
 `;
 
-export const FormGroupNextTo = styled.div`
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  width: 600px;
-  gap: 40px;
-`;
-
 export const Input = styled.input`
   padding: 10px;
   border: 1px solid #ccc;
@@ -22,6 +14,21 @@ export const Input = styled.input`
   margin-bottom: 10px;
   width: 200px;
   height: 50px;
+
+  :hover {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
+  :focus {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
+  @media (max-width: 650px) {
+    height: 15px;
+    font-size: 14px;
+  }
 `;
 
 export const TextArea = styled.textarea`
@@ -31,4 +38,19 @@ export const TextArea = styled.textarea`
   font-size: 16px;
   margin-bottom: 10px;
   resize: vertical;
+
+  :hover {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
+  :focus {
+    outline: none;
+    border-color: var(--color-orange);
+  }
+
+  @media (max-width: 650px) {
+    height: 50px;
+    font-size: 14px;
+  }
 `;
