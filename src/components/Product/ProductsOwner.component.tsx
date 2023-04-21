@@ -14,7 +14,7 @@ import {
 import { useEffect, useState, useContext } from "react";
 import { db } from "../../utils/firebase/firebase.config";
 import { ProductProps } from "../AddProductPage/AddNewProduct.component";
-import { Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
+import { ContainerPhoto, ContainerText, UserContainer, UserProductContainer } from "../Products/Product.styled";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { AuthContext } from "../../Context/AuthContext";
@@ -120,7 +120,7 @@ export const ProductsOwner = () => {
     return <div>Loading...</div>;
   }
   return (
-    <ProductContainer>
+    <UserProductContainer>
       <Carousel
         additionalTransfrom={0}
         arrows
@@ -151,7 +151,7 @@ export const ProductsOwner = () => {
               max: 1024,
               min: 701,
             },
-            items: 4,
+            items: 3,
 
             partialVisibilityGutter: 40,
           },
@@ -168,7 +168,7 @@ export const ProductsOwner = () => {
               max: 700,
               min: 465,
             },
-            items: 3,
+            items: 2,
             partialVisibilityGutter: 30,
           },
         }}
@@ -181,7 +181,7 @@ export const ProductsOwner = () => {
         swipeable
       >
         {[...books, ...tools, ...sport].map(({ id, name, author, img, status }) => (
-          <Container key={id}>
+          <UserContainer key={id}>
             <ContainerPhoto>
               <>
                 {img ? (
@@ -197,9 +197,9 @@ export const ProductsOwner = () => {
             </ContainerText>
             <ButtonS onClick={() => handleDelete(id)}>Usuń z bazy</ButtonS>
             <ButtonS onClick={() => handleStatusUpdate(id)}>{status}</ButtonS>
-          </Container>
+          </UserContainer>
         ))}
       </Carousel>
-    </ProductContainer>
+    </UserProductContainer>
   );
 };

@@ -17,7 +17,6 @@ export const CompanyHeaderSection = styled.section`
     position: relative;
   }
 `;
-export const CompanyHeaderLogo = styled.div``;
 
 export const CompanyHeaderUser = styled.div`
   display: flex;

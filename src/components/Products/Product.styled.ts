@@ -12,8 +12,33 @@ export const ProductContainer = styled.div`
   gap: 5px;
 
   @media (max-width: 1024px) {
-    min-height: 55vh;
+    height: 53vh;
   }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 10px;
+    gap: 15px;
+
+    button {
+      width: 80%;
+    }
+  }
+`;
+
+export const UserProductContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 65vh;
+  width: 100vw;
+  border-radius: 10px;
+  transition: 0.2s linear;
+  border: none;
+  gap: 5px;
 
   @media (max-width: 650px) {
     flex-direction: column;
@@ -43,6 +68,26 @@ export const Container = styled.div`
   transition: 0.2s linear;
   border: none;
   background-color: var(--color-very-light-grey);
+
+  @media (max-width: 1024px) {
+    height: 48vh;
+  }
+`;
+
+export const UserContainer = styled.div`
+  position: static;
+  display: flex;
+  align-items: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  height: 60vh;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 0px;
+  transition: 0.2s linear;
+  border: none;
+  background-color: var(--color-very-light-grey);
 `;
 
 export const ContainerPhoto = styled.div`
@@ -60,7 +105,7 @@ export const ContainerPhoto = styled.div`
     height: 100%;
   }
 
-  @media (max-height: 650px) {
+  @media (max-height: 700px) {
     height: 200px;
 
     img {
@@ -75,11 +120,13 @@ export const ContainerText = styled.label`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   justify-content: space-between;
   font-size: 1rem;
   width: 180px;
   height: 15vh;
   margin-top: 15px;
+  color: var(--color-black);
 
   @media (max-height: 740px) {
     margin-top: 10px;

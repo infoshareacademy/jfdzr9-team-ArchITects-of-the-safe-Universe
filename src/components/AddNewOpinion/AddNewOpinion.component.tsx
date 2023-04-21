@@ -2,7 +2,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../../utils/firebase/firebase.config";
 import { ButtonM } from "../Buttons/Button.styled";
-import { FormContainer, FormGroupNextTo, Input, TextArea } from "./AddNewOpinion.styled";
+import { FormContainer, Input, TextArea } from "./AddNewOpinion.styled";
 import { useForm, Controller } from "react-hook-form";
 import { Title } from "../../UI/Title.styled";
 import { useAuth } from "../../utils/firebase/auth";
@@ -85,9 +85,8 @@ export const AddNewOpinion = () => {
               </>
             )}
           />
-          <FormGroupNextTo>
-            <ButtonM type="submit">Dodaj</ButtonM>
-          </FormGroupNextTo>
+
+          <ButtonM type="submit">Dodaj</ButtonM>
         </FormContainer>
       )}
     </>
