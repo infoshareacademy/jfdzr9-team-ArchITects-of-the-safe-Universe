@@ -59,7 +59,7 @@ export const AddNewOpinion = () => {
             render={({ field }) => (
               <>
                 {errors.describe && <span>{errors.describe.message}</span>}
-                <TextArea placeholder="Opinia" {...field} />
+                <TextArea placeholder="Opinia" maxLength={300} {...field} />
               </>
             )}
           />
@@ -70,7 +70,18 @@ export const AddNewOpinion = () => {
             render={({ field }) => (
               <>
                 {errors.rating && <span>{errors.rating.message}</span>}
-                <Input placeholder="Ocena" type={"number"} min="1" max="5" {...field} />
+                <Input
+                  placeholder="Ocena"
+                  type={"number"}
+                  min="1"
+                  max="5"
+                  maxLength={1}
+                  onInput={(e) => {
+                    const input = e.target as HTMLInputElement;
+                    input.value = input.value.replace(/[^1-5]/g, "").charAt(0);
+                  }}
+                  {...field}
+                />
               </>
             )}
           />
