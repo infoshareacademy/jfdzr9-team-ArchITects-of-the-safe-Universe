@@ -20,7 +20,7 @@ import { DocumentData } from "@firebase/firestore-types";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { Input, InputFile, Label } from "../components/AddProductPage/AddNewProduct.styled";
 import { ButtonM } from "../GoogleButton/SignInGoogle.styled";
-import { UserDataConstainer, UserDataContainer, UserDataForm } from "../components/UserData/UserData.styled";
+import { UserDataContainer, UserDataForm } from "../components/UserData/UserData.styled";
 import { ButtonS } from "../components/Buttons/Button.styled";
 
 export const UserDataPanel = () => {
