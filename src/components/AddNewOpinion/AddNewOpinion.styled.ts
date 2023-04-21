@@ -4,6 +4,7 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 5vh;
 `;
 
 export const Input = styled.input`
@@ -32,12 +33,14 @@ export const Input = styled.input`
 `;
 
 export const TextArea = styled.textarea`
-  padding: 50px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
-  margin-bottom: 10px;
   resize: vertical;
+  height: 180px;
+  width: 200px;
+  margin-bottom: 10px;
 
   :hover {
     outline: none;
@@ -50,7 +53,6 @@ export const TextArea = styled.textarea`
   }
 
   @media (max-width: 650px) {
-    height: 50px;
     font-size: 14px;
   }
 `;
