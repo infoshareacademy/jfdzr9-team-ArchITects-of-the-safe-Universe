@@ -2,7 +2,6 @@ import { CollectionReference, collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../utils/firebase/firebase.config";
 import {
-  Arrow,
   OpinionContainer,
   SingleCardDescribe,
   SingleCardName,
@@ -18,9 +17,6 @@ type OpinionOne = {
   rating: number;
   ratingStars: string;
 };
-
-const imageArrowLeft = new URL("../../assets/arrow-left.svg", import.meta.url).href;
-const imageArrowRight = new URL("../../assets/arrow-right.svg", import.meta.url).href;
 
 export const SingleCardOpinion = () => {
   const [opinions, setOpinions] = useState<(OpinionOne & { id: string })[]>([]);
@@ -81,14 +77,14 @@ export const SingleCardOpinion = () => {
               max: 3000,
               min: 1400,
             },
-            items: 6,
+            items: 5,
 
             partialVisibilityGutter: 40,
           },
           desktop: {
             breakpoint: {
               max: 1400,
-              min: 1100,
+              min: 1025,
             },
             items: 5,
 
@@ -96,10 +92,10 @@ export const SingleCardOpinion = () => {
           },
           smallDesktop: {
             breakpoint: {
-              max: 1100,
-              min: 700,
+              max: 1024,
+              min: 701,
             },
-            items: 4,
+            items: 3,
 
             partialVisibilityGutter: 40,
           },
@@ -114,9 +110,9 @@ export const SingleCardOpinion = () => {
           tablet: {
             breakpoint: {
               max: 700,
-              min: 464,
+              min: 465,
             },
-            items: 3,
+            items: 2,
             partialVisibilityGutter: 30,
           },
         }}
