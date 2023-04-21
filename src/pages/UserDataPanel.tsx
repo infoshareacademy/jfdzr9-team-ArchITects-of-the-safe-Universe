@@ -18,8 +18,10 @@ import { db, storage } from "../utils/firebase/firebase.config";
 import { Link } from "react-router-dom";
 import { DocumentData } from "@firebase/firestore-types";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { Input, Label } from "../components/AddProductPage/AddNewProduct.styled";
+import { Input, InputFile, Label } from "../components/AddProductPage/AddNewProduct.styled";
 import { ButtonM } from "../GoogleButton/SignInGoogle.styled";
+import { UserDataContainer, UserDataForm } from "../components/UserData/UserData.styled";
+import { ButtonS } from "../components/Buttons/Button.styled";
 
 export const UserDataPanel = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -230,53 +232,59 @@ export const UserDataPanel = () => {
     setPhoto(file || null);
   };
   return (
-    <div>
+    <UserDataContainer>
       {users.map((user) => (
         <div key={user.id}>
           {editingUser === user.id ? (
-            <div>
+            <UserDataForm>
               {" "}
               <Label>
-                Imię:
-                <Input type="text" defaultValue={user.firstName} id={`firstName${user.id}`} />
+                <Input type="text" placeholder="Imię" defaultValue={user.firstName} id={`firstName${user.id}`} />
               </Label>
               <Label>
-                Nazwisko:
-                <Input type="text" defaultValue={user.lastName} id={`lastName${user.id}`} />
+                <Input type="text" placeholder="Nazwisko" defaultValue={user.lastName} id={`lastName${user.id}`} />
               </Label>
               <Label>
-                Numer telefonu:
-                <Input type="text" defaultValue={user.phoneNumber} id={`phoneNumber${user.id}`} />
+                <Input
+                  type="text"
+                  placeholder="Numer telefonu"
+                  defaultValue={user.phoneNumber}
+                  id={`phoneNumber${user.id}`}
+                />
               </Label>
               <Label>
-                Lokalizacja:
-                <Input type="text" defaultValue={user.location} id={`location${user.id}`} />
+                <Input type="text" placeholder="Lokalizacja" defaultValue={user.location} id={`location${user.id}`} />
               </Label>
               <Label>
-                Zdjęcie:
-                <Input type="file" onChange={handleFileChange} id={`photo${user.id}`} />
+                <InputFile type="file" onChange={handleFileChange} id={`photo${user.id}`} />
               </Label>
-              <ButtonM onClick={() => handleSave(user.id)}>Zapisz</ButtonM>
-              <ButtonM onClick={() => setEditingUser("")}>Anuluj</ButtonM>
-            </div>
+              <ButtonS onClick={() => handleSave(user.id)}>Zapisz</ButtonS>
+              <ButtonS onClick={() => setEditingUser("")}>Anuluj</ButtonS>
+            </UserDataForm>
           ) : (
-            <div>
-              <p>Imię: {user.firstName}</p>
-              <p>Nazwisko: {user.lastName}</p>
-              <p>Numer telefonu: {user.phoneNumber}</p>
-              <p>Lokalizacja: {user.location}</p>
+            <UserDataForm>
               <p>
-                Zdjęcie: <img src={user.photo} alt="User photo" />
+                Imię: <b>{user.firstName}</b>
               </p>
               <p>
-                Adres email: <span>{user.email}</span>
+                Nazwisko: <b>{user.lastName}</b>
               </p>
-              <ButtonM onClick={() => handleEdit(user.id)}>Edytuj</ButtonM>
-              <ButtonM onClick={() => handleChangePassword(user.id)}>Zmień hasło</ButtonM>
+              <p>
+                Numer telefonu: <b>{user.phoneNumber}</b>
+              </p>
+              <p>
+                Lokalizacja: <b>{user.location}</b>
+              </p>
+              <img src={user.photo} alt="User photo" />
+              <p>
+                Adres email: <b>{user.email}</b>
+              </p>
+              <ButtonS onClick={() => handleEdit(user.id)}>Edytuj</ButtonS>
+              <ButtonS onClick={() => handleChangePassword(user.id)}>Zmień hasło</ButtonS>
               <Link to="/">
-                <ButtonM onClick={handleDeleteAccount}>Usuń konto</ButtonM>
+                <ButtonS onClick={handleDeleteAccount}>Usuń konto</ButtonS>
               </Link>
-            </div>
+            </UserDataForm>
           )}
         </div>
       ))}
@@ -313,6 +321,6 @@ export const UserDataPanel = () => {
           )}
         </div>
       )}
-    </div>
+    </UserDataContainer>
   );
 };
