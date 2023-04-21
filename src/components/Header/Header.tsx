@@ -8,7 +8,7 @@ import { SignInButton } from "../../SignInButton/SignInButton";
 import { Link } from "react-router-dom";
 import CompanyLogo from "../../CompanyLogo/CompanyLogo";
 
-import { CompanyHeaderLogo, CompanyHeaderSection, CompanyHeaderSign } from "./Header.styled";
+import { CompanyHeaderSection, CompanyHeaderSign } from "./Header.styled";
 
 function Header() {
   const { currentUser } = useContext(AuthContext);
@@ -48,9 +48,7 @@ function Header() {
   return (
     <CompanyHeaderSection>
       <Link to="/">
-        <CompanyHeaderLogo>
-          <CompanyLogo />
-        </CompanyHeaderLogo>
+        <CompanyLogo />
       </Link>
       <CompanyHeaderSign>
         {currentUser ? (
