@@ -32,23 +32,39 @@ export const ProductsOwner = () => {
     //
   }, [status]);
   const handleStatusUpdate = async (id: string) => {
+    const newStatus = "processing";
     try {
       const booksRef = collection(db, "books");
       const bookDocRef = doc(booksRef, id);
       const bookDoc = await getDoc(bookDocRef);
-      const currentStatus = bookDoc?.data()?.status;
-      const newStatus = currentStatus === "Dostępne" ? "Niedostępne" : "Dostępne";
-      await setDoc(bookDocRef, { status: newStatus }, { merge: true });
+      if (bookDoc.exists()) {
+        const currentStatus = bookDoc.data()?.status;
+        const newStatus = currentStatus === "Dostępne" ? "Niedostępne" : "Dostępne";
+        await setDoc(bookDocRef, { status: newStatus }, { merge: true });
+      }
+
       const toolsRef = collection(db, "Tools");
       const toolDocRef = doc(toolsRef, id);
-      await setDoc(toolDocRef, { status: newStatus }, { merge: true });
+      const toolDoc = await getDoc(toolDocRef);
+      if (toolDoc.exists()) {
+        const currentStatus = toolDoc.data()?.status;
+        const newStatus = currentStatus === "Dostępne" ? "Niedostępne" : "Dostępne";
+        await setDoc(toolDocRef, { status: newStatus }, { merge: true });
+      }
+
       const sportRef = collection(db, "Sport");
       const sportDocRef = doc(sportRef, id);
-      await setDoc(sportDocRef, { status: newStatus }, { merge: true });
+      const sportDoc = await getDoc(sportDocRef);
+      if (sportDoc.exists()) {
+        const currentStatus = sportDoc.data()?.status;
+        const newStatus = currentStatus === "Dostępne" ? "Niedostępne" : "Dostępne";
+        await setDoc(sportDocRef, { status: newStatus }, { merge: true });
+      }
+
       setStatus(newStatus);
       window.location.reload();
     } catch (error) {
-      //;
+      // handle error
     }
   };
   const getProducts = async () => {
