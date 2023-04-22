@@ -107,7 +107,7 @@ export const UserDataPanel = () => {
       });
 
       setEditingUser("");
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       alert(error.message);
     }
