@@ -248,10 +248,32 @@ export const UserDataPanel = () => {
             <UserDataForm>
               {" "}
               <Label>
-                <Input type="text" placeholder="Imię" defaultValue={user.firstName} id={`firstName${user.id}`} />
+                <Input
+                  type="text"
+                  placeholder="Imię"
+                  defaultValue={user.firstName}
+                  id={`firstName${user.id}`}
+                  onKeyPress={(event) => {
+                    const pattern = /[a-zA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
-                <Input type="text" placeholder="Nazwisko" defaultValue={user.lastName} id={`lastName${user.id}`} />
+                <Input
+                  type="text"
+                  placeholder="Nazwisko"
+                  defaultValue={user.lastName}
+                  id={`lastName${user.id}`}
+                  onKeyPress={(event) => {
+                    const pattern = /^[a-zA-Z\s]*$/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
                 <Input
@@ -270,7 +292,19 @@ export const UserDataPanel = () => {
                 />
               </Label>
               <Label>
-                <Input type="text" placeholder="Lokalizacja" defaultValue={user.location} id={`location${user.id}`} />
+                <Input
+                  type="text"
+                  placeholder="Lokalizacja"
+                  defaultValue={user.location}
+                  id={`location${user.id}`}
+                  maxLength={20}
+                  onKeyPress={(event) => {
+                    const pattern = /^[a-zA-Z\s]*$/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
                 <InputFile type="file" onChange={handleFileChange} id={`photo${user.id}`} />
@@ -312,11 +346,29 @@ export const UserDataPanel = () => {
             <div>
               <Label>
                 Imię:
-                <Input type="text" id="firstName" />
+                <Input
+                  type="text"
+                  id="firstName"
+                  onKeyPress={(event) => {
+                    const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
                 Nazwisko:
-                <Input type="text" id="lastName" />
+                <Input
+                  type="text"
+                  id="lastName"
+                  onKeyPress={(event) => {
+                    const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
                 Numer telefonu:
@@ -337,7 +389,16 @@ export const UserDataPanel = () => {
               </Label>
               <Label>
                 Lokalizacja:
-                <Input type="text" id="location" />
+                <Input
+                  type="text"
+                  id="location"
+                  onKeyPress={(event) => {
+                    const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
                 Zdjęcie:
