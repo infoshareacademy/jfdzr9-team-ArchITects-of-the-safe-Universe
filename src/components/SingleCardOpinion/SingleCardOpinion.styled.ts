@@ -57,6 +57,9 @@ export const SingleCardDescribe = styled.div`
   text-align: center;
   margin: 10px;
   justify-content: center;
+  word-break: break-word;
+  word-wrap: break-word;
+  max-width: auto;
 
   @media (max-width: 650px) {
     font-size: 14px;
