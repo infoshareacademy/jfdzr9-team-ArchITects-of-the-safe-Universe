@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import TownPhotoMainWeb from "../../assets/Web1920x1080px_04.png";
 
 export const ProductContainer = styled.div`
   display: flex;
@@ -138,4 +139,23 @@ export const ContainerText = styled.label`
       font-size: 0.7rem;
     }
   }
+`;
+
+export const FewContainers = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+`;
+
+export const TownPhotoWeb = styled.picture`
+  display: block;
+  margin: 0;
+  background-image: url(${TownPhotoMainWeb});
+  background-size: cover;
+  height: 330px;
+  width: 90%;
+  margin-bottom: 20px;
+  margin-left: 0;
+  margin-right: 0;
 `;
