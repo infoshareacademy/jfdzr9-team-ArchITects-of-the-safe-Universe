@@ -26,15 +26,22 @@ export const SignInPage = () => {
   const [password, setPassword] = useState<string>("");
   const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
   const [isEnterPressed, setIsEnterPressed] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(false); // dodane
 
   const navigate = useNavigate();
 
   const handleSignUp = async () => {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert("Nieprawidłowy adres email");
+      return;
+    }
+
     try {
       const app = firebase.initializeApp(firebaseConfig);
       const auth = app.auth();
       await auth.createUserWithEmailAndPassword(email, password);
       setIsSignUpSuccess(true);
+      navigate("/UserDataPanel");
     } catch (error) {
       alert(`Hasło powinno zawierać min 6 znaków`);
     }
@@ -49,6 +56,11 @@ export const SignInPage = () => {
     } catch (error) {
       alert(`Nieprawidłowe dane logowania`);
     }
+  };
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    setIsEmailValid(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)); // dodane
   };
 
   const loginButtonRef = useRef<HTMLButtonElement>(null);
