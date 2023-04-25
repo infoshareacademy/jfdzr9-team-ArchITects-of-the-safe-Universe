@@ -71,7 +71,6 @@ a {
 .red {
   color: red;
 }
-
 `;
 
 export default GlobalStyle;
