@@ -32,7 +32,6 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     color: var(--color-dark-grey);
     width: 100%;
-
     margin: auto; 
     min-height: 100%;
     background-color: var(--color-white);
