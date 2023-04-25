@@ -18,10 +18,15 @@ import { db, storage } from "../utils/firebase/firebase.config";
 import { Link } from "react-router-dom";
 import { DocumentData } from "@firebase/firestore-types";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { Input, InputFile, Label } from "../components/AddProductPage/AddNewProduct.styled";
-import { ButtonM } from "../GoogleButton/SignInGoogle.styled";
-import { UserDataContainer, UserDataForm } from "../components/UserData/UserData.styled";
-import { ButtonS } from "../components/Buttons/Button.styled";
+import { FormGroupImg, Input, InputFile, Label } from "../components/AddProductPage/AddNewProduct.styled";
+
+import {
+  DataContainer,
+  EmptyDataContainer,
+  UserDataContainer,
+  UserDataForm,
+} from "../components/UserData/UserData.styled";
+import { ButtonS, ButtonM } from "../components/Buttons/Button.styled";
 
 export const UserDataPanel = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -177,7 +182,6 @@ export const UserDataPanel = () => {
       photoUrl = await getDownloadURL(photoRef);
     }
     if (!email) {
-      //
       return;
     }
     try {
@@ -193,7 +197,7 @@ export const UserDataPanel = () => {
       setAddingUser(false);
       setUserDataExists(true);
     } catch (error) {
-      //
+      //;
     }
   };
   const handleDeleteAccount = async () => {
@@ -247,68 +251,58 @@ export const UserDataPanel = () => {
           {editingUser === user.id ? (
             <UserDataForm>
               {" "}
-              <Label>
-                <Input
-                  type="text"
-                  placeholder="Imię"
-                  defaultValue={user.firstName}
-                  id={`firstName${user.id}`}
-                  onKeyPress={(event) => {
-                    const pattern = /[a-zA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]/;
-                    if (!pattern.test(event.key)) {
-                      event.preventDefault();
-                    }
-                  }}
-                />
-              </Label>
-              <Label>
-                <Input
-                  type="text"
-                  placeholder="Nazwisko"
-                  defaultValue={user.lastName}
-                  id={`lastName${user.id}`}
-                  onKeyPress={(event) => {
-                    const pattern = /^[a-zA-Z\s]*$/;
-                    if (!pattern.test(event.key)) {
-                      event.preventDefault();
-                    }
-                  }}
-                />
-              </Label>
-              <Label>
-                <Input
-                  type="text"
-                  placeholder="Numer telefonu"
-                  defaultValue={user.phoneNumber}
-                  id={`phoneNumber${user.id}`}
-                  maxLength={9}
-                  required
-                  onKeyPress={(event) => {
-                    const pattern = /[0-9]/;
-                    if (!pattern.test(event.key)) {
-                      event.preventDefault();
-                    }
-                  }}
-                />
-              </Label>
-              <Label>
-                <Input
-                  type="text"
-                  placeholder="Lokalizacja"
-                  defaultValue={user.location}
-                  id={`location${user.id}`}
-                  maxLength={20}
-                  onKeyPress={(event) => {
-                    const pattern = /^[a-zA-Z\s]*$/;
-                    if (!pattern.test(event.key)) {
-                      event.preventDefault();
-                    }
-                  }}
-                />
-              </Label>
-              <Label>
-                <InputFile type="file" onChange={handleFileChange} id={`photo${user.id}`} />
-              </Label>
+              <Input
+                type="text"
+                placeholder="Imię"
+                defaultValue={user.firstName}
+                id={`firstName${user.id}`}
+                onKeyPress={(event) => {
+                  const pattern = /[a-zA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]/;
+                  if (!pattern.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
+              />
+              <Input
+                type="text"
+                placeholder="Nazwisko"
+                defaultValue={user.lastName}
+                id={`lastName${user.id}`}
+                onKeyPress={(event) => {
+                  const pattern = /^[a-zA-Z\s]*$/;
+                  if (!pattern.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
+              />
+              <Input
+                type="text"
+                placeholder="Numer telefonu"
+                defaultValue={user.phoneNumber}
+                id={`phoneNumber${user.id}`}
+                maxLength={9}
+                required
+                onKeyPress={(event) => {
+                  const pattern = /[0-9]/;
+                  if (!pattern.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
+              />
+              <Input
+                type="text"
+                placeholder="Lokalizacja"
+                defaultValue={user.location}
+                id={`location${user.id}`}
+                maxLength={20}
+                onKeyPress={(event) => {
+                  const pattern = /^[a-zA-Z\s]*$/;
+                  if (!pattern.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
+              />
+              <InputFile type="file" onChange={handleFileChange} id={`photo${user.id}`} />
               <ButtonS onClick={() => handleSave(user.id)}>Zapisz</ButtonS>
               <ButtonS onClick={() => setEditingUser("")}>Anuluj</ButtonS>
             </UserDataForm>
@@ -326,10 +320,11 @@ export const UserDataPanel = () => {
               <p>
                 Lokalizacja: <b>{user.location}</b>
               </p>
-              <img src={user.photo} alt="User photo" />
               <p>
                 Adres email: <b>{user.email}</b>
               </p>
+              <img src={user.photo} style={{ height: 200, width: 200 }} alt="User photo" />
+
               <ButtonS onClick={() => handleEdit(user.id)}>Edytuj</ButtonS>
               <ButtonS onClick={() => handleChangePassword(user.id)}>Zmień hasło</ButtonS>
               <Link to="/">
@@ -340,77 +335,71 @@ export const UserDataPanel = () => {
         </div>
       ))}
       {!users.length && (
-        <div>
+        <EmptyDataContainer>
           <p>Brak danych użytkownika. Dodaj dane.</p>
           {addingUser ? (
             <div>
-              <Label>
-                Imię:
-                <Input
-                  type="text"
-                  id="firstName"
-                  onKeyPress={(event) => {
-                    const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
-                    if (!pattern.test(event.key)) {
-                      event.preventDefault();
-                    }
-                  }}
-                />
-              </Label>
-              <Label>
-                Nazwisko:
-                <Input
-                  type="text"
-                  id="lastName"
-                  onKeyPress={(event) => {
-                    const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
-                    if (!pattern.test(event.key)) {
-                      event.preventDefault();
-                    }
-                  }}
-                />
-              </Label>
-              <Label>
-                Numer telefonu:
-                <Input
-                  type="text"
-                  id="phoneNumber"
-                  maxLength={9}
-                  required
-                  onKeyPress={(event) => {
-                    const pattern = /^\d$/; // tylko cyfry
-                    const phoneNumberInput = event.target as HTMLInputElement;
-                    const phoneNumber = phoneNumberInput.value;
-                    if (!pattern.test(event.key) || phoneNumber.length >= 9) {
-                      event.preventDefault();
-                    }
-                  }}
-                />
-              </Label>
-              <Label>
-                Lokalizacja:
-                <Input
-                  type="text"
-                  id="location"
-                  onKeyPress={(event) => {
-                    const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
-                    if (!pattern.test(event.key)) {
-                      event.preventDefault();
-                    }
-                  }}
-                />
-              </Label>
-              <Label>
-                Zdjęcie:
-                <Input type="file" id="photo" accept="image/*" onChange={handlePhotoChange} />
-              </Label>
+              <Input
+                type="text"
+                id="firstName"
+                placeholder="Imię"
+                onKeyPress={(event) => {
+                  const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
+                  if (!pattern.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
+              />
+
+              <Input
+                type="text"
+                id="lastName"
+                placeholder="Nazwisko"
+                onKeyPress={(event) => {
+                  const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
+                  if (!pattern.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
+              />
+
+              <Input
+                type="text"
+                id="phoneNumber"
+                placeholder="Numer telefonu"
+                maxLength={9}
+                required
+                onKeyPress={(event) => {
+                  const pattern = /^\d$/; // tylko cyfry
+                  const phoneNumberInput = event.target as HTMLInputElement;
+                  const phoneNumber = phoneNumberInput.value;
+                  if (!pattern.test(event.key) || phoneNumber.length >= 9) {
+                    event.preventDefault();
+                  }
+                }}
+              />
+
+              <Input
+                type="text"
+                id="location"
+                placeholder="Lokalizacja"
+                onKeyPress={(event) => {
+                  const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
+                  if (!pattern.test(event.key)) {
+                    event.preventDefault();
+                  }
+                }}
+              />
+
+              <Input type="file" id="photo" accept="image/*" onChange={handlePhotoChange} />
+
               <ButtonM onClick={handleSaveUser}>Zapisz</ButtonM>
               <ButtonM onClick={() => setAddingUser(false)}>Anuluj</ButtonM>
             </div>
           ) : (
             <ButtonM onClick={handleAddUser}>Dodaj dane</ButtonM>
           )}
-        </div>
+        </EmptyDataContainer>
       )}
     </UserDataContainer>
   );
