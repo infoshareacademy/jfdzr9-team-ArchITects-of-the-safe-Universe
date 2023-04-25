@@ -12,10 +12,12 @@ export const ButtonM = styled.button`
   padding: 10px 20px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  font-weight: bold;
 
   :hover {
     cursor: pointer;
-    background-color: var(--color-very-light-grey);
+    background-color: var(--color-orange);
+    color: #7e4d20;
   }
 `;
 
