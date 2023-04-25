@@ -3,6 +3,7 @@ import BottomNavigation from "../components/BottomNavigation/BottomNavigation.co
 import { ButtonContainer, ButtonS, OrangeButton } from "../components/Buttons/Button.styled";
 import { Products } from "../components/Product/Product.component";
 import { UserOptionsSection } from "../components/UserOptions/UserOptions.styled";
+import { AddProductButton } from "../AddProductButton/AddProductButton";
 
 export const UserPanelPageLend = () => {
   return (
@@ -12,9 +13,7 @@ export const UserPanelPageLend = () => {
           <ButtonS>Do wypożyczenia</ButtonS>
         </Link>
         <OrangeButton>Mam pożyczone</OrangeButton>
-        <Link to="/addProduct">
-          <ButtonS>Chcę dodać produkt</ButtonS>
-        </Link>
+        <AddProductButton />
       </UserOptionsSection>
       <Products />
       <BottomNavigation />
