@@ -52,6 +52,7 @@ export const TextArea = styled.textarea`
   }
 
   @media (max-width: 650px) {
+    height: 150px;
     font-size: 14px;
   }
 `;
