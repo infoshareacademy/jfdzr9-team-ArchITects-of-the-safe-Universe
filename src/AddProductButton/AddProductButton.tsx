@@ -17,11 +17,11 @@ interface UserWithUserDataPanel extends firebase.User {
   };
 }
 
-export const AddOpinionButton = () => {
+export const AddProductButton = () => {
   const { currentUser } = useContext<AuthContextType>(AuthContext);
   const navigate = useNavigate();
 
-  const handleAddOpinion = async () => {
+  const handleAddProduct = async () => {
     if (!currentUser) {
       navigate("/account");
       return;
@@ -44,7 +44,7 @@ export const AddOpinionButton = () => {
       if (userDataPanel) {
         const { firstName, lastName, phoneNumber, location, email, photo } = userDataPanel;
         if (firstName && lastName && phoneNumber && location && email && photo) {
-          navigate("/addOpinion");
+          navigate("/addProduct");
         } else {
           navigate("/userDataPanel");
         }
@@ -58,7 +58,7 @@ export const AddOpinionButton = () => {
 
   return (
     <>
-      <ButtonM onClick={handleAddOpinion}>Dodaj opinię</ButtonM>
+      <ButtonM onClick={handleAddProduct}>Chcę dodać produkt</ButtonM>
     </>
   );
 };

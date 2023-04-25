@@ -3,6 +3,7 @@ import BottomNavigation from "../components/BottomNavigation/BottomNavigation.co
 import { ButtonS, OrangeButton } from "../components/Buttons/Button.styled";
 import { ProductsOwner } from "../components/Product/ProductsOwner.component";
 import { UserOptionsSection } from "../components/UserOptions/UserOptions.styled";
+import { AddProductButton } from "../AddProductButton/AddProductButton";
 
 export const UserPanelPageBorrow = () => {
   return (
@@ -12,9 +13,7 @@ export const UserPanelPageBorrow = () => {
         <Link to="/userPanelLend">
           <ButtonS>Mam pożyczone</ButtonS>
         </Link>
-        <Link to="/addProduct">
-          <ButtonS>Chcę dodać produkt</ButtonS>
-        </Link>
+        <AddProductButton />
       </UserOptionsSection>
       <ProductsOwner />
       <BottomNavigation />
