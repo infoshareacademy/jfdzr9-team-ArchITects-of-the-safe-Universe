@@ -32,13 +32,16 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     color: var(--color-dark-grey);
     width: 100%;
-
     margin: auto; 
     min-height: 100%;
     background-color: var(--color-white);
     overflow-y: auto;
     min-height: 100%;
     position: relative;
+
+    @media (max-width: 650px) {
+    font-size: 14px;
+  }
 }
 
 .react-multi-carousel-list {

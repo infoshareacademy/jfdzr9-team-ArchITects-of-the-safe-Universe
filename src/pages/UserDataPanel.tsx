@@ -18,10 +18,15 @@ import { db, storage } from "../utils/firebase/firebase.config";
 import { Link } from "react-router-dom";
 import { DocumentData } from "@firebase/firestore-types";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { Input, InputFile, Label } from "../components/AddProductPage/AddNewProduct.styled";
-import { ButtonM } from "../GoogleButton/SignInGoogle.styled";
-import { UserDataContainer, UserDataForm } from "../components/UserData/UserData.styled";
-import { ButtonS } from "../components/Buttons/Button.styled";
+import { FormGroupImg, Input, InputFile, Label } from "../components/AddProductPage/AddNewProduct.styled";
+
+import {
+  DataContainer,
+  EmptyDataContainer,
+  UserDataContainer,
+  UserDataForm,
+} from "../components/UserData/UserData.styled";
+import { ButtonS, ButtonM } from "../components/Buttons/Button.styled";
 
 export const UserDataPanel = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -238,26 +243,16 @@ export const UserDataPanel = () => {
           {editingUser === user.id ? (
             <UserDataForm>
               {" "}
-              <Label>
-                <Input type="text" placeholder="Imię" defaultValue={user.firstName} id={`firstName${user.id}`} />
-              </Label>
-              <Label>
-                <Input type="text" placeholder="Nazwisko" defaultValue={user.lastName} id={`lastName${user.id}`} />
-              </Label>
-              <Label>
-                <Input
-                  type="text"
-                  placeholder="Numer telefonu"
-                  defaultValue={user.phoneNumber}
-                  id={`phoneNumber${user.id}`}
-                />
-              </Label>
-              <Label>
-                <Input type="text" placeholder="Lokalizacja" defaultValue={user.location} id={`location${user.id}`} />
-              </Label>
-              <Label>
-                <InputFile type="file" onChange={handleFileChange} id={`photo${user.id}`} />
-              </Label>
+              <Input type="text" placeholder="Imię" defaultValue={user.firstName} id={`firstName${user.id}`} />
+              <Input type="text" placeholder="Nazwisko" defaultValue={user.lastName} id={`lastName${user.id}`} />
+              <Input
+                type="text"
+                placeholder="Numer telefonu"
+                defaultValue={user.phoneNumber}
+                id={`phoneNumber${user.id}`}
+              />
+              <Input type="text" placeholder="Lokalizacja" defaultValue={user.location} id={`location${user.id}`} />
+              <InputFile type="file" onChange={handleFileChange} id={`photo${user.id}`} />
               <ButtonS onClick={() => handleSave(user.id)}>Zapisz</ButtonS>
               <ButtonS onClick={() => setEditingUser("")}>Anuluj</ButtonS>
             </UserDataForm>
@@ -275,10 +270,11 @@ export const UserDataPanel = () => {
               <p>
                 Lokalizacja: <b>{user.location}</b>
               </p>
-              <img src={user.photo} alt="User photo" />
               <p>
                 Adres email: <b>{user.email}</b>
               </p>
+              <img src={user.photo} style={{ height: 200, width: 200 }} alt="User photo" />
+
               <ButtonS onClick={() => handleEdit(user.id)}>Edytuj</ButtonS>
               <ButtonS onClick={() => handleChangePassword(user.id)}>Zmień hasło</ButtonS>
               <Link to="/">
@@ -289,37 +285,24 @@ export const UserDataPanel = () => {
         </div>
       ))}
       {!users.length && (
-        <div>
+        <EmptyDataContainer>
           <p>Brak danych użytkownika. Dodaj dane.</p>
           {addingUser ? (
-            <div>
-              <Label>
-                Imię:
-                <Input type="text" id="firstName" />
-              </Label>
-              <Label>
-                Nazwisko:
-                <Input type="text" id="lastName" />
-              </Label>
-              <Label>
-                Numer telefonu:
-                <Input type="text" id="phoneNumber" />
-              </Label>
-              <Label>
-                Lokalizacja:
-                <Input type="text" id="location" />
-              </Label>
-              <Label>
-                Zdjęcie:
-                <Input type="file" id="photo" accept="image/*" onChange={handlePhotoChange} />
-              </Label>
-              <ButtonM onClick={handleSaveUser}>Zapisz</ButtonM>
-              <ButtonM onClick={() => setAddingUser(false)}>Anuluj</ButtonM>
-            </div>
+            <DataContainer>
+              <Input type="text" id="firstName" placeholder="Imię" />
+              <Input type="text" id="lastName" placeholder="Nazwisko" />
+              <Input type="text" id="phoneNumber" placeholder="Numer telefonu" />
+              <Input type="text" id="location" placeholder="Lokalizacja" />
+              <FormGroupImg>
+                <InputFile type="file" id="photo" accept="image/*" onChange={handlePhotoChange} />
+                <ButtonS onClick={handleSaveUser}>Zapisz</ButtonS>
+              </FormGroupImg>
+              <ButtonS onClick={() => setAddingUser(false)}>Anuluj</ButtonS>
+            </DataContainer>
           ) : (
             <ButtonM onClick={handleAddUser}>Dodaj dane</ButtonM>
           )}
-        </div>
+        </EmptyDataContainer>
       )}
     </UserDataContainer>
   );
