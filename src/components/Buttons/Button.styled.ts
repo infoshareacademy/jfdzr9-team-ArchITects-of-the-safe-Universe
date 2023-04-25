@@ -36,10 +36,12 @@ export const ButtonM = styled.button`
   color: var(--color-dark-grey);
   font-weight: 600;
   font-size: 18px;
+  font-weight: bold;
 
   :hover {
     cursor: pointer;
     background-color: var(--color-orange);
+    color: #7e4d20;
   }
 
   @media (max-width: 1024px) {

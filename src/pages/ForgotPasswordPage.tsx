@@ -7,6 +7,7 @@ import "firebase/compat/auth";
 import { firebaseConfig } from "../utils/firebase/firebase.config";
 import { ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { ForgotPasswordContainers } from "../components/SignIn/SignIn.styled";
 
 export const ForgotPasswordPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -27,19 +28,23 @@ export const ForgotPasswordPage = () => {
 
   return (
     <>
-      <SignInContainer>
-        <div>Zresetuj hasło</div>
-        <Input
-          placeholder="email"
-          value={email}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-        />
-        <ButtonM onClick={handleResetPassword}>Zresetuj</ButtonM>
-        {isResetSuccess && <div>Email z instrukcją został wysłany</div>}
-        <div>
-          <ButtonM onClick={() => navigate("/account")}>Powrót do logowania</ButtonM>
-        </div>
-      </SignInContainer>
+      <ForgotPasswordContainers>
+        <SignInContainer>
+          <div>
+            <h1>Zresetuj hasło</h1>
+          </div>
+          <Input
+            placeholder="email"
+            value={email}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+          />
+          <ButtonM onClick={handleResetPassword}>Zresetuj</ButtonM>
+          {isResetSuccess && <div>Email z instrukcją został wysłany</div>}
+          <div>
+            <ButtonM onClick={() => navigate("/account")}>Powrót do logowania</ButtonM>
+          </div>
+        </SignInContainer>
+      </ForgotPasswordContainers>
     </>
   );
 };

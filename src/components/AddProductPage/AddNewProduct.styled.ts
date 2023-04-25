@@ -37,20 +37,29 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-orange);
   border-radius: 4px;
   font-size: 16px;
   margin-bottom: 10px;
-  width: 220px;
+  width: 80%;
 
+  /* :hover {
+    outline: none;
+    border-color: var(--color-orange);
+  } */
   :hover {
     outline: none;
-    border-color: var(--color-orange);
+    box-shadow: 0 0 5pt 0.5pt var(--color-orange);
   }
 
-  :focus {
+  /* :focus {
     outline: none;
     border-color: var(--color-orange);
+  } */
+
+  :focus {
+    box-shadow: 0 0 5pt 2pt var(--color-orange);
+    outline-width: 0px;
   }
 
   @media (max-width: 650px) {
