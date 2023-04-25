@@ -94,6 +94,10 @@ export const UserDataPanel = () => {
         throw new Error("Input element not found");
       }
 
+      if (phoneNumberValue.length < 8 || phoneNumberValue.length > 9) {
+        throw new Error("Numer telefonu powinien zawierać od 8 do 9 cyfr.");
+      }
+
       await updateDoc(userRef, {
         firstName: firstNameValue,
         lastName: lastNameValue,
@@ -101,9 +105,11 @@ export const UserDataPanel = () => {
         location: locationValue,
         photo: photoValue,
       });
+
       setEditingUser("");
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
+      alert(error.message);
     }
   };
   const [addingUser, setAddingUser] = useState(false);
@@ -150,6 +156,9 @@ export const UserDataPanel = () => {
       phoneNumberError.textContent = "Podaj numer telefonu";
       phoneNumberError.style.color = "red";
       phoneNumberInput?.parentElement?.appendChild(phoneNumberError);
+      return;
+    } else if (phoneNumber.length < 8 || phoneNumber.length > 9) {
+      alert("Numer telefonu powinien składać się z 8 lub 9 cyfr.");
       return;
     }
     if (!location) {
@@ -239,10 +248,32 @@ export const UserDataPanel = () => {
             <UserDataForm>
               {" "}
               <Label>
-                <Input type="text" placeholder="Imię" defaultValue={user.firstName} id={`firstName${user.id}`} />
+                <Input
+                  type="text"
+                  placeholder="Imię"
+                  defaultValue={user.firstName}
+                  id={`firstName${user.id}`}
+                  onKeyPress={(event) => {
+                    const pattern = /[a-zA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
-                <Input type="text" placeholder="Nazwisko" defaultValue={user.lastName} id={`lastName${user.id}`} />
+                <Input
+                  type="text"
+                  placeholder="Nazwisko"
+                  defaultValue={user.lastName}
+                  id={`lastName${user.id}`}
+                  onKeyPress={(event) => {
+                    const pattern = /^[a-zA-Z\s]*$/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
                 <Input
@@ -250,10 +281,30 @@ export const UserDataPanel = () => {
                   placeholder="Numer telefonu"
                   defaultValue={user.phoneNumber}
                   id={`phoneNumber${user.id}`}
+                  maxLength={9}
+                  required
+                  onKeyPress={(event) => {
+                    const pattern = /[0-9]/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
                 />
               </Label>
               <Label>
-                <Input type="text" placeholder="Lokalizacja" defaultValue={user.location} id={`location${user.id}`} />
+                <Input
+                  type="text"
+                  placeholder="Lokalizacja"
+                  defaultValue={user.location}
+                  id={`location${user.id}`}
+                  maxLength={20}
+                  onKeyPress={(event) => {
+                    const pattern = /^[a-zA-Z\s]*$/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
                 <InputFile type="file" onChange={handleFileChange} id={`photo${user.id}`} />
@@ -295,19 +346,59 @@ export const UserDataPanel = () => {
             <div>
               <Label>
                 Imię:
-                <Input type="text" id="firstName" />
+                <Input
+                  type="text"
+                  id="firstName"
+                  onKeyPress={(event) => {
+                    const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
                 Nazwisko:
-                <Input type="text" id="lastName" />
+                <Input
+                  type="text"
+                  id="lastName"
+                  onKeyPress={(event) => {
+                    const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
                 Numer telefonu:
-                <Input type="text" id="phoneNumber" />
+                <Input
+                  type="text"
+                  id="phoneNumber"
+                  maxLength={9}
+                  required
+                  onKeyPress={(event) => {
+                    const pattern = /^\d$/; // tylko cyfry
+                    const phoneNumberInput = event.target as HTMLInputElement;
+                    const phoneNumber = phoneNumberInput.value;
+                    if (!pattern.test(event.key) || phoneNumber.length >= 9) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
                 Lokalizacja:
-                <Input type="text" id="location" />
+                <Input
+                  type="text"
+                  id="location"
+                  onKeyPress={(event) => {
+                    const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
+                    if (!pattern.test(event.key)) {
+                      event.preventDefault();
+                    }
+                  }}
+                />
               </Label>
               <Label>
                 Zdjęcie:
