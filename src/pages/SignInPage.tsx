@@ -2,7 +2,17 @@ import { useState, useRef } from "react";
 import { ButtonM } from "../components/Buttons/Button.styled";
 import { Input } from "../components/AddProductPage/AddNewProduct.styled";
 import { SignInGoogle } from "../GoogleButton/SignInGoogle";
-import { ForgotPasswordLink, SignInBottomConrainer, SignInContainer } from "../components/SignIn/SignIn.styled";
+import {
+  TwoMainContainers,
+  // LogoConteiner,
+  ForgotPasswordLink,
+  SignInBottomConrainer,
+  SignInContainer,
+  SignInWord,
+  NewUser,
+  Registration,
+  SingleLine,
+} from "../components/SignIn/SignIn.styled";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
@@ -16,15 +26,22 @@ export const SignInPage = () => {
   const [password, setPassword] = useState<string>("");
   const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
   const [isEnterPressed, setIsEnterPressed] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(false); // dodane
 
   const navigate = useNavigate();
 
   const handleSignUp = async () => {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert("Nieprawidłowy adres email");
+      return;
+    }
+
     try {
       const app = firebase.initializeApp(firebaseConfig);
       const auth = app.auth();
       await auth.createUserWithEmailAndPassword(email, password);
       setIsSignUpSuccess(true);
+      navigate("/UserDataPanel");
     } catch (error) {
       alert(`Hasło powinno zawierać min 6 znaków`);
     }
@@ -41,41 +58,63 @@ export const SignInPage = () => {
     }
   };
 
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    setIsEmailValid(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)); // dodane
+  };
+
   const loginButtonRef = useRef<HTMLButtonElement>(null);
 
   return (
     <>
-      <SignInContainer>
-        <div>Zaloguj się</div>
-        <Input
-          placeholder="email"
-          value={email}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-        />
-        <InputPassword
-          placeholder="hasło"
-          value={password}
-          onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-          onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => {
-            if (e.key === "Enter") {
-              setIsEnterPressed(true);
-              handleSignIn();
-            }
-          }}
-        />
-        <SignInBottomConrainer>
-          <ForgotPasswordLink>
-            <span onClick={() => navigate("/forgotPassword")}>Zapomniałeś hasła?</span>
-          </ForgotPasswordLink>
-          <ButtonM onClick={handleSignIn} ref={loginButtonRef}>
-            Zaloguj się
-          </ButtonM>
-          <SignInGoogle />
-          <div>Nie posiadasz konta?</div>
-          <ButtonM onClick={handleSignUp}>Zarejestruj się</ButtonM>
-          {isSignUpSuccess && <div>Konto zostało utworzone pomyślnie</div>}
-        </SignInBottomConrainer>
-      </SignInContainer>
+      <TwoMainContainers>
+        <SignInContainer>
+          <SignInWord>
+            <h1>Zaloguj się</h1>
+          </SignInWord>
+          <NewUser>
+            <div>Nie posiadasz konta?</div>
+            <Registration>
+              <span onClick={handleSignUp}>Zarejestruj się</span>
+              {isSignUpSuccess && <div>Konto zostało utworzone pomyślnie</div>}
+            </Registration>
+          </NewUser>
+          <Input
+            placeholder="email"
+            value={email}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+          />
+          <InputPassword
+            placeholder="hasło"
+            value={password}
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+            onKeyPress={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === "Enter") {
+                setIsEnterPressed(true);
+                handleSignIn();
+              }
+            }}
+          />
+          <SignInBottomConrainer>
+            <ButtonM onClick={handleSignIn} ref={loginButtonRef}>
+              Zaloguj się
+            </ButtonM>
+          </SignInBottomConrainer>
+
+          <SingleLine>
+            <h4>
+              <span>Albo</span>
+            </h4>
+          </SingleLine>
+
+          <SignInBottomConrainer>
+            <SignInGoogle />
+            <ForgotPasswordLink>
+              <span onClick={() => navigate("/forgotPassword")}>Zapomniałeś hasła?</span>
+            </ForgotPasswordLink>
+          </SignInBottomConrainer>
+        </SignInContainer>
+      </TwoMainContainers>
     </>
   );
 };

@@ -14,7 +14,7 @@ import {
 import { useEffect, useState, useContext } from "react";
 import { db } from "../../utils/firebase/firebase.config";
 import { ProductProps } from "../AddProductPage/AddNewProduct.component";
-import { Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
+import { ContainerPhoto, ContainerText, UserContainer, UserProductContainer } from "../Products/Product.styled";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { AuthContext } from "../../Context/AuthContext";
@@ -32,23 +32,39 @@ export const ProductsOwner = () => {
     //
   }, [status]);
   const handleStatusUpdate = async (id: string) => {
+    const newStatus = "processing";
     try {
       const booksRef = collection(db, "books");
       const bookDocRef = doc(booksRef, id);
       const bookDoc = await getDoc(bookDocRef);
-      const currentStatus = bookDoc?.data()?.status;
-      const newStatus = currentStatus === "Dostępne" ? "Niedostępne" : "Dostępne";
-      await setDoc(bookDocRef, { status: newStatus }, { merge: true });
+      if (bookDoc.exists()) {
+        const currentStatus = bookDoc.data()?.status;
+        const newStatus = currentStatus === "Dostępne" ? "Niedostępne" : "Dostępne";
+        await setDoc(bookDocRef, { status: newStatus }, { merge: true });
+      }
+
       const toolsRef = collection(db, "Tools");
       const toolDocRef = doc(toolsRef, id);
-      await setDoc(toolDocRef, { status: newStatus }, { merge: true });
+      const toolDoc = await getDoc(toolDocRef);
+      if (toolDoc.exists()) {
+        const currentStatus = toolDoc.data()?.status;
+        const newStatus = currentStatus === "Dostępne" ? "Niedostępne" : "Dostępne";
+        await setDoc(toolDocRef, { status: newStatus }, { merge: true });
+      }
+
       const sportRef = collection(db, "Sport");
       const sportDocRef = doc(sportRef, id);
-      await setDoc(sportDocRef, { status: newStatus }, { merge: true });
+      const sportDoc = await getDoc(sportDocRef);
+      if (sportDoc.exists()) {
+        const currentStatus = sportDoc.data()?.status;
+        const newStatus = currentStatus === "Dostępne" ? "Niedostępne" : "Dostępne";
+        await setDoc(sportDocRef, { status: newStatus }, { merge: true });
+      }
+
       setStatus(newStatus);
       window.location.reload();
     } catch (error) {
-      //;
+      // handle error
     }
   };
   const getProducts = async () => {
@@ -120,7 +136,7 @@ export const ProductsOwner = () => {
     return <div>Loading...</div>;
   }
   return (
-    <ProductContainer>
+    <UserProductContainer>
       <Carousel
         additionalTransfrom={0}
         arrows
@@ -151,7 +167,7 @@ export const ProductsOwner = () => {
               max: 1024,
               min: 701,
             },
-            items: 4,
+            items: 3,
 
             partialVisibilityGutter: 40,
           },
@@ -168,7 +184,7 @@ export const ProductsOwner = () => {
               max: 700,
               min: 465,
             },
-            items: 3,
+            items: 2,
             partialVisibilityGutter: 30,
           },
         }}
@@ -181,7 +197,7 @@ export const ProductsOwner = () => {
         swipeable
       >
         {[...books, ...tools, ...sport].map(({ id, name, author, img, status }) => (
-          <Container key={id}>
+          <UserContainer key={id}>
             <ContainerPhoto>
               <>
                 {img ? (
@@ -197,9 +213,9 @@ export const ProductsOwner = () => {
             </ContainerText>
             <ButtonS onClick={() => handleDelete(id)}>Usuń z bazy</ButtonS>
             <ButtonS onClick={() => handleStatusUpdate(id)}>{status}</ButtonS>
-          </Container>
+          </UserContainer>
         ))}
       </Carousel>
-    </ProductContainer>
+    </UserProductContainer>
   );
 };

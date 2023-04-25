@@ -1,34 +1,19 @@
 import styled from "styled-components";
 
-export const Arrow = styled.button`
-  position: static;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1rem;
-  width: 2.5vw;
-  height: 50vh;
-  border-radius: 10px;
-  padding: 1.6rem;
-  text-transform: capitalize;
-  transition: 0.2s linear;
-  border: none;
-  :hover {
-    cursor: pointer;
-    background-color: var(--color-dark-grey);
-  }
-`;
-
 export const OpinionContainer = styled.div`
-  position: static;
   display: flex;
   align-items: center;
   height: 50vh;
   width: 100vw;
   border-radius: 10px;
-  background-color: var(--color-very-light-grey);
   transition: 0.2s linear;
   border: none;
+  margin-top: 10vh;
+
+  @media (max-width: 1024px) {
+    width: 80%;
+    margin-top: 6vh;
+  }
 `;
 
 export const SingleCardOpinionSection = styled.div`
@@ -38,16 +23,19 @@ export const SingleCardOpinionSection = styled.div`
   justify-content: space-between;
   align-content: center;
   flex-wrap: nowrap;
-  font-size: 1rem;
   width: 200px;
   height: 50vh;
   border-radius: 10px;
   padding: 0.5rem;
   margin: auto;
-  text-transform: capitalize;
   transition: 0.2s linear;
   border: none;
   background-color: var(--color-light-grey);
+
+  @media (max-width: 650px) {
+    width: 80%;
+    /* height: 60vh; */
+  }
 `;
 
 export const SingleCardName = styled.div`
@@ -57,15 +45,25 @@ export const SingleCardName = styled.div`
   font-size: 20px;
   text-align: center;
   justify-content: center;
+
+  @media (max-width: 650px) {
+    font-size: 18px;
+  }
 `;
 
 export const SingleCardDescribe = styled.div`
   display: flex;
   gap: 1.2rem;
-  font-size: 13px;
   text-align: center;
   margin: 10px;
   justify-content: center;
+  word-break: break-word;
+  word-wrap: break-word;
+  max-width: auto;
+
+  @media (max-width: 650px) {
+    font-size: 14px;
+  }
 `;
 
 export const SingleCardRating = styled.div`

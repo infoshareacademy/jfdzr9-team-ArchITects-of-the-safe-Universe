@@ -2,7 +2,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../../utils/firebase/firebase.config";
 import { ButtonM } from "../Buttons/Button.styled";
-import { FormContainer, FormGroupNextTo, Input, TextArea } from "./AddNewOpinion.styled";
+import { FormContainer, Input, TextArea } from "./AddNewOpinion.styled";
 import { useForm, Controller } from "react-hook-form";
 import { Title } from "../../UI/Title.styled";
 import { useAuth } from "../../utils/firebase/auth";
@@ -59,7 +59,7 @@ export const AddNewOpinion = () => {
             render={({ field }) => (
               <>
                 {errors.describe && <span>{errors.describe.message}</span>}
-                <TextArea placeholder="Opinia" {...field} />
+                <TextArea placeholder="Opinia" maxLength={300} {...field} />
               </>
             )}
           />
@@ -70,13 +70,23 @@ export const AddNewOpinion = () => {
             render={({ field }) => (
               <>
                 {errors.rating && <span>{errors.rating.message}</span>}
-                <Input placeholder="Ocena" type={"number"} min="1" max="5" {...field} />
+                <Input
+                  placeholder="Ocena"
+                  type={"number"}
+                  min="1"
+                  max="5"
+                  maxLength={1}
+                  onInput={(e) => {
+                    const input = e.target as HTMLInputElement;
+                    input.value = input.value.replace(/[^1-5]/g, "").charAt(0);
+                  }}
+                  {...field}
+                />
               </>
             )}
           />
-          <FormGroupNextTo>
-            <ButtonM type="submit">Dodaj</ButtonM>
-          </FormGroupNextTo>
+
+          <ButtonM type="submit">Dodaj</ButtonM>
         </FormContainer>
       )}
     </>

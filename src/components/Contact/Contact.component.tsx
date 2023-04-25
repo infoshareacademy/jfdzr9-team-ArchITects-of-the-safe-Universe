@@ -1,15 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Title } from "../../UI/Title.styled";
 import { FormContainer, Input, TextArea } from "./Contact.styled";
 import { ButtonS } from "../Buttons/Button.styled";
 import { Controller, useForm } from "react-hook-form";
-import { collection, getDocs, getFirestore } from "firebase/firestore";
-import { auth } from "../../utils/firebase/firebase.config";
+import {
+  collection,
+  getDoc,
+  getDocs,
+  getFirestore,
+  doc,
+  CollectionReference,
+  QueryDocumentSnapshot,
+  QuerySnapshot,
+  DocumentData,
+} from "firebase/firestore";
+import { auth, db } from "../../utils/firebase/firebase.config";
+import "firebase/firestore";
+import { useAuth } from "../../utils/firebase/auth";
+import { query, where } from "firebase/firestore";
+import { useLocation } from "react-router";
 import "firebase/firestore";
 import { getFunctions, httpsCallable } from "firebase/functions";
-import { useAuth } from "../../utils/firebase/auth";
+// import { useCloudFunction } from "react-use-firebase";
+// import nodemailer from "nodemailer";
 
 type ContactFormData = {
+  email: string;
   name: string;
   message: string;
 };
@@ -70,6 +86,19 @@ const Contact = () => {
         <Title>Wiadomość została wysłana</Title>
       ) : (
         <FormContainer onSubmit={handleSubmit(onSubmit)}>
+          <Controller
+            name="email"
+            control={control}
+            rules={{ required: "E-mail jest wymagany" }}
+            defaultValue={undefined}
+            render={({ field }) => (
+              <>
+                {errors.email && <span>{errors.email.message}</span>}
+                <Input placeholder="E-mail" type={"text"} {...field} />
+              </>
+            )}
+          />
+
           <Controller
             name="message"
             control={control}
