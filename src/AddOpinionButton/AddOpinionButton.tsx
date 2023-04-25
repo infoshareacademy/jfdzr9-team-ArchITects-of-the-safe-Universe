@@ -8,7 +8,6 @@ import "firebase/compat/auth";
 
 interface UserWithUserDataPanel extends firebase.User {
   userDataPanel?: {
-    id: string;
     firstName: string;
     lastName: string;
     phoneNumber: string;
@@ -33,8 +32,8 @@ export const AddOpinionButton = () => {
       console.log("userDataPanel:", userDataPanel);
 
       if (userDataPanel) {
-        const { id, firstName, lastName, phoneNumber, location, email, photo } = userDataPanel;
-        if (id && firstName && lastName && phoneNumber && location && email && photo) {
+        const { firstName, lastName, phoneNumber, location, email, photo } = userDataPanel;
+        if (firstName && lastName && phoneNumber && location && email && photo) {
           navigate("/addOpinion");
         } else {
           navigate("/userDataPanel");
