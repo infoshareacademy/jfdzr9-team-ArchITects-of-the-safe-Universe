@@ -39,6 +39,10 @@ body {
     overflow-y: auto;
     min-height: 100%;
     position: relative;
+
+    @media (max-width: 650px) {
+    font-size: 14px;
+  }
 }
 
 .react-multi-carousel-list {
@@ -56,8 +60,6 @@ body {
 }
 
 .react-multi-carousel-item {
-  /* display: flex;
-  justify-content: center; */
   width: 100%
 } 
 
@@ -69,7 +71,6 @@ a {
 .red {
   color: red;
 }
-
 `;
 
 export default GlobalStyle;
