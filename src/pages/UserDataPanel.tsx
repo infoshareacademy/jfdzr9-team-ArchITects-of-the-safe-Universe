@@ -173,7 +173,6 @@ export const UserDataPanel = () => {
       photoUrl = await getDownloadURL(photoRef);
     }
     if (!email) {
-      //
       return;
     }
     try {
@@ -189,7 +188,7 @@ export const UserDataPanel = () => {
       setAddingUser(false);
       setUserDataExists(true);
     } catch (error) {
-      //
+      //;
     }
   };
   const handleDeleteAccount = async () => {
