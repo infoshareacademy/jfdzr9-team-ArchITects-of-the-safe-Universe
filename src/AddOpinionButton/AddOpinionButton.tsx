@@ -22,11 +22,21 @@ export const AddOpinionButton = () => {
   const navigate = useNavigate();
 
   const handleStartRenting = async () => {
+    if (!currentUser) {
+      navigate("/account");
+      return;
+    }
     const user = currentUser as UserWithUserDataPanel;
     console.log("user:", user);
 
     try {
       const userData = await firebase.firestore().collection("users").where("email", "==", user.email).get();
+
+      if (userData.docs.length === 0) {
+        console.log("No user data found");
+        navigate("/userDataPanel");
+        return;
+      }
       const userDataPanel = userData.docs[0].data();
 
       console.log("userDataPanel:", userDataPanel);
