@@ -59,8 +59,6 @@ body {
 }
 
 .react-multi-carousel-item {
-  display: flex;
-  justify-content: center;
   width: 100%
 } 
 
