@@ -3,7 +3,14 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import { db } from "../../utils/firebase/firebase.config";
 import { ProductProps } from "../AddProductPage/AddNewProduct.component";
-import { Container, ContainerPhoto, ContainerText, ProductContainer } from "../Products/Product.styled";
+import {
+  Container,
+  ContainerPhoto,
+  ContainerText,
+  ProductContainer,
+  FewContainers,
+  TownPhotoWeb,
+} from "../Products/Product.styled";
 import CategoryDropdowncopy, { CategoryProps } from "../../CategoryDropdown/CategoryDropdownMain";
 import SearchIcon from "../../assets/magnifying-glass-solid.svg";
 import { Input } from "../Input/Input.component";
@@ -93,82 +100,85 @@ export const Products = () => {
           <CategoryDropdowncopy {...categoryProps} />
         </CompanyHeaderRight>
       </TopNavSection>
-      <ProductContainer>
-        <Carousel
-          additionalTransfrom={0}
-          arrows
-          autoPlaySpeed={3000}
-          focusOnSelect={false}
-          minimumTouchDrag={80}
-          responsive={{
-            largeDesktop: {
-              breakpoint: {
-                max: 3000,
-                min: 1400,
-              },
-              items: 5,
+      <FewContainers>
+        <TownPhotoWeb />
+        <ProductContainer>
+          <Carousel
+            additionalTransfrom={0}
+            arrows
+            autoPlaySpeed={3000}
+            focusOnSelect={false}
+            minimumTouchDrag={80}
+            responsive={{
+              largeDesktop: {
+                breakpoint: {
+                  max: 3000,
+                  min: 1400,
+                },
+                items: 5,
 
-              partialVisibilityGutter: 40,
-            },
-            desktop: {
-              breakpoint: {
-                max: 1400,
-                min: 1025,
+                partialVisibilityGutter: 40,
               },
-              items: 5,
+              desktop: {
+                breakpoint: {
+                  max: 1400,
+                  min: 1025,
+                },
+                items: 5,
 
-              partialVisibilityGutter: 40,
-            },
-            smallDesktop: {
-              breakpoint: {
-                max: 1024,
-                min: 701,
+                partialVisibilityGutter: 40,
               },
-              items: 3,
+              smallDesktop: {
+                breakpoint: {
+                  max: 1024,
+                  min: 701,
+                },
+                items: 3,
 
-              partialVisibilityGutter: 40,
-            },
-            mobile: {
-              breakpoint: {
-                max: 464,
-                min: 0,
+                partialVisibilityGutter: 40,
               },
-              items: 1,
-              partialVisibilityGutter: 30,
-            },
-            tablet: {
-              breakpoint: {
-                max: 700,
-                min: 465,
+              mobile: {
+                breakpoint: {
+                  max: 464,
+                  min: 0,
+                },
+                items: 1,
+                partialVisibilityGutter: 30,
               },
-              items: 2,
-              partialVisibilityGutter: 30,
-            },
-          }}
-          rewind={false}
-          rewindWithAnimation={false}
-          rtl={false}
-          shouldResetAutoplay
-          showDots={false}
-          slidesToSlide={1}
-          swipeable
-        >
-          {filteredProducts.map(({ id, name, author, img, status }) => (
-            <Container key={id}>
-              <Link to={`/productPage/${id}`}>
-                <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
-                <ContainerText>
-                  <h3>{name}</h3>
-                  <h4>{author}</h4>
-                </ContainerText>
-                <ContainerText>
-                  <h4 className={status !== "Dostępne" ? "red" : undefined}>{status}</h4>
-                </ContainerText>
-              </Link>
-            </Container>
-          ))}
-        </Carousel>
-      </ProductContainer>
+              tablet: {
+                breakpoint: {
+                  max: 700,
+                  min: 465,
+                },
+                items: 2,
+                partialVisibilityGutter: 30,
+              },
+            }}
+            rewind={false}
+            rewindWithAnimation={false}
+            rtl={false}
+            shouldResetAutoplay
+            showDots={false}
+            slidesToSlide={1}
+            swipeable
+          >
+            {filteredProducts.map(({ id, name, author, img, status }) => (
+              <Container key={id}>
+                <Link to={`/productPage/${id}`}>
+                  <ContainerPhoto>{img && <img src={img} alt={name} />}</ContainerPhoto>
+                  <ContainerText>
+                    <h3>{name}</h3>
+                    <h4>{author}</h4>
+                  </ContainerText>
+                  <ContainerText>
+                    <h4 className={status !== "Dostępne" ? "red" : undefined}>{status}</h4>
+                  </ContainerText>
+                </Link>
+              </Container>
+            ))}
+          </Carousel>
+        </ProductContainer>
+      </FewContainers>
     </>
   );
 };

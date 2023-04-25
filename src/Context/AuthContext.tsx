@@ -2,7 +2,7 @@ import { createContext, useState, useEffect, PropsWithChildren } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
-interface AuthContextType {
+export interface AuthContextType {
   currentUser: firebase.User | null;
 }
 
