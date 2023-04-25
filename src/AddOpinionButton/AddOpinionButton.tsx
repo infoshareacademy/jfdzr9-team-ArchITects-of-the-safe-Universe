@@ -1,30 +1,55 @@
 import { useContext } from "react";
-import { AuthContext } from "../Context/AuthContext";
-import { ButtonM, ButtonS } from "../components/Buttons/Button.styled";
-import "firebase/compat/auth";
+import { AuthContext, AuthContextType } from "../Context/AuthContext";
+import { ButtonM } from "../components/Buttons/Button.styled";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "firebase/auth";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+
+interface UserWithUserDataPanel extends firebase.User {
+  userDataPanel?: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    phoneNumber: string;
+    location: string;
+    email: string;
+    photo: string;
+  };
+}
 
 export const AddOpinionButton = () => {
-  const { currentUser } = useContext(AuthContext);
-
+  const { currentUser } = useContext<AuthContextType>(AuthContext);
   const navigate = useNavigate();
 
-  const handleStartRenting = () => {
-    navigate(currentUser ? "/addOpinion" : "/account");
+  const handleStartRenting = async () => {
+    const user = currentUser as UserWithUserDataPanel;
+    console.log("user:", user);
+
+    try {
+      const userData = await firebase.firestore().collection("users").where("email", "==", user.email).get();
+      const userDataPanel = userData.docs[0].data();
+
+      console.log("userDataPanel:", userDataPanel);
+
+      if (userDataPanel) {
+        const { id, firstName, lastName, phoneNumber, location, email, photo } = userDataPanel;
+        if (id && firstName && lastName && phoneNumber && location && email && photo) {
+          navigate("/addOpinion");
+        } else {
+          navigate("/userDataPanel");
+        }
+      } else {
+        navigate("/account");
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
   };
 
   return (
     <>
-      {currentUser ? (
-        <Link to="/addOpinion">
-          <ButtonM onClick={handleStartRenting}>Dodaj opinię</ButtonM>
-        </Link>
-      ) : (
-        <Link to="/account">
-          <ButtonM>Dodaj opinię</ButtonM>
-        </Link>
-      )}
+      <ButtonM onClick={handleStartRenting}>Dodaj opinię</ButtonM>
     </>
   );
 };
