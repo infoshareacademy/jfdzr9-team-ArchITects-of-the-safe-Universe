@@ -64,7 +64,7 @@ export const ContactButton = () => {
 
   return (
     <>
-      <ButtonM onClick={handleContact}>Kontakt z właścicielem</ButtonM>
+      <OrangeButton onClick={handleContact}>Kontakt z właścicielem</OrangeButton>
     </>
   );
 };

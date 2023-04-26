@@ -51,7 +51,7 @@ export const ButtonM = styled.button`
 `;
 
 export const OrangeButton = styled.button`
-  height: 40px;
+  height: 50px;
   width: 200px;
   outline: none;
   border: none;
@@ -62,6 +62,7 @@ export const OrangeButton = styled.button`
   color: var(--color-dark-grey);
   font-weight: 600;
   font-size: 18px;
+  font-weight: bold;
 
   @media (max-width: 650px) {
     height: 30px;
@@ -71,7 +72,14 @@ export const OrangeButton = styled.button`
 
 export const ButtonContainer = styled.section`
   box-sizing: content-box;
-  width: min(650px, 100%);
+  width: min(40rem, 100%);
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  height: 10vh;
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+  }
 `;
