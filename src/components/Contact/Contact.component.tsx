@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Title } from "../../UI/Title.styled";
 import { FormContainer, Input, TextArea } from "./Contact.styled";
-import { ButtonS } from "../Buttons/Button.styled";
+import { ButtonM, ButtonS } from "../Buttons/Button.styled";
 import { Controller, useForm } from "react-hook-form";
 import {
   collection,
@@ -122,7 +122,7 @@ const Contact = () => {
               </>
             )}
           />
-          <ButtonS type="submit">Wyślij wiadomość</ButtonS>
+          <ButtonM type="submit">Wyślij wiadomość</ButtonM>
         </FormContainer>
       )}
     </>
