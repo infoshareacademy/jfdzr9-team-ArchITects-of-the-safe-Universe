@@ -9,6 +9,7 @@ export const HowDoesItWorkSection = styled.section`
   justify-content: space-between;
   padding: 4rem 0;
   margin: auto;
+  gap: 20px;
 
   @media (max-width: 650px) {
     grid-template-columns: repeat(2, 1fr);
