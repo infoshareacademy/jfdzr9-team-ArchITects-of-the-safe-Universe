@@ -30,9 +30,7 @@ export const ForgotPasswordPage = () => {
     <>
       <ForgotPasswordContainers>
         <SignInContainer>
-          <div>
-            <h1>Zresetuj hasło</h1>
-          </div>
+          <h1>Zresetuj hasło</h1>
           <Input
             placeholder="email"
             value={email}

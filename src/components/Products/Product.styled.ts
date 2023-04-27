@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import TownPhotoMainWeb from "../../assets/Web1920x1080px_04.png";
+import TownPhotoMainTablet from "../../assets/Tablet1366x250px_04.png";
+import TownPhotoMainMobile from "../../assets/Phone375x200_04.png";
 
 export const ProductContainer = styled.div`
   display: flex;
@@ -148,14 +150,24 @@ export const FewContainers = styled.div`
   align-items: center;
 `;
 
-export const TownPhotoWeb = styled.picture`
+export const TownPhotoWeb = styled.div`
   display: block;
   margin: 0;
   background-image: url(${TownPhotoMainWeb});
   background-size: cover;
   height: 330px;
-  width: 90%;
+  width: 100%;
   margin-bottom: 20px;
-  margin-left: 0;
-  margin-right: 0;
+
+  @media (max-width: 1024px) {
+    background-image: url(${TownPhotoMainTablet});
+    height: 280px;
+  }
+
+  @media (max-width: 650px) {
+    background-image: url(${TownPhotoMainMobile});
+    height: 200px;
+    margin-top: 10px;
+    background-size: contain;
+  }
 `;
