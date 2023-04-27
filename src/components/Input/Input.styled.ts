@@ -26,8 +26,6 @@ export const InputLabel = styled.label`
   display: flex;
   align-items: center;
 
-  width: 100%;
-
   @media (max-width: 1024px) {
     height: 35px;
   }
