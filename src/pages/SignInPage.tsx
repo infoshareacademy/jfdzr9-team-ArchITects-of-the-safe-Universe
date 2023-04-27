@@ -9,7 +9,6 @@ import {
   SignInBottomConrainer,
   SignInContainer,
   SignInWord,
-  NewUser,
   Registration,
   SingleLine,
 } from "../components/SignIn/SignIn.styled";
@@ -60,7 +59,7 @@ export const SignInPage = () => {
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
-    setIsEmailValid(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)); // dodane
+    setIsEmailValid(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)); // added
   };
 
   const loginButtonRef = useRef<HTMLButtonElement>(null);
@@ -69,16 +68,14 @@ export const SignInPage = () => {
     <>
       <TwoMainContainers>
         <SignInContainer>
-          <SignInWord>
-            <h1>Zaloguj się</h1>
-          </SignInWord>
-          <NewUser>
-            <div>Nie posiadasz konta?</div>
+          <SignInWord>Zaloguj się</SignInWord>
+          <SingleLine>
+            Nie posiadasz konta?
             <Registration>
               <span onClick={handleSignUp}>Zarejestruj się</span>
               {isSignUpSuccess && <div>Konto zostało utworzone pomyślnie</div>}
             </Registration>
-          </NewUser>
+          </SingleLine>
           <Input
             placeholder="email"
             value={email}
@@ -101,11 +98,7 @@ export const SignInPage = () => {
             </ButtonM>
           </SignInBottomConrainer>
 
-          <SingleLine>
-            <h4>
-              <span>Albo</span>
-            </h4>
-          </SingleLine>
+          <SingleLine>Albo</SingleLine>
 
           <SignInBottomConrainer>
             <SignInGoogle />
