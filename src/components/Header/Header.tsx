@@ -22,11 +22,11 @@ function Header() {
       if (user) {
         unsubscribe = auth.onAuthStateChanged((user: firebase.User | null) => {
           if (!user) {
-            console.log("User logged out");
+            // user logout
           }
         });
       } else {
-        console.log("User logged out");
+        // user logout
       }
     };
 
@@ -37,9 +37,7 @@ function Header() {
         unsubscribe();
       }
 
-      auth.signOut().then(() => {
-        console.log("User logged out");
-      });
+      auth.signOut();
     });
 
     return () => unregisterAuthObserver();

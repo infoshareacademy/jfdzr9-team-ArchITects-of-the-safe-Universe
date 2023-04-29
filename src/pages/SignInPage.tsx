@@ -25,7 +25,7 @@ export const SignInPage = () => {
   const [password, setPassword] = useState<string>("");
   const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
   const [isEnterPressed, setIsEnterPressed] = useState(false);
-  const [isEmailValid, setIsEmailValid] = useState(false); // dodane
+  const [isEmailValid, setIsEmailValid] = useState(false);
 
   const navigate = useNavigate();
 
@@ -60,6 +60,7 @@ export const SignInPage = () => {
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
     setIsEmailValid(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)); // added
+
   };
 
   const loginButtonRef = useRef<HTMLButtonElement>(null);
