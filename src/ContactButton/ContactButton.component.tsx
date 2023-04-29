@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import "firebase/compat/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { OrangeButton } from "../components/Buttons/Button.styled";
 import { AuthContext, AuthContextType } from "../Context/AuthContext";
 import firebase from "firebase/compat/app";
@@ -15,8 +15,11 @@ interface UserWithUserDataPanel extends firebase.User {
     email: string;
   };
 }
+interface ContactButtonProps {
+  email?: string;
+}
 
-export const ContactButton = () => {
+export const ContactButton = ({ email }: ContactButtonProps) => {
   const { currentUser } = useContext<AuthContextType>(AuthContext);
   const navigate = useNavigate();
 
@@ -37,9 +40,9 @@ export const ContactButton = () => {
       const userDataPanel = userData.docs[0].data();
 
       if (userDataPanel) {
-        const { firstName, lastName, phoneNumber, location, email } = userDataPanel;
-        if (firstName && lastName && phoneNumber && location && email) {
-          navigate("/contact");
+        const { firstName, lastName, phoneNumber, location, email: userDataPanelEmail } = userDataPanel;
+        if (firstName && lastName && phoneNumber && location && (email || userDataPanelEmail)) {
+          navigate(`/contact?email=${email || userDataPanelEmail}`);
         } else {
           navigate("/userDataPanel");
         }

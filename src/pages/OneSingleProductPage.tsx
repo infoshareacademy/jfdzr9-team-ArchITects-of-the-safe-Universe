@@ -52,7 +52,7 @@ export const OneSingleProductPage = () => {
           <h4>{product?.author}</h4>
           <p>{product?.description}</p>
           <h4>{product?.location}</h4>
-          <ContactButton />
+          <ContactButton email={product?.email} />
         </OneSingleProductContainer>
       </OneSingleProductStyle>
     </>
