@@ -25,7 +25,7 @@ export const SignInPage = () => {
   const [password, setPassword] = useState<string>("");
   const [isSignUpSuccess, setIsSignUpSuccess] = useState(false);
   const [isEnterPressed, setIsEnterPressed] = useState(false);
-  const [isEmailValid, setIsEmailValid] = useState(false); // dodane
+  const [isEmailValid, setIsEmailValid] = useState(false);
 
   const navigate = useNavigate();
 

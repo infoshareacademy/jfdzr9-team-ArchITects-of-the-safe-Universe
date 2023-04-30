@@ -6,7 +6,6 @@ import { UserPanelButton } from "../UserPanelButton/UserPanelButton";
 import { SignOutButton } from "../SignOutButton/SignOutButton";
 import { UserOptionsContainer } from "./SignInButton.styled";
 import { UserDataButton } from "../components/UserData/UserDataButton";
-import firebase from "firebase/compat/app";
 import "firebase/compat/storage";
 import React, { useState, useEffect, useContext, useRef } from "react";
 import styled from "styled-components";
@@ -26,8 +25,6 @@ export const SignInButton = () => {
   const { currentUser } = useContext(AuthContext);
   const [showUserOptions, setShowUserOptions] = useState<boolean>(false);
   const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
-  const storage: firebase.storage.Storage = firebase.storage();
-  const [userPhotoURL, setUserPhotoURL] = useState<string>("");
 
   const handleMouseEnter = () => {
     clearTimeout(timeoutRef.current);
@@ -41,14 +38,6 @@ export const SignInButton = () => {
   const handleCloseButtonClick = () => {
     setShowUserOptions(false);
   };
-  useEffect(() => {
-    if (currentUser) {
-      const userRef = storage.ref(`users/${currentUser.email}/photo`);
-      userRef.getDownloadURL().then((url) => {
-        setUserPhotoURL(url);
-      });
-    }
-  }, [currentUser]);
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
@@ -59,7 +48,7 @@ export const SignInButton = () => {
   return (
     <Container>
       <UserPhoto
-        src={userPhotoURL ? userPhotoURL : currentUser ? User : Usernotlog}
+        src={currentUser ? User : Usernotlog}
         alt={currentUser ? "User icon" : ""}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
