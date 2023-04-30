@@ -136,7 +136,17 @@ export const AddNewProduct = () => {
                 setFile(selectedFile);
               }}
             />
-
+            <Controller
+              name="img"
+              control={control}
+              rules={{ required: "Dodaj okładkę" }}
+              render={({ field }) => (
+                <>
+                  {errors.img && <span>{errors.img.message}</span>}
+                  <Input placeholder="Okładka" type={"hidden"} {...field} />
+                </>
+              )}
+            />
             <ButtonS
               onClick={(e) => {
                 e.preventDefault();
@@ -148,17 +158,6 @@ export const AddNewProduct = () => {
             {imageUrl && <img src={imageUrl} alt="uploaded" style={{ maxWidth: "180px", maxHeight: "180px" }} />}
           </FormGroupImg>
 
-          <Controller
-            name="img"
-            control={control}
-            rules={{ required: "Dodaj okładkę" }}
-            render={({ field }) => (
-              <>
-                {errors.img && <span>{errors.img.message}</span>}
-                <Input placeholder="Okładka" type={"hidden"} {...field} />
-              </>
-            )}
-          />
           <ButtonM type="submit">Dodaj</ButtonM>
         </FormContainer>
       )}

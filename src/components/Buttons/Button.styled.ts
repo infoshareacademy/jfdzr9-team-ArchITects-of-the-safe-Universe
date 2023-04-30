@@ -16,6 +16,7 @@ export const ButtonS = styled.button`
   :hover {
     cursor: pointer;
     background-color: var(--color-orange);
+    color: #7e4d20;
   }
 
   @media (max-width: 1024px) {
