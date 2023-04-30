@@ -65,6 +65,10 @@ export const OrangeButton = styled.button`
   font-size: 18px;
   font-weight: bold;
 
+  :hover {
+    cursor: pointer;
+  }
+
   @media (max-width: 1024px) {
     height: 30px;
     border-radius: 15px;

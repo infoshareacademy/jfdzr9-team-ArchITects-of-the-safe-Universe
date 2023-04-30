@@ -34,16 +34,6 @@ export const SingleCardImage = styled.div`
   }
 `;
 
-// export const SingleCardImage = styled.div`
-//   display: grid;
-//   place-items: center;
-//   flex-shrink: 0;
-//   img {
-//     width: 100%;
-//     height: 100%;
-//   }
-// `;
-
 export const SingleCardInfo = styled.div`
   display: flex;
   align-items: baseline;

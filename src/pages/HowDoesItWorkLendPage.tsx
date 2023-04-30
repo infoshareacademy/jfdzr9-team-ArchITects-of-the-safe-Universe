@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ButtonM, ButtonContainer, ButtonS, OrangeButton } from "../components/Buttons/Button.styled";
-import { HowDoesItWorkLend } from "../components/HowDoesItWork/HowDoesItWork.component";
+import { HowDoesItWorkBorrow, HowDoesItWorkLend } from "../components/HowDoesItWork/HowDoesItWork.component";
 import { ButtonStartRenting } from "../components/HowDoesItWork/HowDoesItWork.styled";
 import { Title } from "../UI/Title.styled";
 import { StartRentingButton } from "../StartRentingButton/StartRentingButton";
@@ -13,11 +13,11 @@ export const HowDoesItWorkLendPage = () => {
       <Title>Jak to działa?</Title>
       <ButtonContainer>
         <Link to="/howDoesItWork/borrow">
-          <ButtonM>Pożycz od sąsiada</ButtonM>
+          <ButtonM>Pożycz sąsiadowi</ButtonM>
         </Link>
-        <OrangeButton>Pożycz sąsiadowi</OrangeButton>
+        <OrangeButton>Pożycz od sąsiada</OrangeButton>
       </ButtonContainer>
-      <HowDoesItWorkLend />;
+      <HowDoesItWorkLend />
       <ButtonStartRenting>
         <StartRentingButton />
       </ButtonStartRenting>
