@@ -21,8 +21,7 @@ import { query, where } from "firebase/firestore";
 import { useLocation } from "react-router";
 import "firebase/firestore";
 import { getFunctions, httpsCallable } from "firebase/functions";
-// import { useCloudFunction } from "react-use-firebase";
-// import nodemailer from "nodemailer";
+import { ProductProps } from "../AddProductPage/AddNewProduct.component";
 
 type ContactFormData = {
   email: string;
@@ -37,60 +36,29 @@ const Contact = () => {
     control,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<ContactFormData>();
   const [file, setFile] = useState<File | undefined>(undefined);
+  const [product, setProduct] = useState<ProductProps | undefined>(undefined);
+  const location = useLocation();
 
-  const onSubmit = async (data: ContactFormData) => {
-    try {
-      const currentUser = auth.currentUser;
-      const userEmail = currentUser?.email;
-
-      if (!userEmail) {
-        throw new Error("Użytkownik nie jest zalogowany");
-      }
-
-      const db = getFirestore();
-      const collections = ["books", "Tools", "Sport"];
-      const emails: string[] = [];
-
-      for (const collectionName of collections) {
-        const querySnapshot = await getDocs(collection(db, collectionName));
-        querySnapshot.forEach((doc) => {
-          const { email } = doc.data();
-          if (email) {
-            emails.push(email);
-          }
-        });
-      }
-
-      const functions = getFunctions();
-      const sendEmail = httpsCallable(functions, "sendEmail");
-
-      const result = await sendEmail({
-        to: emails,
-        from: userEmail,
-        subject: "Wiadomość ze strony internetowej",
-        text: `Wiadomość od: ${data.name}\n\n${data.message}`,
-      });
-
-      setSuccess(true);
-    } catch (error) {
-      console.error(error);
-      // alert(error.message);
-    }
-  };
+  const queryParams = new URLSearchParams(location.search);
+  const email = queryParams.get("email") || "";
+  useEffect(() => {
+    setValue("email", email);
+  }, [email, setValue]);
 
   return (
     <>
       {success ? (
         <Title>Wiadomość została wysłana</Title>
       ) : (
-        <FormContainer onSubmit={handleSubmit(onSubmit)}>
+        <FormContainer>
           <Controller
             name="email"
             control={control}
             rules={{ required: "E-mail jest wymagany" }}
-            defaultValue={undefined}
+            defaultValue={email || ""}
             render={({ field }) => (
               <>
                 {errors.email && <span>{errors.email.message}</span>}
@@ -98,7 +66,6 @@ const Contact = () => {
               </>
             )}
           />
-
           <Controller
             name="message"
             control={control}

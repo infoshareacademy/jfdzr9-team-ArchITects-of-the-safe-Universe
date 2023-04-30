@@ -14,22 +14,15 @@ import {
 } from "firebase/firestore";
 import { getAuth, sendPasswordResetEmail, deleteUser, signOut } from "firebase/auth";
 import { useState, useEffect } from "react";
-import { db, storage } from "../utils/firebase/firebase.config";
+import { db } from "../utils/firebase/firebase.config";
 import { Link } from "react-router-dom";
 import { DocumentData } from "@firebase/firestore-types";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { FormGroupImg, Input, InputFile, Label } from "../components/AddProductPage/AddNewProduct.styled";
+import { Input } from "../components/AddProductPage/AddNewProduct.styled";
 
-import {
-  DataContainer,
-  EmptyDataContainer,
-  UserDataContainer,
-  UserDataForm,
-} from "../components/UserData/UserData.styled";
+import { EmptyDataContainer, UserDataContainer, UserDataForm } from "../components/UserData/UserData.styled";
 import { ButtonS, ButtonM } from "../components/Buttons/Button.styled";
 
 export const UserDataPanel = () => {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [users, setUsers] = useState<
     Array<{
       id: string;
@@ -38,7 +31,6 @@ export const UserDataPanel = () => {
       phoneNumber: string;
       location: string;
       email: string;
-      photo: string;
     }>
   >([]);
   const [editingUser, setEditingUser] = useState("");
@@ -62,7 +54,6 @@ export const UserDataPanel = () => {
               phoneNumber: string;
               location: string;
               email: string;
-              photo: string;
             }),
           })),
         );
@@ -74,11 +65,7 @@ export const UserDataPanel = () => {
   const handleEdit = (userId: string) => {
     setEditingUser(userId);
   };
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files) {
-      setSelectedFile(event.target.files[0]);
-    }
-  };
+
   const handleSave = async (userId: string) => {
     const userRef = doc(db, "users", userId);
 
@@ -91,11 +78,8 @@ export const UserDataPanel = () => {
       const phoneNumberValue = phoneNumberInput?.value || "";
       const locationInput = document.getElementById(`location${userId}`) as HTMLInputElement;
       const locationValue = locationInput?.value || "";
-      const photoInput = document.getElementById(`photo${userId}`) as HTMLInputElement;
-      const user = users.find((u) => u.id === userId);
-      const photoValue = selectedFile ? selectedFile : user?.photo || null;
 
-      if (!firstNameInput || !lastNameInput || !phoneNumberInput || !locationInput || !photoInput) {
+      if (!firstNameInput || !lastNameInput || !phoneNumberInput || !locationInput) {
         throw new Error("Input element not found");
       }
 
@@ -108,7 +92,6 @@ export const UserDataPanel = () => {
         lastName: lastNameValue,
         phoneNumber: phoneNumberValue,
         location: locationValue,
-        photo: photoValue,
       });
 
       setEditingUser("");
@@ -174,13 +157,7 @@ export const UserDataPanel = () => {
       locationInput?.parentElement?.appendChild(locationError);
       return;
     }
-    const photoInput = document.getElementById("photo") as HTMLInputElement;
-    let photoUrl = "";
-    if (photoInput.files && photoInput.files[0]) {
-      const photoRef = ref(storage, `users/${email}/photo`);
-      await uploadBytes(photoRef, photoInput.files[0]);
-      photoUrl = await getDownloadURL(photoRef);
-    }
+
     if (!email) {
       return;
     }
@@ -192,7 +169,6 @@ export const UserDataPanel = () => {
         phoneNumber,
         location,
         email,
-        photo: photoUrl,
       });
       setAddingUser(false);
       setUserDataExists(true);
@@ -239,11 +215,7 @@ export const UserDataPanel = () => {
       //;
     }
   };
-  const [photo, setPhoto] = useState<File | null>(null);
-  const handlePhotoChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    setPhoto(file || null);
-  };
+
   return (
     <UserDataContainer>
       {users.map((user) => (
@@ -302,7 +274,6 @@ export const UserDataPanel = () => {
                   }
                 }}
               />
-              <InputFile type="file" onChange={handleFileChange} id={`photo${user.id}`} />
               <ButtonS onClick={() => handleSave(user.id)}>Zapisz</ButtonS>
               <ButtonS onClick={() => setEditingUser("")}>Anuluj</ButtonS>
             </UserDataForm>
@@ -323,8 +294,6 @@ export const UserDataPanel = () => {
               <p>
                 Adres email: <b>{user.email}</b>
               </p>
-              <img src={user.photo} style={{ height: 200, width: 200 }} alt="User photo" />
-
               <ButtonS onClick={() => handleEdit(user.id)}>Edytuj</ButtonS>
               <ButtonS onClick={() => handleChangePassword(user.id)}>Zmień hasło</ButtonS>
               <Link to="/">
@@ -390,9 +359,6 @@ export const UserDataPanel = () => {
                   }
                 }}
               />
-
-              <Input type="file" id="photo" accept="image/*" onChange={handlePhotoChange} />
-
               <ButtonM onClick={handleSaveUser}>Zapisz</ButtonM>
               <ButtonM onClick={() => setAddingUser(false)}>Anuluj</ButtonM>
             </div>
