@@ -33,22 +33,27 @@ export const TwoMainContainers = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   background-image: url(${backgroundImage});
   background-size: cover;
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
 `;
+
 export const ForgotPasswordContainers = styled.div`
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   background-image: url(${backgroundImageBlack});
   background-size: cover;
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  min-width: 100%;
 `;
 
 // export const LogoConteiner = styled.div`
@@ -70,14 +75,20 @@ export const SignInContainer = styled.div`
   align-items: center;
   flex-direction: column;
   position: static;
-  gap: 40px;
-  margin-top: 20px;
+  gap: 30px;
   border-radius: 20px;
-  width: 600px;
-  height: 800px;
+  width: 500px;
+  height: 700px;
   background-color: white;
   border: solid lightgray 1px;
-  margin: 3rem;
+  margin: 20px;
+
+  @media (max-width: 650px) {
+    width: 70%;
+    height: auto;
+    padding: 10px;
+    gap: 20px;
+  }
 `;
 
 export const SignInBottomConrainer = styled.div`
@@ -95,20 +106,17 @@ export const ForgotPasswordLink = styled.p`
   font-weight: bold;
   &:hover {
     color: darkblue;
-    text-decoration: underline;
+    cursor: pointer;
   }
 `;
 
-export const SignInWord = styled.div`
-  color: black;
-  font-size: 23px;
+export const SignInWord = styled.h1`
+  font-size: 40px;
   color: #7e4d20;
-`;
-
-export const NewUser = styled.div`
-  color: gray;
-  font-size: 15px;
-  font-weight: bold;
+  margin-top: 0;
+  @media (max-width: 650px) {
+    font-size: 30px;
+  }
 `;
 
 export const Registration = styled.p`
@@ -116,17 +124,15 @@ export const Registration = styled.p`
   color: navy;
   display: flex;
   justify-content: center;
+  margin-top: 5px;
   &:hover {
     color: darkblue;
-    text-decoration: underline;
+    cursor: pointer;
   }
 `;
 
-export const SingleLine = styled.div`
-  h4 span {
-    width: 100%;
-    text-align: center;
-    margin: 10px 0 20px;
-    background: white;
-  }
+export const SingleLine = styled.h4`
+  width: 100%;
+  text-align: center;
+  background: white;
 `;

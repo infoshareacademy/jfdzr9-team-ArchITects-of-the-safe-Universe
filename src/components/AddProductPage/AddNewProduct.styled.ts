@@ -37,11 +37,11 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   padding: 10px;
-  border: 1px solid var(--color-orange);
+  border: 1px solid var(--color-grey);
   border-radius: 4px;
   font-size: 16px;
   margin-bottom: 10px;
-  width: 80%;
+  width: 220px;
 
   /* :hover {
     outline: none;
@@ -49,6 +49,7 @@ export const Input = styled.input`
   } */
   :hover {
     outline: none;
+    border-color: var(--color-orange);
     box-shadow: 0 0 5pt 0.5pt var(--color-orange);
   }
 
@@ -58,6 +59,7 @@ export const Input = styled.input`
   } */
 
   :focus {
+    border-color: var(--color-orange);
     box-shadow: 0 0 5pt 2pt var(--color-orange);
     outline-width: 0px;
   }
@@ -88,11 +90,13 @@ export const TextArea = styled.textarea`
   :hover {
     outline: none;
     border-color: var(--color-orange);
+    box-shadow: 0 0 5pt 0.5pt var(--color-orange);
   }
 
   :focus {
     outline: none;
     border-color: var(--color-orange);
+    box-shadow: 0 0 5pt 0.5pt var(--color-orange);
   }
 
   @media (max-width: 650px) {
@@ -113,11 +117,13 @@ export const Select = styled.select`
   :hover {
     outline: none;
     border-color: var(--color-orange);
+    box-shadow: 0 0 5pt 0.5pt var(--color-orange);
   }
 
   :focus {
     outline: none;
     border-color: var(--color-orange);
+    box-shadow: 0 0 5pt 0.5pt var(--color-orange);
   }
 
   @media (max-width: 650px) {

@@ -36,11 +36,13 @@ export const CompanyHeaderLeft = styled.form`
   :hover {
     outline: none;
     border-color: var(--color-orange);
+    box-shadow: 0 0 5pt 0.5pt var(--color-orange);
   }
 
   :focus {
     outline: none;
     border-color: var(--color-orange);
+    box-shadow: 0 0 5pt 0.5pt var(--color-orange);
   }
 
   @media (max-width: 1024px) {

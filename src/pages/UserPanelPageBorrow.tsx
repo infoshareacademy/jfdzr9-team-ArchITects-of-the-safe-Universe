@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import BottomNavigation from "../components/BottomNavigation/BottomNavigation.component";
-import { ButtonS, OrangeButton } from "../components/Buttons/Button.styled";
+import { OrangeButton } from "../components/Buttons/Button.styled";
 import { ProductsOwner } from "../components/Product/ProductsOwner.component";
 import { UserOptionsSection } from "../components/UserOptions/UserOptions.styled";
 import { AddProductButton } from "../AddProductButton/AddProductButton";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ButtonM } from "../components/Buttons/Button.styled";
-import { Input } from "../components/Input/Input.component";
+import { Input } from "../components/AddProductPage/AddNewProduct.styled";
 import { SignInContainer } from "../components/SignIn/SignIn.styled";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
@@ -30,9 +30,7 @@ export const ForgotPasswordPage = () => {
     <>
       <ForgotPasswordContainers>
         <SignInContainer>
-          <div>
-            <h1>Zresetuj hasło</h1>
-          </div>
+          <h1>Zresetuj hasło</h1>
           <Input
             placeholder="email"
             value={email}
