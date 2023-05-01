@@ -241,7 +241,7 @@ export const UserDataPanel = () => {
                 defaultValue={user.lastName}
                 id={`lastName${user.id}`}
                 onKeyPress={(event) => {
-                  const pattern = /^[a-zA-Z\s]*$/;
+                  const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ-]+$/;
                   if (!pattern.test(event.key)) {
                     event.preventDefault();
                   }
@@ -325,7 +325,7 @@ export const UserDataPanel = () => {
                 id="lastName"
                 placeholder="Nazwisko"
                 onKeyPress={(event) => {
-                  const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
+                  const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ-]+$/;
                   if (!pattern.test(event.key)) {
                     event.preventDefault();
                   }
@@ -339,7 +339,7 @@ export const UserDataPanel = () => {
                 maxLength={9}
                 required
                 onKeyPress={(event) => {
-                  const pattern = /^\d$/; // tylko cyfry
+                  const pattern = /^\d$/;
                   const phoneNumberInput = event.target as HTMLInputElement;
                   const phoneNumber = phoneNumberInput.value;
                   if (!pattern.test(event.key) || phoneNumber.length >= 9) {
@@ -353,7 +353,7 @@ export const UserDataPanel = () => {
                 id="location"
                 placeholder="Lokalizacja"
                 onKeyPress={(event) => {
-                  const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+$/;
+                  const pattern = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s]+$/;
                   if (!pattern.test(event.key)) {
                     event.preventDefault();
                   }
