@@ -1,36 +1,31 @@
 import { useEffect, useState } from "react";
 import { Title } from "../../UI/Title.styled";
 import { FormContainer, Input, TextArea } from "./Contact.styled";
-import { ButtonM, ButtonS } from "../Buttons/Button.styled";
+import { ButtonM } from "../Buttons/Button.styled";
 import { Controller, useForm } from "react-hook-form";
-import {
-  collection,
-  getDoc,
-  getDocs,
-  getFirestore,
-  doc,
-  CollectionReference,
-  QueryDocumentSnapshot,
-  QuerySnapshot,
-  DocumentData,
-} from "firebase/firestore";
-import { auth, db } from "../../utils/firebase/firebase.config";
-import "firebase/firestore";
 import { useAuth } from "../../utils/firebase/auth";
-import { query, where } from "firebase/firestore";
 import { useLocation } from "react-router";
-import "firebase/firestore";
-import { getFunctions, httpsCallable } from "firebase/functions";
-import { ProductProps } from "../AddProductPage/AddNewProduct.component";
+// import axios from "axios";
+import { MailDataRequired, send } from "@sendgrid/mail";
+import sgMail from "@sendgrid/mail";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
-type ContactFormData = {
+sgMail.setApiKey("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");
+
+interface ContactFormData {
   email: string;
   name: string;
   message: string;
-};
+}
+
+// type ContactProps = {
+//   currentUser: firebase.User | null;
+// };
 
 const Contact = () => {
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { currentUser } = useAuth();
   const {
     control,
@@ -38,15 +33,34 @@ const Contact = () => {
     formState: { errors },
     setValue,
   } = useForm<ContactFormData>();
-  const [file, setFile] = useState<File | undefined>(undefined);
-  const [product, setProduct] = useState<ProductProps | undefined>(undefined);
   const location = useLocation();
 
   const queryParams = new URLSearchParams(location.search);
   const email = queryParams.get("email") || "";
-  useEffect(() => {
+  window.addEventListener("load", () => {
     setValue("email", email);
-  }, [email, setValue]);
+  });
+
+  const sendEmailMessage = async (formData: ContactFormData) => {
+    const { email, name, message } = formData;
+
+    const msg: MailDataRequired = {
+      to: email,
+      from: currentUser?.email ?? "",
+      subject: "Wiadomość ze strony internetowej",
+      text: `${name} napisał(a):\n\n${message}`,
+    };
+    try {
+      setLoading(true);
+      // await sgMail.send({ ...msg, from: currentUser?.email ?? "" });
+      await sgMail.send(msg);
+      setSuccess(true);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -62,7 +76,12 @@ const Contact = () => {
             render={({ field }) => (
               <>
                 {errors.email && <span>{errors.email.message}</span>}
-                <Input placeholder="E-mail" type={"text"} {...field} />
+                <Input
+                  placeholder="E-mail"
+                  type={"text"}
+                  {...field}
+                  onChange={(e) => setValue("email", e.target.value)}
+                />
               </>
             )}
           />
@@ -89,7 +108,10 @@ const Contact = () => {
               </>
             )}
           />
-          <ButtonM type="submit">Wyślij wiadomość</ButtonM>
+
+          <ButtonM type="submit" onClick={handleSubmit(sendEmailMessage)} disabled={loading}>
+            {loading ? "Wysyłanie wiadomości..." : "Wyślij wiadomość"}
+          </ButtonM>
         </FormContainer>
       )}
     </>
