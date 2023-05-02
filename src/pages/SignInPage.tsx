@@ -9,7 +9,6 @@ import {
   SignInBottomConrainer,
   SignInContainer,
   SignInWord,
-  NewUser,
   Registration,
   SingleLine,
 } from "../components/SignIn/SignIn.styled";
@@ -20,7 +19,7 @@ import { firebaseConfig } from "../utils/firebase/firebase.config";
 import { ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { InputPassword } from "../components/Input/Input.componentpassword";
-
+import ReactDOM from "react-dom";
 export const SignInPage = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -32,7 +31,8 @@ export const SignInPage = () => {
 
   const handleSignUp = async () => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      alert("Nieprawidłowy adres email");
+      const errorMessage = document.getElementById("error-message");
+      ReactDOM.render(<div style={{ color: "red" }}>Nieprawidłowy adres email</div>, errorMessage);
       return;
     }
 
@@ -42,8 +42,13 @@ export const SignInPage = () => {
       await auth.createUserWithEmailAndPassword(email, password);
       setIsSignUpSuccess(true);
       navigate("/UserDataPanel");
-    } catch (error) {
-      alert(`Hasło powinno zawierać min 6 znaków`);
+    } catch (error: any) {
+      const errorMessage = document.getElementById("error-message");
+      if (error.code === "auth/email-already-in-use") {
+        ReactDOM.render(<div style={{ color: "red" }}>Podany adres email jest już używany</div>, errorMessage);
+      } else {
+        ReactDOM.render(<div style={{ color: "red" }}>Hasło powinno zawierać min 6 znaków</div>, errorMessage);
+      }
     }
   };
 
@@ -53,8 +58,15 @@ export const SignInPage = () => {
       const auth = app.auth();
       await auth.signInWithEmailAndPassword(email, password);
       navigate("/userPanelBorrow");
-    } catch (error) {
-      alert(`Nieprawidłowe dane logowania`);
+    } catch (error: any) {
+      const errorMessage = document.getElementById("error-message");
+      let errorText = "";
+      if (error.code === "auth/wrong-password") {
+        errorText = "Błędne hasło";
+      } else {
+        errorText = "Błędne dane logowania";
+      }
+      ReactDOM.render(<div style={{ color: "red" }}>{errorText}</div>, errorMessage);
     }
   };
 
@@ -69,16 +81,15 @@ export const SignInPage = () => {
     <>
       <TwoMainContainers>
         <SignInContainer>
-          <SignInWord>
-            <h1>Zaloguj się</h1>
-          </SignInWord>
-          <NewUser>
-            <div>Nie posiadasz konta?</div>
+          <SignInWord>Zaloguj się</SignInWord>
+          <div id="error-message"></div>
+          <SingleLine>
+            Nie posiadasz konta?
             <Registration>
               <span onClick={handleSignUp}>Zarejestruj się</span>
               {isSignUpSuccess && <div>Konto zostało utworzone pomyślnie</div>}
             </Registration>
-          </NewUser>
+          </SingleLine>
           <Input
             placeholder="email"
             value={email}
@@ -101,11 +112,7 @@ export const SignInPage = () => {
             </ButtonM>
           </SignInBottomConrainer>
 
-          <SingleLine>
-            <h4>
-              <span>Albo</span>
-            </h4>
-          </SingleLine>
+          <SingleLine>Albo</SingleLine>
 
           <SignInBottomConrainer>
             <SignInGoogle />

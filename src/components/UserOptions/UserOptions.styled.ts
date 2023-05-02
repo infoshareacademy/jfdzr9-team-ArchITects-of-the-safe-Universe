@@ -5,7 +5,7 @@ export const UserOptionsSection = styled.section`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 10vh;
+  height: 7vh;
   box-sizing: content-box;
   width: min(40rem, 100%);
   justify-content: space-between;
@@ -13,6 +13,6 @@ export const UserOptionsSection = styled.section`
 
   @media (max-width: 650px) {
     flex-direction: column;
-    height: 15vh;
+    height: 10vh;
   }
 `;

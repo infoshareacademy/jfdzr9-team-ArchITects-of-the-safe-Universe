@@ -6,9 +6,7 @@ import { SingleCard4 } from "../SingleCard/SingleCard.component";
 import { SingleCard5 } from "../SingleCard/SingleCard.component";
 import { SingleCard6 } from "../SingleCard/SingleCard.component";
 import { SingleCard7 } from "../SingleCard/SingleCard.component";
-// import SingleCard2 from "../SingleCard/SingleCard.component2";
 import { HowDoesItWorkSection } from "./HowDoesItWork.styled";
-// import imgCheck from "../../assets/borrow/Check.png";
 import imgSearch from "../../assets/borrow/Search.png";
 import imgCheck from "../../assets/borrow/Check.png";
 import imgReservation from "../../assets/borrow/Reservation.png";
@@ -17,7 +15,6 @@ import imgOffer from "../../assets/land/Offer an item.png";
 import imgAccept from "../../assets/land/Accept.png";
 import imgMuch from "../../assets/land/How much does it cost.png";
 import imgGuarant from "../../assets/land/Guarantee.png";
-// import Reservation from "../../assets/borrow/Reservation.png";
 
 interface HowDoesItWork {
   borrow: string;
@@ -31,7 +28,6 @@ export const HowDoesItWorkBorrow = () => {
     <div>
       <HowDoesItWorkSection>
         <SingleCard imgSearch={imgSearch} describe={"describe"} />
-        {/* <SingleCard2 Img={<img src={Reservation} />} describe={"describe"} /> */}
         <SingleCard1 imgCheck={imgCheck} describe={"describe"} />
         <SingleCard2 imgReservation={imgReservation} describe={"describe"} />
         <SingleCard3 imgUse={imgUse} describe={"describe"} />
