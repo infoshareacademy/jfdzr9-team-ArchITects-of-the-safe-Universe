@@ -15,7 +15,7 @@ export const Footer = styled.footer`
   color: var(--color-dark-grey);
   border-top-style: solid;
   border-width: 1px;
-  border-color: var(--color-orange);
+  border-color: var(--color-dark-grey);
 
   @media (max-width: 1024px) {
     font-size: 0.45rem;
