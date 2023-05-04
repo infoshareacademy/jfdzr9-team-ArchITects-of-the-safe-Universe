@@ -11,17 +11,11 @@ import sgMail from "@sendgrid/mail";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 
-sgMail.setApiKey("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");
-
 interface ContactFormData {
   email: string;
   name: string;
   message: string;
 }
-
-// type ContactProps = {
-//   currentUser: firebase.User | null;
-// };
 
 const Contact = () => {
   const [success, setSuccess] = useState(false);
@@ -41,26 +35,26 @@ const Contact = () => {
     setValue("email", email);
   });
 
-  const sendEmailMessage = async (formData: ContactFormData) => {
-    const { email, name, message } = formData;
+  // const sendEmailMessage = async (formData: ContactFormData) => {
+  //   const { email, name, message } = formData;
 
-    const msg: MailDataRequired = {
-      to: email,
-      from: currentUser?.email ?? "",
-      subject: "Wiadomość ze strony internetowej",
-      text: `${name} napisał(a):\n\n${message}`,
-    };
-    try {
-      setLoading(true);
-      // await sgMail.send({ ...msg, from: currentUser?.email ?? "" });
-      await sgMail.send(msg);
-      setSuccess(true);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  //   const msg: MailDataRequired = {
+  //     to: email,
+  //     from: currentUser?.email ?? "",
+  //     subject: "Wiadomość ze strony internetowej",
+  //     text: `${name} napisał(a):\n\n${message}`,
+  //   };
+  //   try {
+  //     setLoading(true);
+  //     // await sgMail.send({ ...msg, from: currentUser?.email ?? "" });
+  //     await sgMail.send(msg);
+  //     setSuccess(true);
+  //   } catch (error) {
+  //     console.error(error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <>
@@ -76,23 +70,13 @@ const Contact = () => {
             render={({ field }) => (
               <>
                 {errors.email && <span>{errors.email.message}</span>}
+                <span>Skontaktuj się z właścicielem produktu pod wskazanym adresem e-mail</span>
                 <Input
                   placeholder="E-mail"
                   type={"text"}
                   {...field}
                   onChange={(e) => setValue("email", e.target.value)}
                 />
-              </>
-            )}
-          />
-          <Controller
-            name="message"
-            control={control}
-            rules={{ required: "Wiadomość jest wymagana" }}
-            render={({ field }) => (
-              <>
-                {errors.message && <span>{errors.message.message}</span>}
-                <TextArea placeholder="Wiadomość" rows={5} {...field} />
               </>
             )}
           />
@@ -104,14 +88,11 @@ const Contact = () => {
             render={({ field }) => (
               <>
                 {errors.name && <span>{errors.name.message}</span>}
+                <span>Podpisz się używając Twoich danych z konta użtkownika</span>
                 <Input placeholder="Imię" type={"text"} {...field} />
               </>
             )}
           />
-
-          <ButtonM type="submit" onClick={handleSubmit(sendEmailMessage)} disabled={loading}>
-            {loading ? "Wysyłanie wiadomości..." : "Wyślij wiadomość"}
-          </ButtonM>
         </FormContainer>
       )}
     </>
