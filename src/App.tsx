@@ -17,6 +17,7 @@ import { Layout } from "./components/Layout/Layout.component";
 import { OneSingleProductPage } from "./pages/OneSingleProductPage";
 import { ContactPage } from "./pages/ContactPage";
 import { UserDataPanel } from "./pages/UserDataPanel";
+import { SignUpPage } from "./pages/SignUpPage";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Route path="/forgotPassword" element={<ForgotPasswordPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/userDataPanel" element={<UserDataPanel />} />
+            <Route path="/signUp" element={<SignUpPage />} />
             <Route path="not-found" element={<NotFoundPage />} />
             <Route
               path="productPage"
