@@ -24,7 +24,7 @@ export const HowDoesItWorkSection = styled.section`
 
 export const ButtonStartRenting = styled.section`
   box-sizing: content-box;
-  width: (100%);
+  width: 60%;
   display: flex;
   justify-content: center;
   padding: 3rem 0;

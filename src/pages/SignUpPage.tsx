@@ -3,7 +3,7 @@ import { ButtonM } from "../components/Buttons/Button.styled";
 import { Input } from "../components/AddProductPage/AddNewProduct.styled";
 import { SignInGoogle } from "../GoogleButton/SignInGoogle";
 import {
-  TwoMainContainers,
+  TwoMainContainersSignUp,
   ForgotPasswordLink,
   SignInBottomConrainer,
   SignInContainer,
@@ -55,7 +55,7 @@ export const SignUpPage = () => {
   };
 
   return (
-    <TwoMainContainers>
+    <TwoMainContainersSignUp>
       <SignUpContainer>
         <UserDataContainer>
           <SignInWord>Zarejestruj konto:</SignInWord>
@@ -76,6 +76,6 @@ export const SignUpPage = () => {
           </Registration>
         </UserDataContainer>
       </SignUpContainer>
-    </TwoMainContainers>
+    </TwoMainContainersSignUp>
   );
 };
