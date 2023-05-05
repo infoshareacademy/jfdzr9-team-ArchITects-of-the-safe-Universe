@@ -1,5 +1,5 @@
 import { useContext, ChangeEvent, Dispatch, SetStateAction } from "react";
-import { DarkModeContext } from "../context/darkMode.context";
+import { DarkModeContext } from "../../Context/darkMode.context";
 import MoonIcon from "../../assets/moon-regular.svg";
 import { Button, ButtonWrapper } from "./ThemeButton.styled";
 import SunIcon from "../../assets/sunny-outline.svg";

@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from "react";
-import { Select } from "../components/AddProductPage/AddNewProduct.styled";
-import AddNewProduct from "../components/AddProductPage/AddNewProduct.component";
-import AddNewProductSport from "../components/AddProductPage/AddNewProductSport.component";
-import AddNewProductTools from "../components/AddProductPage/AddNewProductTools.component";
+import { Select } from "../AddProductPage/AddNewProduct.styled";
+import AddNewProduct from "../AddProductPage/AddNewProduct.component";
+import AddNewProductSport from "../AddProductPage/AddNewProductSport.component";
+import AddNewProductTools from "../AddProductPage/AddNewProductTools.component";
 import { SelectContainer } from "./CategoryDropdownSecond.styled";
 
 export interface CategoryProps {

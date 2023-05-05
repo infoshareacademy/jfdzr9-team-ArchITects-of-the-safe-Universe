@@ -11,7 +11,7 @@ export const InputField = styled.input`
   /* border: 1px solid lightgray; */
   border-radius: 5px;
   background-color: var(--backgroundColor);
-  color: var(--color-footer-text);
+  color: var(--color-text);
 
   :hover {
     outline: none;

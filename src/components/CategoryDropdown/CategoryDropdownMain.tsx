@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import { Select } from "../components/AddProductPage/AddNewProduct.styled";
+import { Select } from "../AddProductPage/AddNewProduct.styled";
 
 export interface CategoryProps {
   value?: string;

@@ -5,7 +5,7 @@ import { ButtonM, ButtonS } from "../Buttons/Button.styled";
 import { FormContainer, FormGroupImg, Input, InputFile, TextArea } from "./AddNewProduct.styled";
 import { useForm, Controller } from "react-hook-form";
 import { Title } from "../../UI/Title.styled";
-import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
+import CategoryDropdown from "../CategoryDropdown/CategoryDropdown";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
