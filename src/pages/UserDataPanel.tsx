@@ -307,7 +307,7 @@ export const UserDataPanel = () => {
         <EmptyDataContainer>
           <p>Brak danych użytkownika. Dodaj dane.</p>
           {addingUser ? (
-            <div>
+            <UserDataForm>
               <Input
                 type="text"
                 id="firstName"
@@ -360,8 +360,7 @@ export const UserDataPanel = () => {
                 }}
               />
               <ButtonM onClick={handleSaveUser}>Zapisz</ButtonM>
-              <ButtonM onClick={() => setAddingUser(false)}>Anuluj</ButtonM>
-            </div>
+            </UserDataForm>
           ) : (
             <ButtonM onClick={handleAddUser}>Dodaj dane</ButtonM>
           )}

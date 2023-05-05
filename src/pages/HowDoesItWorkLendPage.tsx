@@ -13,9 +13,9 @@ export const HowDoesItWorkLendPage = () => {
       <Title>Jak to działa?</Title>
       <ButtonContainer>
         <Link to="/howDoesItWork/borrow">
-          <ButtonM>Pożycz sąsiadowi</ButtonM>
+          <ButtonM>Pożycz od sąsiada</ButtonM>
         </Link>
-        <OrangeButton>Pożycz od sąsiada</OrangeButton>
+        <OrangeButton>Pożycz sąsiadowi</OrangeButton>
       </ButtonContainer>
       <HowDoesItWorkLend />
       <ButtonStartRenting>

@@ -56,20 +56,29 @@ export const ForgotPasswordContainers = styled.div`
   min-width: 100%;
 `;
 
-// export const LogoConteiner = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-//   position: static;
-//   width: 600px;
-//   height: 800px;
-//   border-radius: 10px;
-//   background-color: greenyellow;
-//   margin: 5rem;
-// `;
-
 export const SignInContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: static;
+  gap: 30px;
+  border-radius: 20px;
+  width: 500px;
+  height: 700px;
+  background-color: white;
+  border: solid lightgray 1px;
+  margin: 20px;
+
+  @media (max-width: 650px) {
+    width: 70%;
+    height: auto;
+    padding: 10px;
+    gap: 20px;
+  }
+`;
+
+export const SignUpContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
