@@ -69,18 +69,53 @@ const Contact = () => {
             defaultValue={email || ""}
             render={({ field }) => (
               <>
-                {errors.email && <span>{errors.email.message}</span>}
-                <span>Skontaktuj się z właścicielem produktu pod wskazanym adresem e-mail</span>
+                {errors.email && <span>{errors.email.message}</span>}{" "}
+                <span>
+                  Chcąć skorzystać z oferty wypożyczenia przedmiotu?
+                  <br />
+                  Skontaktuj się z właścicielem produktu pod podanym poniżej adresem e-mail.
+                </span>{" "}
+                <br />
                 <Input
                   placeholder="E-mail"
                   type={"text"}
                   {...field}
                   onChange={(e) => setValue("email", e.target.value)}
-                />
+                />{" "}
               </>
             )}
           />
-          <Controller
+          <br />
+          <span>
+            Wypożyczanie przedmiotów to świetny sposób na zaoszczędzenie pieniędzy i zwiększenie dostępności potrzebnych
+            nam rzeczy. <br />
+            Jednak przed wypożyczeniem należy ustalić kilka ważnych kwestii.
+          </span>
+          <br />
+          <span>
+            Po pierwsze, należy uzgodnić formę realizacji wypożyczenia. <br />
+            Czy przedmiot zostanie odebrany osobiście, czy może zostanie dostarczony do wskazanego miejsca?
+          </span>
+          <br />
+          <span>
+            Po drugie, ważne jest ustalenie okresu wypożyczenia. <br />
+            Należy precyzyjnie określić, na jaki czas chcemy wypożyczyć dany produkt. <br /> W przypadku przedłużenia
+            terminu wypożyczenia, należy pamiętać o wcześniejszym uzgodnieniu z wypożyczającym.
+          </span>
+          <br />
+          <span>
+            Po trzecie, nie zapominajmy o szanowaniu wypożyczonego przedmiotu. <br />
+            Powinniśmy dbać o niego tak, jakby był naszą własnością, a w przypadku jakichkolwiek uszkodzeń lub
+            zniszczeń, poinformować o tym natychmiast wypożyczającego.
+          </span>
+          <br />
+          <span>
+            Podsumowując, przed wypożyczeniem przedmiotu, warto ustalić formę realizacji wypożyczenia, okres
+            wypożyczenia oraz zwrócić uwagę na konieczność szanowania wypożyczonej rzeczy.
+            <br /> W ten sposób unikniemy nieporozumień i będziemy mogli cieszyć się udaną i owocną współpracą z
+            wypożyczającym.
+          </span>
+          {/* <Controller
             name="name"
             control={control}
             rules={{ required: "Imię jest wymagane" }}
@@ -92,7 +127,7 @@ const Contact = () => {
                 <Input placeholder="Imię" type={"text"} {...field} />
               </>
             )}
-          />
+          /> */}
         </FormContainer>
       )}
     </>

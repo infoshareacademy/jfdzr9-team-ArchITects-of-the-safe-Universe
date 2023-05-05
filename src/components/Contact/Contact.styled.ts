@@ -5,6 +5,12 @@ export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  span {
+    text-align: justify;
+    display: inline-block;
+    vertical-align: top;
+    width: 30%;
+  }
 `;
 
 export const Input = styled.input`
@@ -13,7 +19,7 @@ export const Input = styled.input`
   border-radius: 4px;
   font-size: 16px;
   margin-bottom: 10px;
-  width: 200px;
+  width: 300px;
 
   :hover {
     outline: none;
