@@ -6,10 +6,22 @@ export const FormContainer = styled.form`
   flex-direction: column;
   align-items: center;
   span {
-    text-align: justify;
+    /* text-align: justify; */
     display: inline-block;
     vertical-align: top;
-    width: 30%;
+    width: 90%;
+  }
+  .title {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    @media (max-width: 650px) {
+      font-size: 16px;
+    }
+  }
+  .rules {
+    margin-top: 50px;
   }
 `;
 
