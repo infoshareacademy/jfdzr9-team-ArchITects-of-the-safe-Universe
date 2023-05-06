@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import "firebase/compat/auth";
 import { useNavigate, useLocation } from "react-router-dom";
-import { ButtonS } from "../components/Buttons/Button.styled";
+import { OrangeButton } from "../components/Buttons/Button.styled";
 import { AuthContext, AuthContextType } from "../Context/AuthContext";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
@@ -56,9 +56,7 @@ export const ContactButton = ({ email }: ContactButtonProps) => {
 
   return (
     <>
-      <ButtonS style={{ width: 250 }} onClick={handleContact}>
-        Kontakt z właścicielem
-      </ButtonS>
+      <OrangeButton onClick={handleContact}>Kontakt z właścicielem</OrangeButton>
     </>
   );
 };

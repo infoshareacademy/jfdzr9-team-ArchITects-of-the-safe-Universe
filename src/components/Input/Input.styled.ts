@@ -10,8 +10,6 @@ export const InputField = styled.input`
   box-shadow: border-box;
   /* border: 1px solid lightgray; */
   border-radius: 5px;
-  background-color: var(--backgroundColor);
-  color: var(--color-footer-text);
 
   :hover {
     outline: none;

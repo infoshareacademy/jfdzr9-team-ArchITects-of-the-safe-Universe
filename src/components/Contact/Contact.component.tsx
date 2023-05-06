@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Title } from "../../UI/Title.styled";
-import { FormContainer, Input } from "./Contact.styled";
+import { FormContainer, Input, TextArea } from "./Contact.styled";
+import { ButtonM } from "../Buttons/Button.styled";
 import { Controller, useForm } from "react-hook-form";
 import { useAuth } from "../../utils/firebase/auth";
 import { useLocation } from "react-router";
 // import axios from "axios";
-// import { MailDataRequired, send } from "@sendgrid/mail";
-// import sgMail from "@sendgrid/mail";
-// import "firebase/compat/auth";
+import { MailDataRequired, send } from "@sendgrid/mail";
+import sgMail from "@sendgrid/mail";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 
 interface ContactFormData {
   email: string;

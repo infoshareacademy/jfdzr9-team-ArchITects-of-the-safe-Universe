@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const FormContainer = styled.form`
-  color: var(--color-footer-text);
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -27,8 +26,6 @@ export const FormContainer = styled.form`
 `;
 
 export const Input = styled.input`
-  background-color: var(--backgroundColor);
-  color: var(--color-footer-text);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
