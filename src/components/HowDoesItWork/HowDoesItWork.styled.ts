@@ -4,7 +4,7 @@ export const HowDoesItWorkSection = styled.section`
   box-sizing: content-box;
   width: min(80rem, 100%);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-bottom: 4rem;
   margin: auto;
 
