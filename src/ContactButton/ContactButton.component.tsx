@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import "firebase/compat/auth";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ButtonS } from "../components/Buttons/Button.styled";
 import { AuthContext, AuthContextType } from "../Context/AuthContext";
 import firebase from "firebase/compat/app";
