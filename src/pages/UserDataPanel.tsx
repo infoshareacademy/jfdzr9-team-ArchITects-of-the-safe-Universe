@@ -18,8 +18,12 @@ import { db } from "../utils/firebase/firebase.config";
 import { Link } from "react-router-dom";
 import { DocumentData } from "@firebase/firestore-types";
 import { Input } from "../components/AddProductPage/AddNewProduct.styled";
-
-import { EmptyDataContainer, UserDataContainer, UserDataForm } from "../components/UserData/UserData.styled";
+import {
+  EmptyDataContainer,
+  UserDataContainer,
+  UserDataForm,
+  UserDataInfo,
+} from "../components/UserData/UserData.styled";
 import { ButtonS, ButtonM } from "../components/Buttons/Button.styled";
 
 export const UserDataPanel = () => {
@@ -278,28 +282,32 @@ export const UserDataPanel = () => {
               <ButtonS onClick={() => setEditingUser("")}>Anuluj</ButtonS>
             </UserDataForm>
           ) : (
-            <UserDataForm>
-              <p>
-                Imię: <b>{user.firstName}</b>
-              </p>
-              <p>
-                Nazwisko: <b>{user.lastName}</b>
-              </p>
-              <p>
-                Numer telefonu: <b>{user.phoneNumber}</b>
-              </p>
-              <p>
-                Lokalizacja: <b>{user.location}</b>
-              </p>
-              <p>
-                Adres email: <b>{user.email}</b>
-              </p>
-              <ButtonS onClick={() => handleEdit(user.id)}>Edytuj</ButtonS>
-              <ButtonS onClick={() => handleChangePassword(user.id)}>Zmień hasło</ButtonS>
-              <Link to="/">
-                <ButtonS onClick={handleDeleteAccount}>Usuń konto</ButtonS>
-              </Link>
-            </UserDataForm>
+            <UserDataInfo>
+              <div className="info">
+                <p>
+                  Imię: <b>{user.firstName}</b>
+                </p>
+                <p>
+                  Nazwisko: <b>{user.lastName}</b>
+                </p>
+                <p>
+                  Numer telefonu: <b>{user.phoneNumber}</b>
+                </p>
+                <p>
+                  Lokalizacja: <b>{user.location}</b>
+                </p>
+                <p>
+                  Adres email: <b>{user.email}</b>
+                </p>
+              </div>
+              <div className="buttons">
+                <ButtonS onClick={() => handleEdit(user.id)}>Edytuj</ButtonS>
+                <ButtonS onClick={() => handleChangePassword(user.id)}>Zmień hasło</ButtonS>
+                <Link to="/">
+                  <ButtonS onClick={handleDeleteAccount}>Usuń konto</ButtonS>
+                </Link>
+              </div>
+            </UserDataInfo>
           )}
         </div>
       ))}
