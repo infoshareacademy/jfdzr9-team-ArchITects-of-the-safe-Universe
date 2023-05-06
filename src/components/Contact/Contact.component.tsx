@@ -1,10 +1,6 @@
-import { useState } from "react";
-import { Title } from "../../UI/Title.styled";
 import { FormContainer } from "./Contact.styled";
 import { Controller, useForm } from "react-hook-form";
-import { useAuth } from "../../utils/firebase/auth";
 import { useLocation } from "react-router";
-
 interface ContactFormData {
   email: string;
   name: string;
@@ -12,7 +8,6 @@ interface ContactFormData {
 }
 
 const Contact = () => {
-  const { currentUser } = useAuth();
   const {
     control,
     formState: { errors },
