@@ -17,7 +17,7 @@ import { OneSingleProductPage } from "./pages/OneSingleProductPage";
 import { ContactPage } from "./pages/ContactPage";
 import { UserDataPanel } from "./pages/UserDataPanel";
 import { SignUpPage } from "./pages/SignUpPage";
-import { DarkModeContext } from "./components/context/darkMode.context";
+import { DarkModeContext } from "./Context/darkMode.context";
 import { useContext } from "react";
 import { ThemeProvider } from "styled-components";
 

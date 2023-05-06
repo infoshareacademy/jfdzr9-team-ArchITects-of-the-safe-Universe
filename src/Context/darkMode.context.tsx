@@ -1,5 +1,5 @@
 import { Dispatch, ReactNode, SetStateAction, createContext, useState } from "react";
-import { Theme, darkTheme, lightTheme } from "../../../theme/theme";
+import { Theme, darkTheme, lightTheme } from "../../theme/theme";
 
 interface DarkModeContextState {
   darkMode: boolean;

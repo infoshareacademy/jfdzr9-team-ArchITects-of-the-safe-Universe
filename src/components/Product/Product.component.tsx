@@ -11,7 +11,7 @@ import {
   FewContainers,
   TownPhotoWeb,
 } from "../Products/Product.styled";
-import CategoryDropdowncopy, { CategoryProps } from "../../CategoryDropdown/CategoryDropdownMain";
+import CategoryDropdowncopy, { CategoryProps } from "../CategoryDropdown/CategoryDropdownMain";
 import SearchIcon from "../../assets/magnifying-glass-solid.svg";
 import { Input } from "../Input/Input.component";
 import { TopNavSection } from "../TopNavigation/TopNavigatioon.styled";
@@ -100,8 +100,8 @@ export const Products = () => {
           <CategoryDropdowncopy {...categoryProps} />
         </CompanyHeaderRight>
       </TopNavSection>
+      <TownPhotoWeb />
       <FewContainers>
-        <TownPhotoWeb />
         <ProductContainer>
           <Carousel
             additionalTransfrom={0}
