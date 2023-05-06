@@ -1,20 +1,18 @@
 import styled from "styled-components";
 
 export const HowDoesItWorkSection = styled.section`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
   box-sizing: content-box;
   width: min(80rem, 100%);
   display: flex;
   justify-content: space-between;
-  padding: 4rem 0;
+  padding-bottom: 4rem;
   margin: auto;
-  gap: 20px;
 
   @media (max-width: 650px) {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    gap: 25px;
 
     button {
       width: 100%;
