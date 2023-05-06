@@ -3,7 +3,6 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { db } from "../utils/firebase/firebase.config";
 import { ProductProps } from "../components/AddProductPage/AddNewProduct.component";
-import { OrangeButton } from "../components/Buttons/Button.styled";
 import {
   OneSingleProductStyle,
   OneSingleProductContainer,
