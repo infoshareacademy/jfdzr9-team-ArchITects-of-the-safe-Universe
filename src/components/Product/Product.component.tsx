@@ -100,8 +100,8 @@ export const Products = () => {
           <CategoryDropdowncopy {...categoryProps} />
         </CompanyHeaderRight>
       </TopNavSection>
+      <TownPhotoWeb />
       <FewContainers>
-        <TownPhotoWeb />
         <ProductContainer>
           <Carousel
             additionalTransfrom={0}

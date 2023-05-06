@@ -154,6 +154,7 @@ export const TownPhotoWeb = styled.div`
   display: block;
   margin: 0;
   background-image: url(${TownPhotoMainWeb});
+  background-repeat: no-repeat;
   background-size: cover;
   height: 330px;
   width: 100%;
@@ -167,6 +168,7 @@ export const TownPhotoWeb = styled.div`
   @media (max-width: 650px) {
     background-image: url(${TownPhotoMainMobile});
     height: 200px;
+    background-position: center;
     margin-top: 10px;
     background-size: contain;
   }
