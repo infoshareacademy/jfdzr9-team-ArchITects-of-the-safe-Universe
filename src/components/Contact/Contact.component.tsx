@@ -32,7 +32,7 @@ const Contact = () => {
           render={() => (
             <>
               {errors.email && <span>{errors.email.message}</span>}{" "}
-              <span className="title">Chcąć skorzystać z oferty wypożyczenia przedmiotu?</span>
+              <span className="title">Chcesz skorzystać z oferty wypożyczenia przedmiotu?</span>
               <br />
               <span className="title">
                 Skontaktuj się z właścicielem produktu pod podanym poniżej adresem e-mail:
