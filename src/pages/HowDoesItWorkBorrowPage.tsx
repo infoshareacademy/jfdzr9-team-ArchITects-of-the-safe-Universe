@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
-import { ButtonContainer, ButtonM, ButtonS, OrangeButton } from "../components/Buttons/Button.styled";
+import { ButtonContainer, ButtonM, OrangeButton } from "../components/Buttons/Button.styled";
 import { HowDoesItWorkBorrow } from "../components/HowDoesItWork/HowDoesItWork.component";
 import { ButtonStartRenting } from "../components/HowDoesItWork/HowDoesItWork.styled";
 import { Title } from "../UI/Title.styled";
 import { StartRentingButton } from "../StartRentingButton/StartRentingButton";
-import { AuthContext } from "../Context/AuthContext";
-import { useContext } from "react";
 
 export const HowDoesItWorkBorrowPage = () => {
   return (
