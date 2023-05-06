@@ -8,13 +8,14 @@ export const FormContainer = styled.form`
 `;
 
 export const Input = styled.input`
+  background-color: var(--backgroundColor);
+  color: var(--color-footer-text);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
   margin-bottom: 10px;
   width: 200px;
-  height: 50px;
 
   :hover {
     outline: none;
@@ -27,12 +28,13 @@ export const Input = styled.input`
   }
 
   @media (max-width: 650px) {
-    height: 15px;
     font-size: 14px;
   }
 `;
 
 export const TextArea = styled.textarea`
+  background-color: var(--backgroundColor);
+  color: var(--color-footer-text);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;

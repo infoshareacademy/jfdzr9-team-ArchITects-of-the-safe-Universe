@@ -9,13 +9,18 @@ export const CompanyHeaderSection = styled.section`
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  background: var(--color-white);
+  background: var(--color-header);
   box-shadow: 1px 1px 1px var(--color-orange);
   z-index: 1;
 
   @media (max-width: 1024px) {
     position: relative;
   }
+`;
+
+export const RightHeaderContainer = styled.div`
+  display: flex;
+  gap: 15px;
 `;
 
 export const CompanyHeaderUser = styled.div`
@@ -46,7 +51,7 @@ export const CompanyHeaderLeft = styled.form`
   }
 
   @media (max-width: 1024px) {
-    width: 250px;
+    width: auto;
     margin-right: 0px;
   }
 `;

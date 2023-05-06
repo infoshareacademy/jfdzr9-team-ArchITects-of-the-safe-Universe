@@ -4,7 +4,7 @@ export const SingleCardSection = styled.div`
   padding: 1rem 3.2rem 3.2rem;
   position: relative;
   opacity: 1;
-
+  /* background-color: var(--color-dark-grey); */
   ::before {
     content: "";
     position: absolute;
@@ -13,7 +13,7 @@ export const SingleCardSection = styled.div`
     left: 0;
     width: 100%;
     height: calc(115% - 3.5rem);
-    background-color: var(--color-very-light-grey);
+
     border-radius: 10px;
     transition: 0.2s linear;
   }
