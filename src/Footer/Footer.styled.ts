@@ -9,13 +9,13 @@ export const Footer = styled.footer`
   padding: 5px;
   height: 120px;
   width: 100%;
-  background-color: var(--color-very-light-grey);
+  background-color: var(--color-footer);
   font-size: 0.9rem;
   font-weight: 200;
-  color: var(--color-dark-grey);
+  color: var(--color-footer-text);
   border-top-style: solid;
   border-width: 1px;
-  border-color: var(--color-dark-grey);
+  border-color: var(--color-border);
 
   @media (max-width: 1024px) {
     font-size: 0.8rem;
