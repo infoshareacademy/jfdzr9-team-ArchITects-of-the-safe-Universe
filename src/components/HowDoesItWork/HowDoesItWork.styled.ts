@@ -20,6 +20,12 @@ export const HowDoesItWorkSection = styled.section`
   }
 `;
 
+export const HowWork = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
 export const ButtonStartRenting = styled.section`
   box-sizing: content-box;
   width: 60%;
