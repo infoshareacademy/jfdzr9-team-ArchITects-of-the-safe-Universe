@@ -26,6 +26,7 @@ const Contact = () => {
     handleSubmit,
     formState: { errors },
     setValue,
+    getValues,
   } = useForm<ContactFormData>();
   const location = useLocation();
 
@@ -70,50 +71,63 @@ const Contact = () => {
             render={({ field }) => (
               <>
                 {errors.email && <span>{errors.email.message}</span>}{" "}
-                <span>
-                  Chcąć skorzystać z oferty wypożyczenia przedmiotu?
-                  <br />
-                  Skontaktuj się z właścicielem produktu pod podanym poniżej adresem e-mail.
+                <span className="title">Chcąć skorzystać z oferty wypożyczenia przedmiotu?</span>
+                <br />
+                <span className="title">
+                  Skontaktuj się z właścicielem produktu pod podanym poniżej adresem e-mail:
+                  {/* <strong>{email}</strong> */}
                 </span>{" "}
                 <br />
-                <Input
+                <strong className="title">{email}</strong>
+                {/* <span>
+                  <strong>{email}</strong>
+                </span>{" "} */}
+                <br />
+                {/* <Input
                   placeholder="E-mail"
                   type={"text"}
                   {...field}
                   onChange={(e) => setValue("email", e.target.value)}
-                />{" "}
+                />{" "} */}
               </>
             )}
           />
-          <br />
-          <span>
+          <span className="rules">
             Wypożyczanie przedmiotów to świetny sposób na zaoszczędzenie pieniędzy i zwiększenie dostępności potrzebnych
-            nam rzeczy. <br />
-            Jednak przed wypożyczeniem należy ustalić kilka ważnych kwestii.
+            nam rzeczy.
+          </span>{" "}
+          <br />
+          <span>Jednak przed wypożyczeniem należy ustalić kilka ważnych kwestii:</span>
+          <br />
+          <span>
+            1. Forma realizacji wypożyczenia <br />
+            - Forma realizacji wypożyczenia powinna być uzgodniona między wypożyczającym a wypożyczającym. <br /> -
+            Wypożyczający może wybrać, czy przedmiot zostanie odebrany osobiście, czy też może zostać dostarczony do
+            wskazanego miejsca.
           </span>
           <br />
           <span>
-            Po pierwsze, należy uzgodnić formę realizacji wypożyczenia. <br />
-            Czy przedmiot zostanie odebrany osobiście, czy może zostanie dostarczony do wskazanego miejsca?
+            2. Okres wypożyczenia <br />
+            - Okres wypożyczenia powinien zostać precyzyjnie określony między wypożyczającym a wypożyczającym. <br /> -
+            W przypadku przedłużenia terminu wypożyczenia, należy wcześniej uzgodnić to z wypożyczającym.
           </span>
           <br />
           <span>
-            Po drugie, ważne jest ustalenie okresu wypożyczenia. <br />
-            Należy precyzyjnie określić, na jaki czas chcemy wypożyczyć dany produkt. <br /> W przypadku przedłużenia
-            terminu wypożyczenia, należy pamiętać o wcześniejszym uzgodnieniu z wypożyczającym.
+            3. Sposób użytkowania wypożyczonego przedmiotu
+            <br />
+            - Wypożyczający zobowiązany jest do szanowania wypożyczonego przedmiotu i użytkowania go zgodnie z
+            przeznaczeniem. <br /> - W przypadku jakichkolwiek uszkodzeń lub zniszczeń, wypożyczający jest zobowiązany
+            poinformować o tym natychmiast wypożyczającego. <br /> - W przypadku uszkodzenia lub zniszczenia
+            wypożyczonego przedmiotu, wypożyczający zobowiązany jest do naprawienia lub zastąpienia go nowym, takim
+            samym lub równoważnym przedmiotem.
           </span>
           <br />
           <span>
-            Po trzecie, nie zapominajmy o szanowaniu wypożyczonego przedmiotu. <br />
-            Powinniśmy dbać o niego tak, jakby był naszą własnością, a w przypadku jakichkolwiek uszkodzeń lub
-            zniszczeń, poinformować o tym natychmiast wypożyczającego.
-          </span>
-          <br />
-          <span>
-            Podsumowując, przed wypożyczeniem przedmiotu, warto ustalić formę realizacji wypożyczenia, okres
-            wypożyczenia oraz zwrócić uwagę na konieczność szanowania wypożyczonej rzeczy.
-            <br /> W ten sposób unikniemy nieporozumień i będziemy mogli cieszyć się udaną i owocną współpracą z
-            wypożyczającym.
+            4. Odpowiedzialność strony wypożyczającej
+            <br /> - Wypożyczający ponosi pełną odpowiedzialność za wypożyczony przedmiot, w tym za szkody wyrządzone
+            przez wypożyczony przedmiot. <br />- W przypadku utraty lub zniszczenia wypożyczonego przedmiotu,
+            wypożyczający zobowiązany jest do naprawienia szkody lub zastąpienia przedmiotu takim samym lub równoważnym
+            przedmiotem.
           </span>
           {/* <Controller
             name="name"
