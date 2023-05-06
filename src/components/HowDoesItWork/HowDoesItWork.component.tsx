@@ -25,26 +25,22 @@ interface HowDoesItWork {
 
 export const HowDoesItWorkBorrow = () => {
   return (
-    <div>
-      <HowDoesItWorkSection>
-        <SingleCard imgSearch={imgSearch} describe={"describe"} />
-        <SingleCard1 imgCheck={imgCheck} describe={"describe"} />
-        <SingleCard2 imgReservation={imgReservation} describe={"describe"} />
-        <SingleCard3 imgUse={imgUse} describe={"describe"} />
-      </HowDoesItWorkSection>
-    </div>
+    <HowDoesItWorkSection>
+      <SingleCard imgSearch={imgSearch} describe={"describe"} />
+      <SingleCard1 imgCheck={imgCheck} describe={"describe"} />
+      <SingleCard2 imgReservation={imgReservation} describe={"describe"} />
+      <SingleCard3 imgUse={imgUse} describe={"describe"} />
+    </HowDoesItWorkSection>
   );
 };
 
 export const HowDoesItWorkLend = () => {
   return (
-    <div>
-      <HowDoesItWorkSection>
-        <SingleCard4 imgOffer={imgOffer} describe={"describe"} />
-        <SingleCard5 imgAccept={imgAccept} describe={"describe"} />
-        <SingleCard6 imgMuch={imgMuch} describe={"describe"} />
-        <SingleCard7 imgGuarant={imgGuarant} describe={"describe"} />
-      </HowDoesItWorkSection>
-    </div>
+    <HowDoesItWorkSection>
+      <SingleCard4 imgOffer={imgOffer} describe={"describe"} />
+      <SingleCard5 imgAccept={imgAccept} describe={"describe"} />
+      <SingleCard6 imgMuch={imgMuch} describe={"describe"} />
+      <SingleCard7 imgGuarant={imgGuarant} describe={"describe"} />
+    </HowDoesItWorkSection>
   );
 };
