@@ -25,8 +25,8 @@
 // `;
 
 import styled from "styled-components";
-import backgroundImage from "../../assets/LoginDarkColor1920-1080.png";
-import backgroundImageBlack from "../../assets/LoginDarkBW1920-1080.png";
+import backgroundImage from "../../assets/LoginLight1920-1080.png";
+import backgroundImageBlack from "../../assets/LoginDark1920-1080.png";
 
 export const TwoMainContainers = styled.div`
   display: flex;
@@ -34,20 +34,6 @@ export const TwoMainContainers = styled.div`
   justify-content: center;
   align-items: center;
   background-image: url(${backgroundImage});
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-height: 100%;
-  min-width: 100%;
-`;
-
-export const TwoMainContainersSignUp = styled.div`
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
-  background-image: url(${backgroundImageBlack});
   background-size: cover;
   position: absolute;
   top: 0;
@@ -80,7 +66,7 @@ export const SignInContainer = styled.div`
   border-radius: 20px;
   width: 500px;
   height: 700px;
-  background-color: var(--backgroundColor);
+  background-color: white;
   border: solid lightgray 1px;
   margin: 20px;
 
@@ -102,7 +88,7 @@ export const SignUpContainer = styled.div`
   border-radius: 20px;
   width: 500px;
   height: 700px;
-  background-color: var(--backgroundColor);
+  background-color: white;
   border: solid lightgray 1px;
   margin: 20px;
 
@@ -135,7 +121,7 @@ export const ForgotPasswordLink = styled.p`
 
 export const SignInWord = styled.h1`
   font-size: 40px;
-  color: var(--color-sign-text);
+  color: #7e4d20;
   margin-top: 0;
   @media (max-width: 650px) {
     font-size: 30px;
@@ -157,5 +143,5 @@ export const Registration = styled.p`
 export const SingleLine = styled.h4`
   width: 100%;
   text-align: center;
-  background: var(--backgroundColor);
+  background: white;
 `;

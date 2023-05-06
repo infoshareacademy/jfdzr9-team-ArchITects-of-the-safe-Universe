@@ -5,9 +5,8 @@ export const UserOptionsContainer = styled.div<{ isMobile?: boolean }>`
   top: 65px;
   right: 0;
   padding: 10px;
-  border: 1px solid var(--color-dark-grey);
-  background-color: var(--backgroundColorElements);
-  color: var(--color-text);
+  border: 1px solid var(--color-grey);
+  background-color: white;
   border-radius: 10px;
   z-index: 1;
   display: flex;

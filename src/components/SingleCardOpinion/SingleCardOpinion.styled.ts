@@ -30,8 +30,7 @@ export const SingleCardOpinionSection = styled.div`
   margin: auto;
   transition: 0.2s linear;
   border: none;
-  background-color: var(--backgroundColorElements);
-  color: var(--color-text);
+  background-color: var(--color-light-grey);
 
   @media (max-width: 650px) {
     width: 80%;

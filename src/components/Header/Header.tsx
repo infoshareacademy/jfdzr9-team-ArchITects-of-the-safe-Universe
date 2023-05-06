@@ -8,8 +8,7 @@ import { SignInButton } from "../../SignInButton/SignInButton";
 import { Link } from "react-router-dom";
 import CompanyLogo from "../../CompanyLogo/CompanyLogo";
 
-import { CompanyHeaderSection, CompanyHeaderSign, RightHeaderContainer } from "./Header.styled";
-import { ThemeButton } from "../ThemeButton/ThemeButton.component";
+import { CompanyHeaderSection, CompanyHeaderSign } from "./Header.styled";
 
 function Header() {
   const { currentUser } = useContext(AuthContext);
@@ -49,18 +48,15 @@ function Header() {
       <Link to="/">
         <CompanyLogo />
       </Link>
-      <RightHeaderContainer>
-        <ThemeButton />
-        <CompanyHeaderSign>
-          {currentUser ? (
+      <CompanyHeaderSign>
+        {currentUser ? (
+          <SignInButton />
+        ) : (
+          <Link to="/account">
             <SignInButton />
-          ) : (
-            <Link to="/account">
-              <SignInButton />
-            </Link>
-          )}
-        </CompanyHeaderSign>
-      </RightHeaderContainer>
+          </Link>
+        )}
+      </CompanyHeaderSign>
     </CompanyHeaderSection>
   );
 }
