@@ -3,7 +3,7 @@ import { ButtonM, ButtonContainer, OrangeButton } from "../components/Buttons/Bu
 import { HowDoesItWorkLend } from "../components/HowDoesItWork/HowDoesItWork.component";
 import { ButtonStartRenting, HowWork } from "../components/HowDoesItWork/HowDoesItWork.styled";
 import { Title } from "../UI/Title.styled";
-import { StartRentingButton } from "../StartRentingButton/StartRentingButton";
+import { StartRentingButton } from "../components/StartRentingButton/StartRentingButton.component";
 
 export const HowDoesItWorkLendPage = () => {
   return (

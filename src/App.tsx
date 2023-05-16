@@ -1,4 +1,4 @@
-import GlobalStyle from "../theme/globalStyles";
+import GlobalStyle from "./theme/globalStyles";
 import { MainPage } from "./pages/MainPage";
 import { Routes, Route, Navigate, Outlet } from "react-router-dom";
 import { HowDoesItWorkBorrowPage } from "./pages/HowDoesItWorkBorrowPage";

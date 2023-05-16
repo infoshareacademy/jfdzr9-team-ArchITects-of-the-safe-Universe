@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { ButtonM } from "../components/Buttons/Button.styled";
 import { Input } from "../components/AddProductPage/AddNewProduct.styled";
-import { SignInGoogle } from "../GoogleButton/SignInGoogle";
+import { SignInGoogle } from "../components/GoogleButton/SignInGoogle.component";
 import {
   TwoMainContainers,
   ForgotPasswordLink,
@@ -17,7 +17,7 @@ import "firebase/compat/firestore";
 import { firebaseConfig } from "../utils/firebase/firebase.config";
 import { ChangeEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { InputPassword } from "../components/Input/Input.componentpassword";
+import { InputPassword } from "../components/Input/InputPassword.component";
 import ReactDOM from "react-dom";
 
 export const SignInPage = () => {

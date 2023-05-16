@@ -13,9 +13,9 @@ export interface CategoryProps {
 }
 
 const options = [
-  { value: "books", label: "Kultura i rozrywka" },
   { value: "Sport", label: "Sport i turystyka" },
   { value: "Tools", label: "Dom i ogród" },
+  { value: "books", label: "Nauka i rozrywka" },
 ];
 
 export const CategoryDropdownSecond = ({ value, onChange }: CategoryProps) => {
