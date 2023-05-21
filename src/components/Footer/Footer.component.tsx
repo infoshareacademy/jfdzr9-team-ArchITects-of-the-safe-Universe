@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Footer, Authors, Author, Links } from "../Footer/Footer.styled";
-import GitHubLogo from "../assets/iconmonstr-github copy.svg";
-import GitHubLogo2 from "../assets/iconmonstr-github.svg";
-import Linkedin from "../assets/iconmonstr-linkedin-3.svg";
+import { Footer, Authors, Author, Links } from "./Footer.styled";
+import GitHubLogo from "../../assets/iconmonstr-github copy.svg";
+import GitHubLogo2 from "../../assets/iconmonstr-github.svg";
+import Linkedin from "../../assets/iconmonstr-linkedin-3.svg";
 
 export const FooterLabel = () => {
   return (
@@ -17,12 +17,8 @@ export const FooterLabel = () => {
           <img src={GitHubLogo2} alt="github logo" />
         </Link>
       </div>
-      {/* <div style={{ marginRight: "100rem" }} /> */}
       <Authors>
         <div>
-          {/* <h3 style={{ textDecoration: "underline" }}>Twórcy aplikacji:</h3> */}
-          {/* <p style={{ marginBottom: "0.5rem" }} /> */}
-
           <Author>
             <h4 style={{ marginRight: "0.44rem" }}>Jolanta Marszałek</h4>
             <Links>

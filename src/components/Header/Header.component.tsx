@@ -4,12 +4,11 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import { firebaseConfig } from "../../utils/firebase/firebase.config";
 import { AuthContext } from "../../Context/AuthContext";
-import { SignInButton } from "../../SignInButton/SignInButton";
 import { Link } from "react-router-dom";
 import CompanyLogo from "../../CompanyLogo/CompanyLogo";
-
 import { CompanyHeaderSection, CompanyHeaderSign, RightHeaderContainer } from "./Header.styled";
 import { ThemeButton } from "../ThemeButton/ThemeButton.component";
+import { SignInMenu } from "../SignInMenu/SignInMenu.component";
 
 function Header() {
   const { currentUser } = useContext(AuthContext);
@@ -53,10 +52,10 @@ function Header() {
         <ThemeButton />
         <CompanyHeaderSign>
           {currentUser ? (
-            <SignInButton />
+            <SignInMenu />
           ) : (
             <Link to="/account">
-              <SignInButton />
+              <SignInMenu />
             </Link>
           )}
         </CompanyHeaderSign>

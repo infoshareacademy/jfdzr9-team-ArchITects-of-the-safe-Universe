@@ -1,4 +1,4 @@
-import { ButtonS } from "../components/Buttons/Button.styled";
+import { ButtonS } from "../Buttons/Button.styled";
 import firebase from "firebase/compat/app";
 import { useNavigate } from "react-router-dom";
 

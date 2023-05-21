@@ -1,11 +1,11 @@
-import { AuthContext } from "../Context/AuthContext";
+import { AuthContext } from "../../Context/AuthContext";
 import "firebase/compat/auth";
-import User from "../assets/User.png";
-import Usernotlog from "../assets/Usernotlog.png";
-import { UserPanelButton } from "../UserPanelButton/UserPanelButton";
-import { SignOutButton } from "../SignOutButton/SignOutButton";
-import { UserOptionsContainer } from "./SignInButton.styled";
-import { UserDataButton } from "../components/UserData/UserDataButton";
+import User from "../../assets/User.png";
+import Usernotlog from "../../assets/Usernotlog.png";
+import { UserPanelButton } from "../UserPanelButton/UserPanelButton.component";
+import { SignOutButton } from "../SignOutButton/SignOutButton.component";
+import { UserOptionsContainer } from "./SignInMenu.styled";
+import { UserDataButton } from "../UserData/UserDataButton.component";
 import "firebase/compat/storage";
 import React, { useState, useEffect, useContext, useRef } from "react";
 import styled from "styled-components";
@@ -20,7 +20,7 @@ const Container = styled.div`
   position: relative;
 `;
 
-export const SignInButton = () => {
+export const SignInMenu = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const { currentUser } = useContext(AuthContext);
   const [showUserOptions, setShowUserOptions] = useState<boolean>(false);

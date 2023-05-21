@@ -11,14 +11,12 @@ import {
   FewContainers,
   TownPhotoWeb,
 } from "../Products/Product.styled";
-import CategoryDropdowncopy, { CategoryProps } from "../CategoryDropdown/CategoryDropdownMain";
+import CategoryDropdowncopy, { CategoryProps } from "../CategoryDropdown/CategoryDropdownMain.component";
 import SearchIcon from "../../assets/magnifying-glass-solid.svg";
 import { Input } from "../Input/Input.component";
 import { TopNavSection } from "../TopNavigation/TopNavigatioon.styled";
 import { CompanyHeaderLeft, CompanyHeaderRight } from "../Header/Header.styled";
 import { Link } from "react-router-dom";
-// import { PhotoMainPage } from "../Header/Header.styled";
-// import mainPic from "../../assets/buildings.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 

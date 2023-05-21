@@ -1,11 +1,11 @@
 import { useState, useContext, useRef } from "react";
 import "firebase/compat/auth";
-import User from "../assets/User.png";
-import Usernotlog from "../assets/Usernotlog.png";
-import { SignOutButton } from "../SignOutButton/SignOutButton";
+import User from "../../assets/User.png";
+import Usernotlog from "../../assets/Usernotlog.png";
+import { SignOutButton } from "../SignOutButton/SignOutButton.component";
 import { UserOptionsContainer } from "./SignInButton.styled";
 import { AuthContext } from "../../Context/AuthContext";
-import { UserPanelButton } from "../../UserPanelButton/UserPanelButton";
+import { UserPanelButton } from "../UserPanelButton/UserPanelButton.component";
 
 export const SignInButton = () => {
   const { currentUser } = useContext(AuthContext);

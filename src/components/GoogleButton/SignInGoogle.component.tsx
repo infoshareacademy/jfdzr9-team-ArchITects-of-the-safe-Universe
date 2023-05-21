@@ -1,10 +1,10 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import { ButtonM, GoogleIcon } from "./SignInGoogle.styled";
-import { firebaseConfig } from "../utils/firebase/firebase.config";
+import { firebaseConfig } from "../../utils/firebase/firebase.config";
 import { useNavigate } from "react-router";
 
-import googleLogo from "../assets/googleLogo.svg";
+import googleLogo from "../../assets/googleLogo.svg";
 
 firebase.initializeApp(firebaseConfig);
 

@@ -8,7 +8,7 @@ import {
   OneSingleProductContainer,
 } from "../components/OneSingleProduct/OneSingleProduct.styled";
 import { AllPhotos } from "../components/OneSingleProduct/OneSingleProduct.styled";
-import { ContactButton } from "../ContactButton/ContactButton.component";
+import { ContactButton } from "../components/ContactButton/ContactButton.component";
 
 export const OneSingleProductPage = () => {
   const { id } = useParams<{ id: string }>();

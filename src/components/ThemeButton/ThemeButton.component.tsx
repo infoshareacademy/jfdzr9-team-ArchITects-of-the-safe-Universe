@@ -1,4 +1,4 @@
-import { useContext, ChangeEvent, Dispatch, SetStateAction } from "react";
+import { useContext } from "react";
 import { DarkModeContext } from "../../Context/darkMode.context";
 import MoonIcon from "../../assets/moon-regular.svg";
 import { Button, ButtonWrapper } from "./ThemeButton.styled";
@@ -18,9 +18,9 @@ export const ThemeButton = () => {
   let option = "";
 
   if (!darkMode) {
-    option = "Dark mode";
+    option = "Tryb ciemny";
   } else {
-    option = "Light mode";
+    option = "Tryb jasny";
   }
 
   return (
