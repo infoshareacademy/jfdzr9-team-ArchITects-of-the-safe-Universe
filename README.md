@@ -112,11 +112,12 @@ Obecnie skupiamy się na trzech głównych działach z możliwością późniejs
 #### Technologia
 
 1. Front-end:
-   Nasza aplikacja bazowała na bibliotece ReactJS, dzięki której JavaScipt może być używany do tworzenia interaktywnych interfejsów użytkownika. Do połączenia całej aplikacji posłużył nam React Router.
-   Projektowaniem interfejsów użytkownika zajeliśmy się z najwyższą starannością, dbając o detale i funkcjonalność, inspirując się innymi aplikacjami.
+
+Nasza aplikacja bazowała na bibliotece ReactJS, dzięki której JavaScipt może być używany do tworzenia interaktywnych interfejsów użytkownika. Do połączenia całej aplikacji posłużył nam React Router.
+Projektowaniem interfejsów użytkownika zajeliśmy się z najwyższą starannością, dbając o detale i funkcjonalność, inspirując się innymi aplikacjami.
 
 2. Back-end:
-   Nasz team używał Firebase do stowrzenia połączenia aplikacjii z serwerem, jak również:
+Nasz team używał Firebase do stowrzenia połączenia aplikacjii z serwerem, jak również:
 
 - do stworzenia konta użytkownika użyliśmy Firebase Authenticatio n(imię i nazwisko, mail albo poprzez konto Google);
 - do dodania produktu danego użytkownika i jego usunięcia;
