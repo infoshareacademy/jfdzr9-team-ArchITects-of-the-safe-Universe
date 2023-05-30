@@ -37,7 +37,9 @@ export const Label = styled.label`
 
 export const Input = styled.input`
   padding: 10px;
+  background-color: var(--backgroundColor);
   border: 1px solid var(--color-grey);
+  color: var(--color-footer-text);
   border-radius: 4px;
   font-size: 16px;
   margin-bottom: 10px;
@@ -71,6 +73,8 @@ export const Input = styled.input`
 `;
 
 export const InputFile = styled.input`
+  background-color: var(--backgroundColor);
+  color: var(--color-footer-text);
   padding-top: 10px;
   border: none;
   font-size: 16px;
@@ -79,6 +83,8 @@ export const InputFile = styled.input`
 `;
 
 export const TextArea = styled.textarea`
+  background-color: var(--backgroundColor);
+  color: var(--color-footer-text);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -107,12 +113,14 @@ export const TextArea = styled.textarea`
 
 export const Select = styled.select`
   padding: 5px 10px;
+  background-color: var(--backgroundColor);
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 16px;
   margin-bottom: 10px;
   width: 240px;
   height: 37px;
+  color: var(--color-footer-text);
 
   :hover {
     outline: none;

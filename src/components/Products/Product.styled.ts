@@ -65,12 +65,12 @@ export const Container = styled.div`
   flex-wrap: wrap;
   font-size: 1rem;
   height: 55vh;
-  border-radius: 10px;
+
   padding: 0.5rem;
   margin: 0px;
   transition: 0.2s linear;
   border: none;
-  background-color: var(--color-very-light-grey);
+  background-color: var(--backgroundColorElements);
 
   @media (max-width: 1024px) {
     height: 48vh;
@@ -85,12 +85,12 @@ export const UserContainer = styled.div`
   flex-wrap: wrap;
   font-size: 1rem;
   height: 60vh;
-  border-radius: 10px;
+
   padding: 0.5rem;
   margin: 0px;
   transition: 0.2s linear;
   border: none;
-  background-color: var(--color-very-light-grey);
+  background-color: var(--backgroundColorElements);
 `;
 
 export const ContainerPhoto = styled.div`
@@ -154,6 +154,7 @@ export const TownPhotoWeb = styled.div`
   display: block;
   margin: 0;
   background-image: url(${TownPhotoMainWeb});
+  background-repeat: no-repeat;
   background-size: cover;
   height: 330px;
   width: 100%;
@@ -167,6 +168,7 @@ export const TownPhotoWeb = styled.div`
   @media (max-width: 650px) {
     background-image: url(${TownPhotoMainMobile});
     height: 200px;
+    background-position: center;
     margin-top: 10px;
     background-size: contain;
   }

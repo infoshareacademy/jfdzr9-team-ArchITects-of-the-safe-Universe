@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
 import { ButtonM } from "../components/Buttons/Button.styled";
 import { Input } from "../components/AddProductPage/AddNewProduct.styled";
-import { SignInGoogle } from "../GoogleButton/SignInGoogle";
+import { SignInGoogle } from "../components/GoogleButton/SignInGoogle.component";
 import {
-  TwoMainContainers,
+  TwoMainContainersSignUp,
   ForgotPasswordLink,
   SignInBottomConrainer,
   SignInContainer,
@@ -18,7 +18,7 @@ import "firebase/compat/firestore";
 import { firebaseConfig } from "../utils/firebase/firebase.config";
 import { ChangeEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { InputPassword } from "../components/Input/Input.componentpassword";
+import { InputPassword } from "../components/Input/InputPassword.component";
 import ReactDOM from "react-dom";
 import { UserDataContainer } from "../components/UserData/UserData.styled";
 
@@ -55,7 +55,7 @@ export const SignUpPage = () => {
   };
 
   return (
-    <TwoMainContainers>
+    <TwoMainContainersSignUp>
       <SignUpContainer>
         <UserDataContainer>
           <SignInWord>Zarejestruj konto:</SignInWord>
@@ -76,6 +76,6 @@ export const SignUpPage = () => {
           </Registration>
         </UserDataContainer>
       </SignUpContainer>
-    </TwoMainContainers>
+    </TwoMainContainersSignUp>
   );
 };

@@ -11,5 +11,6 @@ export const BottomNavigationSection = styled.section`
 
   @media (max-width: 650px) {
     flex-direction: column;
+    margin-bottom: 10px;
   }
 `;

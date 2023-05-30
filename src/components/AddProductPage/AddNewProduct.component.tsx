@@ -5,7 +5,7 @@ import { ButtonM, ButtonS } from "../Buttons/Button.styled";
 import { FormContainer, FormGroupImg, Input, InputFile, TextArea } from "./AddNewProduct.styled";
 import { useForm, Controller } from "react-hook-form";
 import { Title } from "../../UI/Title.styled";
-import CategoryDropdown from "../../CategoryDropdown/CategoryDropdown";
+import CategoryDropdown from "../CategoryDropdown/CategoryDropdown.component";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthContext";
@@ -72,7 +72,7 @@ export const AddNewProduct = () => {
             rules={{ required: "Tytuł jest wymagany" }}
             render={({ field }) => (
               <>
-                {errors.name && <span>{errors.name.message}</span>}
+                {errors.name && <span style={{ color: "red" }}>{errors.name.message}</span>}
                 <Input placeholder="Tytuł" type={"text"} {...field} />
               </>
             )}
@@ -83,7 +83,7 @@ export const AddNewProduct = () => {
             rules={{ required: "Autor jest wymagany" }}
             render={({ field }) => (
               <>
-                {errors.author && <span>{errors.author.message}</span>}
+                {errors.author && <span style={{ color: "red" }}>{errors.author.message}</span>}
                 <Input placeholder="Autor" type={"text"} {...field} />
               </>
             )}
@@ -94,7 +94,7 @@ export const AddNewProduct = () => {
             rules={{ required: "Wybierz kategorię" }}
             render={({ field: { value, onChange } }) => (
               <>
-                {errors.kind && <span>{errors.kind.message}</span>}
+                {errors.kind && <span style={{ color: "red" }}>{errors.kind.message}</span>}
                 <CategoryDropdown value={value} onChange={onChange} label={""} />
               </>
             )}
@@ -105,7 +105,7 @@ export const AddNewProduct = () => {
             rules={{ required: "Lokalizacja jest wymagana" }}
             render={({ field }) => (
               <>
-                {errors.location && <span>{errors.location.message}</span>}
+                {errors.location && <span style={{ color: "red" }}>{errors.location.message}</span>}
                 <Input placeholder="Lokalizacja" type={"text"} {...field} />
               </>
             )}
@@ -116,7 +116,7 @@ export const AddNewProduct = () => {
             rules={{ required: "Opis jest wymagany" }}
             render={({ field }) => (
               <>
-                {errors.description && <span>{errors.description.message}</span>}
+                {errors.description && <span style={{ color: "red" }}>{errors.description.message}</span>}
                 <TextArea placeholder="Opis" rows={5} {...field} />
               </>
             )}
@@ -142,7 +142,7 @@ export const AddNewProduct = () => {
               rules={{ required: "Dodaj okładkę" }}
               render={({ field }) => (
                 <>
-                  {errors.img && <span>{errors.img.message}</span>}
+                  {errors.img && <span style={{ color: "red" }}>{errors.img.message}</span>}
                   <Input placeholder="Okładka" type={"hidden"} {...field} />
                 </>
               )}

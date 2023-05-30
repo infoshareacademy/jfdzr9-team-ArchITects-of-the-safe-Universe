@@ -1,20 +1,18 @@
 import styled from "styled-components";
 
 export const HowDoesItWorkSection = styled.section`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
   box-sizing: content-box;
   width: min(80rem, 100%);
   display: flex;
-  justify-content: space-between;
-  padding: 4rem 0;
+  justify-content: space-around;
+  padding-bottom: 4rem;
   margin: auto;
-  gap: 20px;
 
   @media (max-width: 650px) {
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    gap: 25px;
 
     button {
       width: 100%;
@@ -22,9 +20,15 @@ export const HowDoesItWorkSection = styled.section`
   }
 `;
 
+export const HowWork = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
 export const ButtonStartRenting = styled.section`
   box-sizing: content-box;
-  width: (100%);
+  width: 60%;
   display: flex;
   justify-content: center;
   padding: 3rem 0;
