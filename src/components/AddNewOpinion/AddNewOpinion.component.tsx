@@ -47,7 +47,7 @@ export const AddNewOpinion = () => {
             defaultValue={currentUser?.displayName?.split(" ")[0] || ""}
             render={({ field }) => (
               <>
-                {errors.name && <span>{errors.name.message}</span>}
+                {errors.name && <span style={{ color: "red" }}>{errors.name.message}</span>}
                 <Input placeholder="Imię" type={"text"} {...field} />
               </>
             )}
@@ -58,7 +58,7 @@ export const AddNewOpinion = () => {
             rules={{ required: "Opinia jest wymagana" }}
             render={({ field }) => (
               <>
-                {errors.describe && <span>{errors.describe.message}</span>}
+                {errors.describe && <span style={{ color: "red" }}>{errors.describe.message}</span>}
                 <TextArea placeholder="Opinia" maxLength={300} {...field} />
               </>
             )}
@@ -69,7 +69,7 @@ export const AddNewOpinion = () => {
             rules={{ required: "Podaj wartość od 1 do 5" }}
             render={({ field }) => (
               <>
-                {errors.rating && <span>{errors.rating.message}</span>}
+                {errors.rating && <span style={{ color: "red" }}>{errors.rating.message}</span>}
                 <Input
                   placeholder="Ocena"
                   type={"number"}

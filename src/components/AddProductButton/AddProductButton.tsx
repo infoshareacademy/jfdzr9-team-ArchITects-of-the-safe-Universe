@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { AuthContext, AuthContextType } from "../Context/AuthContext";
-import { ButtonM } from "../components/Buttons/Button.styled";
+import { AuthContext, AuthContextType } from "../../Context/AuthContext";
+import { ButtonM } from "../Buttons/Button.styled";
 import { useNavigate } from "react-router-dom";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
@@ -15,11 +15,11 @@ interface UserWithUserDataPanel extends firebase.User {
   };
 }
 
-export const AddOpinionButton = () => {
+export const AddProductButton = () => {
   const { currentUser } = useContext<AuthContextType>(AuthContext);
   const navigate = useNavigate();
 
-  const handleAddOpinion = async () => {
+  const handleAddProduct = async () => {
     if (!currentUser) {
       navigate("/account");
       return;
@@ -38,7 +38,7 @@ export const AddOpinionButton = () => {
       if (userDataPanel) {
         const { firstName, lastName, phoneNumber, location, email } = userDataPanel;
         if (firstName && lastName && phoneNumber && location && email) {
-          navigate("/addOpinion");
+          navigate("/addProduct");
         } else {
           navigate("/userDataPanel");
         }
@@ -52,7 +52,7 @@ export const AddOpinionButton = () => {
 
   return (
     <>
-      <ButtonM onClick={handleAddOpinion}>Dodaj opinię</ButtonM>
+      <ButtonM onClick={handleAddProduct}>Chcę dodać produkt</ButtonM>
     </>
   );
 };
