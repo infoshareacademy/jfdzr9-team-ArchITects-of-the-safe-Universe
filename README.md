@@ -15,7 +15,7 @@
 
 ---
 
-![Main Photo on Webside](src\assets\EnglishMD.png)
+<img src="src\assets\EnglishMD.png">
 
 ---
 
@@ -57,9 +57,9 @@ You must install **`npm install`** to run the application.
 
 #### Team
 
-- Dawid Maślanka
 - Jolanta Marszałek
 - Katarzyna Fronc
+- Dawid Maślanka
 - Piotr Stefański
 
 #### Thanks
@@ -90,7 +90,7 @@ Thanks to **InfoShare Academy** for substantive support and preparing us for ent
 
 ---
 
-![Main Photo on Webside](src\assets\Tablet1366x250px_04.png)
+<img src="src\assets\EnglishMD.png">
 
 ---
 
@@ -112,6 +112,7 @@ Obecnie skupiamy się na trzech głównych działach z możliwością późniejs
 #### Technologia
 
 1. Front-end:
+
 Nasza aplikacja bazowała na bibliotece ReactJS, dzięki której JavaScipt może być używany do tworzenia interaktywnych interfejsów użytkownika. Do połączenia całej aplikacji posłużył nam React Router.
 Projektowaniem interfejsów użytkownika zajeliśmy się z najwyższą starannością, dbając o detale i funkcjonalność, inspirując się innymi aplikacjami.
 

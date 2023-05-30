@@ -1,6 +1,6 @@
 import { SingleCardOpinion } from "../SingleCardOpinion/SingleCardOpinion.component";
 import { ButtonOpinion, OpinionSection } from "./Opinion.styled";
-import { AddOpinionButton } from "../../AddOpinionButton/AddOpinionButton";
+import { AddOpinionButton } from "../AddOpinionButton/AddOpinionButton";
 
 const OpinionUser = () => {
   return (

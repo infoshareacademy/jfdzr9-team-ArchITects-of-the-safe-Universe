@@ -68,7 +68,7 @@ export const AddNewProductSport = () => {
             rules={{ required: "Nazwa jest wymagana" }}
             render={({ field }) => (
               <>
-                {errors.name && <span>{errors.name.message}</span>}
+                {errors.name && <span style={{ color: "red" }}>{errors.name.message}</span>}
                 <Input placeholder="Nazwa" type={"text"} {...field} />
               </>
             )}
@@ -80,7 +80,7 @@ export const AddNewProductSport = () => {
             rules={{ required: "Lokalizacja jest wymagana" }}
             render={({ field }) => (
               <>
-                {errors.location && <span>{errors.location.message}</span>}
+                {errors.location && <span style={{ color: "red" }}>{errors.location.message}</span>}
                 <Input placeholder="Lokalizacja" type={"text"} {...field} />
               </>
             )}
@@ -91,7 +91,7 @@ export const AddNewProductSport = () => {
             rules={{ required: "Opis jest wymagany" }}
             render={({ field }) => (
               <>
-                {errors.description && <span>{errors.description.message}</span>}
+                {errors.description && <span style={{ color: "red" }}>{errors.description.message}</span>}
                 <TextArea placeholder="Opis" rows={5} {...field} />
               </>
             )}
@@ -129,7 +129,7 @@ export const AddNewProductSport = () => {
             rules={{ required: "Dodaj zdjęcie" }}
             render={({ field }) => (
               <>
-                {errors.img && <span>{errors.img.message}</span>}
+                {errors.img && <span style={{ color: "red" }}>{errors.img.message}</span>}
                 <Input placeholder="Zdjęcie" type={"hidden"} {...field} />
               </>
             )}
