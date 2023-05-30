@@ -15,7 +15,7 @@
 
 ---
 
-![Main Photo on Webside]<img src="src\assets\EnglishMD.png">
+<img src="src\assets\EnglishMD.png">
 
 ---
 
@@ -90,7 +90,7 @@ Thanks to **InfoShare Academy** for substantive support and preparing us for ent
 
 ---
 
-![Main Photo on Webside]<img src="src\assets\EnglishMD.png">
+<img src="src\assets\EnglishMD.png">
 
 ---
 
