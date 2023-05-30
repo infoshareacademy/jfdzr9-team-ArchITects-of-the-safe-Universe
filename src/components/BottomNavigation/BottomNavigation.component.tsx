@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ButtonM } from "../Buttons/Button.styled";
 import { BottomNavigationSection } from "./BottomNavigation.styled";
-import { OpinionButton } from "../../OpinionButton/OpinionButton";
+import { OpinionButton } from "../OpinionButton/OpinionButton.component";
 
 interface BottomNavigation {
   howWork: string;
