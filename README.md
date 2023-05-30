@@ -15,7 +15,7 @@
 
 ---
 
-![Main Photo on Webside](src\assets\EnglishMD.png)
+![Main Photo on Webside]<img src="src\assets\EnglishMD.png">
 
 ---
 
@@ -57,9 +57,9 @@ You must install **`npm install`** to run the application.
 
 #### Team
 
-- Dawid Maślanka
 - Jolanta Marszałek
 - Katarzyna Fronc
+- Dawid Maślanka
 - Piotr Stefański
 
 #### Thanks
@@ -90,43 +90,42 @@ Thanks to **InfoShare Academy** for substantive support and preparing us for ent
 
 ---
 
-![Main Photo on Webside](src\assets\Tablet1366x250px_04.png)
+![Main Photo on Webside]<img src="src\assets\EnglishMD.png">
 
 ---
 
 #### Wstęp
 
 Aplikacja która w swojej prostocie ma pomóc ludziom w realizowaniu swoich potrzeb, bez konieczności wydawania dużej ilości pieniędzy.
-RentMe jest aplikacją która pomaga osobą mieszkające w okolicy (i nie tylko) do dzielenia się przedmiotami codziennego użytku.
+RentMe pomaga w dzieleniu się przedmiotami codziennego użytku.
 Gdy potrzebujesz jakiegoś przedmiotu, nie chcesz go kupować, a któryś z użytkowników aplikacji ma go w swojej ofercie możesz go od niego pożyczyć za ustaloną wcześniej opłatą
 lub sam zarobić na pożyczeniu komuś przedmiotu który posiadasz.
-Obecnie skupiamy się na trzech głównych działach z możliwością późniejszego rozszrzenia o kolejne działy:
+Obecnie skupiamy się na trzech głównych działach z możliwością późniejszego rozszrzenia o kolejne kategorie:
 
 - Sport i rekreacja
 - Dom i ogród
 - Nauka i rozrywka
   Komunikowanie osoby zainteresowanej pożyczeniem z osobą która chce pożyczyć przedmiot odbywa się za pomocą przekierowania
-  na maila przez który każdy użytkownik musi założyć konto (jest też możliwość zalogowania się przez konto Google).
+  na maila, przez który każdy użytkownik musi założyć konto (jest też możliwość zalogowania się przez konto Google).
   Nasza aplikacja skupia się na terytorium całej Polski.
 
 #### Technologia
 
-1.Front-end:
-Nasza aplikacja bazowała na bibliotece ReactJS, dzięki której JavaScipt może być używany do tworzenia interaktywnych interfejsów użytkownika. Do połączenia całej aplikacji posłóżył nam React Router.
-Projektowaniem interfejsów użytkownika zajeliśmy się z najwyższą starannością zgając o detale i funkcjonalność, inspirując się innymi aplikacjami.
+1. Front-end:
+Nasza aplikacja bazowała na bibliotece ReactJS, dzięki której JavaScipt może być używany do tworzenia interaktywnych interfejsów użytkownika. Do połączenia całej aplikacji posłużył nam React Router.
+Projektowaniem interfejsów użytkownika zajeliśmy się z najwyższą starannością, dbając o detale i funkcjonalność, inspirując się innymi aplikacjami.
 
-2.ack-end:
-Nasz team używał Firebase do stowrzenia połączenia aplikacjii z serwerem jak i również:
+2. Back-end:
+Nasz team używał Firebase do stowrzenia połączenia aplikacjii z serwerem, jak również:
 
-- Do storzenia konta użytkownika użyliśmu Firebase Authentication(imię i nazwisko, mail albo poprzez konto Google);
-- Do dodania produktu danego użytkownika i jego usunięcia;
-- Do znalezienia w bazie danych danej kategorii.
+- do stworzenia konta użytkownika użyliśmy Firebase Authenticatio n(imię i nazwisko, mail albo poprzez konto Google);
+- do dodania produktu danego użytkownika i jego usunięcia;
+- do znalezienia w bazie danych danej kategorii.
 
 #### Przepływ pracy
 
-Nasz praca opierała się na metodologi Scrum, cyklicznymi Sprintami które trwały około 2 tygodnie. Każdy Sprint dostarczał Nam dużo nowych informacji i doświadczenia pracy w grupie takie jak planowanie, realizację, przegląd sprintu i retrospektywę.
-Wszysto zapisywaliśmy w programie Jira, który posłóżył Nam do zapisywania nowych task/story instniejącego sprintu dając Nam przejrzysty i pewny wgląd do Naszych zadań. Ważnym elementem była codzienna komuniakacja przez komunikator
-Slack który ułatwiał Nam przekazywanie wszelkich informacji dotyczącej projektu.
+Nasza praca opierała się na metodologi Scrum z cyklicznymi Sprintami, które trwały około 2 tygodnie. Każdy Sprint dostarczał nam dużo nowych informacji i doświadczenia pracy w grupie m.in. planowanie, realizację, przegląd sprintu i retrospektywę.
+Wszysto zapisywaliśmy w programie Jira, który posłużył Nam do zapisywania nowych task/story instniejącego sprintu dając Nam przejrzysty i pewny wgląd do naszych zadań. Ważnym elementem była codzienna komuniakacja przez komunikator Slack, który ułatwiał Nam przekazywanie wszelkich informacji dotyczącej projektu.
 
 #### Uruchomienie aplikacji
 
@@ -134,9 +133,9 @@ Aby uruchomić aplikacje należy zainstalować **`npm install`**.
 
 #### Zespół
 
-- Dawid Maślanka
 - Jolanta Marszałek
 - Katarzyna Fronc
+- Dawid Maślanka
 - Piotr Stefański
 
 #### Podziękowania
