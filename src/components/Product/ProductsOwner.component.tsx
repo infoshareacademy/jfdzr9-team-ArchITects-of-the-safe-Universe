@@ -132,9 +132,7 @@ export const ProductsOwner = () => {
     const target = event.target as HTMLImageElement;
     target.src = "https://via.placeholder.com/150";
   };
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+
   return (
     <UserProductContainer>
       <Carousel
