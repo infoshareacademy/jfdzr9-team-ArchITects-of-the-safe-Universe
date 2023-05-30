@@ -57,10 +57,6 @@ export const SingleCardOpinion = () => {
     });
   }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
   const filterOutEmptyNames = ({ name }: { name: string }) => Boolean(name);
 
   return (

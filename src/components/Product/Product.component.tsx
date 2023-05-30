@@ -84,9 +84,7 @@ export const Products = () => {
     }, 600);
     return () => clearTimeout(timer);
   }, [searchQuery]);
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+
   const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
   return (
     <>
